@@ -2,7 +2,14 @@
 <p>Find me in app/views/profiles/edit.html.erb</p>
 
 <%= simple_form_for(@profile) do |f| %>
-  <%= f.input :first_name %>
+  <%= f.input :first_name, label: "First Name", placeholder: "first name" %>
+  <%= f.input :last_name, label: "Last Name", placeholder: "last name" %>
+  <%= f.input :description, label: "About Me", placeholder: "about me"  %>
+  <%= f.input :address, label: "Address", placeholder: "address" %>
+
+  <%= f.input :experience, as: :radio_buttons, collection: ['Seedling (beginner)', 'Plant Friend (moderate)', 'Moss Person (knowledgable)', 'Plant Whisperer (expert)'] %>
+
+  <%= f.input :profile_banner, as: :file %>
+  <%= f.input :profile_img, as: :file %>
   <%= f.submit %>    
 <% end %>
-  
