@@ -1,6 +1,4 @@
 class Booking < ApplicationRecord
-  belongs_to :client
-  belongs_to :provider
-
-  has_many :reviews
+  belongs_to :client, class_name: "User"
+  belongs_to :provider, class_name: "User"
 end
