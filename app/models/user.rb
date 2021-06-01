@@ -4,10 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :email, :password, presence: true
-
+  has_one :profile
   has_many :reviews
   has_many :bookings
   has_many :chat_rooms
-  has_many :messages
+
+  has_many :bookings_as_client, class_name: "Booking", foreign_key: :client_id
+  has_many :bookings_as_provider, class_name: "Booking", foreign_key: :provider_id
 end
