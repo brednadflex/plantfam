@@ -11,4 +11,11 @@ class User < ApplicationRecord
 
   has_many :bookings_as_client, class_name: "Booking", foreign_key: :client_id
   has_many :bookings_as_provider, class_name: "Booking", foreign_key: :provider_id
+
+  # after the user is created, it automatically creates the profile with that inputted info
+  after_create :create_profile!
+  def init_profile
+    create_profile!
+  end
+  
 end
