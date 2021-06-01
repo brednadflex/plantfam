@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_one :profile
+  has_one :profile, :dependent => :destroy
   has_many :reviews
   has_many :bookings
   has_many :chat_rooms
@@ -14,8 +14,9 @@ class User < ApplicationRecord
 
   # after the user is created, it automatically creates the profile with that inputted info
   after_create :create_profile!
-  def init_profile
-    create_profile!
-  end
+
+  # def init_profile
+  #   create_profile!
+  # end
   
 end
