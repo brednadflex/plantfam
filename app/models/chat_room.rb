@@ -1,7 +1,7 @@
 class ChatRoom < ApplicationRecord
-  belongs_to :booking
-  belongs_to :requester
-  belongs_to :receiver
+  belongs_to :booking, optional: true
+  belongs_to :requester, class_name: "User"
+  belongs_to :receiver, class_name: "User"
 
   has_many :messages
 end
