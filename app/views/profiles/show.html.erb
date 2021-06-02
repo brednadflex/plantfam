@@ -16,4 +16,5 @@
     <p>Public Profile: <%= @profile.public %></p>
   </div>
   <%= link_to 'edit profile', edit_profile_path(@profile) %>
+  <%= link_to 'book me!', new_profile_booking_path(@profile) %>
 </div>
