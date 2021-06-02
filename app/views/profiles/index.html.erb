@@ -7,6 +7,14 @@
       <img src=<%= profile.profile_img %> alt="user-image" class="rounded-circle border mb-3" style="width: 50px; height: 50px;">
       <h3><%= profile.first_name %> <%= profile.last_name %></h3>
       <p><%= profile.experience %></p>
+      <% if profile.sitter && profile.advisor %>
+        <p>Plantsitter</p>
+        <p>Advisor</p>
+      <% elsif profile.sitter %>
+        <p>Plantsitter</p>
+      <% elsif profile.advisor %>
+        <p>Advisor</p>
+      <% end %>
       <p><%= profile.avg_rating %></p>
     </div>
   <% end %>
