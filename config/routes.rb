@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # profile new created upon user creation therefore new is changed to edit, and create changed to update
   resources :profiles, only: [ :index, :show, :new, :edit, :update ] do
     resources :bookings, only: [ :index, :new, :create ]
+    resources :availabilities, except: :show
   end
 
   get '/booking_requests', to: 'bookings#booking_requests'

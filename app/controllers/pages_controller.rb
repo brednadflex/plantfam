@@ -6,7 +6,7 @@ class PagesController < ApplicationController
   end
 
   def search
-    @profile = Profile.last
+    @profiles = Profile.where(sitter: true, advisor: true)
     
   end
 end

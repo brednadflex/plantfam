@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_02_093333) do
+ActiveRecord::Schema.define(version: 2021_06_02_125747) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "availabilities", force: :cascade do |t|
+    t.date "start_date"
+    t.date "end_date"
+    t.bigint "profile_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["profile_id"], name: "index_availabilities_on_profile_id"
+  end
+
+  create_table "availables", force: :cascade do |t|
+    t.date "start_date"
+    t.date "end_date"
+    t.bigint "profile_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["profile_id"], name: "index_availables_on_profile_id"
+  end
 
   create_table "bookings", force: :cascade do |t|
     t.bigint "client_id", null: false
@@ -97,6 +115,8 @@ ActiveRecord::Schema.define(version: 2021_06_02_093333) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "availabilities", "profiles"
+  add_foreign_key "availables", "profiles"
   add_foreign_key "bookings", "users", column: "client_id"
   add_foreign_key "bookings", "users", column: "provider_id"
   add_foreign_key "chat_rooms", "bookings"
