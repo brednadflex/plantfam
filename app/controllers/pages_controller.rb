@@ -5,4 +5,8 @@ class PagesController < ApplicationController
     @profiles = Profile.where("avg_rating > 4.0 and sitter = true")
   end
 
+  def search
+    @profile = Profile.last
+    
+  end
 end

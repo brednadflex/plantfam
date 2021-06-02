@@ -1,0 +1,9 @@
+<div class="container">
+  <h1>Search for a Plantsitter</h1>
+
+  <%= simple_form_for @profile do |f| %>
+    <%= f.input :address %>
+    <%= f.input :experience, class: "datepicker" %>
+    <%= f.submit "Find Plantsitters" %>
+  <% end %>
+</div>

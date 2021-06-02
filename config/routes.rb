@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+  get 'search', to: 'pages#search', as: :search
 
   # profile new created upon user creation therefore new is changed to edit, and create changed to update
   resources :profiles, only: [ :index, :show, :new, :edit, :update ] do
