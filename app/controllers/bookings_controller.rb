@@ -3,6 +3,10 @@ class BookingsController < ApplicationController
     @bookings = Booking.where(client: current_user)
   end
 
+  def booking_requests
+    @bookings = Booking.where(provider: current_user)
+  end
+
   def new
     @profile = Profile.find(params[:profile_id])
     @booking = Booking.new
