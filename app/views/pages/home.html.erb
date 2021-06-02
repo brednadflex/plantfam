@@ -1,21 +1,23 @@
 <div class="container">
-  <h1>Welcome to Plant Fam</h1>
+  <h1>Welcome to PlantFam</h1>
   <p>Find a plant sitter while you are away or get advice from the experts of our community</p>
 
   <% @profiles.each do |profile| %>
-    <div class="profile-card border p-4 m-4">
-      <img src=<%= profile.profile_img %> alt="user-image" class="rounded-circle border mb-3" style="width: 50px; height: 50px;">
-      <h3><%= profile.first_name %> <%= profile.last_name %></h3>
-      <p><%= profile.experience %></p>
-      <% if profile.sitter && profile.advisor %>
-        <p>Plantsitter</p>
-        <p>Advisor</p>
-      <% elsif profile.sitter %>
-        <p>Plantsitter</p>
-      <% elsif profile.advisor %>
-        <p>Advisor</p>
-      <% end %>
-      <p><%= profile.avg_rating %></p>
-    </div>
+    <%= link_to profile_path(profile) do %>
+      <div class="profile-card border p-4 m-4">
+        <img src=<%= profile.profile_img %> alt="user-image" class="rounded-circle border mb-3" style="width: 50px; height: 50px;">
+        <h3><%= profile.first_name %> <%= profile.last_name %></h3>
+        <p><%= profile.experience %></p>
+        <% if profile.sitter && profile.advisor %>
+          <p>Plantsitter</p>
+          <p>Advisor</p>
+        <% elsif profile.sitter %>
+          <p>Plantsitter</p>
+        <% elsif profile.advisor %>
+          <p>Advisor</p>
+        <% end %>
+        <p><%= profile.avg_rating %></p>
+      </div>
+    <% end %>
   <% end %>
 </div>
