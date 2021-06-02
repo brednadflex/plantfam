@@ -1,4 +1,8 @@
 <% other_person = current_user == @chatroom.receiver ? @chatroom.requester : @chatroom.receiver  %>
+<div class="chatrooms-header">
+  <p>searchbar should be here></p>
+  <p>Your messages</p>
+</div>
 <div class="chat-header">
   <div>
     <%= link_to chat_rooms_path do %>
