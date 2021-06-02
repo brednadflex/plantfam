@@ -1,12 +1,20 @@
 <% other_person = current_user == @chatroom.receiver ? @chatroom.requester : @chatroom.receiver  %>
 <div class="chat-header">
+  <div>
+    <%= link_to chat_rooms_path do %>
+    <i class="fas fa-arrow-circle-left pl-2"></i>
+    <% end %>
+  </div>
   <div class="header-avatar">
     <%= image_tag other_person.profile.profile_img %>
   </div>
   <div>
+    <h4><%= other_person.profile.first_name %> <%= other_person.profile.last_name %></h4>
   </div>
   <div>
+    <i class="far fa-user-circle pl-5"></i>
   </div>
+</div>
 
 <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
   <% @chatroom.messages.each do |message| %>
