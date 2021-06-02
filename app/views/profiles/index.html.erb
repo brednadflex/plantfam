@@ -1,5 +1,5 @@
 <ul>
-  <% Profile.where(sitter: true, advisor: true).each do |profile| %>
+  <% Profile.where(sitter: true, advisor: false).each do |profile| %>
     <li> <%= profile.first_name %> | <%= link_to "book", new_profile_booking_path(profile) %> </li>
   <% end %>
 </ul>

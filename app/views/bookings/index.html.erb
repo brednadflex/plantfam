@@ -1,7 +1,15 @@
 <h1>Your bookings</h1>
 
 <ul>
-  <% Profile.where(sitter: true, advisor: false) do |profile| %>
-    <li> <%= profile.first_name %> | <%= link_to "book", new_profile_booking_path(profile) %> </li>
+  <% @bookings.each do |booking| %>
+    <div class="my-3">
+      You booked <%= booking.provider.email %>
+      <br>
+      Service provided <%= booking.service_type %>
+      <br>
+      From <%= booking.start_date.strftime("%b %d, %Y") %> until <%= booking.end_date.strftime("%b %d, %Y") %>
+      <br>
+      <%= booking.confirmed? ? "Accepted" : "Pending" %> confirmation
+    </div>
   <% end %>
 </ul>
