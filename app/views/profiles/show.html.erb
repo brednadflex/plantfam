@@ -1,0 +1,20 @@
+<h1>Profile</h1>
+
+<div class="container">
+  <div class="plant-tag"></div>
+    <%= image_tag "blank-plant-tag.png" %>
+  </div>
+  <div class="profile-info">
+    <p><%= @profile.banner_img %></p>
+    <p><%= @profile.profile_img %></p>
+    <p><%= @profile.first_name %> <%= @profile.last_name %></p>
+    <p>About me: <%= @profile.description %></p>
+    <p>Experience: <%= @profile.experience %></p>
+    <p>Rating: <%= @profile.avg_rating %></p>
+    <p>Address: <%= @profile.address %></p>
+    <p>Maximum kilometers from home: <%= @profile.max_radius %></p>
+    <p>Sitter Status: <%= @profile.sitter %></p>
+    <p>Advisor Status: <%= @profile.advisor %></p>
+    <p>Public Profile: <%= @profile.public %></p>
+  </div>
+</div>
