@@ -1,13 +1,16 @@
 class ProfilesController < ApplicationController
-   before_action :set_profile, only: [:show, :edit, :update]
-  
+  before_action :set_profile, only: [:show, :edit, :update]
+
+  def index
+    @profiles = Profile.all
+  end
+
   def show
   end
-  
 
   def edit
   end
-  
+
   # PATCH/PUT /profiles/1
   def update
     if @profile.update(profile_params)
@@ -20,12 +23,10 @@ class ProfilesController < ApplicationController
   private
 
   def set_profile
-      @profile = Profile.find(params[:id])
-    end
+    @profile = Profile.find(params[:id])
+  end
 
   def profile_params
     params.require(:profile).permit(:first_name, :last_name, :description, :profile_img, :banner_img, :experience, :avg_rating, :address, :location_lat, :location_lng, :max_radius, :sitter, :advisor, :public)
   end
 end
-
-
