@@ -2,7 +2,17 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  background-color: #F7F9F6;
+  margin-right: 5%;
+  margin-left: 5%;
 }
+
+.name-and-date-flex {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
 
 .chatindex-otherperson-name {
   padding: 5%;
@@ -15,4 +25,23 @@
 
 .chatrooms-header {
   color: #084C47;
+}
+
+.messages-searchbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 5%;
+  background-color: #F7F9F6;
+  }
+
+.message-create {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5%;
+  padding-right: 5%;
+}
+
+.message-create i {
+  font-size: 2em;
 }
