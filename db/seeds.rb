@@ -34,7 +34,7 @@ profile_claudiu = claudiu.profile.update!(
   description: "I'm in love with plants and enjoy taking care of them.",
   experience: "Plant Whisperer",
   avg_rating: 4.8,
-  address: Faker::Address.street_address,
+  address: "An der Urania 5, 10787 Berlin",
   sitter: true,
   advisor: true
 )
