@@ -1,1 +1,25 @@
-index.html.erb
+<div class="chatrooms-header">
+  <p>searchbar should be here></p>
+  <p>Your messages</p>
+</div>
+
+<% @chatrooms.each do |chatroom| %>
+
+  <%= link_to chatroom, class: "text-decoration-none text-reset" do %>
+    <div class="chatindex-list-container">
+      <div class="header-avatar">
+        <% other_person = current_user == chatroom.receiver ? chatroom.requester : chatroom.receiver  %>
+        <%= image_tag other_person.profile.profile_img %>
+      </div>
+      <div class="chatindex-otherperson-name">
+        <h4><%= other_person.profile.first_name %> <%= other_person.profile.last_name %></h4>
+        <p><%= chatroom.messages.last.content %></p>
+      </div>
+      <div class="chatindex-date-and-time">
+        <small><%= chatroom.messages.last.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+      </div>
+    </div>
+  <% end %>
+
+<% end %>
+
