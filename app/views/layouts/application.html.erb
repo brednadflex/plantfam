@@ -13,9 +13,6 @@
 
   <body>
     <%= render 'shared/flashes' %>
-    <% unless controller_name == "chat_rooms" %>
-      <%= render 'shared/top_navbar' %>
-    <% end %>
     <%= yield %>
     <%= render 'shared/bottom_navbar' %>
   </body>
