@@ -1,7 +1,23 @@
 <div class="chatrooms-header">
-  <p>searchbar should be here></p>
-  <p>Your messages</p>
+  <div>
+    <%= form_tag chat_rooms_path, method: :get do %>
+      <div class="messages-searchbar">
+       <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a message"
+        %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+  <div class="message-create">
+    <h3>Your messages</h3>
+    <i class="far fa-plus-square"></i>
+  </div>
 </div>
+
+
 
 <% @chatrooms.each do |chatroom| %>
 
@@ -11,12 +27,14 @@
         <% other_person = current_user == chatroom.receiver ? chatroom.requester : chatroom.receiver  %>
         <%= image_tag other_person.profile.profile_img %>
       </div>
-      <div class="chatindex-otherperson-name">
-        <h4><%= other_person.profile.first_name %> <%= other_person.profile.last_name %></h4>
-        <p><%= chatroom.messages.last.content %></p>
-      </div>
-      <div class="chatindex-date-and-time">
-        <small><%= chatroom.messages.last.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+      <div class="name-and-date-flex">
+        <div class="chatindex-otherperson-name">
+          <h4><%= other_person.profile.first_name %> <%= other_person.profile.last_name %></h4>
+          <p><%= chatroom.messages.last.content %></p>
+        </div>
+        <div class="chatindex-date-and-time">
+         <small><%= chatroom.messages.last.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+        </div>
       </div>
     </div>
   <% end %>
