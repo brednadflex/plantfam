@@ -1,6 +1,6 @@
 <% other_person = current_user == @chatroom.receiver ? @chatroom.requester : @chatroom.receiver  %>
 
-<div class="chat-header">
+<div class="chat-header fixed-top">
   <div>
     <%= link_to chat_rooms_path do %>
     <i class="fas fa-arrow-circle-left pl-2"></i>
