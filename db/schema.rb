@@ -24,15 +24,6 @@ ActiveRecord::Schema.define(version: 2021_06_02_125747) do
     t.index ["profile_id"], name: "index_availabilities_on_profile_id"
   end
 
-  create_table "availables", force: :cascade do |t|
-    t.date "start_date"
-    t.date "end_date"
-    t.bigint "profile_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["profile_id"], name: "index_availables_on_profile_id"
-  end
-
   create_table "bookings", force: :cascade do |t|
     t.bigint "client_id", null: false
     t.bigint "provider_id", null: false
@@ -116,7 +107,6 @@ ActiveRecord::Schema.define(version: 2021_06_02_125747) do
   end
 
   add_foreign_key "availabilities", "profiles"
-  add_foreign_key "availables", "profiles"
   add_foreign_key "bookings", "users", column: "client_id"
   add_foreign_key "bookings", "users", column: "provider_id"
   add_foreign_key "chat_rooms", "bookings"
