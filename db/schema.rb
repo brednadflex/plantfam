@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2021_06_02_125747) do
-
+ActiveRecord::Schema.define(version: 2021_06_02_145343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,7 +39,7 @@ ActiveRecord::Schema.define(version: 2021_06_02_125747) do
   end
 
   create_table "chat_rooms", force: :cascade do |t|
-    t.bigint "booking_id", null: false
+    t.bigint "booking_id"
     t.bigint "requester_id", null: false
     t.bigint "receiver_id", null: false
     t.datetime "created_at", precision: 6, null: false

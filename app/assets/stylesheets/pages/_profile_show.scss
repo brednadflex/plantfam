@@ -17,10 +17,11 @@
 
 
 .profile-info {
-  // padding: 16px;
-  // display: flex;
-  // justify-content: space-between;
-  // align-items: flex-end;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
 }
 
 .profile-avatar {
@@ -28,10 +29,10 @@
   // left: 16px;
   // top: 190px;
   // width: 40px;
-  height: 100px;
-  width: 100px;
-  left: 5.87%;
-  right: 67.2%;
+  height: 80px;
+  width: 80px;
+  left: 6%;
+  right: 67%;
   top: 27%;
-  bottom: 74.73%;  
+  bottom: 75%;  
 }
