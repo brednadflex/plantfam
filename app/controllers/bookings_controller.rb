@@ -1,7 +1,6 @@
 class BookingsController < ApplicationController
   def index
     @bookings = Booking.where(client: current_user)
-
   end
 
   def booking_requests
