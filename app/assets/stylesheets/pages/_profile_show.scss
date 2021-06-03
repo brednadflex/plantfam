@@ -1,4 +1,37 @@
 .banner {
-  max-width: 100vw;
-  height: 400px;
+  // width: 100%;
+  // height: 220px;
+  object-fit: cover;
+  position: absolute;
+  width: 378px;
+  height: 246px;
+  left: 0px;
+  top: 0px;
+  position: absolute;
+}
+
+.container {
+  margin: 0;
+  padding: 0;
+}
+
+
+.profile-info {
+  // padding: 16px;
+  // display: flex;
+  // justify-content: space-between;
+  // align-items: flex-end;
+}
+
+.profile-avatar {
+  position: absolute;
+  // left: 16px;
+  // top: 190px;
+  // width: 40px;
+  height: 100px;
+  width: 100px;
+  left: 5.87%;
+  right: 67.2%;
+  top: 27%;
+  bottom: 74.73%;  
 }
