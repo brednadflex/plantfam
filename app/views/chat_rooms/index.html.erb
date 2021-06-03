@@ -13,15 +13,18 @@
   </div>
   <div class="message-create">
     <h3>Your messages</h3>
+    <%= link_to users_path do  %>
     <i class="far fa-plus-square"></i>
+    <% end %>
   </div>
 </div>
 
 
 
+
 <% @chatrooms.each do |chatroom| %>
 
-  <%= link_to chatroom, class: "text-decoration-none text-reset" do %>
+  <%= link_to chat_room_path(chatroom, anchor: "message-#{chatroom.messages.last.id}"), class: "text-decoration-none text-reset" do %>
     <div class="chatindex-list-container">
       <div class="header-avatar">
         <% other_person = current_user == chatroom.receiver ? chatroom.requester : chatroom.receiver  %>

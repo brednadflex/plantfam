@@ -17,13 +17,15 @@
   </div>
 </div>
 
-<div id="messages" data-chatroom-id="<%= @chatroom.id %>">
+<div class='below-message-spacer', id="messages" data-chatroom-id="<%= @chatroom.id %>">
   <% @chatroom.messages.each do |message| %>
       <%= render 'messages/message', message: message %>
   <% end %>
 </div>
 
 <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
-  <%= f.input :content, label: false, placeholder: "What's on your mind?" %>
-  <%= f.submit "send" %>
+  <div class="flexy-form fixed-bottom">
+    <%= f.input :content, label: false, placeholder: "What's on your mind?" %>
+    <%= button_tag type: 'submit', class: "airplane-button" do %><i class="far fa-paper-plane"></i><% end %>
+  </div>
 <% end %>

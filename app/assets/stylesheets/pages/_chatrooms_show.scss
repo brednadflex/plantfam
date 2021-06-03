@@ -16,3 +16,19 @@
 .chat-header i {
   font-size: 2em;
 }
+
+.flexy-form {
+  display: flex;
+  justify-content: flex-start;
+  .form-group {
+    width: 80%;
+  }
+  padding-bottom: 7%;
+}
+
+.airplane-button {
+    background-color: white;
+    margin-left: 2%;
+    width: 20%;
+    height: 80%;
+}
