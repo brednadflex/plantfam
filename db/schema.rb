@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_02_093333) do
+ActiveRecord::Schema.define(version: 2021_06_02_145343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2021_06_02_093333) do
   end
 
   create_table "chat_rooms", force: :cascade do |t|
-    t.bigint "booking_id"
+    t.bigint "booking_id", null: false
     t.bigint "requester_id", null: false
     t.bigint "receiver_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -81,7 +81,9 @@ ActiveRecord::Schema.define(version: 2021_06_02_093333) do
     t.boolean "recommended", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "profile_id", null: false
     t.index ["booking_id"], name: "index_reviews_on_booking_id"
+    t.index ["profile_id"], name: "index_reviews_on_profile_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
@@ -106,5 +108,6 @@ ActiveRecord::Schema.define(version: 2021_06_02_093333) do
   add_foreign_key "messages", "users"
   add_foreign_key "profiles", "users"
   add_foreign_key "reviews", "bookings"
+  add_foreign_key "reviews", "profiles"
   add_foreign_key "reviews", "users"
 end
