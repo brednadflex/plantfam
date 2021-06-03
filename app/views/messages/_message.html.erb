@@ -1,0 +1,7 @@
+<div class="message-container <%= message.user == current_user ? "sent-message" : "received-message" %> my-3 p-3 w-90" id="message-<%= message.id %>">
+  <i class="author">
+    <span><%= message.user.profile.first_name %></span>
+    <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+  </i>
+  <p><%= message.content %></p>
+</div>

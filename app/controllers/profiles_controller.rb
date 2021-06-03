@@ -13,6 +13,7 @@ class ProfilesController < ApplicationController
   end
 
   def show
+    @reviews = @profile.reviews
   end
 
   def edit
