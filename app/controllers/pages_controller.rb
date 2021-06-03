@@ -7,6 +7,5 @@ class PagesController < ApplicationController
 
   def search
     @profiles = Profile.where(sitter: true, advisor: true)
-    
   end
 end

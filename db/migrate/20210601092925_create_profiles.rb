@@ -10,8 +10,8 @@ class CreateProfiles < ActiveRecord::Migration[6.0]
       t.string :experience
       t.float :avg_rating
       t.string :address
-      t.float :location_lat
-      t.float :location_lng
+      t.float :latitude
+      t.float :longitude
       t.float :max_radius
       t.boolean :sitter, default: false
       t.boolean :advisor, default: false

@@ -71,8 +71,8 @@ ActiveRecord::Schema.define(version: 2021_06_02_145343) do
     t.string "experience"
     t.float "avg_rating"
     t.string "address"
-    t.float "location_lat"
-    t.float "location_lng"
+    t.float "latitude"
+    t.float "longitude"
     t.float "max_radius"
     t.boolean "sitter", default: false
     t.boolean "advisor", default: false
