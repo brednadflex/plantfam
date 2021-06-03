@@ -1,0 +1,8 @@
+<h1> choose a contact </h1>
+
+<% @users.each do |user| %>
+  <%= link_to user_chat_rooms_path(user), method: :post do %>
+  <p><%= user.profile.first_name %></p>
+  <% end %>
+<% end %>
+
