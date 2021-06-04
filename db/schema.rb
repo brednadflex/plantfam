@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2021_06_03_160242) do
+=======
+ActiveRecord::Schema.define(version: 2021_06_02_145343) do
+>>>>>>> 058d6a4f9de690e2114c0085da8fc97c4cc47824
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "availabilities", force: :cascade do |t|
+    t.date "start_date"
+    t.date "end_date"
+    t.bigint "profile_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["profile_id"], name: "index_availabilities_on_profile_id"
+  end
 
   create_table "bookings", force: :cascade do |t|
     t.bigint "client_id", null: false
@@ -63,8 +76,8 @@ ActiveRecord::Schema.define(version: 2021_06_03_160242) do
     t.string "experience"
     t.float "avg_rating"
     t.string "address"
-    t.float "location_lat"
-    t.float "location_lng"
+    t.float "latitude"
+    t.float "longitude"
     t.float "max_radius"
     t.boolean "sitter", default: false
     t.boolean "advisor", default: false
@@ -82,7 +95,9 @@ ActiveRecord::Schema.define(version: 2021_06_03_160242) do
     t.boolean "recommended", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "profile_id", null: false
     t.index ["booking_id"], name: "index_reviews_on_booking_id"
+    t.index ["profile_id"], name: "index_reviews_on_profile_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
@@ -98,6 +113,7 @@ ActiveRecord::Schema.define(version: 2021_06_03_160242) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "availabilities", "profiles"
   add_foreign_key "bookings", "users", column: "client_id"
   add_foreign_key "bookings", "users", column: "provider_id"
   add_foreign_key "chat_rooms", "bookings"
@@ -107,5 +123,6 @@ ActiveRecord::Schema.define(version: 2021_06_03_160242) do
   add_foreign_key "messages", "users"
   add_foreign_key "profiles", "users"
   add_foreign_key "reviews", "bookings"
+  add_foreign_key "reviews", "profiles"
   add_foreign_key "reviews", "users"
 end

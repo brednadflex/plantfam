@@ -1,4 +1,4 @@
-<h1>Your bookings</h1>
+<h1>My Bookings</h1>
 
 <ul>
   <% @bookings.each do |booking| %>
@@ -11,5 +11,6 @@
       <br>
       <%= booking.confirmed == "pending" ? "Pending confirmation" : (booking.confirmed == "confirmed" ? "Booking accepted" : "Booking rejected") %>
     </div>
+    <%= link_to 'make a review', new_booking_review_path(booking) %>
   <% end %>
 </ul>

@@ -16,6 +16,7 @@
         <p>Advisor</p>
       <% end %>
       <p><%= profile.avg_rating %></p>
+      <%= link_to "Book", new_profile_booking_path(profile) %>
     </div>
   <% end %>
 </div>

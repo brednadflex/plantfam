@@ -1,0 +1,54 @@
+.header-avatar {
+  width: 5vh;
+}
+
+.header-icon {
+  width: 5vh;
+}
+
+.header-name {
+  width: 85vh;
+  margin-left: 20vh;
+}
+
+.profile-icon-heder {
+  width: 5vh;
+}
+
+.header-avatar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2%;
+  background: white;
+  height: 7%;
+}
+
+.chat-header i {
+  font-size: 2em;
+}
+
+.flexy-form {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 9vh;
+  justify-content: center;
+  .form-group {
+    width: 70%;
+  }
+  padding-bottom: 7%;
+}
+
+.airplane-button {
+    background-color: white;
+    margin-left: 2%;
+    width: 20%;
+    height: 80%;
+}

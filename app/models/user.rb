@@ -19,7 +19,7 @@ class User < ApplicationRecord
     create_profile!
   end
   # after the user is created, it automatically creates the profile with that inputted info
-  after_create :create_profile!
+  # after_create :create_profile!
 
   # def init_profile
   #   create_profile!

@@ -1,14 +1,19 @@
 class ProfilesController < ApplicationController
   # skip_before_action :authenticate_user!, only: [:show]
   before_action :set_profile, only: [:show, :edit, :update]
-  
-  before_action :set_profile, only: [:show, :edit, :update]
 
   def index
     @profiles = Profile.all
+    if params[:from].present? && params[:to].present?
+      @ids = Availability.where("start_date <= ?", params[:from]).where("end_date >= ?", params[:to]).map do |availability|
+        availability.profile_id
+      end
+      @profiles = Profile.find(@ids.uniq)
+    end
   end
 
   def show
+    @reviews = @profile.reviews
   end
 
   def edit
