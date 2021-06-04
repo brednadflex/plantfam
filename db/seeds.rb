@@ -125,7 +125,7 @@ puts "Julian's profile was created..."
 
 # Random users
 puts "Creating 30 sample users with profiles..."
-addreses.count.times do |index|
+addresses.count.times do |index|
   new_user = User.create!(
     email: Faker::Internet.email,
     password: "new123"
