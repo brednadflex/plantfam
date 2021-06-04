@@ -8,7 +8,7 @@
       <div class="name-experience-offers-rating">
         <div class="name-rating">
           <p><%= @profile.first_name %> <%= @profile.last_name %></p>
-          <p><i class="fas fa-leaf"></i><%= @profile.avg_rating %></p>
+          <p><i class="fas fa-leaf"></i>*<%= @profile.avg_rating %></p>
         </div>
         <div class="experience">
           <p><%= @profile.experience %></p>
@@ -41,9 +41,11 @@
     </div>
   </div>
   
-  <%= link_to 'edit profile', edit_profile_path(@profile), class: "btn btn-primary" %>
-  <%= link_to 'book me!', new_profile_booking_path(@profile), class: "btn btn-primary" %>
-  <%= link_to 'My Bookings', profile_bookings_path(current_user.profile.id), class: "btn btn-primary" %>
-  <%= link_to 'Booking Request', booking_requests_path, class: "btn btn-primary" %>
-  <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
+  <div class="actions">
+    <%= link_to 'edit profile', edit_profile_path(@profile), class: "btn-sea-green" %>
+    <%= link_to 'book me!', new_profile_booking_path(@profile), class: "btn-sea-green" %>
+    <%= link_to 'My Bookings', profile_bookings_path(current_user.profile.id), class: "btn-sea-green" %>
+    <%= link_to 'Booking Request', booking_requests_path, class: "btn-sea-green" %>
+    <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: "btn-sea-green" %>
+  </div>
 </div>

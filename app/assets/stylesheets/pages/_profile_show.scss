@@ -68,3 +68,14 @@
   
   // position: absolute;
 }
+
+i {
+  color: $sea-green;
+  // white-space: nowrap;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
