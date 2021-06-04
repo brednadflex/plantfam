@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2021_06_03_160242) do
-=======
-ActiveRecord::Schema.define(version: 2021_06_02_145343) do
->>>>>>> 058d6a4f9de690e2114c0085da8fc97c4cc47824
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,7 +30,7 @@ ActiveRecord::Schema.define(version: 2021_06_02_145343) do
     t.string "service_type"
     t.date "start_date"
     t.date "end_date"
-    t.integer "confirmed", default: 0, null: false
+    t.boolean "confirmed", default: false, null: false
     t.boolean "completed", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
