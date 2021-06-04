@@ -13,7 +13,7 @@
   </div>
   <div class="message-create">
     <h3>Your messages</h3>
-    <%= link_to users_path do  %>
+    <%= link_to users_path, class: "text-decoration-none text-reset" do  %>
     <i class="far fa-plus-square"></i>
     <% end %>
   </div>
@@ -32,7 +32,7 @@
         </div>
         <div class="name-and-date-flex">
           <div class="chatindex-otherperson-name">
-            <h4><%= other_person.profile.first_name %> <%= other_person.profile.last_name %></h4>
+            <h6><%= other_person.profile.first_name %> <%= other_person.profile.last_name %></h6>
             <p><%= chatroom.messages.last.content %></p>
           </div>
           <div class="chatindex-date-and-time">
