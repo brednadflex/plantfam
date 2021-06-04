@@ -1,3 +1,20 @@
+.header-avatar {
+  width: 5vh;
+}
+
+.header-icon {
+  width: 5vh;
+}
+
+.header-name {
+  width: 85vh;
+  margin-left: 20vh;
+}
+
+.profile-icon-heder {
+  width: 5vh;
+}
+
 .header-avatar img {
   width: 40px;
   height: 40px;
@@ -19,9 +36,12 @@
 
 .flexy-form {
   display: flex;
-  justify-content: flex-start;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 9vh;
+  justify-content: center;
   .form-group {
-    width: 80%;
+    width: 70%;
   }
   padding-bottom: 7%;
 }

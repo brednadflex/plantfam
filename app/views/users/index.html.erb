@@ -1,8 +1,41 @@
-<h1> choose a contact </h1>
+<div class="margin-box">
+  <div class="fixed-top top-block">
+    <div class="new-message-header">
+      <div class="back-icon">
+        <%= link_to chat_rooms_path, class: "text-decoration-none text-reset" do %>
+        <i class="fas fa-arrow-circle-left pl-2"></i>
+        <% end %>
+      </div>
+      <div class="new-msg-text-centered">
+        <h3>New Message</h3>
+      </div>
+    </div>
+    <div>
+        <%= form_tag users_path, method: :get, class: "text-decoration-none text-reset" do %>
+        <div class="contacts-searchbar">
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Find a contact"
+            %>
+            <%= submit_tag "Search", class: "search-contacts-btn" %>
+        </div>
+        <% end %>
+    </div>
+  </div>
+  <div class="contact-results">
+    <% @users.each do |user| %>
+      <%= link_to user_chat_rooms_path(user), class: "text-decoration-none text-reset", method: :post do %>
+      <div class="contacts-with-avatar">
+        <div class="contacts-avatar">
+          <%= image_tag user.profile.profile_img %>
+        </div>
+        <div class="contacts-name">
+          <h4><%= user.profile.first_name %> <%= user.profile.last_name %></h4>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
 
-<% @users.each do |user| %>
-  <%= link_to user_chat_rooms_path(user), method: :post do %>
-  <p><%= user.profile.first_name %></p>
-  <% end %>
-<% end %>
-
+</div>

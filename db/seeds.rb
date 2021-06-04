@@ -1,5 +1,7 @@
 puts "Destroying all users and profiles"
 Availability.destroy_all
+Message.destroy_all
+ChatRoom.destroy_all
 Profile.destroy_all
 User.destroy_all
 
