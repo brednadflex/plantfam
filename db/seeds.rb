@@ -56,7 +56,7 @@ profile_barney = barney.profile.update!(
   profile_img: "https://avatars.githubusercontent.com/u/77109548?v=4",
   experience: "Plant Whisperer",
   avg_rating: 4.5,
-  address: Faker::Address.street_address,
+  address: Faker::Address.full_address,
   sitter: true,
   advisor: true
 )
@@ -74,7 +74,7 @@ profile_jal= jal.profile.update!(
   profile_img: "https://avatars.githubusercontent.com/u/72085091?v=4",
   experience: "Seedling",
   avg_rating: 4.6,
-  address: Faker::Address.street_address,
+  address: Faker::Address.full_address,
   sitter: true,
   advisor: true
 )
@@ -92,7 +92,7 @@ profile_julian = julian.profile.update!(
   profile_img: "https://avatars.githubusercontent.com/u/80887245?s=400&u=a2a1d4d27a7a628a5eebb5fa888fe55fbaa6dd00&v=4",
   experience: "Seedling",
   avg_rating: 4.2,
-  address: Faker::Address.street_address,
+  address: Faker::Address.full_address,
   sitter: true,
   advisor: true
 )
