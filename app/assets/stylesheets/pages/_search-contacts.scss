@@ -1,0 +1,63 @@
+.margin-box {
+  width: 80%;
+  margin: 2% auto;
+  background-color: white;
+}
+.contacts-searchbar {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+
+  .form-control {
+  border-radius: 10px;
+  width: 50%;
+  }
+}
+
+.contacts-with-avatar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 9vh;
+  background-color: white;
+}
+
+.contacts-avatar {
+  width: 9vh;
+  height: 100%;
+
+}
+
+.back-icon {
+  color: $dark-green;
+}
+
+.contacts-avatar img {
+  width: 80%;
+  height: 80%;
+  border-radius: 30%;
+  display: block;
+  margin: auto;
+}
+
+.contacts-name {
+  width: 80%;
+  margin-left: 5%;
+  color: $dark-green;
+}
+
+.search-contacts-btn {
+  background-color: white;
+  border: 2px solid $light-green;
+  border-radius: 20%;
+  color: $dark-green;
+
+}
+
+.contact-results {
+  overflow: scroll;
+  margin: 5vh auto;
+  width: 100%;
+  height: 65vh;
+}

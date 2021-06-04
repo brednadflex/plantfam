@@ -1,8 +1,38 @@
-<h1> choose a contact </h1>
+<div class="margin-box">
+  <div class="new-message-header">
+    <div class="back-icon">
+      <i class="fas fa-arrow-circle-left"></i>
+    </div>
+    <div class="new-msg-text-centered">
+      <h4>New Message</h4>
+    </div>
+  </div>
+  <div>
+    <%= form_tag chat_rooms_path, method: :get do %>
+      <div class="contacts-searchbar">
+       <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a contact"
+        %>
+        <%= submit_tag "Search", class: "search-contacts-btn" %>
+      </div>
+    <% end %>
+  </div>
+  <div class="contact-results">
+    <% @users.each do |user| %>
+      <%= link_to user_chat_rooms_path(user), method: :post do %>
+        <div class="contacts-with-avatar">
+          <div class="contacts-avatar">
+            <%= image_tag user.profile.profile_img %>
+          </div>
+          <div class="contacts-name">
+            <p><%= user.profile.first_name %> <%= user.profile.last_name %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
 
-<% @users.each do |user| %>
-  <%= link_to user_chat_rooms_path(user), method: :post do %>
-  <p><%= user.profile.first_name %></p>
-  <% end %>
-<% end %>
 
