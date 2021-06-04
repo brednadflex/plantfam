@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   end
 
   get '/booking_requests', to: 'bookings#booking_requests'
+  get '/booking_requests/:id', to: 'bookings#accept_booking', as: 'accept_booking'
+  post '/booking_requests/:id', to: 'bookings#reject_booking', as: 'reject_booking'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
