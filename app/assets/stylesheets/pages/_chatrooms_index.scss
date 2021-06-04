@@ -31,36 +31,34 @@
 }
 
 
-.chatrooms-header {
-  color: #084C47;
+// .chatrooms-header {
+//   color: #084C47;
+//   width: 100%;
 
-  .contacts-searchbar {
-  display: flex;
-  justify-content: center;
-  background-color: white;
-  }
+//   .contacts-searchbar {
+//   display: flex;
+//   width: 100%;
+//   justify-content: space-between;
+//   background-color: white;
+//   }
+// }
 
-  .form-control {
-  border-radius: 10px;
-  width: 50%;
-  }
-}
+
 
 .message-search-btn {
   background-color: white;
   border: 2px solid $light-green;
   color: $light-green;
-  border-radius: 20%;
+  border-radius: 15%;
   font-weight: bold;
 }
 
 .messages-searchbar {
   display: flex;
   justify-content: space-between;
-  padding: 5%;
-  width: 80vh;
+  width: 88%;
   margin: 0 auto;
-  }
+}
 
 .message-create {
   display: flex;
