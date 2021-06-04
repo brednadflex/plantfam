@@ -19,32 +19,17 @@
     <%= image_tag "NAVBARICONS/mail.png" %>
     <% end %>
   </div>
-  <div class="nav-icon">
+  <div class="nav-icon nav-item dropup">
     <% if user_signed_in? %>
-      <%= link_to profile_path(current_user.profile) do %>
-      <%= image_tag "NAVBARICONS/profile.png", class: "signed-in" %>
-      <% end %>
+      <%= image_tag "NAVBARICONS/profile.png", class: "signed-in dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to "My profile", profile_path(current_user.profile), class: "dropdown-item" %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+      </div>
     <% else %>
       <%= link_to new_user_session_path do %>
       <%= image_tag "NAVBARICONS/profile.png", class: "signed-out" %>
       <% end %>
     <% end %>
   </div>
-  <div>
-    <div class="nav-item dropup">
-      <% if user_signed_in? %>
-          <%= image_tag current_user.profile.profile_img, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "My Bookings", profile_bookings_path(current_user.profile.id), class: "dropdown-item" %>
-            <%= link_to "Service requests", booking_requests_path, class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
-      <% else %>
-        <div class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-
 </div>

@@ -1,0 +1,72 @@
+.action-tabs-menu {
+  display: flex;
+  justify-content: center;
+}
+
+.action-tab {
+  width: 260px;
+  height: 180px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 20px;
+  background-color: #F7F9F6;
+  text-align: center;
+  padding: 16px;
+
+  &:nth-child(2) {
+    transform: translateX(60px);
+    overflow: hidden;
+  }
+}
+
+.hero-text {
+  margin: 0px 20px 40px 20px;
+  font-weight: bolder;
+  text-align: left;
+  color: $dark-green;
+}
+
+.plant-enthusiasts-header {
+  margin: 64px 0 40px 0;
+  text-align: center;
+}
+
+.profile-card {
+  padding: 16px 24px;
+  margin: 24px 0px;
+  text-decoration: none;
+  color: #444;
+  background-color: #F7F9F6;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.profile-card-user-info {
+  display: flex;
+  justify-content: space-around;
+}
+
+.profile-card-services {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.plantsitter, .advisor {
+  color: #fff;
+  border-radius: 60px;
+  padding: 8px 16px;
+  margin: 0px 16px;
+}
+
+.plantsitter {
+  background-color: $dark-green;
+}
+
+.advisor {
+  background-color: $sea-green;
+}
+
+.experience {
+  color: $sea-green;
+}

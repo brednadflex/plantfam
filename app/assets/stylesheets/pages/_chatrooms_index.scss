@@ -5,12 +5,16 @@
   background-color: #F7F9F6;
   margin-right: 5%;
   margin-left: 5%;
+  border: 2px solid white;
+  border-radius: 20px;
 }
+
 
 .name-and-date-flex {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  margin-left: 5%;
 }
 
 
@@ -29,13 +33,33 @@
 
 .chatrooms-header {
   color: #084C47;
+
+  .contacts-searchbar {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  }
+
+  .form-control {
+  border-radius: 10px;
+  width: 50%;
+  }
+}
+
+.message-search-btn {
+  background-color: white;
+  border: 2px solid $light-green;
+  color: $light-green;
+  border-radius: 20%;
+  font-weight: bold;
 }
 
 .messages-searchbar {
   display: flex;
   justify-content: space-between;
   padding: 5%;
-  background-color: #F7F9F6;
+  width: 80vh;
+  margin: 0 auto;
   }
 
 .message-create {
@@ -48,4 +72,5 @@
 
 .message-create i {
   font-size: 2em;
+  color: $dark-green;
 }
