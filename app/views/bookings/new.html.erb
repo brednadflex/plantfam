@@ -26,7 +26,7 @@
   <% options = ["advise"] %>
 <% end %>
 <div class="booking-form-container">
-<h3>Send Barney a request</h3>
+<h3>Send <%= @profile.first_name %> a request</h3>
 <%= simple_form_for([@profile, @booking]) do |f| %>
   <%= f.input :service_type, collection: options %>
   <%= f.input :start_date, as: :date, html5: true %>
