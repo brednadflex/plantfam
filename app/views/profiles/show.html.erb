@@ -4,23 +4,34 @@
     <img class="banner" src=<%= 'https://source.unsplash.com/random/900×250/?plants' %> alt="plant">
     <img src=<%= @profile.profile_img %> alt="user-image" class="rounded-circle profile-avatar";>
     
-    <div class="avatar-info-box">
-      <div class="name-experience-offers-rating">
-        <div class="name-rating">
-          <p><%= @profile.first_name %> <%= @profile.last_name %></p>
-          <p><i class="fas fa-leaf"></i>*<%= @profile.avg_rating %></p>
-        </div>
-        <div class="experience">
-          <p><%= @profile.experience %></p>
-        </div>
-        <div class="sitter-advisor">
-          <p>Sitter Status: <%= @profile.sitter %></p>
-          <p>Advisor Status: <%= @profile.advisor %></p>
-        </div>
+    
+    <div class="name-experience-offers-rating">
+      <div class="name-rating">
+        <p><%= @profile.first_name %> <%= @profile.last_name %></p>
+        <p><i class="fas fa-leaf"></i><%= @profile.avg_rating %></p>
+      </div>
+      <div class="experience">
+        <p><em><%= @profile.experience %></em></p>
+      </div>
+      <div class="sitter-advisor">
+        <p>Offers: </p>
+        <% if @profile.sitter %>
+          <p class="tag-sitter">sitter</p>
+        <% end %>
+        <%if @profile.advisor %>
+          <p class="tag-advisor">advisor</p>
+        <% end %>
       </div>
     </div>
+    
 
-    <%= link_to image_tag("mail-white.png"), chat_room_path, class: "button-profile-message" %>
+    <%= link_to chat_room_path do %>
+      <div class="message-button-flex button-profile-message">
+        <%= image_tag("mail-white.png") %>
+        <p class="ml-3">message <%= @profile.first_name %></p>
+      </div>
+   
+    <% end %>
 
     <div class="description-about-me">
       <p>About <%= @profile.first_name %>: <%= @profile.description %></p>
@@ -42,10 +53,20 @@
   </div>
   
   <div class="actions">
-    <%= link_to 'edit profile', edit_profile_path(@profile), class: "btn-sea-green" %>
-    <%= link_to 'book me!', new_profile_booking_path(@profile), class: "btn-sea-green" %>
-    <%= link_to 'My Bookings', profile_bookings_path(current_user.profile.id), class: "btn-sea-green" %>
-    <%= link_to 'Booking Request', booking_requests_path, class: "btn-sea-green" %>
-    <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: "btn-sea-green" %>
+    <div>
+      <%= link_to 'edit profile', edit_profile_path(@profile), class: "btn-sea-green" %>
+    </div>
+    <div>
+      <%= link_to 'book me!', new_profile_booking_path(@profile), class: "btn-sea-green" %>
+    </div>
+    <div>
+      <%= link_to 'My Bookings', profile_bookings_path(current_user.profile.id), class: "btn-sea-green" %>
+    </div>
+    <div>
+      <%= link_to 'Booking Requests', booking_requests_path, class: "btn-sea-green" %>
+    </div>
+    <div>
+      <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: "btn-sea-green" %>
+    </div>
   </div>
 </div>

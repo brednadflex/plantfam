@@ -13,10 +13,6 @@
   top: 0px;
 }
 
-.avatar-info-box {
-  display: flex;
-}
-
 .profile-avatar {
   position: absolute;
   height: 80px;
@@ -31,25 +27,35 @@
 }
 
 .profile-info .name-experience-offers-rating {
-  overflow: hidden;
+  // overflow: hidden;
   padding: 16px;
-  display: flex;
-  // justify-content: space-between;
-  // align-items: flex-end;
+  // display: flex;
+  // justify-content: flex-end;
   // position: absolute;
-}
-
-.name-experience-offers-rating {
-  display: flex;
 }
 
 .name-rating {
   display: flex;
-  align-items: flex-end;
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.sitter-advisor {
+  display: flex;
+  justify-content: flex-end;
+  // text-align: right;
+  align-items: center;
 }
 
 .experience {
+  color: $dark-green;
   text-align: right;
+}
+
+.message-button-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .description-about-me {
   margin: 10px;
@@ -71,11 +77,21 @@
 
 i {
   color: $sea-green;
-  // white-space: nowrap;
 }
 
 .actions {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  margin: 20% auto;
+  height: 50vh;
+  width: 40vh;
+  // display: flex;
+  // justify-content: space-between;
+  // flex-wrap: wrap;
+
+  div {
+    margin: 0 auto;
+    height: 15%;
+  }
 }
+
+
+
