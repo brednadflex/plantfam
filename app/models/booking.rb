@@ -7,4 +7,7 @@ class Booking < ApplicationRecord
     confirmed: 1,
     rejected: 2
   }
+
+  validates :start_date, presence: true
+  validates :end_date, presence: true
 end
