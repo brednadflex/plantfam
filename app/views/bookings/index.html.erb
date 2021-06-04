@@ -9,7 +9,7 @@
       <br>
       From <%= booking.start_date.strftime("%b %d, %Y") %> until <%= booking.end_date.strftime("%b %d, %Y") %>
       <br>
-      <%= booking.confirmed? ? "Accepted" : "Pending" %> confirmation
+      <%= booking.confirmed == "pending" ? "Pending confirmation" : (booking.confirmed == "confirmed" ? "Booking accepted" : "Booking rejected") %>
     </div>
     <%= link_to 'make a review', new_booking_review_path(booking) %>
   <% end %>
