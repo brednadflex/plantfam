@@ -2,8 +2,10 @@ puts "Destroying all users and profiles"
 Availability.destroy_all
 Message.destroy_all
 ChatRoom.destroy_all
+Booking.destroy_all
 Profile.destroy_all
 User.destroy_all
+
 
 user_images = [
   "https://images.unsplash.com/photo-1554151228-14d9def656e4?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZmFjZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80",
@@ -46,7 +48,7 @@ end
 puts "Claudiu's profile was created..."
 
 # Barney
-barney = User.create(email: "barney@barney.com", password: "barney123")
+barney = User.create!(email: "barney@barney.com", password: "barney123")
 profile_barney = barney.profile.update!(
   first_name: "Barney",
   last_name: "Haas",
@@ -64,7 +66,7 @@ end
 puts "Barney's profile was created..."
 
 # Jal
-jal = User.create(email: "jal@jal.com", password: "jal123")
+jal = User.create!(email: "jal@jal.com", password: "jal123")
 profile_jal= jal.profile.update!(
   first_name: "Jalynn",
   last_name: "Ridley",
@@ -82,7 +84,7 @@ end
 puts "Jal's profile was created..."
 
 # Julian
-julian = User.create(email: "julian@julian.com", password: "julian123")
+julian = User.create!(email: "julian@julian.com", password: "julian123")
 profile_julian = julian.profile.update!(
   first_name: "Julian",
   last_name: "Thompson",
