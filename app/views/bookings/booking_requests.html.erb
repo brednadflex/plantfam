@@ -9,10 +9,11 @@
       <br>
       From <%= booking.start_date.strftime("%b %d, %Y") %> until <%= booking.end_date.strftime("%b %d, %Y") %>
       <br>
+      Booking <%= booking.confirmed == "pending" ? "Pending" : (booking.confirmed == "confirmed" ? "confirmed" : "rejected") %>
+      <br>
+      <%= booking.comment %>
     </div>
-    <div class="mt-3">
-      <button type="button" class="btn btn-success">Accept booking</button>
-      <button type="button" class="btn btn-danger">Reject booking</button>
-    </div>
+    <%= link_to "Accept booking", accept_booking_path(id: booking) %>
+    <%= link_to "Reject booking", reject_booking_path(id: booking), method: :post %>
   <% end %>
 </ul>

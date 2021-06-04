@@ -7,7 +7,7 @@
         class: "form-control",
         placeholder: "Find a message"
         %>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
+        <%= submit_tag "Search", class: "message-search-btn" %>
       </div>
     <% end %>
   </div>
@@ -23,23 +23,24 @@
 
 
 <% @chatrooms.each do |chatroom| %>
-
-  <%= link_to chat_room_path(chatroom, anchor: "message-#{chatroom.messages.last.id}"), class: "text-decoration-none text-reset" do %>
-    <div class="chatindex-list-container">
-      <div class="header-avatar">
-        <% other_person = current_user == chatroom.receiver ? chatroom.requester : chatroom.receiver  %>
-        <%= image_tag other_person.profile.profile_img %>
-      </div>
-      <div class="name-and-date-flex">
-        <div class="chatindex-otherperson-name">
-          <h4><%= other_person.profile.first_name %> <%= other_person.profile.last_name %></h4>
-          <p><%= chatroom.messages.last.content %></p>
+  <% if chatroom.messages.count > 0 %>
+    <%= link_to chat_room_path(chatroom, anchor: "message-#{chatroom.messages.last.id}"), class: "text-decoration-none text-reset" do %>
+      <div class="chatindex-list-container">
+        <div class="header-avatar">
+          <% other_person = current_user == chatroom.receiver ? chatroom.requester : chatroom.receiver  %>
+          <%= image_tag other_person.profile.profile_img %>
         </div>
-        <div class="chatindex-date-and-time">
-         <small><%= chatroom.messages.last.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+        <div class="name-and-date-flex">
+          <div class="chatindex-otherperson-name">
+            <h4><%= other_person.profile.first_name %> <%= other_person.profile.last_name %></h4>
+            <p><%= chatroom.messages.last.content %></p>
+          </div>
+          <div class="chatindex-date-and-time">
+           <small><%= chatroom.messages.last.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+          </div>
         </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
 
 <% end %>

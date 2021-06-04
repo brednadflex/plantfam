@@ -17,10 +17,27 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.client = current_user
     @booking.provider = @profile.user
+    @booking.comment = params[:booking][:comment]
     if @booking.save
       redirect_to profile_bookings_path, notice: "Congratulations, your booking is complete!"
     else
       render :new
+    end
+  end
+
+  def accept_booking
+    @booking = Booking.find(params[:id])
+    @booking.confirmed = "confirmed"
+    if @booking.save
+      redirect_to booking_requests_path, notice: "Congratulations, your booking is complete!"
+    end
+  end
+
+  def reject_booking
+    @booking = Booking.find(params[:id])
+    @booking.confirmed = "rejected"
+    if @booking.save
+      redirect_to booking_requests_path, notice: "Sorry, your booking was rejected!"
     end
   end
 

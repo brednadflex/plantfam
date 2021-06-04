@@ -1,0 +1,25 @@
+.new-message-header {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  align-items: center;
+  background-color: white;
+  color: $dark-green;
+}
+
+
+.back-icon {
+  width: 10%;
+  font-size: 2.5em;
+  text-align: center;
+  color: $dark-green;
+}
+
+
+.new-msg-text-centered {
+  width: 80%;
+  text-align: center;
+  color: $dark-green;
+}
+
+
