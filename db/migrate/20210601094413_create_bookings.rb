@@ -6,7 +6,7 @@ class CreateBookings < ActiveRecord::Migration[6.0]
       t.string :service_type
       t.date :start_date
       t.date :end_date
-      t.boolean :confirmed, default: false, null: false
+      t.integer :confirmed, default: 0, null: false
       t.boolean :completed, default: false, null: false
 
       t.timestamps

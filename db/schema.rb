@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_02_145343) do
+ActiveRecord::Schema.define(version: 2021_06_03_160242) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2021_06_02_145343) do
     t.boolean "completed", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "comment"
     t.index ["client_id"], name: "index_bookings_on_client_id"
     t.index ["provider_id"], name: "index_bookings_on_provider_id"
   end
@@ -71,8 +72,8 @@ ActiveRecord::Schema.define(version: 2021_06_02_145343) do
     t.string "experience"
     t.float "avg_rating"
     t.string "address"
-    t.float "latitude"
-    t.float "longitude"
+    t.float "location_lat"
+    t.float "location_lng"
     t.float "max_radius"
     t.boolean "sitter", default: false
     t.boolean "advisor", default: false

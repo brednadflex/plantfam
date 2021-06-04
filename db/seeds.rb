@@ -2,8 +2,10 @@ puts "Destroying all users and profiles"
 Availability.destroy_all
 Message.destroy_all
 ChatRoom.destroy_all
+Booking.destroy_all
 Profile.destroy_all
 User.destroy_all
+
 
 user_images = [
   "https://images.unsplash.com/photo-1554151228-14d9def656e4?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZmFjZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80",
@@ -26,6 +28,28 @@ user_images = [
   "https://images.unsplash.com/photo-1552058544-f2b08422138a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fGZhY2V8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80"
 ]
 
+addresses = [
+  "Bodestraße 1-3, 10178 Berlin",
+  "Bernauer Straße 111, 13355 Berlin",
+  "Unter den Linden 2, 10117 Berlin",
+  "Panoramastraße 1 A, 10178 Berlin",
+  "Friedrichstraße 43-45, 10969 Berlin",
+  "Spandauer Damm 10, 14059 Berlin",
+  "Gendarmenmarkt, 10117 Berlin",
+  "Lindenstraße 9-14, 10969 Berlin",
+  "Trebbiner Straße 9, D-10963 Berlin-Kreuzberg",
+  "Cora-Berliner-Straße 1, 10117 Berlin",
+  "Str. des 17. Juni, 10785 Berlin",
+  "Bodestraße 1-3, 10178 Berlin",
+  "Am Lustgarten, 10178 Berlin",
+  "Niederkirchnerstraße 8, 10963 Berlin",
+  "Hardenbergplatz 8, 10787 Berlin",
+  "Königin-Luise-Strasse 6-8, 14195 Berlin",
+  "Nikolaikirchplatz, 10178 Berlin",
+  "Breitscheidplatz, 10789 Berlin"
+]
+
+
 # Claudiu
 puts 'Creating users...'
 claudiu = User.create!(email: "claudiu@claudiu.com", password: "claudiu123")
@@ -46,7 +70,7 @@ end
 puts "Claudiu's profile was created..."
 
 # Barney
-barney = User.create(email: "barney@barney.com", password: "barney123")
+barney = User.create!(email: "barney@barney.com", password: "barney123")
 profile_barney = barney.profile.update!(
   first_name: "Barney",
   last_name: "Haas",
@@ -54,7 +78,7 @@ profile_barney = barney.profile.update!(
   profile_img: "https://avatars.githubusercontent.com/u/77109548?v=4",
   experience: "Plant Whisperer",
   avg_rating: 4.5,
-  address: Faker::Address.street_address,
+  address: "Rudi-Dutschke-Straße 26, 10969 Berlin",
   sitter: true,
   advisor: true
 )
@@ -64,7 +88,7 @@ end
 puts "Barney's profile was created..."
 
 # Jal
-jal = User.create(email: "jal@jal.com", password: "jal123")
+jal = User.create!(email: "jal@jal.com", password: "jal123")
 profile_jal= jal.profile.update!(
   first_name: "Jalynn",
   last_name: "Ridley",
@@ -72,7 +96,7 @@ profile_jal= jal.profile.update!(
   profile_img: "https://avatars.githubusercontent.com/u/72085091?v=4",
   experience: "Seedling",
   avg_rating: 4.6,
-  address: Faker::Address.street_address,
+  address: "Pariser Platz, 10117, Berlin",
   sitter: true,
   advisor: true
 )
@@ -82,7 +106,7 @@ end
 puts "Jal's profile was created..."
 
 # Julian
-julian = User.create(email: "julian@julian.com", password: "julian123")
+julian = User.create!(email: "julian@julian.com", password: "julian123")
 profile_julian = julian.profile.update!(
   first_name: "Julian",
   last_name: "Thompson",
@@ -90,7 +114,7 @@ profile_julian = julian.profile.update!(
   profile_img: "https://avatars.githubusercontent.com/u/80887245?s=400&u=a2a1d4d27a7a628a5eebb5fa888fe55fbaa6dd00&v=4",
   experience: "Seedling",
   avg_rating: 4.2,
-  address: Faker::Address.street_address,
+  address: "Platz der Republik 1, 11011, Berlin",
   sitter: true,
   advisor: true
 )
@@ -101,7 +125,7 @@ puts "Julian's profile was created..."
 
 # Random users
 puts "Creating 30 sample users with profiles..."
-30.times do
+addresses.count.times do |index|
   new_user = User.create!(
     email: Faker::Internet.email,
     password: "new123"
@@ -113,7 +137,7 @@ puts "Creating 30 sample users with profiles..."
   description: Faker::ChuckNorris.fact,
   experience: ["Seedling", "Plant Friend", "Moss Person", "Plant Whisperer"].sample,
   avg_rating: (3..4).to_a.sample + [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9].sample,
-  address: Faker::Address.full_address,
+  address: addresses[index],
   sitter: [true, false].sample,
   advisor: [true, false].sample
   )
@@ -123,25 +147,25 @@ puts "Creating 30 sample users with profiles..."
 end
 puts "30 sample users were created."
 
-puts "Creating even more sample users with profiles..."
-30.times do
-  new_user = User.create!(
-    email: Faker::Internet.email,
-    password: "new123"
-  )
-  profile_new_user = new_user.profile.update!(
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  profile_img: user_images.sample,
-  description: Faker::ChuckNorris.fact,
-  experience: ["Seedling", "Plant Friend", "Moss Person", "Plant Whisperer"].sample,
-  avg_rating: (3..4).to_a.sample + [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9].sample,
-  address: Faker::Address.full_address,
-  sitter: [true, false].sample,
-  advisor: [true, false].sample
-  )
-  if new_user.profile.sitter
-    Availability.create(start_date: "2021-08-01" , end_date: "2021-08-31" , profile: new_user.profile)
-  end
-end
-puts "30 additional sample users were created."
+# puts "Creating even more sample users with profiles..."
+# 30.times do
+#   new_user = User.create!(
+#     email: Faker::Internet.email,
+#     password: "new123"
+#   )
+#   profile_new_user = new_user.profile.update!(
+#   first_name: Faker::Name.first_name,
+#   last_name: Faker::Name.last_name,
+#   profile_img: user_images.sample,
+#   description: Faker::ChuckNorris.fact,
+#   experience: ["Seedling", "Plant Friend", "Moss Person", "Plant Whisperer"].sample,
+#   avg_rating: (3..4).to_a.sample + [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9].sample,
+#   address: Faker::Address.full_address,
+#   sitter: [true, false].sample,
+#   advisor: [true, false].sample
+#   )
+#   if new_user.profile.sitter
+#     Availability.create(start_date: "2021-08-01" , end_date: "2021-08-31" , profile: new_user.profile)
+#   end
+# end
+# puts "30 additional sample users were created."

@@ -1,0 +1,30 @@
+.btn-sea-green {
+  color: white;
+  font-weight: bold;
+  background-color: $sea-green;
+  border-radius: 80px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-decoration: none;
+}
+
+.button-profile-message {
+  margin: 0;
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  background-color: $sea-green;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+a:hover {
+    color:  white;
+    text-decoration: none;
+}
