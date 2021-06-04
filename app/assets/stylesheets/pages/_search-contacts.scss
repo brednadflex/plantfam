@@ -3,14 +3,22 @@
   margin: 2% auto;
   background-color: white;
 }
+
 .contacts-searchbar {
   display: flex;
-  justify-content: center;
+  width: 80%;
+  justify-content: space-between;
   background-color: white;
+  margin: 0 auto;
+  }
+
+.contacts-searchbar {
 
   .form-control {
   border-radius: 10px;
-  width: 50%;
+  width: 80%;
+  border: 2px solid $light-green;
+  margin-right: 15px;
   }
 }
 
@@ -57,9 +65,7 @@
 
 .contact-results {
   overflow: scroll;
-  margin: 5vh auto;
-  width: 100%;
-  margin: 18vh auto;
-  width: 60%;
-  height: 65vh;
+  margin: 111px auto;
+  height: 600px;
+  width: 95%;
 }
