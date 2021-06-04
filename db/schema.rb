@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2021_06_03_160242) do
-=======
-ActiveRecord::Schema.define(version: 2021_06_02_145343) do
->>>>>>> 058d6a4f9de690e2114c0085da8fc97c4cc47824
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,8 +72,8 @@ ActiveRecord::Schema.define(version: 2021_06_02_145343) do
     t.string "experience"
     t.float "avg_rating"
     t.string "address"
-    t.float "latitude"
-    t.float "longitude"
+    t.float "location_lat"
+    t.float "location_lng"
     t.float "max_radius"
     t.boolean "sitter", default: false
     t.boolean "advisor", default: false

@@ -1,0 +1,80 @@
+.profile-booking-new {
+  width: 100%;
+  display: flex;
+  // border: 1px dotted black;
+  padding: 8px;
+}
+
+.profile-booking-avatar {
+  width: 30%;
+  max-height: 100px;
+  // border: 1px dotted green;
+  display: flex;
+  justify-content: center;
+
+  img {
+    width: auto;
+    height: 100%;
+
+    object-fit: fill;
+  }
+}
+
+.profile-booking-info {
+  width: 70%;
+  // border: 1px dotted red;
+}
+
+.profile-info-header {
+  display: flex;
+  justify-content: space-between;
+  height: 18px;
+}
+
+.profile-info-experience {
+  text-align: right;
+  color: #0B6F5B;
+  font-size: 14px;
+  margin: 0;
+  margin-top: 20px;
+}
+
+.profile-info-service-info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+
+  p {
+    margin: 0;
+  }
+}
+
+.profile-info-sitter {
+  color: white;
+  background-color: #0F9370;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 15px;
+}
+
+.profile-info-advisor {
+  color: white;
+  background-color: #084C47;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 15px;
+}
+
+.booking-form-container {
+  margin-bottom: 100px;
+  width: 80%;
+  margin-left: 50px;
+  border-radius: 20px;
+}
+
+.submit-button {
+  background-color: #119E85;
+  color: white;
+  border-radius: 20px;
+  margin-left: 80px;
+}

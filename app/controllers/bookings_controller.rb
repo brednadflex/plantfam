@@ -10,6 +10,7 @@ class BookingsController < ApplicationController
   def new
     @profile = Profile.find(params[:profile_id])
     @booking = Booking.new
+    @name = @profile.first_name + " " + @profile.last_name
   end
 
   def create
