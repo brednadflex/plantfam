@@ -10,4 +10,5 @@ class Booking < ApplicationRecord
 
   validates :start_date, presence: true
   validates :end_date, presence: true
+  validates :service_provided, presence: true
 end
