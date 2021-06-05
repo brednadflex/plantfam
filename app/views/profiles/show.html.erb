@@ -36,25 +36,6 @@
     <p><%= @profile.description %></p>
   </div>
 
-  <div class="review-container">
-    <% @reviews.each do |review| %>
-      <div class="review">
-        <div class="review-avatar">
-          <img src=<%= review.user.profile.profile_img %> alt="user-image" class="rounded-circle review-avatar">
-        </div>
-        <div class="review-info">
-          <div class="review-content">
-            <%= review.content %>
-          </div>
-          <div class="review-date-time-rating">
-            <%= review.created_at.strftime("%b %d, %Y") %>
-            <p class="rating-leaf"><i class="fas fa-leaf"></i><i class="fas fa-leaf"></i><i class="fas fa-leaf"></i><i class="fas fa-leaf"></i><i class="fas fa-leaf"></i></p>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
-
 <div class="services">
   <p><strong>Services:</strong></p>
   <div class="service-sitter">
@@ -76,6 +57,25 @@
     </div>
   </div>
 </div>
+
+<div class="review-container">
+    <% @reviews.each do |review| %>
+      <div class="review">
+        <div class="review-avatar">
+          <img src=<%= review.user.profile.profile_img %> alt="user-image" class="rounded-circle review-avatar">
+        </div>
+        <div class="review-info">
+          <div class="review-content">
+            <%= review.content %>
+          </div>
+          <div class="review-date-time-rating">
+            <%= review.created_at.strftime("%b %d, %Y") %>
+            <p class="rating-leaf"><i class="fas fa-leaf"></i><i class="fas fa-leaf"></i><i class="fas fa-leaf"></i><i class="fas fa-leaf"></i><i class="fas fa-leaf"></i></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
   
 <div class="actions">
   <div>

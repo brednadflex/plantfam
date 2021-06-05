@@ -90,33 +90,9 @@ i {
   margin: 15px 10px;
   padding: 10px;
   background-color: $light-green;
-  border: 3px solid $dark-green;
+  border: 1px solid $dark-green;
   border-radius: 0 30px 0 30px;
   // position: absolute;
-}
-
-.review {
-  margin: 10px 20px 10px 20px;
-  background-color: $light-green;
-  border: 3px solid $dark-green;
-  border-radius: 0 30px 0 30px;
-  display: flex;
-  
-}
-
-.review-avatar {
-  margin: 5px;
-  height: 50px;
-  left: 2%;
-  top: 29%;
-}
-
-.review-date-time-rating {
-  margin: 0;
-  display: flex;
-  justify-content: space-between;
-  font-size: 14px;
-  align-items: center;
 }
 
 .services {
@@ -130,7 +106,7 @@ i {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 2px solid $dark-green;
+    border: 1px solid $dark-green;
     border-bottom: 0;
     padding: 10px;
   }
@@ -139,7 +115,7 @@ i {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 2px solid $dark-green;
+    border: 1px solid $dark-green;
     padding: 10px;
   }
 
@@ -150,7 +126,37 @@ i {
   }
 }
 
+.review-container {
+  margin-top: 20px;
+}
+.review {
+  margin: 10px;
+  align-items: center;
+  background-color: $light-green;
+  border: 1px solid $dark-green;
+  border-radius: 40px 30px 0 40px;
+  display: flex;
 
+  .review-avatar {
+    margin-left: 3px;
+    margin-right: 5px;
+    height: 70px;
+    left: 2%;
+    top: 40%;
+  }
+
+  .review-info {
+    padding-top: 5px;
+  }
+
+  .review-date-time-rating {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    align-items: center;
+  }
+}
 
 .actions {
   margin: 20% auto;
