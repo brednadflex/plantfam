@@ -1,72 +1,80 @@
 <div class="container">
-    <%# @profile.banner_img %>
-  <div class="profile-info">
-    <img class="banner" src=<%= 'https://source.unsplash.com/random/900×250/?plants' %> alt="plant">
-    <img src=<%= @profile.profile_img %> alt="user-image" class="rounded-circle profile-avatar";>
-    
-    
-    <div class="name-experience-offers-rating">
-      <div class="name-rating">
-        <p><%= @profile.first_name %> <%= @profile.last_name %></p>
-        <p><i class="fas fa-leaf"></i><%= @profile.avg_rating %></p>
-      </div>
-      <div class="experience">
-        <p><em><%= @profile.experience %></em></p>
-      </div>
-      <div class="sitter-advisor">
-        <p>Offers: </p>
-        <% if @profile.sitter %>
-          <p class="tag-sitter">sitter</p>
-        <% end %>
-        <%if @profile.advisor %>
-          <p class="tag-advisor">advisor</p>
-        <% end %>
-      </div>
+  <img class="banner" src=<%= 'https://source.unsplash.com/random/900×250/?plants' %> alt="plant">
+  <img src=<%= @profile.profile_img %> alt="user-image" class="rounded-circle profile-avatar";>
+  
+  
+  <div class="name-experience-offers-rating">
+    <div class="name-rating">
+      <p class="name"><%= @profile.first_name %> <%= @profile.last_name %></p>
+      <p class="rating-leaf"><i class="fas fa-leaf"></i><i class="fas fa-leaf"></i><i class="fas fa-leaf"></i><i class="fas fa-leaf"></i><i class="fas fa-leaf"></i></p>
     </div>
-    
-
-    <%= link_to chat_room_path do %>
-      <div class="message-button-flex button-profile-message">
-        <%= image_tag("mail-white.png") %>
-        <p class="ml-3">message <%= @profile.first_name %></p>
-      </div>
-   
-    <% end %>
-
-    <div class="description-about-me">
-      <p>About <%= @profile.first_name %>: <%= @profile.description %></p>
+    <div class="experience">
+      <p><em><%= @profile.experience %></em></p>
     </div>
-
-    <div class="review-container">
-      <% @reviews.each do |review| %>
-        <div class="review">
-          <img src=<%= review.user.profile.profile_img %> alt="user-image" class="rounded-circle border mb-3" style="width: 50px; height: 50px;">
-          <%= review.user.profile.first_name %>
-          <%= review.user.profile.last_name %>
-          <%= review.content %>
-          <%= review.recommended %>
-          <%= review.rating %>
-          <%= review.created_at.strftime("%b %d, %Y") %>
-        </div>
+    <div class="sitter-advisor">
+      <p>Offers: </p>
+      <% if @profile.sitter %>
+        <p class="tag-sitter">sitter</p>
+      <% end %>
+      <%if @profile.advisor %>
+        <p class="tag-advisor">advisor</p>
       <% end %>
     </div>
   </div>
   
-  <div class="actions">
-    <div>
-      <%= link_to 'edit profile', edit_profile_path(@profile), class: "btn-sea-green" %>
+
+  <%= link_to chat_room_path do %>
+    <div class="message-button-flex button-profile-message">
+      <%= image_tag("mail-white.png") %>
+      <p class="button-text ml-3">message <%= @profile.first_name %></p>
     </div>
-    <div>
-      <%= link_to 'book me!', new_profile_booking_path(@profile), class: "btn-sea-green" %>
-    </div>
-    <div>
-      <%= link_to 'My Bookings', profile_bookings_path(current_user.profile.id), class: "btn-sea-green" %>
-    </div>
-    <div>
-      <%= link_to 'Booking Requests', booking_requests_path, class: "btn-sea-green" %>
-    </div>
-    <div>
-      <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: "btn-sea-green" %>
-    </div>
+  
+  <% end %>
+
+  <div class="description-about-me">
+    <p><strong>About <%= @profile.first_name %>:</strong></p> 
+    <p><%= @profile.description %></p>
+  </div>
+
+  <div class="review-container">
+    <% @reviews.each do |review| %>
+      <div class="review">
+        <div class="review-avatar">
+          <img src=<%= review.user.profile.profile_img %> alt="user-image" class="rounded-circle review-avatar">
+        </div>
+        <div class="review-info">
+          <div class="review-content">
+            <%= review.content %>
+          </div>
+          <div class="review-date-time-rating">
+            <%= review.created_at.strftime("%b %d, %Y") %>
+            <p class="rating-leaf"><i class="fas fa-leaf"></i><i class="fas fa-leaf"></i><i class="fas fa-leaf"></i><i class="fas fa-leaf"></i><i class="fas fa-leaf"></i></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+<div class="services">
+  <p>Services:</p>
+
+
+</div>
+  
+<div class="actions">
+  <div>
+    <%= link_to 'edit profile', edit_profile_path(@profile), class: "btn-sea-green" %>
+  </div>
+  <div>
+    <%= link_to 'book me!', new_profile_booking_path(@profile), class: "btn-sea-green" %>
+  </div>
+  <div>
+    <%= link_to 'My Bookings', profile_bookings_path(current_user.profile.id), class: "btn-sea-green" %>
+  </div>
+  <div>
+    <%= link_to 'Booking Requests', booking_requests_path, class: "btn-sea-green" %>
+  </div>
+  <div>
+    <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: "btn-sea-green" %>
   </div>
 </div>

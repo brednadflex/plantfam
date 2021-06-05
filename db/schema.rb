@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2021_06_03_160242) do
     t.string "service_type"
     t.date "start_date"
     t.date "end_date"
-    t.integer "confirmed", default: 0, null: false
+    t.boolean "confirmed", default: false, null: false
     t.boolean "completed", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
