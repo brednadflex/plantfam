@@ -121,12 +121,36 @@ i {
 
 .services {
   margin: 10px;
+  font-size: 18px;
 
   p {
-    font-size: 18px;
-    font-weight: bold;
+    margin: 0;
+  }
+  .service-sitter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid $dark-green;
+    border-bottom: 0;
+    padding: 10px;
+  }
+
+  .service-advisor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid $dark-green;
+    padding: 10px;
+  }
+
+  .service-info-line {
+    font-size: 16px;
+    color: $sea-green;
+    margin: 0;
   }
 }
+
+
 
 .actions {
   margin: 20% auto;
