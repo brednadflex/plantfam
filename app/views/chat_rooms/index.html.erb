@@ -10,38 +10,41 @@
         <%= submit_tag "Search", class: "message-search-btn" %>
       </div>
     <% end %>
-  </div>
-  <div class="message-create">
-    <h3>Your messages</h3>
-    <%= link_to users_path, class: "text-decoration-none text-reset" do  %>
-    <i class="far fa-plus-square"></i>
-    <% end %>
+        <%= link_to users_path, class: "text-decoration-none text-reset" do  %>
+      <div class="send-btn-float">
+        <p>new</p>
+        <i class="far fa-paper-plane"></i>
+      </div>
+        <% end %>
   </div>
 </div>
 
 
 
 
-<% @chatrooms.each do |chatroom| %>
-  <% if chatroom.messages.count > 0 %>
-    <%= link_to chat_room_path(chatroom, anchor: "message-#{chatroom.messages.last.id}"), class: "text-decoration-none text-reset" do %>
-      <div class="chatindex-list-container">
-        <div class="header-avatar">
-          <% other_person = current_user == chatroom.receiver ? chatroom.requester : chatroom.receiver  %>
-          <%= image_tag other_person.profile.profile_img %>
-        </div>
-        <div class="name-and-date-flex">
-          <div class="chatindex-otherperson-name">
-            <h6><%= other_person.profile.first_name %> <%= other_person.profile.last_name %></h6>
-            <p><%= chatroom.messages.last.content %></p>
+<div class="chats-scrollbox">
+  <% @chatrooms.each do |chatroom| %>
+    <% if chatroom.messages.count > 0 %>
+        <%= link_to chat_room_path(chatroom, anchor: "message-#{chatroom.messages.last.id}"), class: "text-decoration-none text-reset" do %>
+          <div class="chatindex-list-container">
+            <div class="header-avatar">
+              <% other_person = current_user == chatroom.receiver ? chatroom.requester : chatroom.receiver  %>
+              <%= image_tag other_person.profile.profile_img %>
+            </div>
+            <div class="name-and-date-flex">
+              <div class="chatindex-otherperson-name">
+                <h6><%= other_person.profile.first_name %> <%= other_person.profile.last_name %></h6>
+                <div class = "msg-preview">
+                  <p><%= chatroom.messages.last.content.first(30) %>...</p>
+                </div>
+              </div>
+              <div class="chatindex-date-and-time">
+               <small><%= chatroom.messages.last.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+              </div>
+            </div>
           </div>
-          <div class="chatindex-date-and-time">
-           <small><%= chatroom.messages.last.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-          </div>
-        </div>
-      </div>
+        <% end %>
     <% end %>
   <% end %>
-
-<% end %>
+</div>
 
