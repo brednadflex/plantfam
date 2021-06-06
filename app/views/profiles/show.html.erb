@@ -35,34 +35,51 @@
     <p><strong>About <%= @profile.first_name %>:</strong></p> 
     <p><%= @profile.description %></p>
   </div>
-
+<p class="ml-2" style="font-size:18px"><strong>Services:</strong></p>
 <div class="services">
-  <p><strong>Services:</strong></p>
   <div class="service-sitter">
     <div>
-      <p><strong>Advice</strong></p>
+      <p>Advice</p>
       <p class="service-info-line">help with plant care problems</p>
     </div>
-    <div>
-      <p>10€/ph</p>
+    <div class="service-price">
+      <div>
+        <p class="mr-3">swap</p>
+      </div>
+      <div>
+        <%= link_to new_profile_booking_path(@profile) do %>
+          <i class="fas fa-chevron-right"></i>
+        <% end %>
+      </div>
     </div>
   </div>
+
   <div class="service-advisor">
     <div>
-      <p><strong>Plant Sitting</strong></p>
-      <p class="service-info-line">up to 3 visits per week</p>
+      <p>Plant Sitting</p>
+      <p class="service-info-line">personalized care schedule</p>
     </div>
-    <div>
-      <p>negotiable</p>
+    <div class="service-price">
+      <div>
+        <p class="mr-3">donation</p>
+      </div>
+      <div>
+        <%= link_to new_profile_booking_path(@profile) do %>
+          <i class="fas fa-chevron-right"></i>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
 
+<p class="ml-2" style="font-size:18px"><strong>Reviews:</strong></p>
 <div class="review-container">
     <% @reviews.each do |review| %>
       <div class="review">
         <div class="review-avatar">
-          <img src=<%= review.user.profile.profile_img %> alt="user-image" class="rounded-circle review-avatar">
+          <%= link_to profile_path(review) do %>
+            <img src=<%= review.user.profile.profile_img %>   alt="user-image" class="rounded-circle review-avatar">
+          <% end %>
         </div>
         <div class="review-info">
           <div class="review-content">
