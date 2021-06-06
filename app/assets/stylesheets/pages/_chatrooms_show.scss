@@ -1,6 +1,18 @@
+.body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.viewport-height {
+  height: 100%;
+}
+
 .header-avatar {
   width: 10%;
 }
+
+
 
 .header-icon {
   width: 10%;
@@ -9,6 +21,7 @@
 .header-name {
   width: 80%;
   margin-left: 10%;
+  margin-top: 5%;
 }
 
 .profile-icon-heder {
@@ -29,33 +42,48 @@
   padding: 2%;
   background: white;
   height: 7%;
+  margin: 5% auto;
+  border-bottom: 2px solid $light-green;
 }
 
 .chat-header i {
-  font-size: 2em;
+  font-size: 1.5em;
   color: $dark-green;
 }
 
 .flexy-form {
   display: flex;
+  width: 90%;
+  margin-bottom: 28%;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 9vh;
-  justify-content: center;
-  .form-group {
-    width: 70%;
+  justify-content: space-between;
+  .form-control {
+    position: absolute;
+    width: 80%;
+    border: 2px solid $light-green;
+    border-radius: 5%;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   }
   padding-bottom: 7%;
 }
 
+
 .airplane-button {
     background-color: white;
     margin-left: 2%;
-    width: 20%;
+    width: 15%;
     height: 80%;
+    border-radius: 20%;
+    border: 2px solid $light-green;
+    flex-grow: 0;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .messages-scrollbox {
+  position: absolute;
+  margin-top: 12%;
   overflow: scroll;
-  height: 60%;
+  height: 67%;
+  width: 95%;
 }

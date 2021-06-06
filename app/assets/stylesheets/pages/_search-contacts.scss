@@ -6,39 +6,50 @@
 
 .contacts-searchbar {
   display: flex;
-  width: 80%;
+  width: 90%;
   justify-content: space-between;
   background-color: white;
   margin: 0 auto;
   }
 
 .contacts-searchbar {
-
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 92%;
+  height: 100%;
+  padding: 5px;
+  margin: 0 auto;
+  border-radius: 8px;
+  z-index: 0;
   .form-control {
-  border-radius: 10px;
-  width: 80%;
-  border: 2px solid $light-green;
-  margin-right: 15px;
+    border: 2px solid $light-green;
+    border-radius: 8px;
+    height: 100%;
+    background-color: white;
+    font-style: italic;
   }
 }
+
 
 .contacts-with-avatar {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  height: 9vh;
+  height: 10%;
   background-color: white;
 }
 
 .contacts-avatar {
-  width: 9vh;
+  width: 20%;
   height: 100%;
 
 }
 
 .back-icon {
-  color: $dark-green;
+  font-size: 1.5em;
 }
 
 .contacts-avatar img {
@@ -55,13 +66,13 @@
   color: $dark-green;
 }
 
-.search-contacts-btn {
-  background-color: white;
-  border: 2px solid $light-green;
-  border-radius: 20%;
-  color: $dark-green;
+// .search-contacts-btn {
+//   background-color: white;
+//   border: 2px solid $light-green;
+//   border-radius: 20%;
+//   color: $dark-green;
 
-}
+// }
 
 .contact-results {
   overflow: scroll;
