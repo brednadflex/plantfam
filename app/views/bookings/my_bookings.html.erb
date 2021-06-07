@@ -1,0 +1,201 @@
+<div class="container-fluid ml-1 mr-1 mt-1">
+  <div class="chat-header fixed-top">
+    <div class="header-icon">
+      <%= link_to profile_path(@current_user), class: "text-decoration-none text-reset color:$dark-green" do %>
+      <i class="fas fa-arrow-circle-left pl-2"></i>
+      <% end %>
+    </div>
+    <div class="header-avatar">
+      <%= image_tag current_user.profile.profile_img %>
+    </div>
+    <div class="header-name">
+      <p>My Bookings</p>
+    </div>
+    <div class="profile-icon-header">
+      <i class="far fa-question-circle"></i>
+    </div>
+  </div>
+
+  <div class="scroll-section">
+
+    <div class="incoming-bookings-scroller">
+      <h3>Current bookings (incoming and outgoing)"</h3>
+      <div class="container-fluid py-2 bookings-horizontal-scroll">
+        <div class="d-flex flex-row flex-nowrap">
+          <% if @current_incoming.present? %>
+            <% @current_incoming.each do |booking| %>
+              <div class="card bookings-card-body incoming">
+
+                <h6>You are currently booked by</h6>
+                <h6><%= booking.client.profile.first_name %> <%= booking.client.profile.last_name %></h6>
+                <h6>for <%= booking.service_type %></h6>
+                <h6>until <%= booking.end_date.strftime("%b %d, %Y") %></h6>
+                <h6>MESSAGE <%= booking.client.profile.first_name %></h6>
+              </div>
+            <% end %>
+          <% elsif @current_outgoing.present? %>
+              <% @current_outgoing.each do |booking| %>
+              <div class="card bookings-card-body outgoing p-2">
+                <div class="d-flex flex-row">
+                  <%= image_tag booking.provider.profile.profile_img, class: 'avatar-tiny' %>
+                  <h6><%= booking.provider.profile.first_name %> <%= booking.provider.profile.last_name %></h6>
+                </div>
+                <h6>is your <%= booking.service_type %> right now</h6>
+                <h6>until <%= booking.end_date.strftime("%b %d, %Y") %></h6>
+                <h6>MESSAGE <%= booking.provider.profile.first_name %></h6>
+              </div>
+              <% end %>
+          <% else %>
+              <div>
+                <h3>You have no ongoing sitter or advisor jobs right now. Find a sitter here</h3>
+              </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="incoming-bookings-scroller">
+      <h3>Upcoming...</h3>
+      <div class="container-fluid py-2 bookings-horizontal-scroll">
+        <div class="d-flex flex-row flex-nowrap">
+          <% if @outgoing_upcoming.present? %>
+            <% @outgoing_upcoming.each do |booking| %>
+              <div class="card bookings-card-body incoming">
+                <h6><%= booking.provider.profile.first_name %> <%= booking.provider.profile.last_name %></h6>
+                <h6>will be your <%= booking.service_type %></h6>
+                <h6>from <%= booking.start_date.strftime("%b %d, %Y") %> until <%= booking.end_date.strftime("%b %d, %Y") %></h6>
+                <h6>Message <%= booking.provider.profile.first_name %></h6>
+              </div>
+            <% end %>
+          <% elsif @incoming_upcoming.present? %>
+              <% @incoming_upcoming.each do |booking| %>
+              <div class="card bookings-card-body outgoing">
+                <h6><%= booking.client.profile.first_name %> <%= booking.client.profile.last_name %></h6>
+                <h6>has booked you as a <%= booking.service_type %></h6>
+                <h6>Between <%= booking.start_date.strftime("%b %d, %Y") %> and <%= booking.end_date.strftime("%b %d, %Y") %>
+                <h6>MESSAGE <%= booking.client.profile.first_name %></h6>
+              </div>
+              <% end %>
+          <% else %>
+              <div>
+                <h3>You have no upcoming jobs</h3>
+              </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+
+     <div class="incoming-bookings-scroller">
+      <h3>Pending requests (incoming and outgoing)</h3>
+      <div class="container-fluid py-2 bookings-horizontal-scroll">
+        <div class="d-flex flex-row flex-nowrap">
+          <% if @pending_incoming.present? %>
+            <% @pending_incoming.each do |booking| %>
+              <div class="card bookings-card-body incoming">
+                <h6><%= booking.client.profile.first_name %> <%= booking.client.profile.last_name %></h6>
+                <h6>has requested you as a <%= booking.service_type %></h6>
+                <h6>Between <%= booking.start_date.strftime("%b %d, %Y") %> and <%= booking.end_date.strftime("%b %d, %Y") %>
+                <div class="d-flex flex-row">
+                  <h6 class="btn btn-primary">message</h6>
+                  <h6 class="btn btn-success">Accept</h6>
+                  <h6 class="btn btn-danger">Reject</h6>
+
+                </div>
+              </div>
+            <% end %>
+          <% elsif @pending_outgoing.present? %>
+              <% @pending_outgoing.each do |booking| %>
+              <div class="card bookings-card-body outgoing">
+                <h6>you have requeested <%= booking.provider.profile.last_name %></h6>
+                <h6>for <%= booking.service_type %></h6>
+                <h6>Between <%= booking.start_date.strftime("%b %d, %Y") %> and <%= booking.end_date.strftime("%b %d, %Y") %></h6>
+                <h6><em>Awaiting confirmation</em></h6>
+                <h6>MESSAGE <%= booking.client.profile.first_name %></h6>
+              </div>
+              <% end %>
+          <% else %>
+              <div>
+                <h3>You have no pending requests</h3>
+              </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="incoming-bookings-scroller">
+      <h3>Past bookings</h3>
+      <div class="container-fluid py-2 bookings-horizontal-scroll">
+        <div class="d-flex flex-row flex-nowrap">
+          <% if @completed_incoming.present? %>
+            <% @completed_incoming.each do |booking| %>
+              <div class="card bookings-card-body">
+                <h6>You offered <%= booking.service_type %></h6>
+                <h6>for <%= booking.client.profile.first_name %> <%= booking.client.profile.last_name %></h6>
+                <h6>From <%= booking.start_date.strftime("%b %d, %Y") %> until <%= booking.end_date.strftime("%b %d, %Y") %></h6>
+                <h6>see reviews</h6>
+              </div>
+            <% end %>
+          <% elsif @completed_outgoing.present? %>
+              <% @completed_outgoing.each do |booking| %>
+                <div class="card bookings-card-body">
+                  <h6><%= booking.provider.profile.first_name %> <%= booking.provider.profile.last_name %></h6>
+                  <h6>was your <%= booking.service_type %></h6>
+                  <h6>From <%= booking.start_date.strftime("%b %d, %Y") %> until <%= booking.end_date.strftime("%b %d, %Y") %></h6>
+                  <h6>write a review for <%= booking.provider.profile.first_name %></h6>
+                </div>
+              <% end %>
+          <% else %>
+              <h6>You have not completed any bookings yet</h6>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+
+<% if false %>
+
+<!--
+
+<ul>
+  <% @bookings.each do |booking| %>
+    <div class="my-3">
+      You booked <%= booking.provider.email %>
+      <br>
+      Service provided <%= booking.service_type %>
+      <br>
+      From <%= booking.start_date.strftime("%b %d, %Y") %> until <%= booking.end_date.strftime("%b %d, %Y") %>
+      <br>
+      <%= booking.confirmed == "pending" ? "Pending confirmation" : (booking.confirmed == "confirmed" ? "Booking accepted" : "Booking rejected") %>
+    </div>
+    <% if booking.can_review? %>
+      <%= link_to 'leave a review', new_booking_review_path(booking) %>
+    <% end %>
+  <% end %>
+</ul>
+
+
+
+<ul>
+  <% @bookings.each do |booking| %>
+    <div class="my-3">
+      <%= booking.client.email %> booked your service.
+      <br>
+      Service wanted <%= booking.service_type %>
+      <br>
+      From <%= booking.start_date.strftime("%b %d, %Y") %> until <%= booking.end_date.strftime("%b %d, %Y") %>
+      <br>
+      Booking <%= booking.confirmed == "pending" ? "Pending" : (booking.confirmed == "confirmed" ? "confirmed" : "rejected") %>
+      <br>
+      <%= booking.comment %>
+    </div>
+    <%= link_to "Accept booking", accept_booking_path(id: booking) %>
+    <%= link_to "Reject booking", reject_booking_path(id: booking), method: :post %>
+  <% end %>
+</ul>
+
+
+</div> -->
+
+<% end %>
