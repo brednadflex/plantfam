@@ -186,9 +186,33 @@ i {
   }
 }
 
-.about-me-edit-pencil {
+.my-profile-about-me-edit-pencil {
   text-align: right;
   font-size: 18px;
+}
+
+.my-profile-posts-comments-boxes {
+  line-height: 50px;
+  display: flex;
+  text-align: center;
+  font-size: 18px;
+  color: $dark-green;
+  border-top: 1px solid $dark-green;
+  border-bottom: 1px solid $dark-green;
+
+  p {
+    margin: 0;
+    font-weight: bold;
+  }
+
+  .my-profile-posts {
+    width: 50%;
+    border-right: 1px solid $dark-green;
+  }
+
+  .my-profile-comments {
+    width: 50%;
+  }
 }
 .actions {
   margin: 20% auto;

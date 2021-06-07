@@ -30,11 +30,18 @@
         <% end %>
       </div>
     </div>
-
+    <div class="my-profile-posts-comments-boxes">
+      <div class="my-profile-posts">
+        <p>my posts</p>
+      </div>
+      <div class="my-profile-comments">
+        <p>my comments</p>
+      </div>
+    </div>
     <div class="description-about-me">
       <p><strong>About Me:</strong></p> 
       <p><%= @profile.description %></p>
-      <div class="about-me-edit-pencil">
+      <div class="my-profile-about-me-edit-pencil">
         <%= link_to edit_profile_path(@profile) do %>
           <i class="fas fa-pencil-alt"></i>
         <% end %>
