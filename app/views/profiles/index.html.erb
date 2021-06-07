@@ -47,7 +47,7 @@
           </div>
 
           <p class="profile-description mt-4"><%= profile.description %></p>
-          <%= link_to "View profile", profile, class: "text-decoration-none text-reset" %>
+          <%= link_to "View profile", profile_path(profile, search: @search), class: "text-decoration-none text-reset" %>
         </div>
 
   <% end %>
