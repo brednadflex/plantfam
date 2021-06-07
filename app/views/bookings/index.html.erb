@@ -1,3 +1,28 @@
+<div class="container-fluid ml-1 mr-1 mt-1">
+  <div class="chat-header fixed-top">
+    <div class="header-icon">
+      <%= link_to profile_path(@current_user), class: "text-decoration-none text-reset color:$dark-green" do %>
+      <i class="fas fa-arrow-circle-left pl-2"></i>
+      <% end %>
+    </div>
+  <div class="header-avatar">
+    <%= image_tag current_user.profile.profile_img %>
+  </div>
+  <div class="header-name">
+    <p>My Bookings</p>
+  </div>
+  <div class="profile-icon-header">
+    <i class="far fa-question-circle"></i>
+  </div>
+
+  <div class="incoming-bookings-scroller">
+  </div>
+</div>
+
+
+
+
+
 <h1>My Bookings</h1>
 
 <ul>
@@ -16,3 +41,25 @@
     <% end %>
   <% end %>
 </ul>
+
+
+<h1>Your booking requests</h1>
+
+<ul>
+  <% @bookings.each do |booking| %>
+    <div class="my-3">
+      <%= booking.client.email %> booked your service.
+      <br>
+      Service wanted <%= booking.service_type %>
+      <br>
+      From <%= booking.start_date.strftime("%b %d, %Y") %> until <%= booking.end_date.strftime("%b %d, %Y") %>
+      <br>
+      Booking <%= booking.confirmed == "pending" ? "Pending" : (booking.confirmed == "confirmed" ? "confirmed" : "rejected") %>
+      <br>
+      <%= booking.comment %>
+    </div>
+    <%= link_to "Accept booking", accept_booking_path(id: booking) %>
+    <%= link_to "Reject booking", reject_booking_path(id: booking), method: :post %>
+  <% end %>
+</ul>
+
