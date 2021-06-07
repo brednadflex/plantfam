@@ -1,25 +1,26 @@
-
-<div class="container">
-  <h1>Profile</h1>
-  <%= simple_form_for(@profile) do |f| %>
-    <%= f.input :first_name, label: "First Name", placeholder: "first name" %>
-    <%= f.input :last_name, label: "Last Name", placeholder: "last name" %>
-    <%= f.input :description, label: "About Me", placeholder: "about me"  %>
-    <%= f.input :address, label: "Address", placeholder: "address" %>
-    <%= "Services you offer:" %>
-    <%= f.label :sitter do %>
-      <%= f.check_box :sitter, as: :boolean, label: false %>
-      <span>plant sitter</span>
+<div class="profile-edit-scrollbox">
+  <div class="container">
+    <h1>Profile</h1>
+    <%= simple_form_for(@profile) do |f| %>
+      <%= f.input :first_name, label: "First Name", placeholder: "first name" %>
+      <%= f.input :last_name, label: "Last Name", placeholder: "last name" %>
+      <%= f.input :description, label: "About Me", placeholder: "about me"  %>
+      <%= f.input :address, label: "Address", placeholder: "address" %>
+      <%= "Services you offer:" %>
+      <%= f.label :sitter do %>
+        <%= f.check_box :sitter, as: :boolean, label: false %>
+        <span>plant sitter</span>
+      <% end %>
+      <%= f.label :advisor do %>
+        <%= f.check_box :advisor, as: :boolean, label: false %>
+        <span>plant advisor</span>
+      <% end %>
+      <%= f.input :max_radius, label: "How many kilometers from your home are you willing to travel?", placeholder: "0", input_html: { min: "0" }%>
+      <%= f.input :experience, as: :radio_buttons, collection: ['Seedling (beginner)', 'Plant Friend (moderate)', 'Moss Person (knowledgable)', 'Plant Whisperer (expert)'] %>
+      <%= f.input :profile_banner, as: :file %>
+      <%= f.input :profile_img, as: :file %>
+      <%= f.input :public, as: :radio_buttons %> 
+      <%= f.submit %>    
     <% end %>
-    <%= f.label :advisor do %>
-      <%= f.check_box :advisor, as: :boolean, label: false %>
-      <span>plant advisor</span>
-    <% end %>
-    <%= f.input :max_radius, label: "How many kilometers from your home are you willing to travel?", placeholder: "0", input_html: { min: "0" }%>
-    <%= f.input :experience, as: :radio_buttons, collection: ['Seedling (beginner)', 'Plant Friend (moderate)', 'Moss Person (knowledgable)', 'Plant Whisperer (expert)'] %>
-    <%= f.input :profile_banner, as: :file %>
-    <%= f.input :profile_img, as: :file %>
-    <%= f.input :public, as: :radio_buttons %> 
-    <%= f.submit %>    
-  <% end %>
+  </div>
 </div>

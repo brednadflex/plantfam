@@ -1,13 +1,17 @@
-.container {
+body {
   margin: 0;
   padding: 0;
 }
 
+.container {
+  margin: 0;
+  padding: 0;
+  margin: 0 auto;
+}
+
 .banner {
-  // width: 100%;
-  // height: 220px;
+  width: 100%;
   object-fit: cover;
-  width: 378px;
   height: 246px;
   left: 0px;
   top: 0px;
@@ -15,68 +19,160 @@
 
 .profile-avatar {
   position: absolute;
-  height: 80px;
-  width: 80px;
-  left: 6%;
-  right: 67%;
-  top: 27%;
+  height: 120px;
+  width: 120px;
+  left: 2%;
+  top: 29%;
   bottom: 75%;
   border: 6px solid white;
   align-items: flex-end;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-.profile-info .name-experience-offers-rating {
+.container .name-experience-offers-rating {
   // overflow: hidden;
-  padding: 16px;
+  padding: 6px 10px 0 10px;
   // display: flex;
   // justify-content: flex-end;
   // position: absolute;
+  position: relative;
 }
 
 .name-rating {
+  padding-left: 30%;
   display: flex;
   justify-content: flex-end;
   text-align: right;
+  line-height: 22px;
 }
 
-.sitter-advisor {
-  display: flex;
-  justify-content: flex-end;
-  // text-align: right;
-  align-items: center;
+.name {
+  margin: 5px 0px 0 0;
+  margin-right: 6px;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.rating-leaf {
+  margin: 5px;
+  font-weight: normal;
+  font-size: 15px;
 }
 
 .experience {
   color: $dark-green;
   text-align: right;
+  font-size: 18px;
+}
+
+.sitter-advisor {
+  height: 35px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .message-button-flex {
+  margin-top: 3px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.description-about-me {
-  margin: 10px;
-  padding: 10px;
-  border: 3px solid $dark-green;
-  border-radius: 0 30px 0 30px;
-  
-  // position: absolute;
-}
 
-.review {
-  margin: 10px;
-  padding: 10px;
-  border: 3px solid $dark-green;
-  border-radius: 0 30px 0 30px;
-  
-  // position: absolute;
+.button-text {
+  margin-bottom: 3px;
 }
 
 i {
   color: $sea-green;
+}
+
+.description-about-me {
+  margin: 20px 10px;
+  padding: 15px;
+  background-color: $light-green;
+  border: 1px solid $dark-green;
+  border-radius: 0 40px 0 40px;
+}
+
+.services {
+  // margin: 10px;
+  font-size: 18px;
+  border-top: 1px solid $dark-green;
+  border-bottom: 1px solid $dark-green;
+
+  p {
+    margin: 0;
+  }
+  .service-sitter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid $dark-green;
+    // border-bottom: 0;
+    padding: 10px;
+  }
+
+  .service-advisor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .service-info-line {
+    font-size: 16px;
+    color: $sea-green;
+    margin: 0;
+  }
+
+  .service-price {
+      display: flex;
+      justify-content: flex-end;
+    }
+    
+    i {
+      font-size: 30px;
+      color:darkslategray;
+    }
+
+    i:hover {
+      color: $sea-green;
+      font-size: 33px;
+    }
+}
+
+
+.review-container {
+  margin-top: 20px;
+}
+.review {
+  margin: 10px;
+  align-items: center;
+  background-color: $light-green;
+  border: 1px solid $dark-green;
+  border-radius: 40px 30px 0 40px;
+  display: flex;
+
+  .review-avatar {
+    margin-left: 3px;
+    margin-right: 5px;
+    height: 70px;
+    left: 2%;
+    top: 40%;
+  }
+
+  .review-info {
+    padding-top: 5px;
+  }
+
+  .review-date-time-rating {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    align-items: center;
+  }
 }
 
 .actions {

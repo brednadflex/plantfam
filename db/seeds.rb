@@ -2,10 +2,10 @@ puts "Destroying all users and profiles"
 Availability.destroy_all
 Message.destroy_all
 ChatRoom.destroy_all
+Review.destroy_all
 Booking.destroy_all
 Profile.destroy_all
 User.destroy_all
-
 
 user_images = [
   "https://images.unsplash.com/photo-1554151228-14d9def656e4?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZmFjZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80",
@@ -57,7 +57,7 @@ profile_claudiu = claudiu.profile.update!(
   first_name: "Claudiu",
   last_name: "Florin Popa",
   profile_img: "https://avatars.githubusercontent.com/u/81229662?v=4",
-  description: "I'm in love with plants and enjoy taking care of them.",
+  description: "I'm in love with plants and enjoy taking care of them. I joined PlantFam to pass on my knowledge and to help others be worry free while they are on vacation. Plants are our babies! I specialize in desert fauna, if you have any questions!",
   experience: "Plant Whisperer",
   avg_rating: 4.8,
   address: "An der Urania 5, 10787 Berlin",
@@ -74,7 +74,7 @@ barney = User.create!(email: "barney@barney.com", password: "barney123")
 profile_barney = barney.profile.update!(
   first_name: "Barney",
   last_name: "Haas",
-  description: "Plants are just the best and I just can't hide it.",
+  description: "Plants are just the best and I just can't hide it.  I have been a plant lover my entire life, starting with gardening with my grandmother in her big vegetable garden.  I have a wide range of expertise from produce, to tropicals, and have lots of tricks to get rid of mites and other unwanted critters.  I am there for you as a sitter or advisor!",
   profile_img: "https://avatars.githubusercontent.com/u/77109548?v=4",
   experience: "Plant Whisperer",
   avg_rating: 4.5,
@@ -90,11 +90,11 @@ puts "Barney's profile was created..."
 # Jal
 jal = User.create!(email: "jal@jal.com", password: "jal123")
 profile_jal= jal.profile.update!(
-  first_name: "Jalynn",
+  first_name: "Jal",
   last_name: "Ridley",
-  description: "I take care of my plants as if they were my own children. Let's have a plant chat!",
+  description: "I take care of my plants as if they were my own children. I have a beautiful 17 year old Madacascar often with babies up for grabs. My friends say I have too many plants but I don't believe that is possiblte. Let's connect and have a plant chat!",
   profile_img: "https://avatars.githubusercontent.com/u/72085091?v=4",
-  experience: "Seedling",
+  experience: "Moss Person",
   avg_rating: 4.6,
   address: "Pariser Platz, 10117, Berlin",
   sitter: true,
@@ -110,13 +110,13 @@ julian = User.create!(email: "julian@julian.com", password: "julian123")
 profile_julian = julian.profile.update!(
   first_name: "Julian",
   last_name: "Thompson",
-  description: "A plant? What the hell is even that?",
+  description: "A plant? What the hell is that? I am a plant newbie looking for inspiration and chats about how to not kill all plants I own. I am an apartment dweller with no balcony and want to get some life into it.  I have a green heart but a black thumb! I would love to hit you up for a chat! ",
   profile_img: "https://avatars.githubusercontent.com/u/80887245?s=400&u=a2a1d4d27a7a628a5eebb5fa888fe55fbaa6dd00&v=4",
   experience: "Seedling",
   avg_rating: 4.2,
   address: "Platz der Republik 1, 11011, Berlin",
   sitter: true,
-  advisor: true
+  advisor: false
 )
 if julian.profile.sitter
   Availability.create(start_date: "2021-07-01" , end_date: "2021-07-31" , profile: julian.profile)
