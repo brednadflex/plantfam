@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     resources :availabilities, except: :show
   end
 
+  get 'my_profile', to: 'profiles#my_profile', as: :my_profile
+
   resources :bookings, only: [] do
     resources :reviews, only: [:new, :create]
   end
