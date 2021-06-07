@@ -15,6 +15,7 @@
         <%= f.check_box :advisor, as: :boolean, label: false %>
         <span>plant advisor</span>
       <% end %>
+      <%= f.input  %>
       <%= f.input :max_radius, label: "How many kilometers from your home are you willing to travel?", placeholder: "0", input_html: { min: "0" }%>
       <%= f.input :experience, as: :radio_buttons, collection: ['Seedling (beginner)', 'Plant Friend (moderate)', 'Moss Person (knowledgable)', 'Plant Whisperer (expert)'] %>
       <%= f.input :profile_banner, as: :file %>
