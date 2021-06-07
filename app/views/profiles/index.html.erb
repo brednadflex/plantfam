@@ -1,4 +1,4 @@
-<div class="container">
+<div class="mobile-container">
   <h4>Pick a Plant Sitter</h4>
 
   <% @profiles.each do |profile| %>
@@ -7,7 +7,7 @@
 
           <div class="profile-card-user-info">
             <div class="profile-card-image">
-              <img src=<%= profile.profile_img %> alt="user-image" class="rounded-circle" style="width: 50px; height: 50px;">
+              <img src=<%= profile.profile_img %> alt="user-image" class="rounded-circle profile-user-img" style="width: 50px; height: 50px;">
             </div>
 
             <div class="profile-card-user-text">
