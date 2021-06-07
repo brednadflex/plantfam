@@ -6,10 +6,15 @@
   <div class="name-experience-offers-rating">
     <div class="name-rating">
       <p class="name"><%= @profile.first_name %> <%= @profile.last_name %></p>
-      <p class="rating-leaf"><i class="fas fa-leaf"></i><i class="fas fa-leaf"></i><i class="fas fa-leaf"></i><i class="fas fa-leaf"></i><i class="fas fa-leaf"></i></p>
+      <% @profile.avg_rating.round.times do %>
+        <i class="fas fa-leaf green-leaf"></i>
+      <% end %>
+      <% (5 - @profile.avg_rating.round).times do %>
+        <i class="fas fa-leaf grey-leaf"></i>
+      <% end %>
     </div>
     <div class="experience">
-      <p><em><%= @profile.experience %></em></p>
+      <p><em>Level: <%= @profile.experience %></em></p>
     </div>
     <div class="sitter-advisor">
       <p>Offers: </p>

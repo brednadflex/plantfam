@@ -44,6 +44,7 @@ body {
   justify-content: flex-end;
   text-align: right;
   line-height: 22px;
+  align-items: center;
 }
 
 .name {
@@ -57,9 +58,19 @@ body {
   margin: 5px;
   font-weight: normal;
   font-size: 15px;
+
+}
+
+.green-leaf {
+  color: $dark-green;
+}
+
+.grey-leaf {
+  color: grey;
 }
 
 .experience {
+  margin-top: 5px;
   color: $dark-green;
   text-align: right;
   font-size: 18px;

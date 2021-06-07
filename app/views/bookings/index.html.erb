@@ -11,6 +11,8 @@
       <br>
       <%= booking.confirmed == "pending" ? "Pending confirmation" : (booking.confirmed == "confirmed" ? "Booking accepted" : "Booking rejected") %>
     </div>
-    <%= link_to 'leave a review', new_booking_review_path(booking) %>
+    <% if booking.can_review? %>
+      <%= link_to 'leave a review', new_booking_review_path(booking) %>
+    <% end %>
   <% end %>
 </ul>
