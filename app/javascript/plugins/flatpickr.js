@@ -1,3 +1,5 @@
+import flatpickr from "flatpickr";
+
 const startDateinput = document.getElementById('start_date');
 const endDateinput = document.getElementById('end_date');
 
