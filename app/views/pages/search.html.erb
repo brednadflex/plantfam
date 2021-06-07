@@ -15,4 +15,10 @@
     </div>
     <%= submit_tag "Find available Plant Sitters", class: "btn-sea-green search-sitter-button" %>
   <% end %>
+
+  <%= simple_form_for :search, :url => "/profiles", method: "get" do |f| %>
+      <%= f.input :from, as: :string, required: true, input_html: {class: "datepicker", id: "range_start"} %>
+      <%= f.input :to, as: :string, required: true, input_html: {class: "datepicker", id: "range_end"} %>
+      <%= f.button :submit, "Find available Plant Sitters", class: "btn-sea-green search-sitter-button" %>
+    <% end %>
 </div>
