@@ -1,18 +1,40 @@
-<div class="profile-booking-new">
-  <div class="profile-booking-avatar">
-    <%= image_tag @profile.profile_img, class: "avatar" %>
+<i class="fas fa-arrow-alt-circle-left fa-3x"></i>
+<div class="profile-card">
+  <div class="profile-card-user-info">
+      <div class="profile-card-image">
+        <img src=<%= @profile.profile_img %> alt="user-image" class="rounded-circle" style="width: 70px; height: 70px;">
+      </div>
+  <div class="profile-card-user-text">
+    <h4><%= @profile.first_name %></h4>
+    <p class="mt-1">Berlin <br>
+    <span class="experience"> <%= @profile.experience %></span></p>
   </div>
-  <div class="profile-booking-info">
-    <div class="profile-info-header">
-      <p> <%= @name %> </p>
-      <p> Rating <%= @profile.avg_rating %> </p>
+  <div class="profile-card-user-rating-price">
+    <div class="profile-card-rating">
+      <p><%= @profile.avg_rating %><%= image_tag "leaf.png", class: "ml-1" %></p>
     </div>
-    <p class="profile-info-experience">Plant Whisperer</p>
-    <div class="profile-info-service-info">
-      <p>Offers:</p>
-      <p class="profile-info-sitter">Plant Sitter</p>
-       <p class="profile-info-advisor">Advisor</p>
+    <div class="profile-card-price">
+      <p><%= [5, 12, 8, 18, 4, 9].sample %>€ / d</p>
     </div>
+  </div>
+  </div>
+  <div class="profile-card-services">
+    <% if @profile.sitter && @profile.advisor %>
+      <div class="plantsitter">
+        Plantsitter
+      </div>
+      <div class="advisor">
+        Advisor
+      </div>
+    <% elsif @profile.sitter %>
+      <div class="plantsitter">
+        Plantsitter
+      </div>
+    <% elsif @profile.advisor %>
+      <div class="advisor">
+        Advisor
+      </div>
+    <% end %>
   </div>
 </div>
 
@@ -26,12 +48,18 @@
   <% options = ["advise"] %>
 <% end %>
 <div class="booking-form-container">
-  <h3>Send <%= @profile.first_name %> a request</h3>
-  <%= simple_form_for([@profile, @booking]) do |f| %>
-    <%= f.input :service_type, collection: options %>
-    <%= f.input :start_date, as: :date, html5: true, input_html: {value: session[:search]["from"]} %>
-    <%= f.input :end_date, as: :date, html5: true, input_html: {value: session[:search]["to"]} %>
-    <%= f.input :comment, label: "Send a message" %>
+
+<h3>Send <%= @profile.first_name %> a request</h3>
+<%= simple_form_for([@profile, @booking]) do |f| %>
+  <%= f.input :service_type, collection: options %>
+  <div class="d-flex">
+    <%= f.input :start_date, input_html: {class: "input-width"}, as: :date, html5: true %>
+    <%= f.input :end_date, input_html: {class: "input-width"}, as: :date, html5: true %>
+  </div>
+  <%= f.input :comment, label: "Send a message", input_html: {rows: 8, class: "bg-message message-radius"} %>
+  <div class="text-center">
+
     <%= f.submit class: "btn submit-button" %>
-  <% end %>
+  </div>
+<% end %>
 </div>

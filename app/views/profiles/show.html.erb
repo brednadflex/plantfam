@@ -1,3 +1,54 @@
+<div class="container">
+  <img class="banner" src=<%= 'https://source.unsplash.com/random/900×250/?plants' %> alt="plant">
+  <img src=<%= @profile.profile_img %> alt="user-image" class="rounded-circle profile-avatar";>
+
+
+  <div class="name-experience-offers-rating">
+    <div class="name-rating">
+      <p class="name"><%= @profile.first_name %> <%= @profile.last_name %></p>
+      <% @profile.avg_rating.round.times do %>
+        <i class="fas fa-leaf green-leaf"></i>
+      <% end %>
+      <% (5 - @profile.avg_rating.round).times do %>
+        <i class="fas fa-leaf grey-leaf"></i>
+      <% end %>
+    </div>
+    <div class="experience">
+      <p><em>Level: <%= @profile.experience %></em></p>
+    </div>
+    <div class="sitter-advisor">
+      <p>Offers: </p>
+      <% if @profile.sitter %>
+        <p class="tag-sitter">sitter</p>
+      <% end %>
+      <%if @profile.advisor %>
+        <p class="tag-advisor">advisor</p>
+      <% end %>
+    </div>
+  </div>
+
+
+  <%= link_to user_chat_rooms_path(@profile.user), method: :post do %>
+    <div class="message-button-flex button-profile-message">
+      <%= image_tag("mail-white.png") %>
+      <p class="button-text ml-3">message <%= @profile.first_name %></p>
+    </div>
+
+  <% end %>
+
+  <div class="description-about-me">
+    <p><strong>About <%= @profile.first_name %>:</strong></p>
+    <p><%= @profile.description %></p>
+  </div>
+<p class="ml-2" style="font-size:18px"><strong>Services:</strong></p>
+<div class="services">
+  <div class="service-sitter">
+    <div>
+      <p>Advice</p>
+      <p class="service-info-line">help with plant care problems</p>
+    </div>
+    <div class="service-price">
+=======
 <div class="profile-edit-scrollbox">
   <div class="container">
     <img class="banner" src=<%= 'https://source.unsplash.com/random/900×250/?plants' %> alt="plant">
