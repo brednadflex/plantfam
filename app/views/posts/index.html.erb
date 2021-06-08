@@ -1,2 +1,26 @@
 <h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<% @posts.each do |post| %>
+  <div class="post-card">
+    <div class="post-card-info">
+      <div class="post-card-info-avatar bg-primary">
+        <%= image_tag post.user.profile.profile_img, alt: "alttext" %>
+      </div>
+      <div class="post-card-info-name-title">
+        <div class="post-card-info-name">
+          <%= post.user.profile.full_name %>
+          <span class="post-card-info-time">10 minutes ago</span>
+        </div>
+        <h2 class="post-card-info-title">
+          <%= post.title %>
+        </h2>
+
+      </div>
+    </div>
+    <div class="post-card-image bg-succes">
+
+    </div>
+    <div class="post-card-content bg-warning">
+
+    </div>
+  </div>
+<% end %>

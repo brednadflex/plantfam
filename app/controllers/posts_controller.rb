@@ -12,8 +12,9 @@ class PostsController < ApplicationController
   end
 
   def create
+    @user = current_user
     @post = Post.new(post_params)
-    raise
+    @post.user = @user
     if @post.save
       redirect_to posts_path
     else
