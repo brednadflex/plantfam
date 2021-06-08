@@ -3,8 +3,35 @@ class BookingsController < ApplicationController
     @bookings = Booking.where(client: current_user)
   end
 
-  def booking_requests
-    @bookings = Booking.where(provider: current_user)
+  def my_bookings
+    @bookings = Booking.where(client: current_user).or(Booking.where(provider: current_user))
+    all_bookings = @bookings
+
+    outgoing_bookings = Booking.where(client: current_user)
+    incoming_bookings = Booking.where(provider: current_user)
+
+    @current_bookings = all_bookings.select{ |booking| (booking.start_date <= Date.today) && (booking.end_date >= Date.today) }
+    current_bookings = @current_bookings
+
+    @current_incoming = current_bookings.select { |booking| booking.provider == current_user }
+    @current_outgoing = current_bookings.select { |booking| booking.client == current_user }
+
+    @upcoming_confirmed = all_bookings.select{ |booking| (booking.start_date > Date.today) && booking.confirmed? }
+    @upcoming_pending = all_bookings.select{ |booking| (booking.start_date > Date.today) && !booking.confirmed? }
+    upcoming_confirmed = @upcoming_confirmed
+    upcoming_pending = @upcoming_pending
+
+    @upcoming_incoming = upcoming_confirmed.select{ |booking| booking.provider == current_user }
+    @upcoming_outgoing = upcoming_confirmed.select{ |booking| booking.client == current_user }
+
+    @pending_incoming = upcoming_pending.select{ |booking| booking.provider == current_user }
+    @pending_outgoing = upcoming_pending.select{ |booking| booking.client == current_user }
+
+    @completed_bookings = all_bookings.select { |booking| booking.completed? }
+    completed_bookings = @completed_bookings
+
+    @completed_incoming = completed_bookings.select{ |booking| booking.provider == current_user }
+    @completed_outgoing = completed_bookings.select{ |booking| booking.client == current_user }
   end
 
   def new
