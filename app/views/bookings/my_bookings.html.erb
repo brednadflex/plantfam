@@ -34,17 +34,16 @@
         <div class="d-flex flex-row flex-nowrap">
           <% if @current_incoming.present? %>
             <% @current_incoming.each do |booking| %>
-              <div class="card bookings-card-body incoming">
-                <div class="d-flex flex-row justify-content-center">
-                  <%= image_tag booking.provider.profile.profile_img, class: 'avatar-tiny' %>
-                  <h6><%= booking.client.profile.first_name %> <%= booking.client.profile.last_name %></h6>
+              <div class="card bookings-card-body incoming p-2">
+                <div class="floating-questionmark">
+                  <i class="far fa-question-circle"></i>
                 </div>
-                <h6>has booked you as a <%= booking.service_type %></h6>
-                <h6>until <%= booking.end_date.strftime("%b %d, %Y") %></h6>
-                <div class="d-flex flex-row">
-                  <i class="far fa-envelope"></i>
-                  <h6>message <%= booking.client.profile.first_name %></h6>
+                <div class="bookings-card-header">
+                  <%= image_tag booking.client.profile.profile_img, class: 'avatar-tiny' %>
+                  <p><%= booking.client.profile.first_name %> <%= booking.client.profile.last_name %></p>
                 </div>
+                <p class="text-align-center"><em>has booked you as a </em><strong><%= booking.service_type %></strong><em> until <%= booking.end_date.strftime("%b %d, %Y") %></em></p>
+                <h6 class="card-msg-btn">message <%= booking.provider.profile.first_name %></h6>
               </div>
             <% end %>
           <% elsif @current_outgoing.present? %>
@@ -63,7 +62,7 @@
               <% end %>
           <% else %>
               <div>
-                <h3>You have no ongoing sitter or advisor jobs right now. Find a sitter here</h3>
+                <p><em>You have no ongoing sitter or advisor jobs right now. Find a sitter here</em></p>
               </div>
           <% end %>
         </div>
@@ -72,36 +71,48 @@
 
     <div class="incoming-bookings-scroller">
        <div class="incoming-outgoing-headline">
-        <h5>Upcoming bookings</h5>
-        <div class="incoming-outgoing-div">
-          <p class="incoming mr-1">incoming</p>
-          <p class="outgoing">outgoing</p>
-        </div>
+          <h5>Upcoming bookings</h5>
+          <div class="incoming-outgoing-div">
+            <p class="incoming mr-1">incoming</p>
+            <p class="outgoing">outgoing</p>
+          </div>
 
-      </div>
+        </div>
       <div class="container-fluid py-2 bookings-horizontal-scroll">
         <div class="d-flex flex-row flex-nowrap">
-          <% if @outgoing_upcoming.present? %>
-            <% @outgoing_upcoming.each do |booking| %>
-              <div class="card bookings-card-body incoming">
-                <h6><%= booking.provider.profile.first_name %> <%= booking.provider.profile.last_name %></h6>
-                <h6>will be your <%= booking.service_type %></h6>
-                <h6>from <%= booking.start_date.strftime("%b %d, %Y") %> until <%= booking.end_date.strftime("%b %d, %Y") %></h6>
-                <h6>Message <%= booking.provider.profile.first_name %></h6>
+          <% if @incoming_upcoming.present? %>
+            <% @incoming_upcoming.each do |booking| %>
+              <div class="card bookings-card-body incoming p-2">
+                <div class="floating-questionmark">
+                  <i class="far fa-question-circle"></i>
+                </div>
+                <div class="bookings-card-header">
+                  <%= image_tag booking.client.profile.profile_img, class: 'avatar-tiny' %>
+                  <p><%= booking.client.profile.first_name %> <%= booking.client.profile.last_name %></p>
+                </div>
+                <p class="text-align-center"><em>has booked you as </em><strong><%= booking.service_type %></strong></p>
+                <p class="text-align-center"><em>from <%= booking.start_date.strftime("%b %d, %Y") %> until <%= booking.end_date.strftime("%b %d, %Y") %></em></p>
+                <h6 class="card-msg-btn">message <%= booking.client.profile.first_name %></h6>
               </div>
             <% end %>
-          <% elsif @incoming_upcoming.present? %>
-              <% @incoming_upcoming.each do |booking| %>
-              <div class="card bookings-card-body outgoing">
-                <h6><%= booking.client.profile.first_name %> <%= booking.client.profile.last_name %></h6>
-                <h6>has booked you as a <%= booking.service_type %></h6>
-                <h6>Between <%= booking.start_date.strftime("%b %d, %Y") %> and <%= booking.end_date.strftime("%b %d, %Y") %>
-                <h6>MESSAGE <%= booking.client.profile.first_name %></h6>
+          <% elsif @outgoing_upcoming.present? %>
+              <% @outgoing_upcoming.each do |booking| %>
+              <div class="card bookings-card-body outgoing p-2">
+                <div class="floating-questionmark">
+                  <i class="far fa-question-circle"></i>
+                </div>
+                <div class="bookings-card-header">
+                  <%= image_tag booking.provider.profile.profile_img, class: 'avatar-tiny' %>
+                  <p><%= booking.provider.profile.first_name %> <%= booking.provider.profile.last_name %></p>
+                </div>
+                <p class="text-align-center"><em>will be your <%= booking.service_type %></em></h6>
+                <p class="text-align-center"><em>Between <%= booking.start_date.strftime("%b %d, %Y") %> and <%= booking.end_date.strftime("%b %d, %Y")%></em></p>
+                <h6 class="card-msg-btn">message <%= booking.provider.profile.first_name %></h6>
               </div>
               <% end %>
           <% else %>
               <div>
-                <h3>You have no upcoming jobs</h3>
+                <p><em>You have no upcoming jobs</em></p>
               </div>
           <% end %>
         </div>
@@ -110,26 +121,38 @@
 
 
      <div class="incoming-bookings-scroller">
-      <h3>Pending requests (incoming and outgoing)</h3>
+      <div class="incoming-outgoing-headline">
+        <h5>Pending requests</h5>
+          <div class="incoming-outgoing-div">
+            <p class="incoming mr-1">incoming</p>
+            <p class="outgoing">outgoing</p>
+          </div>
+      </div>
       <div class="container-fluid py-2 bookings-horizontal-scroll">
         <div class="d-flex flex-row flex-nowrap">
           <% if @pending_incoming.present? %>
             <% @pending_incoming.each do |booking| %>
-              <div class="card bookings-card-body incoming">
-                <h6><%= booking.client.profile.first_name %> <%= booking.client.profile.last_name %></h6>
-                <h6>has requested you as a <%= booking.service_type %></h6>
-                <h6>Between <%= booking.start_date.strftime("%b %d, %Y") %> and <%= booking.end_date.strftime("%b %d, %Y") %>
+              <div class="card bookings-card-body incoming p-2">
+                <div class="floating-questionmark">
+                  <i class="far fa-question-circle"></i>
+                </div>
+                <div class="bookings-card-header">
+                  <%= image_tag booking.client.profile.profile_img, class: 'avatar-tiny' %>
+                  <p><%= booking.client.profile.first_name %> <%= booking.client.profile.last_name %></p>
+                </div>
+                <p class="text-align-center"><em>has requested you as a <%= booking.service_type %></em></p>
+                <p class="text-align-center"><em>Between <%= booking.start_date.strftime("%b %d, %Y") %> and <%= booking.end_date.strftime("%b %d, %Y") %></em></p>
                 <div class="d-flex flex-row">
-                  <h6 class="btn btn-primary">message</h6>
-                  <h6 class="btn btn-success">Accept</h6>
-                  <h6 class="btn btn-danger">Reject</h6>
+                  <h6 class="booking-accept-btn">accept</h6>
+                  <h6 class="booking-reject-btn">reject</h6>
+                  <h6 class="card-msg-btn">message</h6>
 
                 </div>
               </div>
             <% end %>
           <% elsif @pending_outgoing.present? %>
               <% @pending_outgoing.each do |booking| %>
-              <div class="card bookings-card-body outgoing">
+              <div class="card bookings-card-body outgoing p-2">
                 <h6>you have requeested <%= booking.provider.profile.last_name %></h6>
                 <h6>for <%= booking.service_type %></h6>
                 <h6>Between <%= booking.start_date.strftime("%b %d, %Y") %> and <%= booking.end_date.strftime("%b %d, %Y") %></h6>
@@ -148,12 +171,25 @@
 
 
     <div class="incoming-bookings-scroller">
-      <h3>Past bookings</h3>
+      <div class="incoming-outgoing-headline">
+        <h5>Past bookings</h5>
+          <div class="incoming-outgoing-div">
+            <p class="incoming mr-1">incoming</p>
+            <p class="outgoing">outgoing</p>
+          </div>
+      </div>
       <div class="container-fluid py-2 bookings-horizontal-scroll">
         <div class="d-flex flex-row flex-nowrap">
           <% if @completed_incoming.present? %>
             <% @completed_incoming.each do |booking| %>
-              <div class="card bookings-card-body">
+              <div class="card bookings-card-body incoming p-2">
+                <div class="floating-questionmark">
+                  <i class="far fa-question-circle"></i>
+                </div>
+                <div class="bookings-card-header">
+                  <%= image_tag booking.client.profile.profile_img, class: 'avatar-tiny' %>
+                  <p><%= booking.client.profile.first_name %> <%= booking.client.profile.last_name %></p>
+                </div>
                 <h6>You offered <%= booking.service_type %></h6>
                 <h6>for <%= booking.client.profile.first_name %> <%= booking.client.profile.last_name %></h6>
                 <h6>From <%= booking.start_date.strftime("%b %d, %Y") %> until <%= booking.end_date.strftime("%b %d, %Y") %></h6>
@@ -162,7 +198,7 @@
             <% end %>
           <% elsif @completed_outgoing.present? %>
               <% @completed_outgoing.each do |booking| %>
-                <div class="card bookings-card-body">
+                <div class="card bookings-card-body outgoing p-2">
                   <h6><%= booking.provider.profile.first_name %> <%= booking.provider.profile.last_name %></h6>
                   <h6>was your <%= booking.service_type %></h6>
                   <h6>From <%= booking.start_date.strftime("%b %d, %Y") %> until <%= booking.end_date.strftime("%b %d, %Y") %></h6>

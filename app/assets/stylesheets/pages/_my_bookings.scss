@@ -60,7 +60,7 @@
 
 .incoming {
   background-color: white;
-  border: 2px solid $light-green;
+  border: 1px solid $light-green;
 }
 
 .card-msg-btn {
@@ -69,6 +69,26 @@
   right: 10px;
   color: white;
   background-color: $sea-green;
+  padding: 5px 10px 5px 10px;
+  border-radius: 80px;
+}
+
+.pending-messag-btn {
+  color: white;
+  background-color: $sea-green;
+  padding: 5px 10px 5px 10px;
+  border-radius: 80px;
+}
+.booking-accept-btn {
+  color: white;
+  background-color: green;
+  padding: 5px 10px 5px 10px;
+  border-radius: 80px;
+}
+
+.booking-reject-btn {
+  color: white;
+  background-color: red;
   padding: 5px 10px 5px 10px;
   border-radius: 80px;
 }
