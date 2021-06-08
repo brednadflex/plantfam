@@ -16,7 +16,6 @@
   width: 100%;
   text-align: center;
   color: white;
-  // font-weight: bold;
   background-color: $sea-green;
   padding-left: 40px;
   padding-right: 40px;
@@ -28,6 +27,25 @@ a:hover {
     color:  white;
     text-decoration: none;
 }
+
+.profile-button-small {
+  color: white;
+  background-color:$sea-green ;
+  border-radius: 80px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 3px;
+}
+
+.profile-button-large {
+  color: white;
+  background-color:$sea-green ;
+  border-radius: 80px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 3px;
+  width: 70%;
+  height: 100px;
 
 .search-sitter-button {
   border: none;
