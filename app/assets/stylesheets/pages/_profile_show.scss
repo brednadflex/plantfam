@@ -31,6 +31,7 @@ body {
 
 .container .name-experience-offers-rating {
   // overflow: hidden;
+  margin-left: 40%;
   padding: 6px 10px 0 10px;
   // display: flex;
   // justify-content: flex-end;
@@ -39,25 +40,25 @@ body {
 }
 
 .name-rating {
-  padding-left: 30%;
+  // padding-left: 30%;
   // display: flex;
   // justify-content: flex-end;
-  text-align: right;
+  text-align: left;
   line-height: 22px;
   align-items: center;
 }
 
 .name {
-  margin: 5px 0px 0 0;
+  margin: 5px 0px 1px 0;
   font-weight: bold;
   font-size: 22px;
 }
 
 .rating-leaf {
-  margin: 5px;
   font-weight: normal;
   font-size: 14px;
-
+  text-align: left;
+  justify-content: flex-start;
 }
 
 .green-leaf {
@@ -69,8 +70,10 @@ body {
 }
 
 .experience {
+  padding-top: 1px;
+  margin-left: 43%;
+  text-align: left;
   color: $sea-green;
-  text-align: right;
   font-size: 16px;
 
   p {
@@ -79,9 +82,12 @@ body {
 }
 
 .sitter-advisor {
+  padding: 0;
+  margin-left: 40%;
+  padding: 0;
+  text-align: left;
   height: 35px;
   display: flex;
-  justify-content: flex-end;
   align-items: center;
 }
 
@@ -137,8 +143,6 @@ i {
 .service-advisor {
   margin: 0;
   display: flex;
-
-  // justify-content: space-between;
   align-items: center;
   padding: 10px;
 }
@@ -231,12 +235,10 @@ i {
   // display: flex;
   // justify-content: space-between;
   // flex-wrap: wrap;
-
-  div {
-    margin: 0 auto;
-    height: 15%;
-  }
 }
 
-
+  .my-profile-scroll-bottom-spacer {
+    margin: 0 auto;
+    height: 5%;
+  }
 
