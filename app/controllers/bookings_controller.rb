@@ -47,7 +47,7 @@ class BookingsController < ApplicationController
     @booking.provider = @profile.user
     @booking.comment = params[:booking][:comment]
     if @booking.save
-      redirect_to profile_bookings_path, notice: "Congratulations, your booking is complete!"
+      redirect_to my_bookings_path, notice: "Congratulations, your booking is complete!"
     else
       render :new
     end
