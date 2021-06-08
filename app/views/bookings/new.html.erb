@@ -19,19 +19,21 @@
 
 
 <% if @profile.sitter? && @profile.advisor? %>
-  <% options = ["sitting", "advise"] %>
+  <% options = ["Plant Sitting", "Advice"] %>
 <% elsif @profile.sitter? %>
-  <% options = ["sitting"] %>
+  <% options = ["Plant Sitting"] %>
 <% elsif @profile.advisor? %>
-  <% options = ["advise"] %>
+  <% options = ["Advice"] %>
 <% end %>
+
 <div class="booking-form-container">
   <h3>Send <%= @profile.first_name %> a request</h3>
   <%= simple_form_for([@profile, @booking]) do |f| %>
-    <%= f.input :service_type, collection: options %>
-    <%= f.input :start_date, as: :date, html5: true, input_html: {value: session[:search]["from"]} %>
-    <%= f.input :end_date, as: :date, html5: true, input_html: {value: session[:search]["to"]} %>
-    <%= f.input :comment, label: "Send a message" %>
+    <%= f.input :service, as: :string, collection: options, html5: true, input_html: {value: "Plant Sitting"} %>
+    <%= f.input :my_address, as: :string, html5: true, input_html: {value: session[:search]["address"]} %>
+    <%= f.input :from, as: :string, required: true, input_html: {class: "datepicker", id: "range_start", value: session[:search]["from"]} %>
+    <%= f.input :to, as: :string, required: true, input_html: {class: "datepicker", id: "range_start", value: session[:search]["to"]} %>
+    <%= f.input :comment, label: "Tell #{Profile.find(params[:profile_id]).first_name} more about your plants" %>
     <%= f.submit class: "btn submit-button" %>
   <% end %>
 </div>

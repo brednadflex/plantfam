@@ -1,6 +1,10 @@
 // body {
 //   margin: 32px 16px;
 // }
+.search-header-container {
+  display: flex;
+  justify-content: center;
+}
 
 .search-header {
   font-size: 24px;
@@ -21,6 +25,6 @@
   margin-bottom: 8%;
 }
 
-.search-header-container {
+.search-form-container {
   display: flex;
 }
