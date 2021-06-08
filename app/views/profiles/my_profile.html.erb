@@ -57,9 +57,13 @@
         </div>
         <div class="profile-service-button-book">
           <%= link_to edit_profile_path(@profile) do %>
-            <p class="profile-button-small">edit</p>
+            <% if @profile.sitter %>
+              <p class="profile-button-small">delete</p>
+            <% else %>
+              <p class="profile-button-small">add</p>
+            <% end %>
           <% end %>
-        </div>
+        </div> 
       </div>
     </div>
     <div class="service-advisor">
@@ -73,7 +77,11 @@
         </div>
         <div class="profile-service-button-book">
           <%= link_to edit_profile_path(@profile) do %>
-            <p class="profile-button-small">edit</p>
+            <% if @profile.advisor %>
+              <p class="profile-button-small">delete</p>
+            <% else %>
+              <p class="profile-button-small">add</p>
+            <% end %>
           <% end %>
         </div>
       </div>
