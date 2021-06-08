@@ -3,7 +3,9 @@ class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update]
 
   def index
-    @search = {address: params[:address], from: params[:from], to: params[:to]}
+    # Saving the search in a cookie variable to retrieve it in the booking
+    session[:search] = {address: params[:address], from: params[:from], to: params[:to]}
+
     @profiles = Profile.all
     if params[:from].present? && params[:to].present?
       @ids = Availability.where("start_date <= ?", params[:from]).where("end_date >= ?", params[:to]).map do |availability|
@@ -15,7 +17,6 @@ class ProfilesController < ApplicationController
 
   def show
     @reviews = @profile.reviews
-    @search = params[:search]
   end
 
   def edit
