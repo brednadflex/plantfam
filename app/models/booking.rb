@@ -11,7 +11,7 @@ class Booking < ApplicationRecord
   validates :start_date, presence: true
   validates :end_date, presence: true
   validates :service_type, presence: true
-  
+
   def can_review?
     @completed = end_date < Date.today ? true : false
   end
