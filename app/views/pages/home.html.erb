@@ -1,51 +1,44 @@
-<div class="container">
+<div class="main-wrapper">
   <div class="hero-text">
     <h4>Pick a service</h4>
   </div>
 
-
-
   <div class="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4 pt-2">
-			
-			<div class="col-5">
-				<div class="card card-block card-1">
-          <%= link_to search_path, class:"text-decoration-none text-reset" do %>
-            <p>Find a Plant Sitter</p>
-            <%= image_tag "sitter.png" %>
-          <% end %>
-        </div>
-			</div>
-			<div class="col-5">
-				<div class="card card-block card-2">
-          <%= link_to search_path, class:"text-decoration-none text-reset" do %>
-            <p>Find Plant Care Advice</p>
-            <%= image_tag "advisor.png" %>
-          <% end %>
-        </div>
-			</div>
-			<div class="col-5">
-				<div class="card card-block card-3">
-          <%= link_to search_path, class:"text-decoration-none text-reset" do %>
-            <p>Find Plant Care Advice</p>
-            <%= image_tag "house.png" %>
-          <% end %>
-        </div>
-			</div>
-    </div>
-
+		<div class="col-5">
+			<div class="card card-block card-1">
+        <%= link_to search_path, class:"text-decoration-none text-reset" do %>
+          <p>Find a Plant Sitter</p>
+          <%= image_tag "sitter.png" %>
+        <% end %>
+      </div>
+		</div>
+		<div class="col-5">
+			<div class="card card-block card-2">
+        <%= link_to search_path, class:"text-decoration-none text-reset" do %>
+          <p>Find Plant Care Advice</p>
+          <%= image_tag "advisor.png" %>
+        <% end %>
+      </div>
+		</div>
+		<div class="col-5">
+			<div class="card card-block card-3">
+        <%= link_to search_path, class:"text-decoration-none text-reset" do %>
+          <p>Find Plant Care Advice</p>
+          <%= image_tag "house.png" %>
+        <% end %>
+      </div>
+		</div>
+  </div>
   
   <div class="profile-examples">
     <div class="plant-enthusiasts-header">
       <h4>Join over 4000 plant enthusiasts</h4>
     </div>
     <% @profiles.last(5).each do |profile| %>
-      <%= link_to profile_path(profile), class: "text-decoration-none" do %>
-
         <div class="profile-card">
-
           <div class="profile-card-user-info">
             <div class="profile-card-image">
-              <img src=<%= profile.profile_img %> alt="user-image" class="rounded-circle profile-user-img" style="width: 50px; height: 50px;">
+              <img src=<%= profile.profile_img %> alt="user-image" class="rounded-circle profile-user-img" style="width: 70px; height: 70px;">
             </div>
 
             <div class="profile-card-user-text">
@@ -62,9 +55,7 @@
                 <p><%= [5, 12, 8, 18, 4, 9].sample %>€ / d</p>
               </div>
             </div>
-
           </div>
-
           <div class="profile-card-services">
               <% if profile.sitter && profile.advisor %>
                 <div class="plantsitter">
@@ -83,11 +74,9 @@
                 </div>
               <% end %>
           </div>
-
-          <p class="profile-description mt-4"><%= profile.description %></p>
-        
+          <p class="profile-description mt-4"><%= profile.description.first(100) %>...</p>
+        <%= link_to "View Profile", profile_path(profile), class: "view-profile-link" %>
         </div>
-      <% end %>  
     <% end %>
   </div>
 </div>
@@ -95,14 +84,13 @@
 
 <% if false %>
   <div class="profile-card-services">
-            <% if profile.sitter && profile.advisor %>
-              <p>Plantsitter</p>
-              <p>Advisor</p>
-            <% elsif profile.sitter %>
-              <p>Plantsitter</p>
-            <% elsif profile.advisor %>
-              <p>Advisor</p>
-            <% end %>
-          </div>
-
+    <% if profile.sitter && profile.advisor %>
+      <p>Plantsitter</p>
+      <p>Advisor</p>
+    <% elsif profile.sitter %>
+      <p>Plantsitter</p>
+    <% elsif profile.advisor %>
+      <p>Advisor</p>
+    <% end %>
+  </div>
 <% end %>
