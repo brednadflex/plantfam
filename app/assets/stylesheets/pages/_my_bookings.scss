@@ -39,16 +39,17 @@
 }
 .bookings-horizontal-scroll {
   overflow: scroll;
-  height: 160px;
+  height: 180px;
   width: 100%;
 }
 .bookings-card-body {
     position: relative;
     min-height: 140px;
     min-width: 250px;
-    max-height: 150px;
+    max-height: 160px;
     margin-right: 5px;
     border-radius: 10px;
+    padding-bottom: 5px;
     p {
       margin: 0 auto;
     }
