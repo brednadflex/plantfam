@@ -1,20 +1,13 @@
-const startDateinput = document.getElementById('start_date');
-const endDateinput = document.getElementById('end_date');
+import flatpickr from "flatpickr";
+import rangePlugin from "flatpickr/dist/plugins/rangePlugin";
 
-if (startDateinput && endDateinput) {
-  flatpickr(startDateinput, {
-  minDate: 'today',
-  dateFormat: 'd-m-Y',
-  onChange: function(_, selectedDate) {
-    if (selectedDate === '') {
-      return endDateinput.disabled = true;
-    }
-    endDateCalendar.set('minDate', selectedDate);
-    endDateinput.disabled = false;
-  }
-});
-  const endDateCalendar =
-    flatpickr(endDateinput, {
-      dateFormat: 'd-m-Y',
-    });
+const initFlatpickr = () => {
+  flatpickr("#range_start", {
+    altInput: true,
+    allowInput: true,
+    minDate: "today",
+    plugins: [new rangePlugin({ input: "#range_end"})]
+  });
 }
+
+export { initFlatpickr };
