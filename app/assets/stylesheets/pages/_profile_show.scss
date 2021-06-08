@@ -137,14 +137,14 @@ i {
   display: flex;
   align-items: center;
   border-bottom: 1px solid $dark-green;
-  padding: 10px;
+  padding: 15px;
 }
 
 .service-advisor {
   margin: 0;
   display: flex;
   align-items: center;
-  padding: 10px;
+  padding: 15px;
 }
 
 .service-advisor-icon {
@@ -162,10 +162,7 @@ i {
     width: 100%;
     display: flex;
     justify-content: space-between;
-}
-
-.profile-service-button-book {
-  margin-top: 10px;
+    text-align: center;
 }
 
 .review-container {
