@@ -30,7 +30,7 @@
       <%= f.input :advisor_price, input_html: { maxlength: 10, size: 40 }, label: "Your advisor price:",  placeholder: "ie. €10/pd, swap, negotiable, donation, free" %>
       <%= f.input :max_radius, label: "How many kilometers from your home are you willing to travel?", placeholder: "0", input_html: { min: "0" }%>
       <div class="profile-experience-radio-buttons">
-        <%= f.input :experience, as: :radio_buttons, collection: ['Seedling (beginner)', 'Plant Friend (moderate)', 'Moss Person (knowledgable)', 'Plant Whisperer (expert)'] %>
+        <%= f.input :experience, label: "Experience Level:", as: :radio_buttons, collection: ['Seedling (beginner)', 'Plant Friend (moderate)', 'Moss Person (knowledgable)', 'Plant Whisperer (expert)'] %>
       </div>
       <%= f.input :profile_banner, as: :file %>
       <%= f.input :profile_img, as: :file %>
