@@ -1,4 +1,9 @@
 <div class="profile-edit-scrollbox">
+  <div class="back-icon">
+    <%= link_to my_profile_path, class: "text-decoration-none text-reset" do %>
+    <i class="fas fa-arrow-circle-left pl-2"></i>
+    <% end %>
+  </div>
   <div class="container">
     <h1>Profile</h1>
     <%= simple_form_for(@profile) do |f| %>
