@@ -27,6 +27,7 @@
         <% end %>
       </div>
     </div>
+
     <%= link_to chat_room_path do %>
     <div class="button-text">
       <i class="far fa-comments button-text"></i>
@@ -34,7 +35,7 @@
       </div>
     <% end %>
     <div class="description-about-me">
-      <p><strong>About <%= @profile.first_name %>:</strong></p> 
+      <p><strong>About <%= @profile.first_name %>:</strong></p>
       <p><%= @profile.description %></p>
     </div>
   <p class="ml-2" style="font-size:18px"><strong>Book a Service:</strong></p>
