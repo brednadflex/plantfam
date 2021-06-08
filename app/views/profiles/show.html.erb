@@ -150,6 +150,7 @@
 
 <div class="actions">
   <div>
+
     <% params[:search] = @search %>
     <%= link_to 'book me!', new_profile_booking_path(@profile, search: @search.to_s), class: "btn-sea-green" %>
   </div>

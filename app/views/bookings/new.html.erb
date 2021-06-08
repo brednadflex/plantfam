@@ -48,6 +48,7 @@
   <% options = ["advise"] %>
 <% end %>
 <div class="booking-form-container">
+
 <h3>Send <%= @profile.first_name %> a request</h3>
 <%= simple_form_for([@profile, @booking]) do |f| %>
   <%= f.input :service_type, collection: options %>
@@ -57,6 +58,7 @@
   </div>
   <%= f.input :comment, label: "Send a message", input_html: {rows: 8, class: "bg-message message-radius"} %>
   <div class="text-center">
+
     <%= f.submit class: "btn submit-button" %>
   </div>
 <% end %>
