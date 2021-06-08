@@ -3,6 +3,7 @@ class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update]
 
   def index
+    @search = {address: params[:address], from: params[:from], to: params[:to]}
     @profiles = Profile.all
     if params[:from].present? && params[:to].present?
       @ids = Availability.where("start_date <= ?", params[:from]).where("end_date >= ?", params[:to]).map do |availability|
@@ -14,6 +15,7 @@ class ProfilesController < ApplicationController
 
   def show
     @reviews = @profile.reviews
+    @search = params[:search]
   end
 
   def edit
@@ -40,6 +42,6 @@ class ProfilesController < ApplicationController
   end
 
   def profile_params
-    params.require(:profile).permit(:first_name, :last_name, :description, :profile_img, :banner_img, :experience, :avg_rating, :address, :location_lat, :location_lng, :max_radius, :sitter, :advisor, :public)
+    params.require(:profile).permit(:first_name, :last_name, :description, :profile_img, :banner_img, :experience, :avg_rating, :address, :latitude, :longitude, :max_radius, :sitter, :advisor, :public, :sitter_price, :advisor_price)
   end
 end

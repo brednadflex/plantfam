@@ -36,6 +36,7 @@ gem 'simple_form'
 gem 'flatpickr'
 gem 'faker'
 gem 'geocoder'
+
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'

@@ -1,8 +1,3 @@
-body {
-  margin: 0;
-  padding: 0;
-}
-
 .container {
   margin: 0;
   padding: 0;
@@ -19,10 +14,10 @@ body {
 
 .profile-avatar {
   position: absolute;
-  height: 120px;
-  width: 120px;
-  left: 2%;
-  top: 29%;
+  height: 130px;
+  width: 130px;
+  left: 4%;
+  top: 32%;
   bottom: 75%;
   border: 6px solid white;
   align-items: flex-end;
@@ -40,8 +35,8 @@ body {
 
 .name-rating {
   padding-left: 30%;
-  display: flex;
-  justify-content: flex-end;
+  // display: flex;
+  // justify-content: flex-end;
   text-align: right;
   line-height: 22px;
   align-items: center;
@@ -49,7 +44,6 @@ body {
 
 .name {
   margin: 5px 0px 0 0;
-  margin-right: 6px;
   font-weight: bold;
   font-size: 22px;
 }
@@ -57,12 +51,12 @@ body {
 .rating-leaf {
   margin: 5px;
   font-weight: normal;
-  font-size: 15px;
+  font-size: 14px;
 
 }
 
 .green-leaf {
-  color: $dark-green;
+  color: $sea-green;
 }
 
 .grey-leaf {
@@ -70,10 +64,13 @@ body {
 }
 
 .experience {
-  margin-top: 5px;
-  color: $dark-green;
+  color: $sea-green;
   text-align: right;
-  font-size: 18px;
+  font-size: 16px;
+
+  p {
+    margin-bottom: 10px;
+  }
 }
 
 .sitter-advisor {
@@ -84,14 +81,19 @@ body {
 }
 
 .message-button-flex {
-  margin-top: 3px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+.message-button-flex {
+  i {
+    font-size: 50px;
+  }
+}
 
 .button-text {
   margin-bottom: 3px;
+  text-align: center;
 }
 
 i {
@@ -107,7 +109,6 @@ i {
 }
 
 .services {
-  // margin: 10px;
   font-size: 18px;
   border-top: 1px solid $dark-green;
   border-bottom: 1px solid $dark-green;
@@ -115,44 +116,48 @@ i {
   p {
     margin: 0;
   }
-  .service-sitter {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid $dark-green;
-    // border-bottom: 0;
-    padding: 10px;
+
+  i {
+  font-size: 30px;
+  color: grey
   }
-
-  .service-advisor {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-  }
-
-  .service-info-line {
-    font-size: 16px;
-    color: $sea-green;
-    margin: 0;
-  }
-
-  .service-price {
-      display: flex;
-      justify-content: flex-end;
-    }
-    
-    i {
-      font-size: 30px;
-      color:darkslategray;
-    }
-
-    i:hover {
-      color: $sea-green;
-      font-size: 33px;
-    }
+}
+.service-sitter {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid $dark-green;
+  padding: 10px;
 }
 
+.service-advisor {
+  margin: 0;
+  display: flex;
+
+  // justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.service-advisor-icon {
+    width: 75%;
+}
+
+.service-info-line {
+  font-size: 16px;
+  color: $sea-green;
+  margin: 0;
+}
+
+.service-price-button {
+    margin-left: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile-service-button-book {
+  margin-top: 10px;
+}
 
 .review-container {
   margin-top: 20px;
@@ -186,6 +191,34 @@ i {
   }
 }
 
+.my-profile-about-me-edit-pencil {
+  text-align: right;
+  font-size: 18px;
+}
+
+.my-profile-posts-comments-boxes {
+  line-height: 50px;
+  display: flex;
+  text-align: center;
+  font-size: 18px;
+  color: $dark-green;
+  border-top: 1px solid $dark-green;
+  border-bottom: 1px solid $dark-green;
+
+  p {
+    margin: 0;
+    font-weight: bold;
+  }
+
+  .my-profile-posts {
+    width: 50%;
+    border-right: 1px solid $dark-green;
+  }
+
+  .my-profile-comments {
+    width: 50%;
+  }
+}
 .actions {
   margin: 20% auto;
   height: 50vh;
