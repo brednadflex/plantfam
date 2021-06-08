@@ -11,9 +11,6 @@ class BookingsController < ApplicationController
     @profile = Profile.find(params[:profile_id])
     @booking = Booking.new
     @name = @profile.first_name + " " + @profile.last_name
-    @query = params["search"]
-    @from = @query.split(',')[2].split('=>')[1].gsub(/\"/, '')
-    @to = @query.split(',')[3].split('=>')[1].gsub(/\"/, '').gsub(/}/, '')
   end
 
   def create

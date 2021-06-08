@@ -10,6 +10,10 @@
   text-decoration: none;
 }
 
+.btn:hover {
+  color: #fff;
+}
+
 .button-profile-message {
   margin: 0;
   display: block;
@@ -46,9 +50,11 @@ a:hover {
   padding-bottom: 3px;
   width: 70%;
   height: 100px;
+}
 
 .search-sitter-button {
   border: none;
+  margin-top: 16%;
   width: 100%;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
