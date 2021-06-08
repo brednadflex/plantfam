@@ -66,15 +66,26 @@
 }
 
 .booking-form-container {
-  margin-bottom: 100px;
-  width: 80%;
-  margin-left: 50px;
+  margin: 0px 10px;
   border-radius: 20px;
+
+  .input-width {
+    width: 80%;
+  }
+
+  .bg-message {
+    background-color: #EEF2ED;
+  }
+
+  .message-radius {
+    border-radius: 10px;
+  }
 }
 
 .submit-button {
   background-color: #119E85;
   color: white;
   border-radius: 20px;
-  margin-left: 80px;
+  width: 60%;
+  // margin-left: 80px;
 }
