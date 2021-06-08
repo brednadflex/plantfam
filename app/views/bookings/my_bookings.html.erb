@@ -105,7 +105,7 @@
                   <%= image_tag booking.provider.profile.profile_img, class: 'avatar-tiny' %>
                   <p><%= booking.provider.profile.first_name %> <%= booking.provider.profile.last_name %></p>
                 </div>
-                <p class="text-align-center"><em>will be your <%= booking.service_type %></em></h6>
+                <p class="text-align-center"><em>will be your <strong><%= booking.service_type %></strong></em></h6>
                 <p class="text-align-center"><em>Between <%= booking.start_date.strftime("%b %d, %Y") %> and <%= booking.end_date.strftime("%b %d, %Y")%></em></p>
                 <h6 class="card-msg-btn">message <%= booking.provider.profile.first_name %></h6>
               </div>
@@ -140,12 +140,12 @@
                   <%= image_tag booking.client.profile.profile_img, class: 'avatar-tiny' %>
                   <p><%= booking.client.profile.first_name %> <%= booking.client.profile.last_name %></p>
                 </div>
-                <p class="text-align-center"><em>has requested you as a <%= booking.service_type %></em></p>
+                <p class="text-align-center"><em>has requested you as a <strong><%= booking.service_type %></strong></em></p>
                 <p class="text-align-center"><em>Between <%= booking.start_date.strftime("%b %d, %Y") %> and <%= booking.end_date.strftime("%b %d, %Y") %></em></p>
-                <div class="d-flex flex-row">
+                <div class="button-row">
                   <h6 class="booking-accept-btn">accept</h6>
                   <h6 class="booking-reject-btn">reject</h6>
-                  <h6 class="card-msg-btn">message</h6>
+                  <h6 class="pending-messag-btn">message</h6>
 
                 </div>
               </div>
@@ -153,16 +153,22 @@
           <% elsif @pending_outgoing.present? %>
               <% @pending_outgoing.each do |booking| %>
               <div class="card bookings-card-body outgoing p-2">
-                <h6>you have requeested <%= booking.provider.profile.last_name %></h6>
-                <h6>for <%= booking.service_type %></h6>
-                <h6>Between <%= booking.start_date.strftime("%b %d, %Y") %> and <%= booking.end_date.strftime("%b %d, %Y") %></h6>
-                <h6><em>Awaiting confirmation</em></h6>
-                <h6>MESSAGE <%= booking.client.profile.first_name %></h6>
+                <div class="floating-questionmark">
+                  <i class="far fa-question-circle"></i>
+                </div>
+                <div class="bookings-card-header">
+                  <%= image_tag booking.provider.profile.profile_img, class: 'avatar-tiny' %>
+                  <p><%= booking.provider.profile.first_name %> <%= booking.provider.profile.last_name %></p>
+                </div>
+                <p class="text-align-center"><em>has been informed about your <strong><%= booking.service_type %></strong> request</em></p>
+                <p class="text-align-center">From <%= booking.start_date.strftime("%b %d, %Y") %> and <%= booking.end_date.strftime("%b %d, %Y") %></h6>
+                <p class="text-align-center"><em>Once the booking has been accepted you will be notified</em></p>
+                <h6 class="card-msg-btn">message <%= booking.provider.profile.first_name %></h6>
               </div>
               <% end %>
           <% else %>
               <div>
-                <h3>You have no pending requests</h3>
+                <p><em>You have no pending requests</em></p>
               </div>
           <% end %>
         </div>
@@ -190,23 +196,35 @@
                   <%= image_tag booking.client.profile.profile_img, class: 'avatar-tiny' %>
                   <p><%= booking.client.profile.first_name %> <%= booking.client.profile.last_name %></p>
                 </div>
-                <h6>You offered <%= booking.service_type %></h6>
-                <h6>for <%= booking.client.profile.first_name %> <%= booking.client.profile.last_name %></h6>
-                <h6>From <%= booking.start_date.strftime("%b %d, %Y") %> until <%= booking.end_date.strftime("%b %d, %Y") %></h6>
-                <h6>see reviews</h6>
+                <p class="text-align-center"><em>booked you as <strong><%= booking.service_type %></strong></em></p>
+                <p class="text-align-center">From <%= booking.start_date.strftime("%b %d, %Y") %> and <%= booking.end_date.strftime("%b %d, %Y") %></p>
+                <div class="button-row">
+                  <h6 class="booking-accept-btn">see reviews</h6>
+                  <h6 class="pending-messag-btn">message</h6>
+                </div>
               </div>
             <% end %>
           <% elsif @completed_outgoing.present? %>
               <% @completed_outgoing.each do |booking| %>
                 <div class="card bookings-card-body outgoing p-2">
-                  <h6><%= booking.provider.profile.first_name %> <%= booking.provider.profile.last_name %></h6>
-                  <h6>was your <%= booking.service_type %></h6>
-                  <h6>From <%= booking.start_date.strftime("%b %d, %Y") %> until <%= booking.end_date.strftime("%b %d, %Y") %></h6>
-                  <h6>write a review for <%= booking.provider.profile.first_name %></h6>
+                  <div class="floating-questionmark">
+                    <i class="far fa-question-circle"></i>
+                  </div>
+                  <div class="bookings-card-header">
+                    <%= image_tag booking.provider.profile.profile_img, class: 'avatar-tiny' %>
+                    <p><%= booking.provider.profile.first_name %> <%= booking.provider.profile.last_name %></p>
+                  </div>
+                  <p class="text-align-center"><em>was your <strong><%= booking.service_type %></strong></em></p>
+                  <p class="text-align-center">From <%= booking.start_date.strftime("%b %d, %Y") %> until <%= booking.end_date.strftime("%b %d, %Y") %></em></p>
+                  <div class="button-row">
+                    <h6 class="booking-accept-btn">see reviews</h6>
+                    <h6 class="booking-accept-btn">book again</h6>
+                    <h6 class="pending-messag-btn">message</h6>
+                  </div>
                 </div>
               <% end %>
           <% else %>
-              <h6>You have not completed any bookings yet</h6>
+              <p><em>You have not completed any bookings yet</em></p>
           <% end %>
         </div>
       </div>

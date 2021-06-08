@@ -18,7 +18,7 @@
 }
 
 .spacer-top {
-  height: 10%;
+  height: 9%;
 }
 
 .incoming-outgoing-headline {
@@ -34,7 +34,7 @@
 }
 .scroll-section {
   margin-top: 100px;
-  height: 550px;
+  height: 620px;
   overflow: scroll;
 }
 .bookings-horizontal-scroll {
@@ -102,4 +102,10 @@
     height: 40px;
     width: 40px;
   }
+}
+
+.button-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
