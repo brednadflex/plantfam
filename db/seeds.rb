@@ -318,6 +318,6 @@ booking10.comment = "calkjlkjlkjlkjlkjlkj?"
 booking10.save
 
 
-puts "booking created"
+puts "booking created with new seeds"
 
 
