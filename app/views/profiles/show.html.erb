@@ -2,31 +2,32 @@
   <div class="container">
     <img class="banner" src=<%= 'https://source.unsplash.com/random/900×250/?plants' %> alt="plant">
     <img src=<%= @profile.profile_img %> alt="user-image" class="rounded-circle profile-avatar";>
-    <div class="name-experience-offers-rating">
+        <div class="name-experience-offers-rating">
       <div class="name-rating">
         <p class="name"><%= @profile.first_name %> <%= @profile.last_name %></p>
       </div>
-      <div class="d-flex flex-row-reverse pt-2">
-        <% (5 - @profile.avg_rating.round).times do %>
-          <i class="fas fa-leaf grey-leaf"></i>
-        <% end %>
+      <div class="d-flex pt-2 rating-leaf">
         <% @profile.avg_rating.round.times do %>
           <i class="fas fa-leaf green-leaf"></i>
         <% end %>
+        <% (5 - @profile.avg_rating.round).times do %>
+          <i class="fas fa-leaf grey-leaf"></i>
+        <% end %>
+      </div>
       </div>
       <div class="experience">
         <p><em><%= @profile.experience %></em></p>
       </div>
       <div class="sitter-advisor">
-        <p>Offers: </p>
         <% if @profile.sitter %>
-          <p class="tag-sitter">sitter</p>
+          <p class="tag-service">sitter</p>
         <% end %>
         <%if @profile.advisor %>
-          <p class="tag-advisor">advisor</p>
+          <p class="tag-service">advisor</p>
         <% end %>
       </div>
     </div>
+
     <%= link_to chat_room_path do %>
     <div class="button-text">
       <i class="far fa-comments button-text"></i>
@@ -46,7 +47,7 @@
       </div>
       <div class="service-price-button">
         <div class="service-price">
-          <p>Plant Sitter</p>
+          <p style="color:black;"><strong>Plant Sitter</strong></p>
           <p class="service-info-line"><%= @profile.sitter_price %></p>
         </div>
         <div class="profile-service-button-book">
@@ -62,7 +63,7 @@
       </div>
       <div class="service-price-button">
         <div class="service-price">
-          <p>Plant Advisor</p>
+          <p style="color:black;"><strong>Plant Advisor</strong></p>
           <p class="service-info-line"><%= @profile.advisor_price %></p>
         </div>
         <div class="profile-service-button-book">
@@ -92,7 +93,6 @@
             </div>
           </div>
         </div>
-
       <% end %>
       </div>
   </div>

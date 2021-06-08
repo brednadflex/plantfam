@@ -72,6 +72,20 @@
 .form-input-container {
   margin-top: 4%;
   margin-bottom: 4%;
+  margin: 0px 10px;
+  border-radius: 20px;
+
+  .input-width {
+    width: 80%;
+  }
+
+  .bg-message {
+    background-color: #EEF2ED;
+  }
+
+  .message-radius {
+    border-radius: 10px;
+  }
 }
 
 .submit-button {

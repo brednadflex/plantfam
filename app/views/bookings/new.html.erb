@@ -1,26 +1,5 @@
 <div class="main-wrapper">
 
-<% if false %>
-<div class="profile-booking-new">
-  <div class="profile-booking-avatar">
-    <%= image_tag @profile.profile_img, class: "avatar" %>
-  </div>
-  <div class="profile-booking-info">
-    <div class="profile-info-header">
-      <p> <%= @name %> </p>
-      <p> Rating <%= @profile.avg_rating %> </p>
-    </div>
-    <p class="profile-info-experience">Plant Whisperer</p>
-    <div class="profile-info-service-info">
-      <p>Offers:</p>
-      <p class="profile-info-sitter">Plant Sitter</p>
-       <p class="profile-info-advisor">Advisor</p>
-    </div>
-  </div>
-</div>
-<% end %>
-
-
 <% if @profile.sitter? && @profile.advisor? %>
   <% options = ["Plant Sitting", "Advice"] %>
 <% elsif @profile.sitter? %>
