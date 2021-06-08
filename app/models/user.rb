@@ -4,10 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_one :profile, :dependent => :destroy
+  has_one :profile, dependent: :destroy
   has_many :reviews
   has_many :bookings
   has_many :chat_rooms
+  has_many :posts, dependent: :destroy
 
   has_many :bookings_as_client, class_name: "Booking", foreign_key: :client_id
   has_many :bookings_as_provider, class_name: "Booking", foreign_key: :provider_id
@@ -24,5 +25,5 @@ class User < ApplicationRecord
   # def init_profile
   #   create_profile!
   # end
-  
+
 end
