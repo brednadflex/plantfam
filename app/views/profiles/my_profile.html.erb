@@ -49,39 +49,38 @@
     </div>
   <p class="ml-2" style="font-size:18px"><strong>Services (tap to edit):</strong></p>
   <div class="services">
-    <div class="service-sitter">
-      <div>
-        <p>Advice</p>
-        <p class="service-info-line">help with plant care problems</p>
-      </div>
-      <div class="service-price">
+    <%= link_to new_profile_booking_path(@profile), class: "service-button-terracotta" do %>
+      <div class="service-sitter">
         <div>
-          <p class="mr-3"><%= @profile.sitter_price %></p>
+          <p>Advice</p>
+          <p class="service-info-line">help with plant care problems</p>
         </div>
-        <div>
-          <%= link_to new_profile_booking_path(@profile) do %>
-            <i class="fas fa-chevron-right"></i>
-          <% end %>
-        </div>
-      </div>
-    </div>
-
-    <div class="service-advisor">
-      <div>
-        <p>Plant Sitting</p>
-        <p class="service-info-line">personalized care schedule</p>
-      </div>
-      <div class="service-price">
-        <div>
-          <p class="mr-3"><%= @profile.advisor_price %></p>
-        </div>
-        <div>
-          <%= link_to new_profile_booking_path(@profile) do %>
-            <i class="fas fa-chevron-right"></i>
-          <% end %>
+        <div class="service-price">
+          <div>
+            <p class="mr-3"><%= @profile.sitter_price %></p>
+          </div>
+          <div>
+              <i class="fas fa-chevron-right"></i>
+          </div>
         </div>
       </div>
-    </div>
+    <% end %>
+    <%= link_to new_profile_booking_path(@profile), class: "service-button-terracotta" do %>
+      <div class="service-advisor">
+        <div>
+          <p>Plant Sitting</p>
+          <p class="service-info-line">personalized care schedule</p>
+        </div>
+        <div class="service-price">
+          <div>
+            <p class="mr-3"><%= @profile.advisor_price %></p>
+          </div>
+          <div>
+              <i class="fas fa-chevron-right"></i>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
     
   <div class="actions">

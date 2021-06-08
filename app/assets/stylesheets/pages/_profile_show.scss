@@ -109,51 +109,60 @@ i {
 }
 
 .services {
-  // margin: 10px;
   font-size: 18px;
   border-top: 1px solid $dark-green;
   border-bottom: 1px solid $dark-green;
 
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
   p {
     margin: 0;
   }
-  .service-sitter {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid $dark-green;
-    // border-bottom: 0;
-    padding: 10px;
+
+  i {
+  font-size: 30px;
+  color:darkslategray;
   }
-
-  .service-advisor {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-  }
-
-  .service-info-line {
-    font-size: 16px;
-    color: $sea-green;
-    margin: 0;
-  }
-
-  .service-price {
-      display: flex;
-      justify-content: flex-end;
-    }
-    
-    i {
-      font-size: 30px;
-      color:darkslategray;
-    }
-
-    i:hover {
-      color: $sea-green;
-      font-size: 33px;
-    }
 }
+.service-sitter {
+  
+  display: flex;
+  // justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid $dark-green;
+  // border-bottom: 0;
+  padding: 10px;
+}
+
+.service-advisor {
+  margin: 0;
+  display: flex;
+
+  // justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.service-advisor-icon {
+    width: 75%;
+}
+
+.service-info-line {
+  font-size: 16px;
+  color: $sea-green;
+  margin: 0;
+}
+
+.service-price-button {
+    margin-left: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
 .review-container {
   margin-top: 20px;
 }

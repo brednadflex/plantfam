@@ -13,7 +13,6 @@
         <% @profile.avg_rating.round.times do %>
           <i class="fas fa-leaf green-leaf"></i>
         <% end %>
-        
       </div>
       <div class="experience">
         <p><em><%= @profile.experience %></em></p>
@@ -38,18 +37,20 @@
       <p><strong>About <%= @profile.first_name %>:</strong></p> 
       <p><%= @profile.description %></p>
     </div>
-  <p class="ml-2" style="font-size:18px"><strong>Services:</strong></p>
+  <p class="ml-2" style="font-size:18px"><strong>Book a Service:</strong></p>
+
   <div class="services">
     <div class="service-sitter">
       <div>
-        <p>Advice</p>
-        <p class="service-info-line">help with plant care problems</p>
+        <i class="fas fa-tint"></i>
       </div>
-      <div class="service-price">
-        <div>
-          <p class="mr-3"><%= @profile.sitter_price %></p>
+
+      <div class="service-price-button">
+        <div class="service-price">
+          <p>Plant Sitter</p>
+          <p class="service-info-line"><%= @profile.sitter_price %></p>
         </div>
-        <div>
+        <div class="profile-service-button-book">
           <%= link_to new_profile_booking_path(@profile) do %>
             <i class="fas fa-chevron-right"></i>
           <% end %>
@@ -58,14 +59,15 @@
     </div>
     <div class="service-advisor">
       <div>
-        <p>Plant Sitting</p>
-        <p class="service-info-line">personalized care schedule</p>
+        <i class="fas fa-user-graduate"></i>
       </div>
-      <div class="service-price">
-        <div>
-          <p class="mr-3"><%= @profile.advisor_price %></p>
+
+      <div class="service-price-button">
+        <div class="service-price">
+          <p>Plant Advisor</p>
+          <p class="service-info-line"><%= @profile.advisor_price %></p>
         </div>
-        <div>
+        <div class="profile-service-button-book">
           <%= link_to new_profile_booking_path(@profile) do %>
             <i class="fas fa-chevron-right"></i>
           <% end %>
