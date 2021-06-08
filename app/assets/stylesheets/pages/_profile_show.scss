@@ -69,7 +69,7 @@ body {
 }
 
 .experience {
-  color: $dark-green;
+  color: $sea-green;
   text-align: right;
   font-size: 16px;
 
@@ -86,14 +86,19 @@ body {
 }
 
 .message-button-flex {
-  margin-top: 3px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+.message-button-flex {
+  i {
+    font-size: 50px;
+  }
+}
 
 .button-text {
   margin-bottom: 3px;
+  text-align: center;
 }
 
 i {
@@ -113,27 +118,19 @@ i {
   border-top: 1px solid $dark-green;
   border-bottom: 1px solid $dark-green;
 
-  a {
-    text-decoration: none;
-    color: white;
-  }
-
   p {
     margin: 0;
   }
 
   i {
   font-size: 30px;
-  color:darkslategray;
+  color: grey
   }
 }
 .service-sitter {
-  
   display: flex;
-  // justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid $dark-green;
-  // border-bottom: 0;
   padding: 10px;
 }
 
@@ -161,6 +158,10 @@ i {
     width: 100%;
     display: flex;
     justify-content: space-between;
+}
+
+.profile-service-button-book {
+  margin-top: 10px;
 }
 
 .review-container {

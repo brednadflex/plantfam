@@ -28,9 +28,9 @@
       </div>
     </div>
     <%= link_to chat_room_path do %>
-      <div class="message-button-flex button-profile-message">
-        <%= image_tag("mail-white.png") %>
-        <p class="button-text ml-3">message <%= @profile.first_name %></p>
+    <div class="button-text">
+      <i class="far fa-comments button-text"></i>
+      <span class="button-text profile-button-large">chat with <%= @profile.first_name %></span>
       </div>
     <% end %>
     <div class="description-about-me">
@@ -44,7 +44,6 @@
       <div>
         <i class="fas fa-tint"></i>
       </div>
-
       <div class="service-price-button">
         <div class="service-price">
           <p>Plant Sitter</p>
@@ -52,7 +51,7 @@
         </div>
         <div class="profile-service-button-book">
           <%= link_to new_profile_booking_path(@profile) do %>
-            <i class="fas fa-chevron-right"></i>
+            <p class="profile-button-small">book</p>
           <% end %>
         </div>
       </div>
@@ -61,7 +60,6 @@
       <div>
         <i class="fas fa-user-graduate"></i>
       </div>
-
       <div class="service-price-button">
         <div class="service-price">
           <p>Plant Advisor</p>
@@ -69,7 +67,7 @@
         </div>
         <div class="profile-service-button-book">
           <%= link_to new_profile_booking_path(@profile) do %>
-            <i class="fas fa-chevron-right"></i>
+            <p class="profile-button-small">book</p>
           <% end %>
         </div>
       </div>

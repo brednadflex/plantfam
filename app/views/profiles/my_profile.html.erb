@@ -47,40 +47,40 @@
         <% end %>
       </div>
     </div>
-  <p class="ml-2" style="font-size:18px"><strong>Services (tap to edit):</strong></p>
+  <p class="ml-2" style="font-size:18px"><strong>My Services:</strong></p>
   <div class="services">
-    <%= link_to new_profile_booking_path(@profile), class: "service-button-terracotta" do %>
-      <div class="service-sitter">
-        <div>
-          <p>Advice</p>
-          <p class="service-info-line">help with plant care problems</p>
-        </div>
+    <div class="service-sitter">
+      <div>
+        <i class="fas fa-tint"></i>
+      </div>
+      <div class="service-price-button">
         <div class="service-price">
-          <div>
-            <p class="mr-3"><%= @profile.sitter_price %></p>
-          </div>
-          <div>
-              <i class="fas fa-chevron-right"></i>
-          </div>
+          <p style="color:black;"><strong>Plant Sitter</strong></p>
+          <p class="service-info-line"><%= @profile.sitter_price %></p>
+        </div>
+        <div class="profile-service-button-book">
+          <%= link_to edit_profile_path(@profile) do %>
+            <p class="profile-button-small">edit</p>
+          <% end %>
         </div>
       </div>
-    <% end %>
-    <%= link_to new_profile_booking_path(@profile), class: "service-button-terracotta" do %>
-      <div class="service-advisor">
-        <div>
-          <p>Plant Sitting</p>
-          <p class="service-info-line">personalized care schedule</p>
-        </div>
+    </div>
+    <div class="service-advisor">
+      <div>
+        <i class="fas fa-user-graduate"></i>
+      </div>
+      <div class="service-price-button">
         <div class="service-price">
-          <div>
-            <p class="mr-3"><%= @profile.advisor_price %></p>
-          </div>
-          <div>
-              <i class="fas fa-chevron-right"></i>
-          </div>
+          <p style="color:black;"><strong>Plant Advisor</strong></p>
+          <p class="service-info-line"><%= @profile.advisor_price %></p>
+        </div>
+        <div class="profile-service-button-book">
+          <%= link_to edit_profile_path(@profile) do %>
+            <p class="profile-button-small">edit</p>
+          <% end %>
         </div>
       </div>
-    <% end %>
+    </div>
   </div>
     
   <div class="actions">
@@ -88,16 +88,10 @@
       <%= link_to 'edit profile', edit_profile_path(@profile), class: "btn-sea-green" %>
     </div>
     <div>
-      <%= link_to 'book me!', new_profile_booking_path(@profile), class: "btn-sea-green" %>
-    </div>
-    <div>
       <%= link_to 'My Bookings', profile_bookings_path(current_user.profile.id), class: "btn-sea-green" %>
     </div>
     <div>
       <%= link_to 'Booking Requests', booking_requests_path, class: "btn-sea-green" %>
-    </div>
-    <div>
-      <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: "btn-sea-green" %>
     </div>
   </div>
 </div>
