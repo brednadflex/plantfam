@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     resources :chat_rooms, only: [:create]
   end
 
-  get '/my_bookings', to: 'bookings#index'
+  get '/my_bookings', to: 'bookings#my_bookings'
   get '/my_bookings/:id', to: 'bookings#accept_booking', as: 'accept_booking'
   post '/my_bookings/:id', to: 'bookings#reject_booking', as: 'reject_booking'
 
