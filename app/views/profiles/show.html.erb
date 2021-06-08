@@ -34,7 +34,7 @@
       </div>
     <% end %>
     <div class="description-about-me">
-      <p><strong>About <%= @profile.first_name %>:</strong></p> 
+      <p><strong>About <%= @profile.first_name %>:</strong></p>
       <p><%= @profile.description %></p>
     </div>
   <p class="ml-2" style="font-size:18px"><strong>Book a Service:</strong></p>
@@ -96,19 +96,12 @@
       <% end %>
       </div>
   </div>
-  
+
 <div class="actions">
   <div>
-    <%= link_to 'edit profile', edit_profile_path(@profile), class: "btn-sea-green" %>
-  </div>
-  <div>
+
+    <% params[:search] = @search %>
     <%= link_to 'book me!', new_profile_booking_path(@profile, search: @search.to_s), class: "btn-sea-green" %>
-  </div>
-  <div>
-    <%= link_to 'My Bookings', my_bookings_path, class: "btn-sea-green" %>
-  </div>
-  <div>
-    <%= link_to 'Booking Requests', my_bookings_path, class: "btn-sea-green" %>
   </div>
 </div>
 

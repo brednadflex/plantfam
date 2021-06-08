@@ -1,0 +1,27 @@
+
+.scroll-section {
+  margin-top: 100px;
+  height: 550px;
+  overflow: scroll;
+}
+.bookings-horizontal-scroll {
+  overflow: scroll;
+  height: 140px;
+  width: 100%;
+}
+.bookings-card-body {
+    min-height: 200px;
+    min-width: 250px;
+    margin-right: 5px;
+    background-color: red;
+}
+
+.avatar-tiny {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  img {
+    height: 40px;
+    width: 40px;
+  }
+}

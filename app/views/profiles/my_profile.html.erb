@@ -2,8 +2,8 @@
   <div class="container">
     <img class="banner" src=<%= 'https://source.unsplash.com/random/900×250/?plants' %> alt="plant">
     <img src=<%= @profile.profile_img %> alt="user-image" class="rounded-circle profile-avatar";>
-    
-    
+
+
     <div class="name-experience-offers-rating">
       <div class="name-rating">
         <p class="name"><%= @profile.first_name %> <%= @profile.last_name %></p>
@@ -39,7 +39,7 @@
       </div>
     </div>
     <div class="description-about-me">
-      <p><strong>About Me:</strong></p> 
+      <p><strong>About Me:</strong></p>
       <p><%= @profile.description %></p>
       <div class="my-profile-about-me-edit-pencil">
         <%= link_to edit_profile_path(@profile) do %>
@@ -82,7 +82,7 @@
       </div>
     </div>
   </div>
-    
+
   <div class="actions">
     <div>
       <%= link_to 'edit profile', edit_profile_path(@profile), class: "btn-sea-green" %>
@@ -91,7 +91,7 @@
       <%= link_to 'My Bookings', profile_bookings_path(current_user.profile.id), class: "btn-sea-green" %>
     </div>
     <div>
-      <%= link_to 'Booking Requests', booking_requests_path, class: "btn-sea-green" %>
+      <%= link_to 'Booking Requests', my_bookings_path, class: "btn-sea-green" %>
     </div>
   </div>
 </div>
