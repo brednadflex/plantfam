@@ -9,3 +9,29 @@
 .main-wrapper {
   margin: 32px 16px;
 }
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+}
+
+.flex-container h4 {
+  text-align: center;
+  margin: 0 48px 16px 48px;
+}
+
+.search-form-address-params {
+  color: $sea-green;
+}
+
+.form-input-container {
+  margin-top: 8%;
+  margin-bottom: 8%;
+}
+
+.booking-form-container h3 {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 16%;
+  text-align: center;
+}

@@ -1,3 +1,6 @@
+<div class="main-wrapper">
+
+<% if false %>
 <div class="profile-booking-new">
   <div class="profile-booking-avatar">
     <%= image_tag @profile.profile_img, class: "avatar" %>
@@ -15,6 +18,8 @@
     </div>
   </div>
 </div>
+<% end %>
+
 
 <% if @profile.sitter? && @profile.advisor? %>
   <% options = ["Plant Sitting", "Advice"] %>
@@ -27,8 +32,12 @@
 <div class="booking-form-container">
   <h3>Send <%= @profile.first_name %> a request</h3>
   <%= simple_form_for([@profile, @booking]) do |f| %>
-    <%= f.input :service, as: :string, collection: options, html5: true, input_html: {value: "Plant Sitting"} %>
-    <%= f.input :my_address, id: "address_input", as: :string, html5: true, input_html: {value: session[:search]["address"]} %>
+    <div class="form-input-container">
+      <%= f.input :service, as: :string, collection: options, html5: true, input_html: {value: "Plant Sitting"} %>
+    </div>
+    <div class="form-input-container">
+      <%= f.input :my_address, id: "address_input", as: :string, html5: true, input_html: {value: session[:search]["address"]} %>
+    </div>
     <div class="search-form-container">
       <%= f.input :from, as: :string, required: true, input_html: {class: "datepicker", id: "range_start", value: session[:search]["from"]} %>
       <%= f.input :to, as: :string, required: true, input_html: {class: "datepicker", id: "range_start", value: session[:search]["to"]} %>
@@ -36,4 +45,5 @@
     <%= f.input :comment, label: "Tell #{Profile.find(params[:profile_id]).first_name} more about your plants" %>
     <%= f.submit class: "btn submit-button" %>
   <% end %>
+</div>
 </div>

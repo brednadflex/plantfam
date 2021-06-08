@@ -27,5 +27,16 @@
 
 .search-form-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
+
+#range_start {
+  width: 95%;
+  flex: start;
+}
+
+#range_end {
+  width: 100%;
+  flex: end;
+}
+
