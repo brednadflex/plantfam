@@ -27,24 +27,12 @@
         <% end %>
       </div>
     </div>
-    <% receiver = User.find(@profile.user.id) %>
-    <% chatroom = ChatRoom.where(requester: current_user, receiver: receiver).first %>
-    <% if chatroom %>
-      <%= link_to chat_room_path(chatroom) do %>
+      <%= link_to chat_room_path(@chatroom) do %>
       <div class="button-text">
         <i class="far fa-comments button-text"></i>
         <span class="button-text profile-button-large">chat with <%= @profile.first_name %></span>
         </div>
       <% end %>
-    <% else %>
-      <%= chatroom = ChatRoom.create(requester: current_user, receiver: receiver) %>
-      <%= link_to chat_room_path(chatroom) do %>
-      <div class="button-text">
-        <i class="far fa-comments button-text"></i>
-        <span class="button-text profile-button-large">chat with <%= @profile.first_name %></span>
-        </div>
-      <% end %>
-    <% end %>
     <div class="description-about-me">
       <p><strong>About <%= @profile.first_name %>:</strong></p>
       <p><%= @profile.description %></p>
