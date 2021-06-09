@@ -26,6 +26,10 @@
   }
 }
 
+.profile-card h4 {
+  font-size: 20px;
+}
+
 .profile-card-user-info {
   display: flex;
   justify-content: space-around;
@@ -33,7 +37,7 @@
 
 .profile-card-services {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 

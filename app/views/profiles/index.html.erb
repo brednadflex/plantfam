@@ -1,55 +1,54 @@
-<div class="mobile-container">
-<%= link_to "Back", search_path %>
-  <h4>Pick a Plant Sitter</h4>
+<div class="main-wrapper">
+  <div class="flex-container">
+    <h4>Available Plant Sitters in your area</h4>
+  </div>
+  <div class="flex-container">
+    <p class="search-form-address-params"><%= session[:search][:address].first(40) %>...</p>
+  </div>
 
   <% @profiles.each do |profile| %>
-
-     <div class="profile-card">
-
-          <div class="profile-card-user-info">
-            <div class="profile-card-image">
-              <img src=<%= profile.profile_img %> alt="user-image" class="rounded-circle profile-user-img" style="width: 50px; height: 50px;">
-            </div>
-
-            <div class="profile-card-user-text">
-              <h4><%= profile.first_name %></h4>
-              <p class="mt-1">Berlin <br>
-              <span class="experience"> <%= profile.experience %></span></p>
-            </div>
-
-            <div class="profile-card-user-rating-price">
-              <div class="profile-card-rating">
-                <p><%= profile.avg_rating %><%= image_tag "leaf.png", class: "ml-1" %></p>
-              </div>
-              <div class="profile-card-price">
-                <p><%= [5, 12, 8, 18, 4, 9].sample %>€ / d</p>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="profile-card-services">
-              <% if profile.sitter && profile.advisor %>
-                <div class="plantsitter">
-                  Plantsitter
-                </div>
-                <div class="advisor">
-                  Advisor
-                </div>
-              <% elsif profile.sitter %>
-                <div class="plantsitter">
-                  Plantsitter
-                </div>
-              <% elsif profile.advisor %>
-                <div class="advisor">
-                  Advisor
-                </div>
-              <% end %>
-          </div>
-
-          <p class="profile-description mt-4"><%= profile.description %></p>
-          <%= link_to "View profile", profile_path(profile), class: "text-decoration-none text-reset" %>
+    <div class="profile-card">
+      <div class="profile-card-user-info">
+        <div class="profile-card-image">
+          <img src=<%= profile.profile_img %> alt="user-image" class="rounded-circle profile-user-img" style="width: 50px; height: 50px;">
         </div>
 
+        <div class="profile-card-user-text">
+          <h4><%= profile.first_name %></h4>
+          <p class="mt-1">Berlin <br>
+          <span class="experience"> <%= profile.experience %></span></p>
+        </div>
+
+        <div class="profile-card-user-rating-price">
+          <div class="profile-card-rating">
+            <p><%= profile.avg_rating %><%= image_tag "leaf.png", class: "ml-1" %></p>
+          </div>
+          <div class="profile-card-price">
+            <p><%= [5, 12, 8, 18, 4, 9].sample %>€ / d</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-card-services">
+          <% if profile.sitter && profile.advisor %>
+            <div class="plantsitter">
+              Plantsitter
+            </div>
+            <div class="advisor">
+              Advisor
+            </div>
+          <% elsif profile.sitter %>
+            <div class="plantsitter">
+              Plantsitter
+            </div>
+          <% elsif profile.advisor %>
+            <div class="advisor">
+              Advisor
+            </div>
+          <% end %>
+      </div>
+      <p class="profile-description mt-4"><%= profile.description.first(70) %>...</p>
+      <%= link_to "View Profile", profile_path(profile), class: "view-profile-link" %>
+    </div>
   <% end %>
 </div>

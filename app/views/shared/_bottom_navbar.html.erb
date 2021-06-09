@@ -6,7 +6,7 @@
   </div>
   <div class="nav-icon">
     <%= link_to root_path do %>
-    <%= image_tag "NAVBARICONS/find.png" %>
+    <%= image_tag "NAVBARICONS/feed.png" %>
     <% end %>
   </div>
   <div class="nav-icon">
@@ -22,7 +22,7 @@
   <div class="nav-icon nav-item dropup">
     <% if user_signed_in? %>
       <%= image_tag "NAVBARICONS/profile.png", class: "signed-in dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+      <div class="dropdown-menu dropdown-menu-right green-bord-dropdown" aria-labelledby="navbarDropdown">
             <%= link_to "My profile", my_profile_path, class: "dropdown-item" %>
             <%= link_to "My Bookings", my_bookings_path(current_user.profile.id), class: "dropdown-item" %>
             <%= link_to "Edit Profile", edit_profile_path(current_user.profile), class: "dropdown-item" %>

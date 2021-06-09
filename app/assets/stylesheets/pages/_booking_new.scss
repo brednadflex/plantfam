@@ -66,6 +66,12 @@
 }
 
 .booking-form-container {
+  margin-top: 16%;
+}
+
+.form-input-container {
+  margin-top: 4%;
+  margin-bottom: 4%;
   margin: 0px 10px;
   border-radius: 20px;
 
@@ -83,9 +89,10 @@
 }
 
 .submit-button {
-  background-color: #119E85;
+  background-color: $sea-green;
   color: white;
   border-radius: 20px;
-  width: 60%;
-  // margin-left: 80px;
+  width: 100%;
+  margin-top: 40px;
+  padding: 12px 48px;
 }

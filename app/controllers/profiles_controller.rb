@@ -4,8 +4,7 @@ class ProfilesController < ApplicationController
 
   def index
     # Saving the search in a cookie variable to retrieve it in the booking
-    session[:search] = {address: params[:address], from: params[:from], to: params[:to]}
-
+    session[:search] = {address: params[:address], from: params[:search][:from], to: params[:search][:to]}
     @profiles = Profile.all
     if params[:from].present? && params[:to].present?
       @ids = Availability.where("start_date <= ?", params[:from]).where("end_date >= ?", params[:to]).map do |availability|

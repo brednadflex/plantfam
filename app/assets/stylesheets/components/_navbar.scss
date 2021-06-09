@@ -10,3 +10,11 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.green-bord-dropdown {
+  border: 1px solid $light-green;
+  border-radius: 8px;
+  a {
+    color: $dark-green;
+  }
+}

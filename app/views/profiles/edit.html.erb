@@ -4,30 +4,38 @@
     <i class="fas fa-arrow-circle-left pl-2"></i>
     <% end %>
   </div>
-  <div class="container">
-    <h1>Profile</h1>
+  <div class="profile-edit-container">
+    <h2>Edit Profile</h2>
     <%= simple_form_for(@profile) do |f| %>
       <%= f.input :first_name, label: "First Name", placeholder: "first name" %>
       <%= f.input :last_name, label: "Last Name", placeholder: "last name" %>
       <%= f.input :description, label: "About Me", placeholder: "about me"  %>
       <%= f.input :address, label: "Address", placeholder: "address" %>
-      <%= "Services you offer:" %>
-      <%= f.label :sitter do %>
-        <%= f.check_box :sitter, as: :boolean, label: false %>
-        <span>plant sitter</span>
-      <% end %>
-      <%= f.label :advisor do %>
-        <%= f.check_box :advisor, as: :boolean, label: false %>
-        <span>plant advisor</span>
-      <% end %>
+      <p>Services you offer:</p>
+      <div class="profile-edit-checkboxes">
+        <div>
+          <%= f.label :sitter do %>
+            <%= f.check_box :sitter, as: :boolean, label: false %>
+            <span>plant sitter</span>
+          <% end %>
+        </div>
+        <div>
+          <%= f.label :advisor do %>
+            <%= f.check_box :advisor, as: :boolean, label: false %>
+            <span>plant advisor</span>
+          <% end %>
+        </div>
+      </div>
       <%= f.input :sitter_price, input_html: { maxlength: 10, size: 40 }, label: "Your plant sitting price:",  placeholder: "ie. €10/pd, swap, negotiable, donation, free" %>
       <%= f.input :advisor_price, input_html: { maxlength: 10, size: 40 }, label: "Your advisor price:",  placeholder: "ie. €10/pd, swap, negotiable, donation, free" %>
       <%= f.input :max_radius, label: "How many kilometers from your home are you willing to travel?", placeholder: "0", input_html: { min: "0" }%>
-      <%= f.input :experience, as: :radio_buttons, collection: ['Seedling (beginner)', 'Plant Friend (moderate)', 'Moss Person (knowledgable)', 'Plant Whisperer (expert)'] %>
+      <div class="profile-experience-radio-buttons">
+        <%= f.input :experience, as: :radio_buttons, collection: ['Seedling (beginner)', 'Plant Friend (moderate)', 'Moss Person (knowledgable)', 'Plant Whisperer (expert)'] %>
+      </div>
       <%= f.input :profile_banner, as: :file %>
       <%= f.input :profile_img, as: :file %>
       <%= f.input :public, as: :radio_buttons %> 
-      <%= f.submit %>    
+      <%= f.submit class: "submit-button" %>    
     <% end %>
   </div>
 </div>
