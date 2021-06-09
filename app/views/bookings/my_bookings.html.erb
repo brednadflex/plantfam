@@ -43,14 +43,15 @@
                 </div>
                 <p class="text-align-center"><em>has requested you as <strong><%= booking.service_type %></strong></em></p>
                 <p class="text-align-center"><em>Between <%= booking.start_date.strftime("%b %d, %Y") %> and <%= booking.end_date.strftime("%b %d, %Y") %></em></p>
-                <div class="button-row">
-                  <h6 class="booking-accept-btn">accept</h6>
-                  <h6 class="booking-reject-btn">reject</h6>
-                  <h6 class="pending-messag-btn">message</h6>
+                <div class="button-row-lower-right">
+                  <%= button_to "accept", accept_booking_path(booking.id), class: "booking-accept-btn" %>
+                  <%= button_to "reject", reject_booking_path(booking.id), class: "booking-reject-btn" %>
+                  <%= button_to "message", user_chat_rooms_path(booking.client), class: "booking-message-btn" %>
                 </div>
               </div>
               <% end %>
-            <% elsif @pending_outgoing.present? %>
+            <% end %>
+            <% if @pending_outgoing.present? %>
               <% @pending_outgoing.each do |booking| %>
                 <div class="card bookings-card-body outgoing p-2">
                   <div class="floating-questionmark">
@@ -60,9 +61,12 @@
                     <%= image_tag booking.provider.profile.profile_img, class: 'avatar-tiny' %>
                     <p><%= booking.provider.profile.first_name %> <%= booking.provider.profile.last_name %></p>
                   </div>
-                  <p class="text-align-center"> has been informed about your <strong><%= booking.service_type %></strong> request(<%= booking.start_date.strftime("%b %d, %Y") %> - <%= booking.end_date.strftime("%b %d, %Y") %>).</p>
+                  <p class="text-align-center"> has been informed about your <br><strong><%= booking.service_type %></strong> request(<%= booking.start_date.strftime("%b %d, %Y") %> - <%= booking.end_date.strftime("%b %d, %Y") %>).</p>
                   <p class="text-align-center text-secondary"><em>...Awaiting confirmation</em></p>
-                  <h6 class="card-msg-btn gray">message <%= booking.provider.profile.first_name %></h6>
+                  <div class="button-row-lower-right">
+                    <%= button_to "cancel", reject_booking_path(booking.id), class: "booking-reject-btn" %>
+                    <%= button_to "message", user_chat_rooms_path(booking.provider), class: "booking-message-btn" %>
+                  </div>
                 </div>
               <% end %>
             <% end %>
@@ -97,7 +101,9 @@
                     <p><%= booking.client.profile.first_name %> <%= booking.client.profile.last_name %></p>
                   </div>
                   <p class="text-align-center"><em>has booked you as a </em><strong><%= booking.service_type %></strong><em> until <%= booking.end_date.strftime("%b %d, %Y") %></em></p>
-                  <h6 class="card-msg-btn">message <%= booking.provider.profile.first_name %></h6>
+                  <div class="button-row-lower-right">
+                    <%= button_to "message", user_chat_rooms_path(booking.client), class: "booking-message-btn" %>
+                  </div>
                 </div>
               <% end %>
             <% elsif @current_outgoing.present? %>
@@ -111,7 +117,10 @@
                     <p><%= booking.provider.profile.first_name %> <%= booking.provider.profile.last_name %></p>
                   </div>
                   <p class="text-align-center"><em>is your </em><strong><%= booking.service_type %></strong> <em>until <%= booking.end_date.strftime("%b %d, %Y") %></em></p>
-                    <h6 class="card-msg-btn">message <%= booking.provider.profile.first_name %></h6>
+                  <div class="button-row-lower-right">
+                    <%= button_to "cancel", reject_booking_path(booking.id), class: "booking-reject-btn" %>
+                    <%= button_to "message", user_chat_rooms_path(booking.provider), class: "booking-message-btn" %>
+                  </div>
                 </div>
                 <% end %>
             <% end %>
@@ -132,11 +141,11 @@
           <p class="outgoing">outgoing</p>
         </div>
       </div>
-      <% if @incoming_upcoming.present? || @outgoing_upcoming.present? %>
+      <% if @upcoming_incoming.present? || @upcoming_outgoing.present? %>
           <div class="container-fluid py-2 bookings-horizontal-scroll">
             <div class="d-flex flex-row flex-nowrap">
-            <% if @incoming_upcoming.present? %>
-              <% @incoming_upcoming.each do |booking| %>
+            <% if @upcoming_incoming.present? %>
+              <% @upcoming_incoming.each do |booking| %>
                 <div class="card bookings-card-body incoming p-2">
                   <div class="floating-questionmark">
                     <i class="far fa-question-circle"></i>
@@ -147,10 +156,14 @@
                   </div>
                   <p class="text-align-center"><em>has booked you as </em><strong><%= booking.service_type %></strong></p>
                   <p class="text-align-center"><em>from <%= booking.start_date.strftime("%b %d, %Y") %> until <%= booking.end_date.strftime("%b %d, %Y") %></em></p>
-                  <h6 class="card-msg-btn">message <%= booking.client.profile.first_name %></h6>
+                  <div class="button-row-lower-right">
+                    <%= button_to "cancel", reject_booking_path(booking.id), class: "booking-reject-btn" %>
+                    <%= button_to "message", user_chat_rooms_path(booking.client), class: "booking-message-btn" %>
+                  </div>
+                </div>
               <% end %>
-            <% elsif @outgoing_upcoming.present? %>
-              <% @outgoing_upcoming.each do |booking| %>
+            <% elsif @upcoming_outgoing.present? %>
+              <% @upcoming_outgoing.each do |booking| %>
                 <div class="card bookings-card-body outgoing p-2">
                   <div class="floating-questionmark">
                     <i class="far fa-question-circle"></i>
@@ -161,7 +174,10 @@
                   </div>
                   <p class="text-align-center"><em>will be your <strong><%= booking.service_type %></strong></em></h6>
                   <p class="text-align-center"><em>Between <%= booking.start_date.strftime("%b %d, %Y") %> and <%= booking.end_date.strftime("%b %d, %Y")%></em></p>
-                  <h6 class="card-msg-btn">message <%= booking.provider.profile.first_name %></h6>
+                  <div class="button-row-lower-right">
+                    <%= button_to "cancel", reject_booking_path(booking.id), class: "booking-reject-btn" %>
+                    <%= button_to "message", user_chat_rooms_path(booking.provider), class: "booking-message-btn" %>
+                  </div>
                 </div>
               <% end %>
             <% end %>
@@ -197,9 +213,10 @@
                   </div>
                   <p class="text-align-center"><em>booked you as <strong><%= booking.service_type %></strong></em></p>
                   <p class="text-align-center">From <%= booking.start_date.strftime("%b %d, %Y") %> and <%= booking.end_date.strftime("%b %d, %Y") %></p>
-                  <div class="button-row">
-                    <h6 class="booking-accept-btn">see reviews</h6>
-                    <h6 class="pending-messag-btn">message</h6>
+                  <div class="button-row-lower-right">
+                     <%#= link_to "reviews", new_booking_review_path(booking), class: "booking-accept-btn" %>
+                    <%#= button_to "reviews", new_booking_review_path(booking), class: "booking-accept-btn" %>
+                    <%= button_to "message", user_chat_rooms_path(booking.client), class: "booking-message-btn" %>
                   </div>
                 </div>
               <% end %>
@@ -215,9 +232,10 @@
                   </div>
                   <p class="text-align-center"><em>was your <strong><%= booking.service_type %></strong></em></p>
                   <p class="text-align-center">From <%= booking.start_date.strftime("%b %d, %Y") %> until <%= booking.end_date.strftime("%b %d, %Y") %></em></p>
-                  <div class="button-row">
-                    <h6 class="booking-accept-btn">reviews</h6>
-                    <h6 class="pending-messag-btn">message</h6>
+                  <div class="button-row-lower-right">
+                    <!-- we commented this out because only the client should review -->
+                    <%= link_to "reviews", new_booking_review_path(booking), class: "booking-accept-btn" %>
+                    <%= button_to "message", user_chat_rooms_path(booking.provider), class: "booking-message-btn" %>
                   </div>
                 </div>
               <% end %>

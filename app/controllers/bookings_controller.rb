@@ -16,8 +16,8 @@ class BookingsController < ApplicationController
     @current_incoming = current_bookings.select { |booking| booking.provider == current_user }
     @current_outgoing = current_bookings.select { |booking| booking.client == current_user }
 
-    @upcoming_confirmed = all_bookings.select{ |booking| (booking.start_date > Date.today) && booking.confirmed? }
-    @upcoming_pending = all_bookings.select{ |booking| (booking.start_date > Date.today) && !booking.confirmed? }
+    @upcoming_confirmed = all_bookings.select{ |booking| (booking.start_date > Date.today) && booking.accepted? }
+    @upcoming_pending = all_bookings.select{ |booking| (booking.start_date > Date.today) && !booking.accepted? }
     upcoming_confirmed = @upcoming_confirmed
     upcoming_pending = @upcoming_pending
 
@@ -41,7 +41,24 @@ class BookingsController < ApplicationController
   end
 
   def create
+
     @profile = Profile.find(params[:profile_id])
+
+    # other_person = current_user == @chatroom.receiver ? @chatroom.requester : @chatroom.receiver
+
+
+    receiver = User.find(@profile.user.id)
+    chatroom = ChatRoom.where(requester: current_user, receiver: receiver).first
+    if chatroom
+      @chatroom = chatroom
+    else
+      @chatroom = ChatRoom.create!(requester: current_user, receiver: receiver)
+    end
+
+    if params[:booking][:comment]
+      message = Message.create(user: current_user, chat_room: @chatroom, content: params[:booking][:comment])
+    end
+
     @booking = Booking.new(booking_params)
     @booking.client = current_user
     @booking.provider = @profile.user
@@ -55,9 +72,9 @@ class BookingsController < ApplicationController
 
   def accept_booking
     @booking = Booking.find(params[:id])
-    @booking.confirmed = "confirmed"
+    @booking.confirmed = "accepted"
     if @booking.save
-      redirect_to booking_requests_path, notice: "Congratulations, your booking is complete!"
+      redirect_to my_bookings_path, notice: "Congratulations, your booking is complete!"
     end
   end
 
@@ -65,11 +82,13 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.confirmed = "rejected"
     if @booking.save
-      redirect_to booking_requests_path, notice: "Sorry, your booking was rejected!"
+      redirect_to my_bookings_path, notice: "Sorry, your booking was rejected!"
     end
   end
 
   private
+
+
 
   def booking_params
     params.require(:booking).permit(:start_date, :end_date, :service_type)

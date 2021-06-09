@@ -58,11 +58,13 @@ profile_claudiu = claudiu.profile.update!(
   last_name: "Florin Popa",
   profile_img: "https://avatars.githubusercontent.com/u/81229662?v=4",
   description: "I'm in love with plants and enjoy taking care of them. I joined PlantFam to pass on my knowledge and to help others be worry free while they are on vacation. Plants are our babies! I specialize in desert fauna, if you have any questions!",
-  experience: "Plant Whisperer",
+  experience:  "Plant Friend (moderate)",
   avg_rating: 4.8,
   address: "An der Urania 5, 10787 Berlin",
   sitter: true,
-  advisor: true
+  advisor: true,
+  sitter_price: "5€/pd",
+  advisor_price: "free"
 )
 if claudiu.profile.sitter
   Availability.create(start_date: "2021-08-01" , end_date: "2021-08-31" , profile: claudiu.profile)
@@ -76,11 +78,13 @@ profile_barney = barney.profile.update!(
   last_name: "Haas",
   description: "Plants are just the best and I just can't hide it.  I have been a plant lover my entire life, starting with gardening with my grandmother in her big vegetable garden.  I have a wide range of expertise from produce, to tropicals, and have lots of tricks to get rid of mites and other unwanted critters.  I am there for you as a sitter or advisor!",
   profile_img: "https://avatars.githubusercontent.com/u/77109548?v=4",
-  experience: "Plant Whisperer",
+  experience: "Plant Whisperer (expert)",
   avg_rating: 4.5,
   address: "Rudi-Dutschke-Straße 26, 10969 Berlin",
   sitter: true,
-  advisor: true
+  advisor: true,
+  sitter_price: "donation",
+  advisor_price: "swap"
 )
 if barney.profile.sitter
   Availability.create(start_date: "2021-08-01" , end_date: "2021-08-31" , profile: barney.profile)
@@ -94,11 +98,13 @@ profile_jal= jal.profile.update!(
   last_name: "Ridley",
   description: "I take care of my plants as if they were my own children. I have a beautiful 17 year old Madacascar often with babies up for grabs. My friends say I have too many plants but I don't believe that is possiblte. Let's connect and have a plant chat!",
   profile_img: "https://avatars.githubusercontent.com/u/72085091?v=4",
-  experience: "Moss Person",
+  experience: "Moss Person (knowledgable)",
   avg_rating: 4.6,
   address: "Pariser Platz, 10117, Berlin",
   sitter: true,
-  advisor: true
+  advisor: true,
+  sitter_price: "10€/pw",
+  advisor_price: "swap"
 )
 if jal.profile.sitter
   Availability.create(start_date: "2021-07-01" , end_date: "2021-07-31" , profile: jal.profile)
@@ -112,11 +118,13 @@ profile_julian = julian.profile.update!(
   last_name: "Thompson",
   description: "A plant? What the hell is that? I am a plant newbie looking for inspiration and chats about how to not kill all plants I own. I am an apartment dweller with no balcony and want to get some life into it.  I have a green heart but a black thumb! I would love to hit you up for a chat! ",
   profile_img: "https://avatars.githubusercontent.com/u/80887245?s=400&u=a2a1d4d27a7a628a5eebb5fa888fe55fbaa6dd00&v=4",
-  experience: "Seedling",
+  experience: "Seedling (beginner)",
   avg_rating: 4.2,
   address: "Platz der Republik 1, 11011, Berlin",
   sitter: true,
-  advisor: false
+  advisor: false,
+  sitter_price: "20€/pw",
+  advisor_price: "1€"
 )
 if julian.profile.sitter
   Availability.create(start_date: "2021-07-01" , end_date: "2021-07-31" , profile: julian.profile)
@@ -135,11 +143,13 @@ addresses.count.times do |index|
   last_name: Faker::Name.last_name,
   profile_img: user_images.sample,
   description: Faker::ChuckNorris.fact,
-  experience: ["Seedling", "Plant Friend", "Moss Person", "Plant Whisperer"].sample,
+  experience: ["Seedling (beginner)", "Plant Friend (moderate)", "Moss Person (knowledgable)", "Plant Whisperer (expert)"].sample,
   avg_rating: (3..4).to_a.sample + [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9].sample,
   address: addresses[index],
   sitter: [true, false].sample,
-  advisor: [true, false].sample
+  advisor: [true, false].sample,
+  sitter_price: "negotiable",
+  advisor_price: "free"
   )
   if new_user.profile.sitter
     Availability.create(start_date: "2021-07-01" , end_date: "2021-07-31" , profile: new_user.profile)
@@ -179,10 +189,20 @@ booking1.provider = jal
 booking1.service_type = "sitter"
 booking1.start_date = "2021-06-06"
 booking1.end_date = "2021-07-1"
-booking1.confirmed = :confirmed
+booking1.confirmed = "accepted"
 booking1.completed = false
 booking1.comment = "Hey would you mind taking care of my plants?"
-booking1.save
+booking1.save!
+
+Review.create!(
+  booking: booking1,
+  user: barney,
+  profile: jal.profile,
+  content: "Jal did a great job! So great, my plants now lover her more than me!",
+  rating: 4,
+  recommended: true
+)
+
 
 # barney books claudiu as a sitter from July 2nd til July 15th.
 booking2 = Booking.new
@@ -191,10 +211,19 @@ booking2.provider = claudiu
 booking2.service_type = "sitter"
 booking2.start_date = "2021-07-02"
 booking2.end_date = "2021-07-15"
-booking2.confirmed = "confirmed"
+booking2.confirmed = "accepted"
 booking2.completed = false
 booking2.comment = "Hey would you mind taking care of my plants?"
 booking2.save
+
+Review.create!(
+  booking: booking2,
+  user: barney,
+  profile: claudiu.profile,
+  content: "Claudiu kept my plants well watered and alive while I was on vacation.",
+  rating: 3.5,
+  recommended: true
+)
 
 # barney books julian as a sitter from July 15th until July 29th.
 booking3 = Booking.new
@@ -203,10 +232,21 @@ booking3.provider = julian
 booking3.service_type = "sitter"
 booking3.start_date = "2021-07-15"
 booking3.end_date = "2021-07-29"
-booking3.confirmed = "confirmed"
+booking3.confirmed = "accepted"
 booking3.completed = false
 booking3.comment = "Hey would you mind taking care of my plants?"
 booking3.save
+
+
+Review.create!(
+  booking: booking3,
+  user: barney,
+  profile: julian.profile,
+  content: "For being a new plant caregiver with a seedling experience level, I am happy with Julian.",
+  rating: 3.5,
+  recommended: true
+)
+
 
 # barney has been booked by julian as a plant advisor from August 8th until August 9th
 booking4 = Booking.new
@@ -215,10 +255,20 @@ booking4.provider = barney
 booking4.service_type = "advisor"
 booking4.start_date = "2021-08-08"
 booking4.end_date = "2021-09-09"
-booking4.confirmed = "confirmed"
+booking4.confirmed = "accepted"
 booking4.completed = false
 booking4.comment = "Hey barney, could you help me with my plants?"
 booking4.save
+
+Review.create!(
+  booking: booking4,
+  user: julian,
+  profile: barney.profile,
+  content: "Barney really is a plant whisperer! My tropicals are thriving since his advice.",
+  rating: 4.5,
+  recommended: true
+)
+
 
 # barney has been booked by jal as a plant advisor from August 9th til August 10th
 booking5 = Booking.new
@@ -227,27 +277,46 @@ booking5.provider = barney
 booking5.service_type = "advisor"
 booking5.start_date = "2021-08-09"
 booking5.end_date = "2021-08-10"
-booking5.confirmed = "confirmed"
+booking5.confirmed = "accepted"
 booking5.completed = false
-booking5.comment = "hey barney, I really need help with this new plant i bought"
+booking5.comment = "hey barney, I really need help with this new plant I bought"
 booking5.save
+
+Review.create!(
+  booking: booking5,
+  user: jal,
+  profile: barney.profile,
+  content: "I asked Barney for advice about mites on my chilli plants and he knew right away what the problem was.",
+  rating: 4,
+  recommended: true
+)
+
 
 # claudiu has requested to book barney as a sitter from June 19th until June 29th
 booking7 = Booking.new
 booking7.client = claudiu
-booking7.provider = barney
+booking7.provider = jal
 booking7.service_type = "sitter"
 booking7.start_date = "2021-06-19"
 booking7.end_date = "2021-06-29"
-booking7.confirmed = "confirmed"
+booking7.confirmed = "accepted"
 booking7.completed = false
 booking7.comment = "could you watch my plants for 10 days?"
 booking7.save
 
+Review.create!(
+  booking: booking7,
+  user: claudiu,
+  profile: jal.profile,
+  content: "I have very easy to care for plants. but Jal did a good job!",
+  rating: 3,
+  recommended: true
+)
+
 # jal has requested to book barney as a sitter from June 19th until June 29th
 booking8 = Booking.new
 booking8.client = jal
-booking8.provider = barney
+booking8.provider = julian
 booking8.service_type = "sitter"
 booking8.start_date = "2021-06-19"
 booking8.end_date = "2021-06-29"
@@ -256,11 +325,20 @@ booking8.completed = false
 booking8.comment = "could you watch my plants for 10 days?"
 booking8.save
 
+Review.create!(
+  booking: booking8,
+  user: jal,
+  profile: julian.profile,
+  content: "Julian did a good job sitting and is very trustworthy.",
+  rating: 4,
+  recommended: true
+)
+
 # julian has requested to book barney as a sitter from June 19th until June 29th
 
 booking9 = Booking.new
 booking9.client = jal
-booking9.provider = barney
+booking9.provider = claudiu
 booking9.service_type = "sitter"
 booking9.start_date = "2021-06-19"
 booking9.end_date = "2021-06-29"
@@ -269,9 +347,18 @@ booking9.completed = false
 booking9.comment = "could you watch my plants for 10 days?"
 booking9.save
 
+Review.create!(
+  booking: booking9,
+  user: jal,
+  profile: claudiu.profile,
+  content: "Claudiu kept my plants alive!  that is all I wanted",
+  rating: 3.5,
+  recommended: true
+)
+
 # barney has requested claudiu as a plant advisor from August 10th til Aug 11th
 booking10 = Booking.new
-booking10.client = barney
+booking10.client = julian
 booking10.provider = claudiu
 booking10.service_type = "advisor"
 booking10.start_date = "2021-08-10"
@@ -281,43 +368,80 @@ booking10.completed = false
 booking10.comment = "could you advise me on this problem with my plants?"
 booking10.save
 
+Review.create!(
+  booking: booking10,
+  user: julian,
+  profile: claudiu.profile,
+  content: "Claudiu gave good advice about a minor but irritating soil problem.",
+  rating: 3.5,
+  recommended: true
+)
+
 # barney booked jal the first 10 days of january 2021.
-booking10 = Booking.new
-booking10.client = barney
-booking10.provider = jal
-booking10.service_type = "sitter"
-booking10.start_date = "2021-01-01"
-booking10.end_date = "2021-01-10"
-booking10.confirmed = "confirmed"
-booking10.completed = true
-booking10.comment = "calkjlkjlkjlkjlkjlkj?"
-booking10.save
+booking11 = Booking.new
+booking11.client = julian
+booking11.provider = jal
+booking11.service_type = "sitter"
+booking11.start_date = "2021-01-01"
+booking11.end_date = "2021-01-10"
+booking11.confirmed = "accepted"
+booking11.completed = true
+booking11.comment = "I like your plant set up"
+booking11.save
+
+Review.create!(
+  booking: booking11,
+  user: julian,
+  profile: jal.profile,
+  content: "Jal took good care of my babies like they were her own.",
+  rating: 3.5,
+  recommended: true
+)
 
 # barney booked julian the first 10 days of february 2021.
-booking10 = Booking.new
-booking10.client = barney
-booking10.provider = jal
-booking10.service_type = "sitter"
-booking10.start_date = "2021-02-01"
-booking10.end_date = "2021-02-10"
-booking10.confirmed = "confirmed"
-booking10.completed = true
-booking10.comment = "calkjlkjlkjlkjlkjlkj?"
-booking10.save
+booking12 = Booking.new
+booking12.client = claudiu
+booking12.provider = julian
+booking12.service_type = "sitter"
+booking12.start_date = "2021-02-01"
+booking12.end_date = "2021-02-10"
+booking12.confirmed = "accepted"
+booking12.completed = true
+booking12.comment = "look how big that Madagascar is!"
+booking12.save
+
+
+Review.create!(
+  booking: booking12,
+  user: claudiu,
+  profile: julian.profile,
+  content: "My plants survived. Julian should upgrade his level from seedling!",
+  rating: 3.5,
+  recommended: true
+)
 
 # barney booked clauriu the first 10 days of march 2021.
-booking10 = Booking.new
-booking10.client = barney
-booking10.provider = claudiu
-booking10.service_type = "advisor"
-booking10.start_date = "2021-03-01"
-booking10.end_date = "2021-03-10"
-booking10.confirmed = "confirmed"
-booking10.completed = true
-booking10.comment = "calkjlkjlkjlkjlkjlkj?"
-booking10.save
+booking13 = Booking.new
+booking13.client = claudiu
+booking13.provider = barney
+booking13.service_type = "advisor"
+booking13.start_date = "2021-03-01"
+booking13.end_date = "2021-03-10"
+booking13.confirmed = "accepted"
+booking13.completed = true
+booking13.comment = "wow! wanna sell that plant?"
+booking13.save
 
+Review.create!(
+  booking: booking13,
+  user: claudiu,
+  profile: barney.profile,
+  content: "Barney is the best! lots of new growth! I will definitely rebook him.",
+  rating: 4.5,
+  recommended: true
+)
 
+puts "booking created with new review"
 puts "booking created with new seeds"
 
 
