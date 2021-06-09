@@ -29,48 +29,57 @@
       </div>
 		</div>
   </div>
-  
+
   <div class="profile-examples">
     <div class="plant-enthusiasts-header">
       <h4>Join over 4000 plant enthusiasts</h4>
     </div>
 
-    
-   
-      
-  
-  
+
+
+
+
+
 
 <% @profiles.last(5).each do |profile| %>
   <%= link_to profile_path(profile), class:"text-decoration-none text-reset" do %>
-    <div class="profile-card-outer-flex-container">
-      <div class="profile-card-container-left">
-        <div class="profile-card-image-container">
-          <img src=<%= profile.profile_img %> alt="user-image" class="rounded-circle profile-user-img" style="width: 80px; height: 80px;">
+    <div class="profile-card-homepage">
+      <div class="profile-card-outer-flex-container">
+        <div class="profile-card-container-left">
+          <div class="profile-card-image-container">
+            <img src=<%= profile.profile_img %> alt="user-image" class="rounded-circle profile-user-img" style="width: 80px; height: 80px;">
+          </div>
         </div>
-        <div class="profile-card-price-container make-me-flex">
-          <h4 class="profile-card-price">50€</h4>
-          <p>/day</p>
+        <div class="profile-card-container-right ml-3 ">
+          <div class="profile-card-name-container">
+            <h4 class="mr-3 mb-0"><%= profile.first_name %></h4>
+            <div class="profile-card-experience-rating-location-container">
+              <p class="make-me-flex mb-0"><%= profile.avg_rating %><%= image_tag "leaf.png", class: "ml-1" %></p>
+          </div>
+          </div>
+          <p class="make-me-flex m-0"><%= image_tag "map-pin.svg", class: "mr-1" %>Berlin, Germany</p>
+
         </div>
       </div>
-      <div class="profile-card-container-right">
-        <div class="profile-card-name-container">
-          <h4><%= profile.first_name %></h4>
+      <div class="profile-card-outer-flex-container align-items-end">
+        <div class="profile-card-container-left flex-grow-1">
+          <div class="profile-card-service-flex-container">
+            <% if profile.sitter && profile.advisor %>
+              <p class="service-tag plant-sitter">Plant Sitter</p>
+              <p class="service-tag advisor">Advisor</p>
+            <% elsif profile.sitter %>
+              <p class="service-tag">Plant Sitter</p>
+            <% elsif profile.advisor %>
+              <p class="service-tag">Advisor</p>
+            <% end %>
+          </div>
+          <span class="profile-experience"> <%= profile.experience %></span>
         </div>
-        <div class="profile-card-service-flex-container">
-          <% if profile.sitter && profile.advisor %>
-            <p class="service-tag plant-sitter">Plant Sitter</p>
-            <p class="service-tag advisor">Advisor</p>
-          <% elsif profile.sitter %>
-            <p class="service-tag">Plant Sitter</p>
-          <% elsif profile.advisor %>
-            <p class="service-tag">Advisor</p>
-          <% end %>
-        </div>
-        <div class="profile-card-experience-rating-location-container">
-          <span class="profile-experience"> <%= profile.experience %></span></p>
-          <p class="make-me-flex"><%= profile.avg_rating %><%= image_tag "leaf.png", class: "ml-1" %></p>
-          <p class="make-me-flex"><%= image_tag "map-pin.svg", class: "mr-1" %>Berlin, Germany</p>
+        <div class="profile-card-container-right">
+          <div class="profile-card-price-container make-me-flex">
+            <h4 class="profile-card-price mb-0">50€</h4>
+            <p class="mb-0">/day</p>
+          </div>
         </div>
       </div>
     </div>
