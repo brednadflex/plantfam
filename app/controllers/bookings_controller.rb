@@ -41,7 +41,24 @@ class BookingsController < ApplicationController
   end
 
   def create
+
     @profile = Profile.find(params[:profile_id])
+
+    # other_person = current_user == @chatroom.receiver ? @chatroom.requester : @chatroom.receiver
+
+
+    receiver = User.find(@profile.user.id)
+    chatroom = ChatRoom.where(requester: current_user, receiver: receiver).first
+    if chatroom
+      @chatroom = chatroom
+    else
+      @chatroom = ChatRoom.create!(requester: current_user, receiver: receiver)
+    end
+
+    if params[:booking][:comment]
+      message = Message.create(user: current_user, chat_room: @chatroom, content: params[:booking][:comment])
+    end
+
     @booking = Booking.new(booking_params)
     @booking.client = current_user
     @booking.provider = @profile.user
@@ -70,6 +87,8 @@ class BookingsController < ApplicationController
   end
 
   private
+
+
 
   def booking_params
     params.require(:booking).permit(:start_date, :end_date, :service_type)

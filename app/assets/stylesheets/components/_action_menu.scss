@@ -57,7 +57,7 @@
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 	background-position: center;
 	background-size: cover;
-	transition: all 0.2s ease-in-out !important;
+	// transition: all 0.2s ease-in-out !important;
 	border-radius: 20px;
 }
 
@@ -69,9 +69,9 @@
   img {
     width: 100%;
   }
-  &:hover{
-		transform: translateY(-2px);
-	}
+ //  &:hover{
+	// 	transform: translateY(-2px);
+	// }
 }
 
 .card-2{
@@ -83,9 +83,9 @@
   img {
     width: 100%;
   }
-  &:hover{
-		transform: translateY(-2px);
-	}
+ //  &:hover{
+	// 	transform: translateY(-2px);
+	// }
 }
 
 .card-3{
@@ -96,9 +96,9 @@
   overflow: hidden;
   img {
     width: 100%;
-  }
-  &:hover{
-		transform: translateY(-2px);
-	}
+    }
+ //  &:hover{
+	// 	transform: translateY(-2px);
+	// }
 }
 
