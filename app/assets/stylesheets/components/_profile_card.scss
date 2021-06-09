@@ -1,13 +1,21 @@
 .profile-card-outer-flex-container {
   display: flex;
   justify-content: between;
+  // background-color: rgb(247, 252, 243);
+  // box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  // border-radius: 8px;
+  // margin: 24px 0;
+  // padding: 16px;
+}
+
+.profile-card-homepage {
   background-color: rgb(247, 252, 243);
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   border-radius: 8px;
-  margin: 24px 0;
+  margin: 24px 0 36px;
   padding: 16px;
+  border: 1px solid $dark-green;
 }
-
 .make-me-flex {
   display: flex;
 }
@@ -16,12 +24,23 @@
   margin: 0;
 }
 
-.profile-card-container-right {
-  margin-left: 12%;
-}
+
 
 .profile-card-service-flex-container {
   display: flex;
+}
+
+.profile-card-image-container {
+  margin-top: -45px;
+
+  img {
+    border: 1px solid $dark-green;
+  }
+}
+
+.profile-card-name-container {
+    display: flex;
+    align-items: center;
 }
 
 .service-tag {
@@ -46,16 +65,16 @@
   margin-left: 4px;
 }
 
-.profile-experience {
-  color: $sea-green;
-}
+// .profile-experience {
+//   color: $sea-green;
+// }
 
 .profile-card-experience-rating-location-container p {
   margin-bottom: 12px;
 }
 
 .profile-card-price-container {
-  margin-top: 92px;
+  // margin-top: 92px;
   p {
     margin-left: 4px;
     color: #444;
