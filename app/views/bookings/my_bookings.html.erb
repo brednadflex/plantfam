@@ -214,7 +214,8 @@
                   <p class="text-align-center"><em>booked you as <strong><%= booking.service_type %></strong></em></p>
                   <p class="text-align-center">From <%= booking.start_date.strftime("%b %d, %Y") %> and <%= booking.end_date.strftime("%b %d, %Y") %></p>
                   <div class="button-row-lower-right">
-                    <%= button_to "reviews", new_booking_review_path(booking), class: "booking-accept-btn" %>
+                     <%#= link_to "reviews", new_booking_review_path(booking), class: "booking-accept-btn" %>
+                    <%#= button_to "reviews", new_booking_review_path(booking), class: "booking-accept-btn" %>
                     <%= button_to "message", user_chat_rooms_path(booking.client), class: "booking-message-btn" %>
                   </div>
                 </div>
@@ -232,7 +233,8 @@
                   <p class="text-align-center"><em>was your <strong><%= booking.service_type %></strong></em></p>
                   <p class="text-align-center">From <%= booking.start_date.strftime("%b %d, %Y") %> until <%= booking.end_date.strftime("%b %d, %Y") %></em></p>
                   <div class="button-row-lower-right">
-                    <%= button_to "reviews", new_booking_review_path(booking), class: "booking-accept-btn" %>
+                    <!-- we commented this out because only the client should review -->
+                    <%= link_to "reviews", new_booking_review_path(booking), class: "booking-accept-btn" %>
                     <%= button_to "message", user_chat_rooms_path(booking.provider), class: "booking-message-btn" %>
                   </div>
                 </div>
