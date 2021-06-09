@@ -378,6 +378,7 @@ Review.create!(
 )
 
 # barney booked jal the first 10 days of january 2021.
+
 booking11 = Booking.new
 booking11.client = julian
 booking11.provider = jal
@@ -388,6 +389,7 @@ booking11.confirmed = "accepted"
 booking11.completed = true
 booking11.comment = "I like your plant set up"
 booking11.save
+
 
 Review.create!(
   booking: booking11,
@@ -410,6 +412,7 @@ booking12.completed = true
 booking12.comment = "look how big that Madagascar is!"
 booking12.save
 
+# barney booked clauriu the first 10 days of march 2021.
 
 Review.create!(
   booking: booking12,
