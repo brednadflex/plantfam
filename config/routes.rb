@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   get 'my_profile', to: 'profiles#my_profile', as: :my_profile
 
-  resources :bookings, only: [] do
+  resources :bookings do
     resources :reviews, only: [:new, :create]
   end
 
@@ -23,8 +23,11 @@ Rails.application.routes.draw do
     resources :chat_rooms, only: [:create]
   end
 
-  get '/my_bookings', to: 'bookings#my_bookings'
-  get '/my_bookings/:id', to: 'bookings#accept_booking', as: 'accept_booking'
+  get '/my_bookings', to: 'bookings#my_bookings' do
+    resources :reviews, only: [:new, :create]
+  end
+
+  post '/my_bookings/:id', to: 'bookings#accept_booking', as: 'accept_booking'
   post '/my_bookings/:id', to: 'bookings#reject_booking', as: 'reject_booking'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

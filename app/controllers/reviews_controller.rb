@@ -3,14 +3,14 @@ class ReviewsController < ApplicationController
     @booking = Booking.find(params[:booking_id])
     @review = Review.new
   end
-  
+
   def create
+    # need to get the booking_id
+    @booking = Booking.find(params[:booking_id])
     # review_params gives us the profile_id
     @review = Review.new(review_params)
     # review user is the person making review ie current_user
     @review.user = current_user
-    # need to get the booking_id
-    @booking = Booking.find(params[:booking_id])
     # connect review of booking to the booking_id
     @review.booking = @booking
     if @review.save
@@ -18,7 +18,7 @@ class ReviewsController < ApplicationController
       redirect_to profile_path(@review.profile)
     else
       render :new
-    end  
+    end
   end
 
 private
