@@ -16,8 +16,8 @@ class BookingsController < ApplicationController
     @current_incoming = current_bookings.select { |booking| booking.provider == current_user }
     @current_outgoing = current_bookings.select { |booking| booking.client == current_user }
 
-    @upcoming_confirmed = all_bookings.select{ |booking| (booking.start_date > Date.today) && booking.confirmed? }
-    @upcoming_pending = all_bookings.select{ |booking| (booking.start_date > Date.today) && !booking.confirmed? }
+    @upcoming_confirmed = all_bookings.select{ |booking| (booking.start_date > Date.today) && booking.accepted? }
+    @upcoming_pending = all_bookings.select{ |booking| (booking.start_date > Date.today) && !booking.accepted? }
     upcoming_confirmed = @upcoming_confirmed
     upcoming_pending = @upcoming_pending
 
@@ -55,9 +55,9 @@ class BookingsController < ApplicationController
 
   def accept_booking
     @booking = Booking.find(params[:id])
-    @booking.confirmed = "confirmed"
+    @booking.confirmed = "accepted"
     if @booking.save
-      redirect_to booking_requests_path, notice: "Congratulations, your booking is complete!"
+      redirect_to my_bookings_path, notice: "Congratulations, your booking is complete!"
     end
   end
 
@@ -65,7 +65,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.confirmed = "rejected"
     if @booking.save
-      redirect_to booking_requests_path, notice: "Sorry, your booking was rejected!"
+      redirect_to my_bookings_path, notice: "Sorry, your booking was rejected!"
     end
   end
 
