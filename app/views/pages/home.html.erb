@@ -1,6 +1,6 @@
 <div class="main-wrapper">
   <div class="hero-text">
-    <h4>Pick a service</h4>
+    <h4>Get help and advice from plant experts from your community</h4>
   </div>
 
   <div class="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4 pt-2">
@@ -52,30 +52,22 @@
                 <p><%= profile.avg_rating %><%= image_tag "leaf.png", class: "ml-1" %></p>
               </div>
               <div class="profile-card-price">
-                <p><%= [5, 12, 8, 18, 4, 9].sample %>€ / d</p>
+                <p><%= [5, 12, 8, 18, 4, 9].sample %>€/d</p>
               </div>
             </div>
           </div>
           <div class="profile-card-services">
               <% if profile.sitter && profile.advisor %>
-                <div class="plantsitter">
-                  Plantsitter
-                </div>
-                <div class="advisor">
-                  Advisor
-                </div>
+                  <p class="service-tag plant-sitter">Plant Sitter</p>
+                  <p class="service-tag advisor">Advisor</p>
               <% elsif profile.sitter %>
-                <div class="plantsitter">
-                  Plantsitter
-                </div>
+                  <p class="service-tag plant-sitter">Plant Sitter</p>
               <% elsif profile.advisor %>
-                <div class="advisor">
-                  Advisor
-                </div>
+                  <p class="service-tag advisor">Advisor</p>
               <% end %>
           </div>
-          <p class="profile-description mt-4"><%= profile.description.first(100) %>...</p>
-        <%= link_to "View Profile", profile_path(profile), class: "view-profile-link" %>
+          <p class="profile-description mt-2 mb-4"><%= profile.description.first(70) %>...</p>
+          <%= link_to "View Profile", profile_path(profile), class: "view-profile-link" %>
         </div>
     <% end %>
   </div>

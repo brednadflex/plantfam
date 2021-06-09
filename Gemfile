@@ -36,6 +36,7 @@ gem 'simple_form'
 gem 'flatpickr'
 gem 'faker'
 gem 'geocoder'
+gem "autocomplete-off"
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'

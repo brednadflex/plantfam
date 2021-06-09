@@ -31,23 +31,15 @@
 
       <div class="profile-card-services">
           <% if profile.sitter && profile.advisor %>
-            <div class="plantsitter">
-              Plantsitter
-            </div>
-            <div class="advisor">
-              Advisor
-            </div>
+            <p class="service-tag plant-sitter">Plant Sitter</p>
+            <p class="service-tag advisor">Advisor</p>
           <% elsif profile.sitter %>
-            <div class="plantsitter">
-              Plantsitter
-            </div>
+            <p class="service-tag plant-sitter">Plant Sitter</p>
           <% elsif profile.advisor %>
-            <div class="advisor">
-              Advisor
-            </div>
+            <p class="service-tag advisor">Advisor</p>
           <% end %>
       </div>
-      <p class="profile-description mt-4"><%= profile.description.first(70) %>...</p>
+      <p class="profile-description mt-2 mb-4"><%= profile.description.first(70) %>...</p>
       <%= link_to "View Profile", profile_path(profile), class: "view-profile-link" %>
     </div>
   <% end %>

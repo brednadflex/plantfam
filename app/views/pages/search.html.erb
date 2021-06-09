@@ -3,10 +3,10 @@
     <h1 class="search-header">Find a Plant Sitter in your area</h1>
   </div>
 
-  <%= simple_form_for :search, :url => "/profiles", method: "get" do |f| %>
+  <%= simple_form_for :search, :url => "/profiles", method: "get", html: { autocomplete: 'off' } do |f| %>
     <div class="search-by-address">
       <p class="form-label">Where are your plants?</p>
-      <%= text_field_tag :address, "", id: "address_input", placeholder: "Type in your address..." %>
+      <%= text_field_tag :address, "", id: "address_input", autocomplete: "off", placeholder: "Type in your address..." %>
     </div>  
     <p class="form-label">When will you need help with your plants?</p>
     <div class="search-form-container">
