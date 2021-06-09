@@ -5,6 +5,7 @@ const initFlatpickr = () => {
   flatpickr("#range_start", {
     // altInput: true,
     allowInput: true,
+    altInput: true,
     minDate: "today",
     plugins: [new rangePlugin({ input: "#range_end"})],
     disableMobile: "true"
