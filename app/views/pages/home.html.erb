@@ -75,17 +75,10 @@
                 </div>
               <% end %>
           </div>
-<<<<<<< HEAD
 
-          <p class="profile-description mt-4"><%= profile.description %></p>
-
-        </div>
-      <% end %>
-=======
           <p class="profile-description mt-4"><%= profile.description.first(100) %>...</p>
         <%= link_to "View Profile", profile_path(profile), class: "view-profile-link" %>
         </div>
->>>>>>> 5e5ee89ee1027775b8f8add8f678ce1bbdf02292
     <% end %>
   </div>
 </div>
@@ -93,18 +86,6 @@
 
 <% if false %>
   <div class="profile-card-services">
-<<<<<<< HEAD
-            <% if profile.sitter && profile.advisor %>
-              <p>Plantsitter</p>
-              <p>Advisor</p>
-            <% elsif profile.sitter %>
-              <p>Plantsitter</p>
-            <% elsif profile.advisor %>
-              <p>Advisor</p>
-            <% end %>
-          </div>
-
-=======
     <% if profile.sitter && profile.advisor %>
       <p>Plantsitter</p>
       <p>Advisor</p>
@@ -114,5 +95,4 @@
       <p>Advisor</p>
     <% end %>
   </div>
->>>>>>> 5e5ee89ee1027775b8f8add8f678ce1bbdf02292
 <% end %>
