@@ -16,6 +16,13 @@ class ProfilesController < ApplicationController
 
   def show
     @reviews = @profile.reviews
+    receiver = User.find(@profile.user.id)
+    chatroom = ChatRoom.where(requester: current_user, receiver: receiver).first
+    if chatroom
+      @chatroom = chatroom
+    else
+      @chatroom = ChatRoom.create!(requester: current_user, receiver: receiver)
+    end
   end
 
   def edit
@@ -33,7 +40,7 @@ class ProfilesController < ApplicationController
   def my_profile
     @profile = current_user.profile
   end
-  
+
 
   private
 
