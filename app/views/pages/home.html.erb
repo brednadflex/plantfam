@@ -34,7 +34,61 @@
     <div class="plant-enthusiasts-header">
       <h4>Join over 4000 plant enthusiasts</h4>
     </div>
-    <% @profiles.last(5).each do |profile| %>
+
+    
+   
+      
+  
+  
+
+<% @profiles.last(5).each do |profile| %>
+  <%= link_to profile_path(profile), class:"text-decoration-none text-reset" do %>
+    <div class="profile-card-outer-flex-container">
+      <div class="profile-card-container-left">
+        <div class="profile-card-image-container">
+          <img src=<%= profile.profile_img %> alt="user-image" class="rounded-circle profile-user-img" style="width: 80px; height: 80px;">
+        </div>
+        <div class="profile-card-price-container make-me-flex">
+          <h4 class="profile-card-price">50€</h4>
+          <p>/day</p>
+        </div>
+      </div>
+      <div class="profile-card-container-right">
+        <div class="profile-card-name-container">
+          <h4><%= profile.first_name %></h4>
+        </div>
+        <div class="profile-card-service-flex-container">
+          <% if profile.sitter && profile.advisor %>
+            <p class="service-tag plant-sitter">Plant Sitter</p>
+            <p class="service-tag advisor">Advisor</p>
+          <% elsif profile.sitter %>
+            <p class="service-tag">Plant Sitter</p>
+          <% elsif profile.advisor %>
+            <p class="service-tag">Advisor</p>
+          <% end %>
+        </div>
+        <div class="profile-card-experience-rating-location-container">
+          <span class="profile-experience"> <%= profile.experience %></span></p>
+          <p class="make-me-flex"><%= profile.avg_rating %><%= image_tag "leaf.png", class: "ml-1" %></p>
+          <p class="make-me-flex"><%= image_tag "map-pin.svg", class: "mr-1" %>Berlin, Germany</p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
+
+
+
+
+
+
+
+
+ <% if false %>
+
+
+  <% @profiles.last(5).each do |profile| %>
         <div class="profile-card">
           <div class="profile-card-user-info">
             <div class="profile-card-image">
@@ -80,17 +134,4 @@
     <% end %>
   </div>
 </div>
-
-
-<% if false %>
-  <div class="profile-card-services">
-    <% if profile.sitter && profile.advisor %>
-      <p>Plantsitter</p>
-      <p>Advisor</p>
-    <% elsif profile.sitter %>
-      <p>Plantsitter</p>
-    <% elsif profile.advisor %>
-      <p>Advisor</p>
     <% end %>
-  </div>
-<% end %>

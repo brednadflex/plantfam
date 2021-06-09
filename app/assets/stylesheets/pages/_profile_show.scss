@@ -40,9 +40,7 @@ body {
 }
 
 .name-rating {
-  // padding-left: 30%;
-  // display: flex;
-  // justify-content: flex-end;
+
   text-align: left;
   line-height: 22px;
   align-items: center;
@@ -91,24 +89,15 @@ body {
   align-items: center;
 }
 
-.message-button-flex {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.profile-chat-button {
+  margin-top: 10px;
 }
-.message-button-flex {
-  i {
-    font-size: 50px;
-  }
-}
-
 .button-text {
-  margin-bottom: 3px;
-  text-align: center;
+  margin-left: 5px;
 }
 
-i {
-  color: $sea-green;
+.chat-bubble-icon {
+  color: white;
 }
 
 .description-about-me {
@@ -121,23 +110,25 @@ i {
 
 .services {
   font-size: 18px;
-  border-top: 1px solid $dark-green;
-  border-bottom: 1px solid $dark-green;
-
+  // border-top: 1px solid $dark-green;
+  outline: 1px solid $light-green;
+  
   p {
     margin: 0;
   }
 
   i {
   font-size: 30px;
-  color: grey
+  color: grey;
   }
 }
+
 .service-sitter {
   display: flex;
   align-items: center;
-  border-bottom: 1px solid $dark-green;
+  // border-bottom: 1px solid $dark-green;
   padding: 15px;
+  outline: 1px solid $light-green;
 }
 
 .service-advisor {
@@ -145,16 +136,18 @@ i {
   display: flex;
   align-items: center;
   padding: 15px;
+  outline: 1px solid $light-green;
 }
 
 .service-advisor-icon {
-    width: 75%;
+  width: 75%;
 }
 
 .service-info-line {
   font-size: 16px;
   color: $sea-green;
   margin: 0;
+  float: left;
 }
 
 .service-price-button {
@@ -200,6 +193,11 @@ i {
 .my-profile-about-me-edit-pencil {
   text-align: right;
   font-size: 18px;
+
+  a {
+    text-decoration: none;
+    color: $dark-green;
+  }
 }
 
 .my-profile-posts-comments-boxes {
