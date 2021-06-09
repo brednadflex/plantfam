@@ -5,12 +5,12 @@
     <% end %>
   </div>
   <div class="profile-edit-container">
-    <h2>Edit Profile</h2>
     <%= simple_form_for(@profile) do |f| %>
-      <%= f.input :first_name, label: "First Name", placeholder: "first name" %>
-      <%= f.input :last_name, label: "Last Name", placeholder: "last name" %>
-      <%= f.input :description, label: "About Me", placeholder: "about me"  %>
-      <%= f.input :address, label: "Address", placeholder: "address" %>
+    <p class="profile-form-category">Personal Information</p>
+      <%= f.input :first_name, label: false, placeholder: "first name" %>
+      <%= f.input :last_name, label: false, placeholder: "last name" %>
+      <%= f.input :description, label: false, placeholder: "about me"  %>
+      <%= f.input :address, label: false, placeholder: "address" %>
       <p>Services you offer:</p>
       <div class="profile-edit-checkboxes">
         <div>
