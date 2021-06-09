@@ -378,19 +378,19 @@ Review.create!(
 )
 
 # barney booked jal the first 10 days of january 2021.
-booking10 = Booking.new
-booking10.client = julian
-booking10.provider = jal
-booking10.service_type = "sitter"
-booking10.start_date = "2021-01-01"
-booking10.end_date = "2021-01-10"
-booking10.confirmed = "accepted"
-booking10.completed = true
-booking10.comment = "I like your plant set up"
-booking10.save
+booking11 = Booking.new
+booking11.client = julian
+booking11.provider = jal
+booking11.service_type = "sitter"
+booking11.start_date = "2021-01-01"
+booking11.end_date = "2021-01-10"
+booking11.confirmed = "accepted"
+booking11.completed = true
+booking11.comment = "I like your plant set up"
+booking11.save
 
 Review.create!(
-  booking: booking10,
+  booking: booking11,
   user: julian,
   profile: jal.profile,
   content: "Jal took good care of my babies like they were her own.",
@@ -399,44 +399,20 @@ Review.create!(
 )
 
 # barney booked julian the first 10 days of february 2021.
-
-booking10 = Booking.new
-booking10.client = barney
-booking10.provider = jal
-booking10.service_type = "sitter"
-booking10.start_date = "2021-02-01"
-booking10.end_date = "2021-02-10"
-booking10.confirmed = "accepted"
-booking10.completed = true
-booking10.comment = "calkjlkjlkjlkjlkjlkj?"
-booking10.save
-
-# barney booked clauriu the first 10 days of march 2021.
-booking10 = Booking.new
-booking10.client = barney
-booking10.provider = claudiu
-booking10.service_type = "advisor"
-booking10.start_date = "2021-03-01"
-booking10.end_date = "2021-03-10"
-booking10.confirmed = "accepted"
-booking10.completed = true
-booking10.comment = "calkjlkjlkjlkjlkjlkj?"
-booking10.save
-
-booking11 = Booking.new
-booking11.client = claudiu
-booking11.provider = julian
-booking11.service_type = "sitter"
-booking11.start_date = "2021-02-01"
-booking11.end_date = "2021-02-10"
-booking11.confirmed = "confirmed"
-booking11.completed = true
-booking11.comment = "look how big that Madagascar is!"
-booking11.save
+booking12 = Booking.new
+booking12.client = claudiu
+booking12.provider = julian
+booking12.service_type = "sitter"
+booking12.start_date = "2021-02-01"
+booking12.end_date = "2021-02-10"
+booking12.confirmed = "accepted"
+booking12.completed = true
+booking12.comment = "look how big that Madagascar is!"
+booking12.save
 
 
 Review.create!(
-  booking: booking11,
+  booking: booking12,
   user: claudiu,
   profile: julian.profile,
   content: "My plants survived. Julian should upgrade his level from seedling!",
@@ -445,19 +421,19 @@ Review.create!(
 )
 
 # barney booked clauriu the first 10 days of march 2021.
-booking12 = Booking.new
-booking12.client = claudiu
-booking12.provider = barney
-booking12.service_type = "advisor"
-booking12.start_date = "2021-03-01"
-booking12.end_date = "2021-03-10"
-booking12.confirmed = "confirmed"
-booking12.completed = true
-booking12.comment = "wow! wanna sell that plant?"
-booking12.save
+booking13 = Booking.new
+booking13.client = claudiu
+booking13.provider = barney
+booking13.service_type = "advisor"
+booking13.start_date = "2021-03-01"
+booking13.end_date = "2021-03-10"
+booking13.confirmed = "accepted"
+booking13.completed = true
+booking13.comment = "wow! wanna sell that plant?"
+booking13.save
 
 Review.create!(
-  booking: booking12,
+  booking: booking13,
   user: claudiu,
   profile: barney.profile,
   content: "Barney is the best! lots of new growth! I will definitely rebook him.",
