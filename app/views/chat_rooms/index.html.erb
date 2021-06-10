@@ -1,3 +1,6 @@
+
+<% if false %>
+  
 <div class="chatrooms-header">
   <div>
     <%= form_tag chat_rooms_path, method: :get do %>
@@ -11,15 +14,13 @@
       </div>
     <% end %>
         <%= link_to users_path, class: "text-decoration-none text-reset" do  %>
-      <div class="send-btn-float">
-        <p>new</p>
-        <i class="far fa-paper-plane"></i>
-      </div>
+          <div class="send-btn-float">
+            <p>new</p>
+            <i class="far fa-paper-plane"></i>
+          </div>
         <% end %>
   </div>
 </div>
-
-
 
 
 <div class="chats-scrollbox">
@@ -48,3 +49,47 @@
   <% end %>
 </div>
 
+<% end %>
+
+<div class="main-wrapper">
+  <h2 class="plant-fam-chat-header">Plant Fam Chat</h2>
+  <div class="chatroom-search-bar-flex-container">
+    <%= image_tag "search.svg" %>
+    <p>Search a conversation</p>
+  </div>
+</div>
+
+<div class="chats-scrollbox">
+  <% @chatrooms.each do |chatroom| %>
+    <% if chatroom.messages.count > 0 %>
+        <%= link_to chat_room_path(chatroom, anchor: "message-#{chatroom.messages.last.id}"), class: "text-decoration-none text-reset" do %>
+          
+          <div class="chat-with-other-user-flex-container">
+
+            <div class="header-avatar">
+              <% other_person = current_user == chatroom.receiver ? chatroom.requester : chatroom.receiver  %>
+              <%= image_tag other_person.profile.profile_img %>
+            </div>
+
+            <div class="name-message-and-date-flex-container">
+
+              <div class="chatindex-otherperson-name">
+                <h6><%= other_person.profile.first_name %> <%= other_person.profile.last_name.first %>.</h6>
+                <div class = "msg-preview">
+                  <p><%= chatroom.messages.last.content.first(30) %>...</p>
+                </div>
+              </div>
+              <div class="chatindex-date-and-time">
+               <small><%= chatroom.messages.last.created_at.strftime("%l:%M%p") %></small>
+              </div>
+            </div>
+          </div>
+        <% end %>
+    <% end %>
+  <% end %>
+</div>
+
+
+<% if false %>
+  <small><%= chatroom.messages.last.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+<% end %>

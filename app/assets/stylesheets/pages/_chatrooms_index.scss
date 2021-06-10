@@ -41,12 +41,8 @@
 }
 
 .chats-scrollbox {
-  position: absolute;
   overflow: scroll;
-  height: 70%;
-  width: 90%;
-  margin-left: 2%;
-  top: 17%;
+  margin: 0 16px;
 }
 
 .chatrooms-header {
@@ -164,3 +160,65 @@
     font-style: italic;
     text-align: center;
   }
+
+
+
+.chatroom-search-bar-flex-container {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 24px;
+  border: 1px solid $light-green;
+  border-radius: 80px;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0,0,0,0.08);
+  padding: 8px 24px;
+  p {
+    margin: 0;
+    margin-left: 16px;
+    color: #666;
+  }
+}
+
+.chat-with-other-user-flex-container {
+  display: flex;
+  border-bottom: 1px solid #ebebeb;
+  padding: 12px 0;
+}
+
+.name-message-and-date-flex-container {
+  display: flex;
+  align-items: flex-start;
+}
+
+.chatindex-date-and-time {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 2px;
+}
+
+.chatindex-otherperson-name h6 {
+  color: #222;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.chatindex-otherperson-name p {
+  color: #666;
+  font-size: 15px;
+  line-height: 1.2em;
+  margin-bottom: 0;
+}
+
+.header-avatar img {
+  margin-top: 8px;
+  height: 50px;
+  width: 50px;
+  margin-right: 0;
+  border: 4px solid $light-green;
+  padding: 0;
+}
+
+.plant-fam-chat-header {
+  font-size: 24px;
+  color: #222;
+}
