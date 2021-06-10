@@ -13,18 +13,14 @@
 <h3 class="search-header">Send <%= @profile.first_name %> a booking request</h3>
 <div class="booking-form-container">
   <%= simple_form_for([@profile, @booking]) do |f| %>
-    <div class="form-input-container">
-      <%= f.input :service_type, collection: options, html5: true, input_html: {value: "Plant Sitting"} %>
-    </div>
-    <div class="form-input-container">
-      <%= f.input :my_address, id: "address_input", as: :string, html5: true, input_html: {value: session[:search]["address"]} %>
-    </div>
+    <%= f.input :service_type, collection: options, html5: true, input_html: {value: "Plant Sitting"} %>
+    <%= f.input :my_address, id: "address_input", as: :string, html5: true, input_html: {value: session[:search]["address"]} %>
     <div class="search-form-container">
       <%= f.input :start_date, as: :string, required: true, input_html: {class: "datepicker", id: "range_start", value: session[:search]["from"].split("to").first} %>
       <%= f.input :end_date, as: :string, required: true, input_html: {class: "datepicker", id: "range_start", value: session[:search]["from"].split("to").last} %>
     </div>
-    <%= f.input :comment, label: "Tell #{Profile.find(params[:profile_id]).first_name} more about your plants" %>
-    <%= f.submit "request service", class: "btn-sea-green search-sitter-button" %>
+    <%= f.input :comment,  :input_html => {:rows => 7}, label: "Tell #{Profile.find(params[:profile_id]).first_name} more about your plants", class: "create-booking-message"%>
+    <%= f.submit class: "btn-sea-green search-sitter-button" %>
   <% end %>
 </div>
 </div>
