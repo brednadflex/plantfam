@@ -1,16 +1,17 @@
 // body {
 //   margin: 32px 16px;
 // }
-.search-header-container {
-  display: flex;
-  justify-content: center;
-}
+// .search-header-container {
+//   display: flex;
+//   justify-content: center;
+// }
 
 .search-header {
+  color: $dark-green;
   font-size: 24px;
   font-weight: 500;
-  margin-bottom: 16%;
-  text-align: center;
+  margin-bottom: 10%;
+  margin-left: 0;
 }
 
 .search-by-address {
