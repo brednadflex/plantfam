@@ -20,6 +20,9 @@
   margin-bottom: 16%;
 }
 
+.datepicker {
+  margin-top: 0;
+}
 .search-by-date {
   margin-bottom: 16%;
 }
@@ -28,9 +31,13 @@
   margin-bottom: 2%;
 }
 
+.search-form-message {
+  margin-top: 2%;
+}
 .search-form-container {
   display: flex;
   justify-content: space-between;
+  
 }
 
 #range_start {

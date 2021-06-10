@@ -12,10 +12,8 @@
         <%= text_field_tag :address, "", id: "address_input", placeholder: "Type in your address..." %>
       </div>  
       <p class="form-label">When will you need help with your plants?</p>
-      <div class="search-form-container">
-        <%= f.input :from, as: :string, required: true, input_html: {class: "datepicker", id: "range_start"} %>
-        <%= f.input :to, as: :string, required: true, input_html: {class: "datepicker", id: "range_end"} %>
-      </div>
+      <%= f.input :from, as: :string, required: true, input_html: {class: "datepicker", id: "range_start"} %>
+      <%= f.input :to, as: :string, required: true, input_html: {class: "datepicker", id: "range_end"} %>
       <%= f.button :submit, "find", class: "btn-sea-green search-sitter-button" %>
     <% end %>
   </div>
