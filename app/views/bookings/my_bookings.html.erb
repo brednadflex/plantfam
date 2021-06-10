@@ -29,8 +29,8 @@
         <div id="pending" class="collapse-menu-hidden">
           <div class="card-body">
             <% if @pending_incoming.present? || @pending_outgoing.present? %>
-            <div class="container-fluid py-2 bookings-horizontal-scroll">
-              <div class="d-flex flex-row flex-nowrap">
+              <div class="container-fluid py-2 bookings-horizontal-scroll">
+                <div class="d-flex flex-row flex-nowrap">
                 <% if @pending_incoming.present? %>
                 <% @pending_incoming.each do |booking| %>
                 <div class="card bookings-card-body incoming p-2">
@@ -78,7 +78,6 @@
                 </div>
                 <% end %>
               </div>
-            </div>
           </div>
         </div>
       </div>
@@ -141,6 +140,7 @@
               <p><em>🍃 No active/ongoing bookings 🍃 </em></p>
             </div>
             <% end %>
+
           </div>
         </div>
       </div>
@@ -178,7 +178,8 @@
                   </div>
                 </div>
                 <% end %>
-                <% elsif @upcoming_outgoing.present? %>
+                <% end %>
+                <% if @upcoming_outgoing.present? %>
                 <% @upcoming_outgoing.each do |booking| %>
                 <div class="card bookings-card-body outgoing p-2">
                   <div class="floating-questionmark">
@@ -196,16 +197,17 @@
                       <%= link_to "message", chat_room_path(chatroom), class: "booking-message-btn" %>
                     </div>
                   </div>
-                  <% end %>
-                  <% end %>
                 </div>
               </div>
+
+                  <% end %>
+                  <% end %>
+
               <% else %>
               <div class="no-show">
                 <p><em>🍃 no upcoming bookings 🍃</em></p>
               </div>
               <% end %>
-            </div>
           </div>
         </div>
       </div>
