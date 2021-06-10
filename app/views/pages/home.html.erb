@@ -13,7 +13,7 @@
 		<div class="col-5">
 			<div class="card card-block card-1">
         <%= link_to search_path, class:"text-decoration-none text-reset" do %>
-          <p>Find a Plant Sitter</p>
+          <p class="homepage-slider-font">Find a Plant Sitter</p>
           <%= image_tag "sitter.png" %>
         <% end %>
       </div>
@@ -21,7 +21,7 @@
 		<div class="col-5">
 			<div class="card card-block card-2">
         <%= link_to search_path, class:"text-decoration-none text-reset" do %>
-          <p>Find Plant Care Advice</p>
+          <p class="homepage-slider-font">Find Plant Care Advice</p>
           <%= image_tag "advisor.png" %>
         <% end %>
       </div>
@@ -29,7 +29,7 @@
 		<div class="col-5">
 			<div class="card card-block card-3">
         <%= link_to posts_path, class:"text-decoration-none text-reset" do %>
-          <p>PlantFam Newsfeed</p>
+          <p class="homepage-slider-font">PlantFam Newsfeed</p>
           <%= image_tag "house.png" %>
         <% end %>
       </div>
@@ -62,12 +62,12 @@
         <div class="profile-card-container-left flex-grow-1">
           <div class="profile-card-service-flex-container">
             <% if profile.sitter && profile.advisor %>
-              <p class="service-tag plant-sitter">Plant Sitter</p>
-              <p class="service-tag advisor">Advisor</p>
+              <p class="service-tag plant-sitter">sitter</p>
+              <p class="service-tag advisor">advisor</p>
             <% elsif profile.sitter %>
-              <p class="service-tag">Plant Sitter</p>
+              <p class="service-tag">sitter</p>
             <% elsif profile.advisor %>
-              <p class="service-tag">Advisor</p>
+              <p class="service-tag">advisor</p>
             <% end %>
           </div>
           <span class="profile-experience"> <%= profile.experience %></span>
@@ -108,18 +108,18 @@
           <div class="profile-card-services">
               <% if profile.sitter && profile.advisor %>
                 <div class="plantsitter">
-                  Plantsitter
+                  sitter
                 </div>
                 <div class="advisor">
-                  Advisor
+                  advisor
                 </div>
               <% elsif profile.sitter %>
                 <div class="plantsitter">
-                  Plantsitter
+                  sitter
                 </div>
               <% elsif profile.advisor %>
                 <div class="advisor">
-                  Advisor
+                  advisor
                 </div>
               <% end %>
           </div>
