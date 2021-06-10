@@ -119,6 +119,12 @@
 }
 
 .received-message {
-  background-color: #e6ffda;
+  background-color: #fff;
   margin-left: 16px;
+  opacity: 1;
+}
+
+.sent-message {
+  background-color: #e6ffda;
+  opacity: 1;
 }
