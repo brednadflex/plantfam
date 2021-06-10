@@ -85,7 +85,7 @@
       <% @reviews.each do |review| %>
         <div class="review">
           <div class="review-avatar">
-            <%= link_to profile_path(review) do %>
+            <%= link_to profile_path(review.booking.client.profile) do %>
               <img src=<%= review.user.profile.profile_img %>   alt="user-image" class="rounded-circle review-avatar">
             <% end %>
           </div>
