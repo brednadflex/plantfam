@@ -76,7 +76,7 @@ barney = User.create!(email: "barney@barney.com", password: "barney123")
 profile_barney = barney.profile.update!(
   first_name: "Barney",
   last_name: "Haas",
-  description: "Plants are just the best and I just can't hide it.  I have been a plant lover my entire life, starting with gardening with my grandmother in her big vegetable garden.  I have a wide range of expertise from produce, to tropicals, and have lots of tricks to get rid of mites and other unwanted critters.  I am there for you as a sitter or advisor!",
+  description: "I've been getting in to plants more and more during the pandemic. You can book me as a sitter or advisor. Although I'm not an expert, I'll do my best!",
   profile_img: "https://avatars.githubusercontent.com/u/77109548?v=4",
   experience: "Plant Whisperer (expert)",
   avg_rating: 4.5,
@@ -187,10 +187,10 @@ booking1 = Booking.new
 booking1.client = barney
 booking1.provider = jal
 booking1.service_type = "sitter"
-booking1.start_date = "2021-06-06"
-booking1.end_date = "2021-07-1"
+booking1.start_date = "2020-01-01"
+booking1.end_date = "2021-01-10"
 booking1.confirmed = "accepted"
-booking1.completed = false
+booking1.completed = true
 booking1.comment = "Hey would you mind taking care of my plants?"
 booking1.save!
 
@@ -209,10 +209,10 @@ booking2 = Booking.new
 booking2.client = barney
 booking2.provider = claudiu
 booking2.service_type = "sitter"
-booking2.start_date = "2021-07-02"
-booking2.end_date = "2021-07-15"
+booking2.start_date = "2020-02-01"
+booking2.end_date = "2020-02-10"
 booking2.confirmed = "accepted"
-booking2.completed = false
+booking2.completed = true
 booking2.comment = "Hey would you mind taking care of my plants?"
 booking2.save
 
@@ -230,10 +230,10 @@ booking3 = Booking.new
 booking3.client = barney
 booking3.provider = julian
 booking3.service_type = "sitter"
-booking3.start_date = "2021-07-15"
-booking3.end_date = "2021-07-29"
+booking3.start_date = "2020-03-01"
+booking3.end_date = "2020-03-10"
 booking3.confirmed = "accepted"
-booking3.completed = false
+booking3.completed = true
 booking3.comment = "Hey would you mind taking care of my plants?"
 booking3.save
 
@@ -253,10 +253,10 @@ booking4 = Booking.new
 booking4.client = julian
 booking4.provider = barney
 booking4.service_type = "advisor"
-booking4.start_date = "2021-08-08"
-booking4.end_date = "2021-09-09"
+booking4.start_date = "2020-04-01"
+booking4.end_date = "2020-04-10"
 booking4.confirmed = "accepted"
-booking4.completed = false
+booking4.completed = true
 booking4.comment = "Hey barney, could you help me with my plants?"
 booking4.save
 
@@ -275,10 +275,10 @@ booking5 = Booking.new
 booking5.client = jal
 booking5.provider = barney
 booking5.service_type = "advisor"
-booking5.start_date = "2021-08-09"
-booking5.end_date = "2021-08-10"
+booking5.start_date = "2020-05-01"
+booking5.end_date = "2020-05-10"
 booking5.confirmed = "accepted"
-booking5.completed = false
+booking5.completed = true
 booking5.comment = "hey barney, I really need help with this new plant I bought"
 booking5.save
 
@@ -297,10 +297,10 @@ booking7 = Booking.new
 booking7.client = claudiu
 booking7.provider = jal
 booking7.service_type = "sitter"
-booking7.start_date = "2021-06-19"
-booking7.end_date = "2021-06-29"
+booking7.start_date = "2020-06-01"
+booking7.end_date = "2020-06-10"
 booking7.confirmed = "accepted"
-booking7.completed = false
+booking7.completed = true
 booking7.comment = "could you watch my plants for 10 days?"
 booking7.save
 
@@ -318,10 +318,10 @@ booking8 = Booking.new
 booking8.client = jal
 booking8.provider = julian
 booking8.service_type = "sitter"
-booking8.start_date = "2021-06-19"
-booking8.end_date = "2021-06-29"
-booking8.confirmed = "pending"
-booking8.completed = false
+booking8.start_date = "2020-07-01"
+booking8.end_date = "2020-07-10"
+booking8.confirmed = "accepted"
+booking8.completed = true
 booking8.comment = "could you watch my plants for 10 days?"
 booking8.save
 
@@ -340,10 +340,10 @@ booking9 = Booking.new
 booking9.client = jal
 booking9.provider = claudiu
 booking9.service_type = "sitter"
-booking9.start_date = "2021-06-19"
-booking9.end_date = "2021-06-29"
-booking9.confirmed = "pending"
-booking9.completed = false
+booking9.start_date = "2020-08-01"
+booking9.end_date = "2020-08-10"
+booking9.confirmed = "accepted"
+booking9.completed = true
 booking9.comment = "could you watch my plants for 10 days?"
 booking9.save
 
@@ -361,10 +361,10 @@ booking10 = Booking.new
 booking10.client = julian
 booking10.provider = claudiu
 booking10.service_type = "advisor"
-booking10.start_date = "2021-08-10"
-booking10.end_date = "2021-08-11"
-booking10.confirmed = "pending"
-booking10.completed = false
+booking10.start_date = "2020-09-01"
+booking10.end_date = "2020-09-10"
+booking10.confirmed = "accepted"
+booking10.completed = true
 booking10.comment = "could you advise me on this problem with my plants?"
 booking10.save
 
@@ -382,8 +382,8 @@ booking11 = Booking.new
 booking11.client = julian
 booking11.provider = jal
 booking11.service_type = "sitter"
-booking11.start_date = "2021-01-01"
-booking11.end_date = "2021-01-10"
+booking11.start_date = "2020-10-01"
+booking11.end_date = "2020-10-10"
 booking11.confirmed = "accepted"
 booking11.completed = true
 booking11.comment = "I like your plant set up"
@@ -403,8 +403,8 @@ booking12 = Booking.new
 booking12.client = claudiu
 booking12.provider = julian
 booking12.service_type = "sitter"
-booking12.start_date = "2021-02-01"
-booking12.end_date = "2021-02-10"
+booking12.start_date = "2020-11-01"
+booking12.end_date = "2020-11-10"
 booking12.confirmed = "accepted"
 booking12.completed = true
 booking12.comment = "look how big that Madagascar is!"
@@ -425,8 +425,8 @@ booking13 = Booking.new
 booking13.client = claudiu
 booking13.provider = barney
 booking13.service_type = "advisor"
-booking13.start_date = "2021-03-01"
-booking13.end_date = "2021-03-10"
+booking13.start_date = "2020-12-01"
+booking13.end_date = "2020-12-10"
 booking13.confirmed = "accepted"
 booking13.completed = true
 booking13.comment = "wow! wanna sell that plant?"
@@ -440,6 +440,17 @@ Review.create!(
   rating: 4.5,
   recommended: true
 )
+
+booking14 = Booking.new
+booking14.client = barney
+booking14.provider = jal
+booking14.service_type = "advisor"
+booking14.start_date = "2021-01-01"
+booking14.end_date = "2021-01-10"
+booking14.confirmed = "accepted"
+booking14.completed = true
+booking14.comment = "wow! wanna sell that plant?"
+booking14.save
 
 puts "booking created with new review"
 puts "booking created with new seeds"
