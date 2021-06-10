@@ -80,7 +80,7 @@
             <button class="menu-header-button" type="button" id="collapse-menu2">
         <div class="card-header d-flex flex-row justify-content-between align-items-center"> <!-- incoming-outgoing-headline -->
           <h5 class="mb-0 font-weight-light">
-              Current bookings <% unless @pending_count == 0 %> (<%= @pending_count %>) <% end %>
+              Current bookings <% unless @current_count == 0 %> (<%= @current_count %>) <% end %>
           </h5>
           <i class="fas fa-chevron-down card-chevron"></i>
         </div>
@@ -144,7 +144,7 @@
             <button class="menu-header-button" type="button" id="collapse-menu3">
         <div class="card-header d-flex flex-row justify-content-between align-items-center"> <!-- incoming-outgoing-headline -->
           <h5 class="mb-0 font-weight-light">
-              Upcoming bookings <% unless @pending_count == 0 %> (<%= @pending_count %>) <% end %>
+              Upcoming bookings <% unless @upcoming_count == 0 %> (<%= @upcoming_count %>) <% end %>
           </h5>
           <i class="fas fa-chevron-down card-chevron"></i>
         </div>
