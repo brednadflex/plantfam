@@ -40,7 +40,7 @@
       <p><strong>About <%= @profile.first_name %>:</strong></p>
       <p><%= @profile.description %></p>
     </div>
-  <p class="ml-2" style="font-size:18px"><strong>Book a Service:</strong></p>
+  <p class="ml-2" style="font-size:18px"><strong>Request a Service:</strong></p>
 
   <div class="services">
     <% if @profile.sitter %>
@@ -55,7 +55,7 @@
           </div>
           <div class="profile-service-button-book">
             <%= link_to new_profile_booking_path(@profile) do %>
-              <p class="profile-button-small">book</p>
+              <p class="profile-button-small">request</p>
             <% end %>
           </div>
         </div>
@@ -73,7 +73,7 @@
           </div>
           <div class="profile-service-button-book">
             <%= link_to new_profile_booking_path(@profile) do %>
-              <p class="profile-button-small">book</p>
+              <p class="profile-button-small">request</p>
             <% end %>
           </div>
         </div>
