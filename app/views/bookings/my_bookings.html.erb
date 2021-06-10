@@ -10,245 +10,240 @@
     </div>
     <div class="header-name pb-3">
       <h5>My Bookings</h5>
-    </div>
-    <div class="profile-icon-header">
-      <i class="far fa-question-circle"></i>
+      <div class="incoming-outgoing-div">
+              <p class="incoming mr-1">incoming</p>
+              <p class="outgoing">outgoing</p>
+      </div>
     </div>
   </div>
 
   <div class="spacer-top">
   </div>
+  <div class="scroll-body">
+    <div class="accordion" id="accordionExample">
+      <div class="card">
+        <div class="card-header" id="headingOne"> <!-- incoming-outgoing-headline -->
+          <h5 class="mb-0">
+            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              Pending requests
+            </button>
+          </h5>
+        </div>
 
-  <div class="scroll-section">
-    <div>
-      <div class="incoming-outgoing-headline">
-        <h5>Pending requests</h5>
-        <div class="incoming-outgoing-div">
-          <p class="incoming mr-1">incoming</p>
-          <p class="outgoing">outgoing</p>
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+          <div class="card-body">
+            <% if @pending_incoming.present? || @pending_outgoing.present? %>
+              <div class="container-fluid py-2 bookings-horizontal-scroll">
+                <div class="d-flex flex-row flex-nowrap">
+                  <% if @pending_incoming.present? %>
+                    <% @pending_incoming.each do |booking| %>
+                      <div class="card bookings-card-body incoming p-2">
+                        <div class="floating-questionmark">
+                          <i class="far fa-question-circle"></i>
+                        </div>
+                        <div class="bookings-card-header">
+                          <%= image_tag booking.client.profile.profile_img, class: 'avatar-tiny' %>
+                          <p><%= booking.client.profile.first_name %> <%= booking.client.profile.last_name %></p>
+                        </div>
+                        <p class="text-align-center"><em>has requested you as <strong><%= booking.service_type %></strong></em></p>
+                        <p class="text-align-center"><em>Between <%= booking.start_date.strftime("%b %d, %Y") %> and <%= booking.end_date.strftime("%b %d, %Y") %></em></p>
+                        <div class="button-row-lower-right">
+                          <%= link_to "accept", accept_booking_path(booking.id), class: "booking-accept-btn" %>
+                          <%= link_to "reject", reject_booking_path(booking.id), class: "booking-reject-btn" %>
+                          <%= link_to "message", user_chat_rooms_path(booking.client), class: "booking-message-btn" %>
+                        </div>
+                      </div>
+                    <% end %>
+                  <% end %>
+                  <% if @pending_outgoing.present? %>
+                    <% @pending_outgoing.each do |booking| %>
+                      <div class="card bookings-card-body outgoing p-2">
+                        <div class="floating-questionmark">
+                          <i class="far fa-question-circle"></i>
+                        </div>
+                        <div class="bookings-card-header">
+                          <%= image_tag booking.provider.profile.profile_img, class: 'avatar-tiny' %>
+                          <p><%= booking.provider.profile.first_name %> <%= booking.provider.profile.last_name %></p>
+                        </div>
+                        <p class="text-align-center"> has been informed about your <br><strong><%= booking.service_type %></strong> request(<%= booking.start_date.strftime("%b %d, %Y") %> - <%= booking.end_date.strftime("%b %d, %Y") %>).</p>
+                        <p class="text-align-center text-secondary"><em>...Awaiting confirmation</em></p>
+                        <div class="button-row-lower-right">
+                          <%= link_to "cancel", reject_booking_path(booking.id), class: "booking-reject-btn" %>
+                          <%= link_to "message", user_chat_rooms_path(booking.provider), class: "booking-message-btn" %>
+                        </div>
+                      </div>
+                    <% end %>
+                  <% end %>
+            <% else %>
+              <div class="no-show">
+                <p><em>🍃You have no pending requests🍃</em></p>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
-      <% if @pending_incoming.present? || @pending_outgoing.present? %>
-      <div class="container-fluid py-2 bookings-horizontal-scroll">
-        <div class="d-flex flex-row flex-nowrap">
-            <% if @pending_incoming.present? %>
-              <% @pending_incoming.each do |booking| %>
-                <div class="card bookings-card-body incoming p-2">
-                  <div class="floating-questionmark">
-                    <i class="far fa-question-circle"></i>
-                  </div>
-                <div class="bookings-card-header">
-                  <%= image_tag booking.client.profile.profile_img, class: 'avatar-tiny' %>
-                  <p><%= booking.client.profile.first_name %> <%= booking.client.profile.last_name %></p>
-                </div>
-                <p class="text-align-center"><em>has requested you as <strong><%= booking.service_type %></strong></em></p>
-                <p class="text-align-center"><em>Between <%= booking.start_date.strftime("%b %d, %Y") %> and <%= booking.end_date.strftime("%b %d, %Y") %></em></p>
-                <div class="button-row-lower-right">
-                  <%= link_to "accept", accept_booking_path(booking.id), class: "booking-accept-btn" %>
-                  <%= link_to "reject", reject_booking_path(booking.id), class: "booking-reject-btn" %>
-                  <%= link_to "message", user_chat_rooms_path(booking.client), class: "booking-message-btn" %>
+
+        <div>
+          <div class="incoming-outgoing-headline">
+            <h5>Current bookings</h5>
+          </div>
+          <% if @current_incoming.present? || @current_outgoing.present? %>
+            <div class="container-fluid py-2 bookings-horizontal-scroll">
+              <div class="d-flex flex-row flex-nowrap">
+                <% if @current_incoming.present? %>
+                  <% @current_incoming.each do |booking| %>
+                    <div class="card bookings-card-body incoming p-2">
+                      <div class="floating-questionmark">
+                        <i class="far fa-question-circle"></i>
+                      </div>
+                      <div class="bookings-card-header">
+                        <%= image_tag booking.client.profile.profile_img, class: 'avatar-tiny' %>
+                        <p><%= booking.client.profile.first_name %> <%= booking.client.profile.last_name %></p>
+                      </div>
+                      <p class="text-align-center"><em>has booked you as a </em><strong><%= booking.service_type %></strong><em> until <%= booking.end_date.strftime("%b %d, %Y") %></em></p>
+                      <div class="button-row-lower-right">
+                        <%= link_to "message", user_chat_rooms_path(booking.client), class: "booking-message-btn" %>
+                      </div>
+                    </div>
+                  <% end %>
+                <% elsif @current_outgoing.present? %>
+                    <% @current_outgoing.each do |booking| %>
+                    <div class="card bookings-card-body outgoing p-2">
+                      <div class="floating-questionmark">
+                        <i class="far fa-question-circle"></i>
+                      </div>
+                      <div class="bookings-card-header">
+                        <%= image_tag booking.provider.profile.profile_img, class: 'avatar-tiny' %>
+                        <p><%= booking.provider.profile.first_name %> <%= booking.provider.profile.last_name %></p>
+                      </div>
+                      <p class="text-align-center"><em>is your </em><strong><%= booking.service_type %></strong> <em>until <%= booking.end_date.strftime("%b %d, %Y") %></em></p>
+                      <div class="button-row-lower-right">
+                        <%= link_to "cancel", reject_booking_path(booking.id), class: "booking-reject-btn" %>
+                        <%= link_to "message", user_chat_rooms_path(booking.provider), class: "booking-message-btn" %>
+                      </div>
+                    </div>
+                    <% end %>
+                <% end %>
+              </div>
+            </div>
+          <% else %>
+            <div class="no-show">
+              <p><em>🍃 No currently active/ongoing bookings 🍃 </em></p>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="incoming-bookings-scroller">
+           <div class="incoming-outgoing-headline">
+              <h5>Upcoming bookings</h5>
+          </div>
+          <% if @upcoming_incoming.present? || @upcoming_outgoing.present? %>
+              <div class="container-fluid py-2 bookings-horizontal-scroll">
+                <div class="d-flex flex-row flex-nowrap">
+                <% if @upcoming_incoming.present? %>
+                  <% @upcoming_incoming.each do |booking| %>
+                    <div class="card bookings-card-body incoming p-2">
+                      <div class="floating-questionmark">
+                        <i class="far fa-question-circle"></i>
+                      </div>
+                      <div class="bookings-card-header">
+                        <%= image_tag booking.client.profile.profile_img, class: 'avatar-tiny' %>
+                        <p><%= booking.client.profile.first_name %> <%= booking.client.profile.last_name %></p>
+                      </div>
+                      <p class="text-align-center"><em>has booked you as </em><strong><%= booking.service_type %></strong></p>
+                      <p class="text-align-center"><em>from <%= booking.start_date.strftime("%b %d, %Y") %> until <%= booking.end_date.strftime("%b %d, %Y") %></em></p>
+                      <div class="button-row-lower-right">
+                        <%= link_to "cancel", reject_booking_path(booking.id), class: "booking-reject-btn" %>
+                        <%= link_to "message", user_chat_rooms_path(booking.client), class: "booking-message-btn" %>
+                      </div>
+                    </div>
+                  <% end %>
+                <% elsif @upcoming_outgoing.present? %>
+                  <% @upcoming_outgoing.each do |booking| %>
+                    <div class="card bookings-card-body outgoing p-2">
+                      <div class="floating-questionmark">
+                        <i class="far fa-question-circle"></i>
+                      </div>
+                      <div class="bookings-card-header">
+                        <%= image_tag booking.provider.profile.profile_img, class: 'avatar-tiny' %>
+                        <p><%= booking.provider.profile.first_name %> <%= booking.provider.profile.last_name %></p>
+                      </div>
+                      <p class="text-align-center"><em>will be your <strong><%= booking.service_type %></strong></em></h6>
+                      <p class="text-align-center"><em>Between <%= booking.start_date.strftime("%b %d, %Y") %> and <%= booking.end_date.strftime("%b %d, %Y")%></em></p>
+                      <div class="button-row-lower-right">
+                        <%= link_to "cancel", reject_booking_path(booking.id), class: "booking-reject-btn" %>
+                        <%= link_to "message", user_chat_rooms_path(booking.provider), class: "booking-message-btn" %>
+                      </div>
+                    </div>
+                  <% end %>
+                <% end %>
                 </div>
               </div>
-              <% end %>
-            <% end %>
-            <% if @pending_outgoing.present? %>
-              <% @pending_outgoing.each do |booking| %>
-                <div class="card bookings-card-body outgoing p-2">
-                  <div class="floating-questionmark">
-                    <i class="far fa-question-circle"></i>
-                  </div>
-                  <div class="bookings-card-header">
-                    <%= image_tag booking.provider.profile.profile_img, class: 'avatar-tiny' %>
-                    <p><%= booking.provider.profile.first_name %> <%= booking.provider.profile.last_name %></p>
-                  </div>
-                  <p class="text-align-center"> has been informed about your <br><strong><%= booking.service_type %></strong> request(<%= booking.start_date.strftime("%b %d, %Y") %> - <%= booking.end_date.strftime("%b %d, %Y") %>).</p>
-                  <p class="text-align-center text-secondary"><em>...Awaiting confirmation</em></p>
-                  <div class="button-row-lower-right">
-                    <%= link_to "cancel", reject_booking_path(booking.id), class: "booking-reject-btn" %>
-                    <%= link_to "message", user_chat_rooms_path(booking.provider), class: "booking-message-btn" %>
-                  </div>
-                </div>
-              <% end %>
-            <% end %>
-        </div>
-      </div>
-      <% else %>
-        <div class="no-show">
-          <p><em>🍃You have no pending requests🍃</em></p>
-        </div>
-      <% end %>
-    </div>
-
-    <div>
-      <div class="incoming-outgoing-headline">
-        <h5>Current bookings</h5>
-        <div class="incoming-outgoing-div">
-          <p class="incoming mr-1">incoming</p>
-          <p class="outgoing">outgoing</p>
-        </div>
-      </div>
-      <% if @current_incoming.present? || @current_outgoing.present? %>
-        <div class="container-fluid py-2 bookings-horizontal-scroll">
-          <div class="d-flex flex-row flex-nowrap">
-            <% if @current_incoming.present? %>
-              <% @current_incoming.each do |booking| %>
-                <div class="card bookings-card-body incoming p-2">
-                  <div class="floating-questionmark">
-                    <i class="far fa-question-circle"></i>
-                  </div>
-                  <div class="bookings-card-header">
-                    <%= image_tag booking.client.profile.profile_img, class: 'avatar-tiny' %>
-                    <p><%= booking.client.profile.first_name %> <%= booking.client.profile.last_name %></p>
-                  </div>
-                  <p class="text-align-center"><em>has booked you as a </em><strong><%= booking.service_type %></strong><em> until <%= booking.end_date.strftime("%b %d, %Y") %></em></p>
-                  <div class="button-row-lower-right">
-                    <%= link_to "message", user_chat_rooms_path(booking.client), class: "booking-message-btn" %>
-                  </div>
-                </div>
-              <% end %>
-            <% elsif @current_outgoing.present? %>
-                <% @current_outgoing.each do |booking| %>
-                <div class="card bookings-card-body outgoing p-2">
-                  <div class="floating-questionmark">
-                    <i class="far fa-question-circle"></i>
-                  </div>
-                  <div class="bookings-card-header">
-                    <%= image_tag booking.provider.profile.profile_img, class: 'avatar-tiny' %>
-                    <p><%= booking.provider.profile.first_name %> <%= booking.provider.profile.last_name %></p>
-                  </div>
-                  <p class="text-align-center"><em>is your </em><strong><%= booking.service_type %></strong> <em>until <%= booking.end_date.strftime("%b %d, %Y") %></em></p>
-                  <div class="button-row-lower-right">
-                    <%= link_to "cancel", reject_booking_path(booking.id), class: "booking-reject-btn" %>
-                    <%= link_to "message", user_chat_rooms_path(booking.provider), class: "booking-message-btn" %>
-                  </div>
-                </div>
-                <% end %>
-            <% end %>
-          </div>
-        </div>
-      <% else %>
-        <div class="no-show">
-          <p><em>🍃 No currently active/ongoing bookings 🍃 </em></p>
-        </div>
-      <% end %>
-    </div>
-
-    <div class="incoming-bookings-scroller">
-       <div class="incoming-outgoing-headline">
-          <h5>Upcoming bookings</h5>
-        <div class="incoming-outgoing-div">
-          <p class="incoming mr-1">incoming</p>
-          <p class="outgoing">outgoing</p>
-        </div>
-      </div>
-      <% if @upcoming_incoming.present? || @upcoming_outgoing.present? %>
-          <div class="container-fluid py-2 bookings-horizontal-scroll">
-            <div class="d-flex flex-row flex-nowrap">
-            <% if @upcoming_incoming.present? %>
-              <% @upcoming_incoming.each do |booking| %>
-                <div class="card bookings-card-body incoming p-2">
-                  <div class="floating-questionmark">
-                    <i class="far fa-question-circle"></i>
-                  </div>
-                  <div class="bookings-card-header">
-                    <%= image_tag booking.client.profile.profile_img, class: 'avatar-tiny' %>
-                    <p><%= booking.client.profile.first_name %> <%= booking.client.profile.last_name %></p>
-                  </div>
-                  <p class="text-align-center"><em>has booked you as </em><strong><%= booking.service_type %></strong></p>
-                  <p class="text-align-center"><em>from <%= booking.start_date.strftime("%b %d, %Y") %> until <%= booking.end_date.strftime("%b %d, %Y") %></em></p>
-                  <div class="button-row-lower-right">
-                    <%= link_to "cancel", reject_booking_path(booking.id), class: "booking-reject-btn" %>
-                    <%= link_to "message", user_chat_rooms_path(booking.client), class: "booking-message-btn" %>
-                  </div>
-                </div>
-              <% end %>
-            <% elsif @upcoming_outgoing.present? %>
-              <% @upcoming_outgoing.each do |booking| %>
-                <div class="card bookings-card-body outgoing p-2">
-                  <div class="floating-questionmark">
-                    <i class="far fa-question-circle"></i>
-                  </div>
-                  <div class="bookings-card-header">
-                    <%= image_tag booking.provider.profile.profile_img, class: 'avatar-tiny' %>
-                    <p><%= booking.provider.profile.first_name %> <%= booking.provider.profile.last_name %></p>
-                  </div>
-                  <p class="text-align-center"><em>will be your <strong><%= booking.service_type %></strong></em></h6>
-                  <p class="text-align-center"><em>Between <%= booking.start_date.strftime("%b %d, %Y") %> and <%= booking.end_date.strftime("%b %d, %Y")%></em></p>
-                  <div class="button-row-lower-right">
-                    <%= link_to "cancel", reject_booking_path(booking.id), class: "booking-reject-btn" %>
-                    <%= link_to "message", user_chat_rooms_path(booking.provider), class: "booking-message-btn" %>
-                  </div>
-                </div>
-              <% end %>
-            <% end %>
+          <% else %>
+            <div class="no-show">
+              <p><em>🍃 no upcoming bookings to show 🍃</em></p>
             </div>
-          </div>
-      <% else %>
-        <div class="no-show">
-          <p><em>🍃 no upcoming bookings to show 🍃</em></p>
+          <% end %>
         </div>
-      <% end %>
-    </div>
 
-    <div>
-      <div class="incoming-outgoing-headline">
-        <h5>Past bookings</h5>
-          <div class="incoming-outgoing-div">
-            <p class="incoming mr-1">incoming</p>
-            <p class="outgoing">outgoing</p>
+        <div>
+          <div class="incoming-outgoing-headline">
+            <h5>Past bookings</h5>
           </div>
+          <% if @completed_incoming.present? || @completed_outgoing.present? %>
+            <div class="container-fluid py-2 bookings-horizontal-scroll">
+              <div class="d-flex flex-row flex-nowrap">
+                <% if @completed_incoming.present? %>
+                  <% @completed_incoming.each do |booking| %>
+                    <div class="card bookings-card-body incoming p-2">
+                      <div class="floating-questionmark">
+                        <i class="far fa-question-circle"></i>
+                      </div>
+                      <div class="bookings-card-header">
+                        <%= image_tag booking.client.profile.profile_img, class: 'avatar-tiny' %>
+                        <p><%= booking.client.profile.first_name %> <%= booking.client.profile.last_name %></p>
+                      </div>
+                      <p class="text-align-center"><em>booked you as <strong><%= booking.service_type %></strong></em></p>
+                      <p class="text-align-center">From <%= booking.start_date.strftime("%b %d, %Y") %> and <%= booking.end_date.strftime("%b %d, %Y") %></p>
+                      <div class="button-row-lower-right">
+                         <%#= link_to "reviews", new_booking_review_path(booking), class: "booking-accept-btn" %>
+                        <%#= button_to "reviews", new_booking_review_path(booking), class: "booking-accept-btn" %>
+                        <%= link_to "message", user_chat_rooms_path(booking.client), class: "booking-message-btn" %>
+                      </div>
+                    </div>
+                  <% end %>
+                <% elsif @completed_outgoing.present? %>
+                  <% @completed_outgoing.each do |booking| %>
+                    <div class="card bookings-card-body outgoing p-2">
+                      <div class="floating-questionmark">
+                        <i class="far fa-question-circle"></i>
+                      </div>
+                      <div class="bookings-card-header">
+                        <%= image_tag booking.provider.profile.profile_img, class: 'avatar-tiny' %>
+                        <p><%= booking.provider.profile.first_name %> <%= booking.provider.profile.last_name %></p>
+                      </div>
+                      <p class="text-align-center"><em>was your <strong><%= booking.service_type %></strong></em></p>
+                      <p class="text-align-center">From <%= booking.start_date.strftime("%b %d, %Y") %> until <%= booking.end_date.strftime("%b %d, %Y") %></em></p>
+                      <div class="button-row-lower-right">
+                        <!-- we commented this out because only the client should review -->
+                        <%= link_to "review", new_booking_review_path(booking), class: "booking-accept-btn" %>
+                        <%= link_to "message", user_chat_rooms_path(booking.provider), class: "booking-message-btn" %>
+                      </div>
+                    </div>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+          <% else %>
+            <div class="no-show">
+              <p><em>🍃 You have not completed any bookings yet 🍃</em></p>
+            </div>
+          <% end %>
+        </div>
       </div>
-      <% if @completed_incoming.present? || @completed_outgoing.present? %>
-        <div class="container-fluid py-2 bookings-horizontal-scroll">
-          <div class="d-flex flex-row flex-nowrap">
-            <% if @completed_incoming.present? %>
-              <% @completed_incoming.each do |booking| %>
-                <div class="card bookings-card-body incoming p-2">
-                  <div class="floating-questionmark">
-                    <i class="far fa-question-circle"></i>
-                  </div>
-                  <div class="bookings-card-header">
-                    <%= image_tag booking.client.profile.profile_img, class: 'avatar-tiny' %>
-                    <p><%= booking.client.profile.first_name %> <%= booking.client.profile.last_name %></p>
-                  </div>
-                  <p class="text-align-center"><em>booked you as <strong><%= booking.service_type %></strong></em></p>
-                  <p class="text-align-center">From <%= booking.start_date.strftime("%b %d, %Y") %> and <%= booking.end_date.strftime("%b %d, %Y") %></p>
-                  <div class="button-row-lower-right">
-                     <%#= link_to "reviews", new_booking_review_path(booking), class: "booking-accept-btn" %>
-                    <%#= button_to "reviews", new_booking_review_path(booking), class: "booking-accept-btn" %>
-                    <%= link_to "message", user_chat_rooms_path(booking.client), class: "booking-message-btn" %>
-                  </div>
-                </div>
-              <% end %>
-            <% elsif @completed_outgoing.present? %>
-              <% @completed_outgoing.each do |booking| %>
-                <div class="card bookings-card-body outgoing p-2">
-                  <div class="floating-questionmark">
-                    <i class="far fa-question-circle"></i>
-                  </div>
-                  <div class="bookings-card-header">
-                    <%= image_tag booking.provider.profile.profile_img, class: 'avatar-tiny' %>
-                    <p><%= booking.provider.profile.first_name %> <%= booking.provider.profile.last_name %></p>
-                  </div>
-                  <p class="text-align-center"><em>was your <strong><%= booking.service_type %></strong></em></p>
-                  <p class="text-align-center">From <%= booking.start_date.strftime("%b %d, %Y") %> until <%= booking.end_date.strftime("%b %d, %Y") %></em></p>
-                  <div class="button-row-lower-right">
-                    <!-- we commented this out because only the client should review -->
-                    <%= link_to "review", new_booking_review_path(booking), class: "booking-accept-btn" %>
-                    <%= link_to "message", user_chat_rooms_path(booking.provider), class: "booking-message-btn" %>
-                  </div>
-                </div>
-              <% end %>
-            <% end %>
-          </div>
-        </div>
-      <% else %>
-        <div class="no-show">
-          <p><em>🍃 You have not completed any bookings yet 🍃</em></p>
-        </div>
-      <% end %>
     </div>
-
+  </div>
+</div>
 
 <% if false %>
 

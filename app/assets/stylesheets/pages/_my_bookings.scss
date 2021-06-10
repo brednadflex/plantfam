@@ -11,6 +11,13 @@
 
 }
 
+.scroll-body {
+  position: absolute;
+  top: 10%;
+  height: 700px;
+  overflow: scroll;
+}
+
 .no-show {
   background-color: lightgray;
   color: gray;
