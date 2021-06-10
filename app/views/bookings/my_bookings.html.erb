@@ -11,13 +11,14 @@
   <div class="scroll-body">
     <div class="accordion123">
       <div class="card">
-        <div class="card-header bg-sea-green"> <!-- incoming-outgoing-headline -->
-          <h5 class="mb-0">
             <button class="menu-header-button" type="button" id="collapse-menu1">
-              Pending requests
-            </button>
+        <div class="card-header d-flex flex-row justify-content-between align-items-center"> <!-- incoming-outgoing-headline -->
+          <h5 class="mb-0 font-weight-light">
+              Pending requests <% unless @pending_count == 0 %> (<%= @pending_count %>) <% end %>
           </h5>
+          <i class="fas fa-chevron-down card-chevron"></i>
         </div>
+            </button>
 
         <div id="pending" class="collapse-menu-hidden">
           <div class="card-body">
@@ -76,13 +77,14 @@
       </div>
 
       <div class="card">
-        <div class="card-header bg-sea-green"> <!-- incoming-outgoing-headline -->
-          <h5 class="mb-0">
             <button class="menu-header-button" type="button" id="collapse-menu2">
-              Current bookings
-            </button>
+        <div class="card-header d-flex flex-row justify-content-between align-items-center"> <!-- incoming-outgoing-headline -->
+          <h5 class="mb-0 font-weight-light">
+              Current bookings <% unless @pending_count == 0 %> (<%= @pending_count %>) <% end %>
           </h5>
+          <i class="fas fa-chevron-down card-chevron"></i>
         </div>
+            </button>
 
         <div id="current" class="collapse-menu-hidden">
           <div class="card-body">
@@ -139,13 +141,14 @@
       </div>
 
       <div class="card">
-        <div class="card-header bg-sea-green"> <!-- incoming-outgoing-headline -->
-          <h5 class="mb-0">
             <button class="menu-header-button" type="button" id="collapse-menu3">
-              Upcoming bookings
-            </button>
+        <div class="card-header d-flex flex-row justify-content-between align-items-center"> <!-- incoming-outgoing-headline -->
+          <h5 class="mb-0 font-weight-light">
+              Upcoming bookings <% unless @pending_count == 0 %> (<%= @pending_count %>) <% end %>
           </h5>
+          <i class="fas fa-chevron-down card-chevron"></i>
         </div>
+            </button>
 
         <div id="upcoming" class="collapse-menu-hidden">
           <div class="card-body">
@@ -206,13 +209,14 @@
       </div>
 
       <div class = "card">
-        <div class="card-header bg-sea-green"> <!-- incoming-outgoing-headline -->
-          <h5 class="mb-0">
             <button class="menu-header-button" type="button" id="collapse-menu4">
-              Past bookings
-            </button>
+        <div class="card-header d-flex flex-row justify-content-between align-items-center"> <!-- incoming-outgoing-headline -->
+          <h5 class="mb-0 font-weight-light">
+              Past bookings <% unless @completed_count == 0 %> (<%= @completed_count %>) <% end %>
           </h5>
+          <i class="fas fa-chevron-down card-chevron"></i>
         </div>
+            </button>
 
         <div id="past" class="collapse-menu-hidden">
           <div class="card-body">
@@ -237,9 +241,10 @@
                    <% chatroom = chatroom_finder(current_user, booking.client) %>
                    <%= link_to "message", chat_room_path(chatroom), class: "booking-message-btn" %>
                  </div>
-               </div>
-               <% end %>
-               <% elsif @completed_outgoing.present? %>
+                </div>
+                <% end %>
+                <% end %>
+               <% if @completed_outgoing.present? %>
                <% @completed_outgoing.each do |booking| %>
                <div class="card bookings-card-body outgoing p-2">
                 <div class="floating-questionmark">

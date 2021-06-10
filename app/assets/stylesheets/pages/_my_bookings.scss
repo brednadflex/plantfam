@@ -7,6 +7,10 @@
   }
 }
 
+.card-chevron {
+  color: $sea-green;
+  font-size: 1.3em;
+}
 
 .collapse-menu-hidden {
   display: none;
@@ -30,13 +34,9 @@
 }
 
 .menu-header-button {
-  color: white;
+  color: black;
   border: none;
   background-color: transparent;
-}
-
-.bg-sea-green {
-  background-color: $sea-green;
 }
 
 .scroll-body {
@@ -138,6 +138,7 @@
   padding-right: 10px;
   margin-left: 5px;
 }
+
 .booking-accept-btn {
   color: white;
   background-color: $dark-green;
@@ -148,8 +149,6 @@
   padding-left: 10px;
   padding-right: 10px;
   margin-left: 5px;
-
-
 }
 
 .booking-reject-btn {
