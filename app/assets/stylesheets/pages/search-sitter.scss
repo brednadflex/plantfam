@@ -5,8 +5,8 @@
 //   display: flex;
 //   justify-content: center;
 // }
-.search-form-container {
-  margin-top: 40px;
+.search-logo-spacing {
+  margin-bottom: 25px;
 }
 .search-header {
   color: $dark-green;
@@ -20,9 +20,9 @@
   margin-bottom: 16%;
 }
 
-.datepicker {
-  margin-top: 0;
-}
+// .datepicker {
+//   margin-top: 0;
+// }
 .search-by-date {
   margin-bottom: 16%;
 }
@@ -35,6 +35,7 @@
   margin-top: 2%;
 }
 .search-form-container {
+  margin-top: 0;
   display: flex;
   justify-content: space-between;
   
