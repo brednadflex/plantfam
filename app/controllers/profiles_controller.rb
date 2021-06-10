@@ -5,13 +5,13 @@ class ProfilesController < ApplicationController
   def index
     # Saving the search in a cookie variable to retrieve it in the booking
     session[:search] = {address: params[:address], from: params[:search][:from], to: params[:search][:to]}
-    @profiles = Profile.all
-    if params[:from].present? && params[:to].present?
-      @ids = Availability.where("start_date <= ?", params[:from]).where("end_date >= ?", params[:to]).map do |availability|
-        availability.profile_id
-      end
-      @profiles = Profile.find(@ids.uniq)
-    end
+    @profiles = Profile.where(sitter: true).or(Profile.where(advisor: true)).where.not(user: current_user)
+    # if params[:from].present? && params[:to].present?
+    #   @ids = Availability.where("start_date <= ?", params[:from]).where("end_date >= ?", params[:to]).map do |availability|
+    #     availability.profile_id
+    #   end
+    #   @profiles = Profile.find(@ids.uniq)
+    # end
   end
 
   def show
