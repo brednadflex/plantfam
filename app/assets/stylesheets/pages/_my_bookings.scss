@@ -1,4 +1,8 @@
 
+.collapse-menu-hidden {
+  display: none;
+}
+
 .bookings-card-header {
   display: flex;
   justify-content: flex-start;
@@ -9,6 +13,23 @@
     width: 80%;
   }
 
+}
+
+.header-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu-header-button {
+  color: $dark-green;
+  border: none;
+  background-color: transparent;
+}
+
+.scroll-body {
+  margin-top: 100px;
+  height: 600px;
+  overflow: scroll;
 }
 
 .no-show {
