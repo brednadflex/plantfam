@@ -1,4 +1,40 @@
 // Specific CSS for your home-page
+.homepage-logo {
+  width: 11%;
+  height: 100%;
+}
+
+.homepage-logo-plantfam {
+  display: flex;
+}
+
+.homepage-plantfam-text-size {
+  margin-bottom: 0;
+  margin-left: 4px;
+  display: flex;
+  align-items: flex-end;
+}
+
+// .slogan {
+//   // margin-left: 15%;
+//   font-size: 16px;
+// }
+
+.homepage-find-sitter-advice-love {
+  font-size: 20px;
+  font-weight: bold;
+  color: $dark-green;
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+.homepage-for-your-plants {
+  font-size: 18px;
+  font-style: italic;
+  color: $dark-green;
+  margin-top: 0px;
+  margin-bottom: 40px;
+}
 
 .profile-user-img {
   object-fit: cover;
@@ -10,3 +46,6 @@
   font-size: 16px;
   border-bottom: 1px solid $sea-green;
 }
+
+
+
