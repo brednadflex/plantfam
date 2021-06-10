@@ -1,16 +1,9 @@
 <div class="container-fluid ml-1 mr-1 mt-1">
-  <div class="chat-header fixed-top">
-    <div class="header-icon">
-      <%= link_to my_profile_path(@current_user), class: "text-decoration-none text-reset color:$dark-green" do %>
-      <i class="fas fa-arrow-circle-left pl-2"></i>
-      <% end %>
-    </div>
+  <div class="bookings-header fixed-top">
     <div class="header-avatar">
       <%= image_tag current_user.profile.profile_img %>
     </div>
-    <div class="header-name pb-3">
       <h5>My Bookings</h5>
-    </div>
   </div>
 
   <!-- <div class="spacer-top">
@@ -18,7 +11,7 @@
   <div class="scroll-body">
     <div class="accordion123">
       <div class="card">
-        <div class="card-header"> <!-- incoming-outgoing-headline -->
+        <div class="card-header bg-sea-green"> <!-- incoming-outgoing-headline -->
           <h5 class="mb-0">
             <button class="menu-header-button" type="button" id="collapse-menu1">
               Pending requests
@@ -83,7 +76,7 @@
       </div>
 
       <div class="card">
-        <div class="card-header"> <!-- incoming-outgoing-headline -->
+        <div class="card-header bg-sea-green"> <!-- incoming-outgoing-headline -->
           <h5 class="mb-0">
             <button class="menu-header-button" type="button" id="collapse-menu2">
               Current bookings
@@ -146,7 +139,7 @@
       </div>
 
       <div class="card">
-        <div class="card-header"> <!-- incoming-outgoing-headline -->
+        <div class="card-header bg-sea-green"> <!-- incoming-outgoing-headline -->
           <h5 class="mb-0">
             <button class="menu-header-button" type="button" id="collapse-menu3">
               Upcoming bookings
@@ -213,7 +206,7 @@
       </div>
 
       <div class = "card">
-        <div class="card-header"> <!-- incoming-outgoing-headline -->
+        <div class="card-header bg-sea-green"> <!-- incoming-outgoing-headline -->
           <h5 class="mb-0">
             <button class="menu-header-button" type="button" id="collapse-menu4">
               Past bookings

@@ -1,3 +1,12 @@
+.bookings-header {
+  display: flex;
+  align-items: center;
+  h5 {
+    margin-bottom: 0;
+    color: $dark-green;
+  }
+}
+
 
 .collapse-menu-hidden {
   display: none;
@@ -21,9 +30,13 @@
 }
 
 .menu-header-button {
-  color: $dark-green;
+  color: white;
   border: none;
   background-color: transparent;
+}
+
+.bg-sea-green {
+  background-color: $sea-green;
 }
 
 .scroll-body {
@@ -83,7 +96,7 @@
     min-height: 170px;
     min-width: 250px;
     max-height: 170px;
-    margin-right: 5px;
+    margin-right: 20px;
     border-radius: 10px;
     // padding-bottom: 5px;
     p {
@@ -96,11 +109,12 @@
 
 .outgoing {
   background-color: $light-green;
+  border: 1px solid $dark-green;
 }
 
 .incoming {
   background-color: white;
-  border: 1px solid $light-green;
+  border: 1px solid $dark-green;
 }
 
 .card-msg-btn {
