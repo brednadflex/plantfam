@@ -1,3 +1,10 @@
+<div class="main-wrapper">
+  <div class="chatroom-search-bar-flex-container">
+    <%= image_tag "search.svg" %>
+    <p>Search newsfeed</p>
+  </div>
+</div>
+
 <% @posts.each do |post| %>
   <div class="post-card mb-3 mt-3 mx-2">
     <div class="post-card-info">
@@ -7,7 +14,6 @@
       <div class="post-card-info-name-title">
         <div class="post-card-info-name">
           <%= post.user.profile.full_name %>
-          <span class="post-card-info-time"> <%= post.posted_on %> </span>
         </div>
         <h2 class="post-card-info-title">
           <%= post.title %>
@@ -19,12 +25,13 @@
       <img class="banner" src= "<%= post.image_url %>" alt="plant">
     </div>
     <div class="post-card-content">
+      <span class="post-card-info-time"> <%= post.posted_on %> </span>
       <p class="post-content"><%= post.content.truncate(200) %></p>
       <div class="post-social">
         <div class="post-social-like">
           <%= image_tag "leaf.png", alt: "green-leaf", width: 18 %>
           45
-          <%= image_tag "yellow-leaf.png", alt: "yellow-leaf", width: 20 %>
+          <%#= image_tag "yellow-leaf.png", alt: "yellow-leaf", width: 20 %>
         </div>
         <div class="post-social-comment">
           <%= image_tag "comment.png", alt: "alttext" %>
