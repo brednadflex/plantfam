@@ -27,11 +27,16 @@ class BookingsController < ApplicationController
     @pending_incoming = upcoming_pending.select{ |booking| booking.provider == current_user }
     @pending_outgoing = upcoming_pending.select{ |booking| booking.client == current_user }
 
+    @pending_count = @pending_incoming.count + @pending_outgoing.count
+
     @completed_bookings = all_bookings.select { |booking| booking.completed? }
     completed_bookings = @completed_bookings
 
     @completed_incoming = completed_bookings.select{ |booking| booking.provider == current_user }
     @completed_outgoing = completed_bookings.select{ |booking| booking.client == current_user }
+
+    @completed_count = @completed_incoming.count + @completed_outgoing.count
+
   end
 
   def new
