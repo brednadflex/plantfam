@@ -17,7 +17,7 @@ module ApplicationHelper
       chatroom = chatroom1
     end
 
-    flash.delete(:notice)
+    # flash.delete(:notice)
     return chatroom
   end
 end
