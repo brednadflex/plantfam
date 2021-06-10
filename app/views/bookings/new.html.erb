@@ -17,7 +17,7 @@
     <%= f.input :my_address, id: "address_input", as: :string, html5: true, input_html: {value: session[:search]["address"]} %>
     <div class="search-form-container">
       <%= f.input :start_date, as: :string, required: true, input_html: {class: "datepicker", id: "range_start", value: session[:search]["from"].split("to").first} %>
-      <%= f.input :end_date, as: :string, required: true, input_html: {class: "datepicker", id: "range_start", value: session[:search]["from"].split("to").last} %>
+      <%= f.input :end_date, as: :string, required: true, input_html: {class: "datepicker", id: "range_end", value: session[:search]["from"].split("to").last} %>
     </div>
     <%= f.input :comment,  :input_html => {:rows => 7}, label: "Tell #{Profile.find(params[:profile_id]).first_name} more about your plants", class: "create-booking-message"%>
     <%= f.submit class: "btn-sea-green search-sitter-button" %>

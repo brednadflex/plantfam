@@ -8,20 +8,10 @@
   height: 100%;
 }
 
-.header-avatar {
-  width: 10%;
-}
-
-
-
-.header-icon {
-  width: 10%;
-}
-
-.header-name {
-  width: 80%;
-  margin-left: 10%;
-  margin-top: 5%;
+.header-name p {
+  margin: 0;
+  white-space: nowrap;
+  font-size: 16px;
 }
 
 .profile-icon-heder {
@@ -31,7 +21,8 @@
 .header-avatar img {
   width: 40px;
   height: 40px;
-  border-radius: 50%
+  border-radius: 50%;
+  margin-right: 12px;
 }
 
 .chat-header {
@@ -42,48 +33,98 @@
   padding: 2%;
   background: white;
   height: 7%;
-  margin: 5% auto;
-  border-bottom: 2px solid $light-green;
+  margin: 0 auto;
+  border-bottom: 2px solid $light-gray;
+  padding: 32px 0;
 }
 
 .chat-header i {
-  font-size: 1.5em;
-  color: $dark-green;
+  font-size: 1.4em;
+  color: $sea-green;
+  padding: 4px;
 }
 
 .flexy-form {
   display: flex;
   width: 90%;
-  margin-bottom: 28%;
+  height: 40px;
+  margin-bottom: 33%;
   margin-left: auto;
   margin-right: auto;
   justify-content: space-between;
   .form-control {
-    position: absolute;
-    width: 80%;
     border: 2px solid $light-green;
-    border-radius: 5%;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    position: absolute;
+    width: 75%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.24), 0 2px 4px rgba(0,0,0,0.32);
   }
-  padding-bottom: 7%;
+}
+
+.textarea.form-control {
+  height: 40px !important;
 }
 
 
 .airplane-button {
-    background-color: white;
-    margin-left: 2%;
-    width: 15%;
-    height: 80%;
-    border-radius: 20%;
-    border: 2px solid $light-green;
-    flex-grow: 0;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $sea-green;
+  height: 64px;
+  width: 64px;
+  border: 2px solid $sea-green;
+  border-radius: 80px;
+  flex-grow: 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.24), 0 2px 4px rgba(0,0,0,0.32);
+  color: $light-green;
+  font-size: 18px;
 }
 
 .messages-scrollbox {
   position: absolute;
-  margin-top: 12%;
+  margin-top: 64px;
   overflow: scroll;
-  height: 67%;
-  width: 95%;
+  height: 70%;
+  width: 100%;
+}
+
+.header-user-profile-container {
+  display: flex;
+  align-items: center;
+  margin-left: 80px;
+}
+
+.message-container p {
+  margin-bottom: 0px;
+  line-height: 1.4rem;
+  color: #222;
+}
+
+.message-container small {
+  color: #999;
+  font-size: 12px;
+}
+
+.message-container {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  padding: 8px;
+  border-radius: 8px;
+  opacity: 100%;
+}
+
+.sent-message-content-container {
+  margin-bottom: 4px;
+  margin-top: 4px;
+}
+
+.received-message {
+  background-color: #fff;
+  margin-left: 16px;
+  opacity: 1;
+}
+
+.sent-message {
+  background-color: #e6ffda;
+  opacity: 1;
 }
