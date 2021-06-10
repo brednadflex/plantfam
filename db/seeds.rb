@@ -5,6 +5,7 @@ ChatRoom.destroy_all
 Review.destroy_all
 Booking.destroy_all
 Profile.destroy_all
+Post.destroy_all
 User.destroy_all
 
 user_images = [
@@ -454,5 +455,50 @@ booking14.save
 
 puts "booking created with new review"
 puts "booking created with new seeds"
+
+puts "creating newsfeeds"
+
+post1 = Post.new
+post1.title = "New Calathea"
+post1.content = "Saw this one at the plant store and couldn’t resist getting it! This is my first Calathea!!..I don’t wanna mess it up this time..Can anyone recommend a good plant advice person?? my hands look so manly..."
+post1.posted_on = "5 minutes ago"
+post1.user = User.first
+post1.image_url = "https://images.unsplash.com/photo-1622560622893-7751a59db7f9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1247&q=80"
+post1.save
+
+post2 = Post.new
+post2.title = "What’s wrong with my ficus?!"
+post2.content = "I don’t know, it just kind looks like it’s not adjusting to its new environment. Anyone?!"
+post2.posted_on = "45 minutes ago"
+post2.user = User.second
+post2.image_url = "https://images.unsplash.com/photo-1617281608168-f23112b319c2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80"
+post2.save
+
+post3 = Post.new
+post3.title = "Looking for a sitter"
+post3.content = "Ok so I’m gonna be gone for a while starting June 19th, and was wondering whether anyone here has any recommendations for plant carers on PF?? "
+post3.posted_on = "1 hour ago"
+post3.user = User.third
+post3.image_url = "https://images.unsplash.com/photo-1598838073192-05c942ede858?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=668&q=80"
+post3.save
+
+post4 = Post.new
+post4.title = "Hoya Undulata!!!"
+post4.content = "It’s taken me ages to track this one down! Anyone else have one or ever had one? It’s really beautiful. I’ll be making cuttings soon, follow me to make sure you stay in the loop! They’ll be going fast..."
+post4.posted_on = "2 hours ago"
+post4.user = User.fourth
+post4.image_url = "https://images.unsplash.com/photo-1591340120182-1dc91d56ea9f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80"
+post4.save
+
+post5 = Post.new
+post5.title = "Dracaena Fragrans"
+post5.content = "I bough this one back in december and it was only about 20cm tall... now, look at it!!! I’m wondering how to go about making cuttings from this?! Can anyone recommend a plant whisperer here on PF??"
+post5.posted_on = "5 hours ago"
+post5.user = User.fifth
+post5.image_url = "https://images.unsplash.com/photo-1588745574159-93b469d48d78?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80"
+post5.save
+
+puts "newsfeeds created"
+
 
 
