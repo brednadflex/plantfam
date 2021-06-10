@@ -75,10 +75,6 @@
   margin: 0px 10px;
   border-radius: 20px;
 
-  .input-width {
-    width: 80%;
-  }
-
   .bg-message {
     background-color: #EEF2ED;
   }
@@ -86,4 +82,12 @@
   .message-radius {
     border-radius: 10px;
   }
+}
+
+.create-booking-message {
+  height: 180px;
+}
+
+.form-control .create-booking-message {
+    height: 180px;
 }
