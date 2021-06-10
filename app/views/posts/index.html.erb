@@ -1,8 +1,7 @@
-<h1>Posts#index</h1>
 <% @posts.each do |post| %>
   <div class="post-card">
     <div class="post-card-info">
-      <div class="post-card-info-avatar bg-primary">
+      <div class="post-card-info-avatar">
         <%= image_tag post.user.profile.profile_img, alt: "alttext" %>
       </div>
       <div class="post-card-info-name-title">
@@ -17,10 +16,21 @@
       </div>
     </div>
     <div class="post-card-image bg-succes">
-      <img class="banner" src=<%= 'https://source.unsplash.com/random/900×250/?plants' %> alt="plant">
+      <img class="banner" src=<%= 'https://source.unsplash.com/random/350×345/?plants' %> alt="plant">
     </div>
-    <div class="post-card-content bg-warning">
-      <p class="profile-description mt-4"><%= post.content %></p>
+    <div class="post-card-content">
+      <p class="post-content"><%= post.content.truncate(200) %></p>
+      <div class="post-social">
+        <div class="post-social-like">
+          <%= image_tag "leaf.png", alt: "green-leaf", width: 18 %>
+          45
+          <%= image_tag "yellow-leaf.png", alt: "yellow-leaf", width: 20 %>
+        </div>
+        <div class="post-social-comment">
+          <%= image_tag "comment.png", alt: "alttext" %>
+          4
+        </div>
+      </div>
     </div>
   </div>
 <% end %>
