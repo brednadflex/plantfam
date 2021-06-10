@@ -1,15 +1,12 @@
 <div class="main-wrapper">
-  <div class="homepage-logo-plantfam search-logo-spacing">
-    <%= image_tag "plantfam-logo.png", class: "homepage-logo " %>
-    <div class="hero-text homepage-plantfam-text-size search-logo-spacing">
-      <%# <h3>Find a Plant Helper</h3> %>
-    </div>
+  <div class="logo-centered">
+    <%= image_tag "PlantCharacter.png" %>
   </div>
   <div class="search-form-container">
     <%= simple_form_for :search, :url => "/profiles", method: "get" do |f| %>
-      <div class="search-by-address">
         <p class="form-where">Where are your plants?</p>
-        <%= text_field_tag :address, "", id: "address_input", placeholder: "Type in your address...", class: "form-where" %>
+      <div class="search-by-address">
+        <%= text_field_tag :address, "", id: "address_input", placeholder: "Type in your address..." %>
       </div>  
       <p class="form-label">When will you need help with your plants?</p>
       <div class="search-form-container">
