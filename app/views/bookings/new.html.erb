@@ -10,10 +10,8 @@
   <% options = ["Advice"] %>
 <% end %>
 
+<h3 class="search-header">Send <%= @profile.first_name %> a booking request</h3>
 <div class="booking-form-container">
-  <h3>Send <%= @profile.first_name %> a request</h3>
-  
-  
   <%= simple_form_for([@profile, @booking]) do |f| %>
     <div class="form-input-container">
       <%= f.input :service_type, collection: options, html5: true, input_html: {value: "Plant Sitting"} %>
@@ -26,7 +24,7 @@
       <%= f.input :end_date, as: :string, required: true, input_html: {class: "datepicker", id: "range_start", value: session[:search]["from"].split("to").last} %>
     </div>
     <%= f.input :comment, label: "Tell #{Profile.find(params[:profile_id]).first_name} more about your plants" %>
-    <%= f.submit class: "btn submit-button" %>
+    <%= f.submit class: "btn-sea-green search-sitter-button" %>
   <% end %>
 </div>
 </div>

@@ -15,10 +15,17 @@
   justify-content: center;
 }
 
-.flex-container h4 {
-  text-align: center;
-  margin: 0 48px 16px 48px;
+.available-header-text {
+  text-align: left;
+  color: $dark-green;
+  margin-bottom: 30px;
 }
+// .flex-container h4 {
+//   text-align: left;
+//   color: $dark-green;
+//   // margin: 0 48px 16px 48px;
+//   margin-bottom: 30px;
+// }
 
 .search-form-address-params {
   color: $sea-green;

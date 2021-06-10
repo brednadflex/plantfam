@@ -56,7 +56,8 @@ a:hover {
   padding-right: 15px;
   padding-bottom: 3px;
   width: 320px;
-  height: 40px;
+  height: 43px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
 .search-sitter-button {
@@ -67,3 +68,16 @@ a:hover {
   width: 100%;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
+
+.submit-button {
+  display: flex;
+  justify-content: center;
+  background-color: $sea-green;
+  color: white;
+  border-radius: 80px;
+  width: 100%;
+  margin-top: 40px;
+  // padding: 12px 48px;
+  height: 45px;box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
