@@ -1,5 +1,7 @@
 <div class="main-wrapper">
-  <h4 class="available-header-text">Available Plant Helpers</h4>
+  <div class="logo-centered">
+    <%= image_tag "PlantCharacter.png" %>
+  </div>
   <div class="flex-container">
     <p class="search-form-address-params"><%= session[:search][:address].first(40) %>...</p>
   </div>
@@ -28,12 +30,12 @@
         <div class="profile-card-container-left flex-grow-1">
           <div class="profile-card-service-flex-container">
             <% if profile.sitter && profile.advisor %>
-              <p class="service-tag plant-sitter">Plant Sitter</p>
-              <p class="service-tag advisor">Advisor</p>
+              <p class="service-tag plant-sitter">sitter</p>
+              <p class="service-tag advisor">advisor</p>
             <% elsif profile.sitter %>
-              <p class="service-tag">Plant Sitter</p>
+              <p class="service-tag">sitter</p>
             <% elsif profile.advisor %>
-              <p class="service-tag">Advisor</p>
+              <p class="service-tag">advisor</p>
             <% end %>
           </div>
           <span class="profile-experience"> <%= profile.experience %></span>

@@ -1,6 +1,6 @@
 // Specific CSS for your home-page
 .homepage-logo {
-  width: 11%;
+  width: 15%;
   height: 100%;
 }
 
@@ -19,12 +19,16 @@
 //   // margin-left: 15%;
 //   font-size: 16px;
 // }
-
+.homepage-slider-font {
+  font-size: 20px;
+  font-weight: bold;
+  color: $dark-green;
+}
 .homepage-find-sitter-advice-love {
   font-size: 20px;
   font-weight: bold;
   color: $dark-green;
-  margin-top: 20px;
+  margin-top: 40px;
   margin-bottom: 0;
 }
 
@@ -33,7 +37,7 @@
   font-style: italic;
   color: $dark-green;
   margin-top: 0px;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
 }
 
 .profile-user-img {

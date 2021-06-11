@@ -1,7 +1,6 @@
 
 
 <div class="main-wrapper">
-
 <% if @profile.sitter? && @profile.advisor? %>
   <% options = ["Plant Sitting", "Advice"] %>
 <% elsif @profile.sitter? %>
@@ -9,8 +8,9 @@
 <% elsif @profile.advisor? %>
   <% options = ["Advice"] %>
 <% end %>
-
-<h3 class="search-header">Send <%= @profile.first_name %> a booking request</h3>
+<div class="logo-centered">
+    <%= image_tag "PlantCharacter.png" %>
+  </div>
 <div class="booking-form-container">
   <%= simple_form_for([@profile, @booking]) do |f| %>
     <%= f.input :service_type, collection: options, html5: true, input_html: {value: "Plant Sitting"} %>
@@ -19,8 +19,8 @@
       <%= f.input :start_date, as: :string, required: true, input_html: {class: "datepicker", id: "range_start", value: session[:search]["from"].split("to").first} %>
       <%= f.input :end_date, as: :string, required: true, input_html: {class: "datepicker", id: "range_end", value: session[:search]["from"].split("to").last} %>
     </div>
-    <%= f.input :comment,  :input_html => {:rows => 7}, label: "Tell #{Profile.find(params[:profile_id]).first_name} more about your plants", class: "create-booking-message"%>
-    <%= f.submit class: "btn-sea-green search-sitter-button" %>
+    <%= f.input :comment,  :input_html => {:rows => 5}, label: "Tell #{Profile.find(params[:profile_id]).first_name} more about your plants", class: "create-booking-message"%>
+    <%= f.submit "send request", class: "btn-sea-green search-sitter-button" %>
   <% end %>
 </div>
 </div>

@@ -1,13 +1,11 @@
 <div class="main-wrapper1">
   <div class="homepage-logo-plantfam">
-    <%= image_tag "plantfam-logo.png", class: "homepage-logo" %>
+    <%= image_tag "PlantCharacter.png", class: "homepage-logo" %>
     <div class="hero-text homepage-plantfam-text-size">
       <h3>PlantFam</h3>
     </div>
   </div>
-  <%# <div class="slogan">
-    <p class="slogan">for the love of plants</p>
-  </div> %>
+
 
   <div class="scrolling-wrapper mt-4 pb-4 pt-2">
 		<div class="card card-block card-1">
@@ -58,12 +56,12 @@
         <div class="profile-card-container-left flex-grow-1">
           <div class="profile-card-service-flex-container">
             <% if profile.sitter && profile.advisor %>
-              <p class="service-tag plant-sitter">Plant Sitter</p>
-              <p class="service-tag advisor">Advisor</p>
+              <p class="service-tag plant-sitter">sitter</p>
+              <p class="service-tag advisor">advisor</p>
             <% elsif profile.sitter %>
-              <p class="service-tag">Plant Sitter</p>
+              <p class="service-tag">sitter</p>
             <% elsif profile.advisor %>
-              <p class="service-tag">Advisor</p>
+              <p class="service-tag">advisor</p>
             <% end %>
           </div>
           <span class="profile-experience"> <%= profile.experience %></span>
@@ -78,4 +76,51 @@
     </div>
   <% end %>
 <% end %>
+  <% if false %>
+    <% @profiles.last(5).each do |profile| %>
+          <div class="profile-card">
+            <div class="profile-card-user-info">
+              <div class="profile-card-image">
+                <img src=<%= profile.profile_img %> alt="user-image" class="rounded-circle profile-user-img" style="width: 70px; height: 70px;">
+              </div>
+
+              <div class="profile-card-user-text">
+                <h4><%= profile.first_name %></h4>
+                <p class="mt-1">Berlin <br>
+                <span class="experience"> <%= profile.experience %></span></p>
+              </div>
+
+              <div class="profile-card-user-rating-price">
+                <div class="profile-card-rating">
+                  <p><%= profile.avg_rating %><%= image_tag "leaf.png", class: "ml-1" %></p>
+                </div>
+                <div class="profile-card-price">
+                  <p><%= [5, 12, 8, 18, 4, 9].sample %>€ / d</p>
+                </div>
+              </div>
+            </div>
+            <div class="profile-card-services">
+                <% if profile.sitter && profile.advisor %>
+                  <div class="plantsitter">
+                    sitter
+                  </div>
+                  <div class="advisor">
+                    advisor
+                  </div>
+                <% elsif profile.sitter %>
+                  <div class="plantsitter">
+                    sitter
+                  </div>
+                <% elsif profile.advisor %>
+                  <div class="advisor">
+                    advisor
+                  </div>
+                <% end %>
+            </div>
+            <p class="profile-description mt-4"><%= profile.description.first(100) %>...</p>
+          <%= link_to "View Profile", profile_path(profile), class: "view-profile-link" %>
+          </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>

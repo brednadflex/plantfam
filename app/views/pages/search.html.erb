@@ -1,18 +1,19 @@
 <div class="main-wrapper">
-  
-    <h1 class="search-header">Find a Plant Helper</h1>
-  
-
-  <%= simple_form_for :search, :url => "/profiles", method: "get" do |f| %>
-    <div class="search-by-address">
-      <p class="form-label">Where are your plants?</p>
-      <%= text_field_tag :address, "", id: "address_input", placeholder: "Type in your address..." %>
-    </div>  
-    <p class="form-label">When will you need help with your plants?</p>
-    <div class="search-form-container">
-      <%= f.input :from, as: :string, required: true, input_html: {class: "datepicker", id: "range_start"} %>
-      <%= f.input :to, as: :string, required: true, input_html: {class: "datepicker", id: "range_end"} %>
-    </div>
-    <%= f.button :submit, "Find available Plant Sitters", class: "btn-sea-green search-sitter-button" %>
-  <% end %>
+  <div class="logo-centered">
+    <%= image_tag "PlantCharacter.png" %>
+  </div>
+  <div class="search-form-container">
+    <%= simple_form_for :search, :url => "/profiles", method: "get" do |f| %>
+        <p class="form-where">Where are your plants?</p>
+      <div class="search-by-address">
+        <%= text_field_tag :address, "", id: "address_input", placeholder: "Type in your address..." %>
+      </div>  
+      <p class="form-label">When will you need help with your plants?</p>
+      <div class="search-form-container">
+        <%= f.input :from, as: :string, required: true, input_html: {class: "datepicker", id: "range_start"} %>
+        <%= f.input :to, as: :string, required: true, input_html: {class: "datepicker", id: "range_end"} %>
+      </div>
+      <%= f.button :submit, "find", class: "btn-sea-green search-sitter-button" %>
+    <% end %>
+  </div>
 </div>
