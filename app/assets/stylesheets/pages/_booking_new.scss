@@ -85,3 +85,17 @@
     border-radius: 10px;
   }
 }
+
+.booking-form-container textarea {
+  background-color: $light-green;
+  border-radius: 8px;
+}
+.form-control {
+  border-radius: 8px;
+}
+.form-control.string.required.datepicker.form-control.input {
+  border-radius: 8px 0 0 8px !important;
+}
+.form-control.string.required.datepicker {
+  border-radius: 0 8px 8px 0 !important;
+}
