@@ -16,6 +16,8 @@ class BookingsController < ApplicationController
     @current_incoming = current_bookings.select { |booking| booking.provider == current_user }
     @current_outgoing = current_bookings.select { |booking| booking.client == current_user }
 
+    @current_count = @current_incoming.count + @current_outgoing.count
+
     @upcoming_confirmed = all_bookings.select{ |booking| (booking.start_date > Date.today) && booking.accepted? }
     @upcoming_pending = all_bookings.select{ |booking| (booking.start_date > Date.today) && !booking.accepted? }
     upcoming_confirmed = @upcoming_confirmed
@@ -24,14 +26,21 @@ class BookingsController < ApplicationController
     @upcoming_incoming = upcoming_confirmed.select{ |booking| booking.provider == current_user }
     @upcoming_outgoing = upcoming_confirmed.select{ |booking| booking.client == current_user }
 
+    @upcoming_count = @upcoming_incoming.count + @upcoming_outgoing.count
+
     @pending_incoming = upcoming_pending.select{ |booking| booking.provider == current_user }
     @pending_outgoing = upcoming_pending.select{ |booking| booking.client == current_user }
+
+    @pending_count = @pending_incoming.count + @pending_outgoing.count
 
     @completed_bookings = all_bookings.select { |booking| booking.completed? }
     completed_bookings = @completed_bookings
 
     @completed_incoming = completed_bookings.select{ |booking| booking.provider == current_user }
     @completed_outgoing = completed_bookings.select{ |booking| booking.client == current_user }
+
+    @completed_count = @completed_incoming.count + @completed_outgoing.count
+
   end
 
   def new

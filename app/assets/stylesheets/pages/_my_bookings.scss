@@ -1,3 +1,20 @@
+.bookings-header {
+  display: flex;
+  align-items: center;
+  h5 {
+    margin-bottom: 0;
+    color: $dark-green;
+  }
+}
+
+.border-style {
+  border: none;
+}
+
+.card-chevron {
+  color: $sea-green;
+  font-size: 1.3em;
+}
 
 .collapse-menu-hidden {
   display: none;
@@ -21,7 +38,7 @@
 }
 
 .menu-header-button {
-  color: $dark-green;
+  color: black;
   border: none;
   background-color: transparent;
 }
@@ -83,7 +100,7 @@
     min-height: 170px;
     min-width: 250px;
     max-height: 170px;
-    margin-right: 5px;
+    margin-right: 20px;
     border-radius: 10px;
     // padding-bottom: 5px;
     p {
@@ -96,11 +113,12 @@
 
 .outgoing {
   background-color: $light-green;
+  border: 1px solid $dark-green;
 }
 
 .incoming {
   background-color: white;
-  border: 1px solid $light-green;
+  border: 1px solid $dark-green;
 }
 
 .card-msg-btn {
@@ -124,6 +142,7 @@
   padding-right: 10px;
   margin-left: 5px;
 }
+
 .booking-accept-btn {
   color: white;
   background-color: $dark-green;
@@ -134,8 +153,6 @@
   padding-left: 10px;
   padding-right: 10px;
   margin-left: 5px;
-
-
 }
 
 .booking-reject-btn {
