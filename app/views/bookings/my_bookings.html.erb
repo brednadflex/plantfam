@@ -38,7 +38,7 @@
                   <p class="text-align-center"><em>has requested you as <strong><%= booking.service_type %></strong></em></p>
                   <p class="text-align-center"><em>Between <%= booking.start_date.strftime("%b %d, %Y") %> and <%= booking.end_date.strftime("%b %d, %Y") %></em></p>
                   <div class="button-row-lower-right">
-                    <%= link_to "accept", accept_booking_path(booking.id), class: "booking-accept-btn" %>
+                    <%= link_to "accept", accept_booking_path(booking), method: :post, class: "booking-accept-btn" %>
                     <%= link_to "reject", reject_booking_path(booking.id), class: "booking-reject-btn" %>
                     <% chatroom = chatroom_finder(current_user, booking.client) %>
                     <%= link_to "message", chat_room_path(chatroom), class: "booking-message-btn" %>
