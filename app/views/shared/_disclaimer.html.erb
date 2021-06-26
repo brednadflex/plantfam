@@ -1,0 +1,41 @@
+<div class="disclaimer" id="disclaimer">
+  <button class="close-btn" id="close">
+    <i class="fa fa-times"></i>
+  </button>
+    <div class="disclaimer-content">
+      <div class="disclaimer-header">
+        <%= image_tag 'PlantCharacter.png' %>
+        <h2 class="logo">This website is Mobile-Only</h2>
+        <p class="tagline">Desktop version coming soon</p>
+        <p>We are currently working on a desktop version. Until then,
+          please visit our site from your phone in order to get the best user experience!
+        </p>
+      </div>
+
+      <div class="social-media">
+        <%= link_to 'https://www.instagram.com/plantfamapp/', class:"text-decoration-none text-reset" do %><i class="fab fa-instagram"></i> <% end %>
+      </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+  $(document).ready(function(){
+
+    function showModal(){
+      $('#disclaimer').show();
+      $('html body').css('overflow', 'hidden');
+    }
+
+    function closeModal(){
+      $('#disclaimer').hide();
+    }
+
+    setTimeout(showModal,1000);
+
+    $('#close').click(function(){
+      closeModal();
+    })
+  });
+</script>
