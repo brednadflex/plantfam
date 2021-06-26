@@ -26,6 +26,12 @@
 
 }
 
+@media screen and (max-width: 600px) {
+  .disclaimer {
+    display: none !important;
+  }
+}
+
 .disclaimer-content {
   padding: 1.2rem;
   display: flex;
