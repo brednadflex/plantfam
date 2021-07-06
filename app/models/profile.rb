@@ -14,7 +14,7 @@ class Profile < ApplicationRecord
   def add_profile_img!(file, manual_upload = true)
     return nil unless file.present?
 
-    Cloudinary::Api.delete_resources([profile_img]) if manual_upload
+    Cloudinary::Api.delete_resources([profile_img]) if manual_upload && profile_img.present?
     cl_info = cloudinary_upload(file, generate_public_id("profile", manual_upload))
     update!(profile_img: cl_info["public_id"])
   end
@@ -25,7 +25,7 @@ class Profile < ApplicationRecord
     file = 'https://source.unsplash.com/random/900×250/?plants' if no_banner
     return nil unless file.present?
 
-    Cloudinary::Api.delete_resources([banner_img]) if manual_upload
+    Cloudinary::Api.delete_resources([banner_img]) if manual_upload && banner_img.present?
     cl_info = cloudinary_upload(file, generate_public_id("banner", manual_upload))
     update!(banner_img: cl_info["public_id"])
   end
