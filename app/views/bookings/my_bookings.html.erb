@@ -1,7 +1,7 @@
 <div class="container-fluid mt-1">
   <div class="bookings-header fixed-top">
     <div class="header-avatar">
-      <%= image_tag current_user.profile.profile_img %>
+      <%= cl_image_tag(current_user.profile.profile_img) %>
     </div>
       <h5>My Bookings</h5>
   </div>
@@ -32,7 +32,7 @@
                     <i class="far fa-question-circle"></i>
                   </div>
                   <div class="bookings-card-header">
-                    <%= image_tag booking.client.profile.profile_img, class: 'avatar-tiny' %>
+                    <%= cl_image_tag(booking.client.profile.profile_img, class:"avatar-tiny", alt: "user-image", crop: "thumb") %>
                     <p><%= booking.client.profile.first_name %> <%= booking.client.profile.last_name %></p>
                   </div>
                   <p class="text-align-center"><em>has requested you as <strong><%= booking.service_type %></strong></em></p>
@@ -53,7 +53,7 @@
                     <i class="far fa-question-circle"></i>
                   </div>
                   <div class="bookings-card-header">
-                    <%= image_tag booking.provider.profile.profile_img, class: 'avatar-tiny' %>
+                    <%= cl_image_tag(booking.provider.profile.profile_img, class:"avatar-tiny", alt: "user-image", crop: "thumb") %>
                     <p><%= booking.provider.profile.first_name %> <%= booking.provider.profile.last_name %></p>
                   </div>
                   <p class="text-align-center"> has been informed about your <br><strong><%= booking.service_type %></strong> request(<%= booking.start_date.strftime("%b %d, %Y") %> - <%= booking.end_date.strftime("%b %d, %Y") %>).</p>
@@ -98,7 +98,7 @@
                     <i class="far fa-question-circle"></i>
                   </div>
                   <div class="bookings-card-header">
-                    <%= image_tag booking.client.profile.profile_img, class: 'avatar-tiny' %>
+                    <%= cl_image_tag(booking.client.profile.profile_img, class:"avatar-tiny", alt: "user-image", crop: "thumb") %>
                     <p><%= booking.client.profile.first_name %> <%= booking.client.profile.last_name %></p>
                   </div>
                   <p class="text-align-center"><em>has booked you as a </em><strong><%= booking.service_type %></strong><em> until <%= booking.end_date.strftime("%b %d, %Y") %></em></p>
@@ -116,7 +116,7 @@
                     <i class="far fa-question-circle"></i>
                   </div>
                   <div class="bookings-card-header">
-                    <%= image_tag booking.provider.profile.profile_img, class: 'avatar-tiny' %>
+                    <%= cl_image_tag(booking.provider.profile.profile_img, class:"avatar-tiny", alt: "user-image", crop: "thumb") %>
                     <p><%= booking.provider.profile.first_name %> <%= booking.provider.profile.last_name %></p>
                   </div>
                   <p class="text-align-center"><em>is your </em><strong><%= booking.service_type %></strong> <em>until <%= booking.end_date.strftime("%b %d, %Y") %></em></p>
@@ -162,7 +162,7 @@
                     <i class="far fa-question-circle"></i>
                   </div>
                   <div class="bookings-card-header">
-                    <%= image_tag booking.client.profile.profile_img, class: 'avatar-tiny' %>
+                    <%= cl_image_tag(booking.client.profile.profile_img, class:"avatar-tiny", alt: "user-image", crop: "thumb") %>
                     <p><%= booking.client.profile.first_name %> <%= booking.client.profile.last_name %></p>
                   </div>
                   <p class="text-align-center"><em>has booked you as </em><strong><%= booking.service_type %></strong></p>
@@ -177,15 +177,15 @@
                 <% end %>
                 <% if @upcoming_outgoing.present? %>
                 <% @upcoming_outgoing.each do |booking| %>
-                <div class="card bookings-card-body outgoing p-2">
-                  <div class="floating-questionmark">
-                    <i class="far fa-question-circle"></i>
-                  </div>
-                  <div class="bookings-card-header">
-                    <%= image_tag booking.provider.profile.profile_img, class: 'avatar-tiny' %>
-                    <p><%= booking.provider.profile.first_name %> <%= booking.provider.profile.last_name %></p>
-                  </div>
-                  <p class="text-align-center"><em>will be your <strong><%= booking.service_type %></strong></em></h6>
+                  <div class="card bookings-card-body outgoing p-2">
+                    <div class="floating-questionmark">
+                      <i class="far fa-question-circle"></i>
+                    </div>
+                    <div class="bookings-card-header">
+                      <%= cl_image_tag(booking.provider.profile.profile_img, class:"avatar-tiny", alt: "user-image", crop: "thumb") %>
+                      <p><%= booking.provider.profile.first_name %> <%= booking.provider.profile.last_name %></p>
+                    </div>
+                    <p class="text-align-center"><em>will be your <strong><%= booking.service_type %></strong></em></p>
                     <p class="text-align-center"><em>Between <%= booking.start_date.strftime("%b %d, %Y") %> and <%= booking.end_date.strftime("%b %d, %Y")%></em></p>
                     <div class="button-row-lower-right">
                       <%= link_to "cancel", reject_booking_path(booking.id), class: "booking-reject-btn" %>
@@ -194,10 +194,10 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
 
-                  <% end %>
-                  <% end %>
+                <% end %>
+                <% end %>
 
               <% else %>
               <div class="no-show">
@@ -230,7 +230,7 @@
                     <i class="far fa-question-circle"></i>
                   </div>
                   <div class="bookings-card-header">
-                    <%= image_tag booking.client.profile.profile_img, class: 'avatar-tiny' %>
+                    <%= cl_image_tag(booking.client.profile.profile_img, class:"avatar-tiny", alt: "user-image", crop: "thumb") %>
                     <p><%= booking.client.profile.first_name %> <%= booking.client.profile.last_name %></p>
                   </div>
                   <p class="text-align-center"><em>booked you as <strong><%= booking.service_type %></strong></em></p>
@@ -251,7 +251,7 @@
                   <i class="far fa-question-circle"></i>
                 </div>
                 <div class="bookings-card-header">
-                  <%= image_tag booking.provider.profile.profile_img, class: 'avatar-tiny' %>
+                  <%= cl_image_tag(booking.provider.profile.profile_img, class:"avatar-tiny", alt: "user-image", crop: "thumb") %>
                   <p><%= booking.provider.profile.first_name %> <%= booking.provider.profile.last_name %></p>
                 </div>
                 <p class="text-align-center"><em>was your <strong><%= booking.service_type %></strong></em></p>

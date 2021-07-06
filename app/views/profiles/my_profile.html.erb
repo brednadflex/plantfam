@@ -1,12 +1,13 @@
 <div class="profile-edit-scrollbox">
   <div class="container">
-    <img class="banner" src=<%= 'https://source.unsplash.com/random/900×250/?plants' %> alt="plant">
-    <img src=<%= @profile.profile_img %> alt="user-image" class="rounded-circle profile-avatar";>
+    <%= cl_image_tag(@profile.banner_img, class:"banner",  alt: "banner") %>
+    <%= cl_image_tag(@profile.profile_img, class:"rounded-circle review-avatar", alt: "user-image", width: 130, height: 130, crop: "thumb") %>
     <div class="name-experience-offers-rating">
       <div class="name-rating">
         <p class="name"><%= @profile.first_name %> <%= @profile.last_name %></p>
       </div>
       <div class="d-flex pt-2 rating-leaf">
+        <% @profile.avg_rating = 0 if @profile.avg_rating.nil? %>
         <% @profile.avg_rating.round.times do %>
           <i class="fas fa-leaf green-leaf"></i>
         <% end %>

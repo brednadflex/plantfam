@@ -33,7 +33,7 @@
       <div class="profile-experience-radio-buttons">
         <%= f.input :experience, as: :radio_buttons, collection: ['Seedling (beginner)', 'Plant Friend (moderate)', 'Moss Person (knowledgable)', 'Plant Whisperer (expert)'] %>
       </div>
-      <%= f.input :profile_banner, as: :file %>
+      <%= f.input :banner_img, as: :file %>
       <%= f.input :profile_img, as: :file %>
       <%= f.input :public, as: :radio_buttons %> 
       <%= f.submit class: "submit-button" %>    

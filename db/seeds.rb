@@ -29,6 +29,29 @@ user_images = [
   "https://images.unsplash.com/photo-1552058544-f2b08422138a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fGZhY2V8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80"
 ]
 
+# cloudinary upload public_ids are derived directly from the users email
+# Keep the same list of emails, so images can be overwritten with each seed command
+emails = [
+  "elenora@reilly.co",
+  "dean_maggio@jacobs-batz.com",
+  "nathan_dickens@botsford.info",
+  "maxine@leffler-kling.co",
+  "shakita@hagenes.net",
+  "emanuel@herzog.io",
+  "graham@spinka-wilkinson.net",
+  "wally.gislason@robel.net",
+  "francis@feest.name",
+  "lili_bergnaum@kub.info",
+  "rosette@goldner.com",
+  "damon_bruen@paucek-stehr.org",
+  "tasia@pfeffer.name",
+  "lindsay@fadel.biz",
+  "aldo@kessler.co",
+  "jackie@franecki.info",
+  "patience_sanford@turcotte.name",
+  "libbie@stiedemann.co",
+]
+
 addresses = [
   "Bodestraße 1-3, 10178 Berlin",
   "Bernauer Straße 111, 13355 Berlin",
@@ -50,14 +73,12 @@ addresses = [
   "Breitscheidplatz, 10789 Berlin"
 ]
 
-
 # Claudiu
 puts 'Creating users...'
 claudiu = User.create!(email: "claudiu@claudiu.com", password: "claudiu123")
 profile_claudiu = claudiu.profile.update!(
   first_name: "Claudiu",
   last_name: "Florin Popa",
-  profile_img: "https://avatars.githubusercontent.com/u/81229662?v=4",
   description: "I'm in love with plants and enjoy taking care of them. I joined PlantFam to pass on my knowledge and to help others be worry free while they are on vacation. Plants are our babies! I specialize in desert fauna, if you have any questions!",
   experience:  "Plant Friend (moderate)",
   avg_rating: 4.8,
@@ -67,6 +88,8 @@ profile_claudiu = claudiu.profile.update!(
   sitter_price: "5€/pd",
   advisor_price: "free"
 )
+claudiu.profile.add_profile_img!("https://avatars.githubusercontent.com/u/81229662?v=4", false)
+claudiu.profile.add_banner_img!("https://source.unsplash.com/random/900×250/?plants", false)
 if claudiu.profile.sitter
   Availability.create(start_date: "2021-08-01" , end_date: "2021-08-31" , profile: claudiu.profile)
 end
@@ -78,7 +101,6 @@ profile_barney = barney.profile.update!(
   first_name: "Barney",
   last_name: "Haas",
   description: "I've been getting in to plants more and more during the pandemic. You can book me as a sitter or advisor. Although I'm not an expert, I'll do my best!",
-  profile_img: "https://avatars.githubusercontent.com/u/77109548?v=4",
   experience: "Plant Whisperer (expert)",
   avg_rating: 4.5,
   address: "Rudi-Dutschke-Straße 26, 10969 Berlin",
@@ -87,6 +109,8 @@ profile_barney = barney.profile.update!(
   sitter_price: "donation",
   advisor_price: "swap"
 )
+barney.profile.add_profile_img!("https://avatars.githubusercontent.com/u/77109548?v=4", false)
+barney.profile.add_banner_img!("https://source.unsplash.com/random/900×250/?plants", false)
 if barney.profile.sitter
   Availability.create(start_date: "2021-08-01" , end_date: "2021-08-31" , profile: barney.profile)
 end
@@ -98,7 +122,6 @@ profile_jal= jal.profile.update!(
   first_name: "Jal",
   last_name: "Ridley",
   description: "I take care of my plants as if they were my own children. I have a beautiful 17 year old Madacascar often with babies up for grabs. My friends say I have too many plants but I don't believe that is possiblte. Let's connect and have a plant chat!",
-  profile_img: "https://avatars.githubusercontent.com/u/72085091?v=4",
   experience: "Moss Person (knowledgable)",
   avg_rating: 4.6,
   address: "Pariser Platz, 10117, Berlin",
@@ -107,6 +130,8 @@ profile_jal= jal.profile.update!(
   sitter_price: "10€/pw",
   advisor_price: "swap"
 )
+jal.profile.add_profile_img!("https://avatars.githubusercontent.com/u/72085091?v=4", false)
+jal.profile.add_banner_img!("https://source.unsplash.com/random/900×250/?plants", false)
 if jal.profile.sitter
   Availability.create(start_date: "2021-07-01" , end_date: "2021-07-31" , profile: jal.profile)
 end
@@ -118,7 +143,6 @@ profile_julian = julian.profile.update!(
   first_name: "Julian",
   last_name: "Thompson",
   description: "A plant? What the hell is that? I am a plant newbie looking for inspiration and chats about how to not kill all plants I own. I am an apartment dweller with no balcony and want to get some life into it.  I have a green heart but a black thumb! I would love to hit you up for a chat! ",
-  profile_img: "https://avatars.githubusercontent.com/u/80887245?s=400&u=a2a1d4d27a7a628a5eebb5fa888fe55fbaa6dd00&v=4",
   experience: "Seedling (beginner)",
   avg_rating: 4.2,
   address: "Platz der Republik 1, 11011, Berlin",
@@ -127,6 +151,8 @@ profile_julian = julian.profile.update!(
   sitter_price: "20€/pw",
   advisor_price: "1€"
 )
+julian.profile.add_profile_img!("https://avatars.githubusercontent.com/u/80887245?s=400&u=a2a1d4d27a7a628a5eebb5fa888fe55fbaa6dd00&v=4", false)
+julian.profile.add_banner_img!("https://source.unsplash.com/random/900×250/?plants", false)
 if julian.profile.sitter
   Availability.create(start_date: "2021-07-01" , end_date: "2021-07-31" , profile: julian.profile)
 end
@@ -136,13 +162,12 @@ puts "Julian's profile was created..."
 puts "Creating 30 sample users with profiles..."
 addresses.count.times do |index|
   new_user = User.create!(
-    email: Faker::Internet.email,
+    email: emails[index],
     password: "new123"
   )
   profile_new_user = new_user.profile.update!(
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
-  profile_img: user_images.sample,
   description: Faker::ChuckNorris.fact,
   experience: ["Seedling (beginner)", "Plant Friend (moderate)", "Moss Person (knowledgable)", "Plant Whisperer (expert)"].sample,
   avg_rating: (3..4).to_a.sample + [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9].sample,
@@ -152,6 +177,8 @@ addresses.count.times do |index|
   sitter_price: "negotiable",
   advisor_price: "free"
   )
+  new_user.profile.add_profile_img!(user_images.sample, false)
+  new_user.profile.add_banner_img!("https://source.unsplash.com/random/900×250/?plants", false)
   if new_user.profile.sitter
     Availability.create(start_date: "2021-07-01" , end_date: "2021-07-31" , profile: new_user.profile)
   end

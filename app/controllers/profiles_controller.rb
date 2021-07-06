@@ -30,7 +30,10 @@ class ProfilesController < ApplicationController
 
   # PATCH/PUT /profiles/1
   def update
-    if @profile.update(profile_params)
+    if @profile.update!(profile_params)
+      @profile.add_profile_img!(profile_params_img[:profile_img])
+      @profile.add_banner_img!(profile_params_img[:banner_img])
+      @profile.reload
       redirect_to @profile, notice: 'Profile was successfully updated.'
     else
       render :edit
@@ -41,7 +44,6 @@ class ProfilesController < ApplicationController
     @profile = current_user.profile
   end
 
-
   private
 
   def set_profile
@@ -49,6 +51,14 @@ class ProfilesController < ApplicationController
   end
 
   def profile_params
-    params.require(:profile).permit(:first_name, :last_name, :description, :profile_img, :banner_img, :experience, :avg_rating, :address, :latitude, :longitude, :max_radius, :sitter, :advisor, :public, :sitter_price, :advisor_price)
+    params.require(:profile).permit(
+      :first_name, :last_name, :description, :experience, :avg_rating,
+      :address, :latitude, :longitude, :max_radius, :sitter, :advisor,
+      :public, :sitter_price, :advisor_price
+    )
+  end
+
+  def profile_params_img
+    params.require(:profile).permit(:profile_img, :banner_img)
   end
 end
