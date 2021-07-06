@@ -30,39 +30,35 @@ class ProfilesController < ApplicationController
 
   # PATCH/PUT /profiles/1
   def update
-    params_edit = profile_params
-    params_edit[:profile_img] = cloudinary_upload(params_edit[:profile_img], "profile")
-    params_edit[:banner_img] = cloudinary_upload(params_edit[:banner_img], "banner")
-    if @profile.update(params_edit)
+    if @profile.update!(profile_params)
+      @profile.add_profile_img!(profile_params_img[:profile_img])
+      @profile.add_banner_img!(profile_params_img[:banner_img])
+      @profile.reload
       redirect_to @profile, notice: 'Profile was successfully updated.'
     else
       render :edit
     end
   end
 
-  private
-
   def my_profile
     @profile = current_user.profile
   end
+
+  private
 
   def set_profile
     @profile = Profile.find(params[:id])
   end
 
   def profile_params
-    params.require(:profile).permit(:first_name, :last_name, :description, :profile_img, :banner_img, :experience, :avg_rating, :address, :latitude, :longitude, :max_radius, :sitter, :advisor, :public, :sitter_price, :advisor_price)
+    params.require(:profile).permit(
+      :first_name, :last_name, :description, :experience, :avg_rating,
+      :address, :latitude, :longitude, :max_radius, :sitter, :advisor,
+      :public, :sitter_price, :advisor_price
+    )
   end
 
-  def cloudinary_upload(file, category = "profile")
-    file = 'https://source.unsplash.com/random/900×250/?plants' if category == "banner" && file.nil?
-    return "" unless file
-    response = Cloudinary::Uploader.upload(
-      file,
-      folder: "PlantFam/",
-      public_id: "#{current_user.email.gsub(/[@.]/, '__')}-#{category}",
-      overwrite: true
-    )
-    return response["public_id"]
+  def profile_params_img
+    params.require(:profile).permit(:profile_img, :banner_img)
   end
 end

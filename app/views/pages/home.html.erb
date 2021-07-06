@@ -38,7 +38,7 @@
       <div class="profile-card-outer-flex-container">
         <div class="profile-card-container-left">
           <div class="profile-card-image-container">
-            <%= cl_image_tag(profile.profile_img, class: "rounded-circle profile-user-img", alt: "user-image", style:"width: 80px; height: 80px;")%>
+            <%= cl_image_tag(profile.profile_img, class: "rounded-circle profile-user-img", alt: "user-image", width: 80, height: 80, crop: "thumb")%>
           </div>
         </div>
         <div class="profile-card-container-right ml-3 ">
@@ -81,7 +81,7 @@
           <div class="profile-card">
             <div class="profile-card-user-info">
               <div class="profile-card-image">
-                <img src=<%= profile.profile_img %> alt="user-image" class="rounded-circle profile-user-img" style="width: 70px; height: 70px;">
+                <%= cl_image_tag(profile.profile_img, class: "rounded-circle profile-user-img", alt: "user-image", style: "width: 70px; height: 70px;", crop: "thumb")%>
               </div>
 
               <div class="profile-card-user-text">

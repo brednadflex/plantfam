@@ -29,6 +29,8 @@ user_images = [
   "https://images.unsplash.com/photo-1552058544-f2b08422138a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fGZhY2V8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80"
 ]
 
+# cloudinary upload public_ids are derived directly from the users email
+# Keep the same list of emails, so images can be overwritten with each seed command
 emails = [
   "elenora@reilly.co",
   "dean_maggio@jacobs-batz.com",
@@ -71,30 +73,9 @@ addresses = [
   "Breitscheidplatz, 10789 Berlin"
 ]
 
-def cloudinary_upload(user, category, image_url)
-  image_url = 'https://source.unsplash.com/random/900×250/?plants' if category == "banner" && !image_url.present?
-  response = Cloudinary::Uploader.upload(
-      image_url,
-      folder: "PlantFam/",
-      public_id: "#{user.email.gsub(/[@.]/, '__')}_#{category}",
-      overwrite: true
-  )
-  case category
-  when "img"
-    user.profile.update!(profile_img: response["public_id"])
-  when "banner"
-    user.profile.update!(banner_img: response["public_id"])
-  end
-end
-
 # Claudiu
 puts 'Creating users...'
 claudiu = User.create!(email: "claudiu@claudiu.com", password: "claudiu123")
-
-# upload images
-cloudinary_upload(claudiu, "img", "https://avatars.githubusercontent.com/u/81229662?v=4")
-cloudinary_upload(claudiu, "banner", "")
-
 profile_claudiu = claudiu.profile.update!(
   first_name: "Claudiu",
   last_name: "Florin Popa",
@@ -107,6 +88,8 @@ profile_claudiu = claudiu.profile.update!(
   sitter_price: "5€/pd",
   advisor_price: "free"
 )
+claudiu.profile.add_profile_img!("https://avatars.githubusercontent.com/u/81229662?v=4", false)
+claudiu.profile.add_banner_img!("https://source.unsplash.com/random/900×250/?plants", false)
 if claudiu.profile.sitter
   Availability.create(start_date: "2021-08-01" , end_date: "2021-08-31" , profile: claudiu.profile)
 end
@@ -114,9 +97,6 @@ puts "Claudiu's profile was created..."
 
 # Barney
 barney = User.create!(email: "barney@barney.com", password: "barney123")
-cloudinary_upload(barney, "img", "https://avatars.githubusercontent.com/u/77109548?v=4")
-cloudinary_upload(barney, "banner", "")
-
 profile_barney = barney.profile.update!(
   first_name: "Barney",
   last_name: "Haas",
@@ -129,6 +109,8 @@ profile_barney = barney.profile.update!(
   sitter_price: "donation",
   advisor_price: "swap"
 )
+barney.profile.add_profile_img!("https://avatars.githubusercontent.com/u/77109548?v=4", false)
+barney.profile.add_banner_img!("https://source.unsplash.com/random/900×250/?plants", false)
 if barney.profile.sitter
   Availability.create(start_date: "2021-08-01" , end_date: "2021-08-31" , profile: barney.profile)
 end
@@ -136,9 +118,6 @@ puts "Barney's profile was created..."
 
 # Jal
 jal = User.create!(email: "jal@jal.com", password: "jal123")
-cloudinary_upload(jal, "img", "https://avatars.githubusercontent.com/u/72085091?v=4")
-cloudinary_upload(jal, "banner", "")
-
 profile_jal= jal.profile.update!(
   first_name: "Jal",
   last_name: "Ridley",
@@ -151,6 +130,8 @@ profile_jal= jal.profile.update!(
   sitter_price: "10€/pw",
   advisor_price: "swap"
 )
+jal.profile.add_profile_img!("https://avatars.githubusercontent.com/u/72085091?v=4", false)
+jal.profile.add_banner_img!("https://source.unsplash.com/random/900×250/?plants", false)
 if jal.profile.sitter
   Availability.create(start_date: "2021-07-01" , end_date: "2021-07-31" , profile: jal.profile)
 end
@@ -158,9 +139,6 @@ puts "Jal's profile was created..."
 
 # Julian
 julian = User.create!(email: "julian@julian.com", password: "julian123")
-cloudinary_upload(julian, "img", "https://avatars.githubusercontent.com/u/80887245?s=400&u=a2a1d4d27a7a628a5eebb5fa888fe55fbaa6dd00&v=4")
-cloudinary_upload(julian, "banner", "")
-
 profile_julian = julian.profile.update!(
   first_name: "Julian",
   last_name: "Thompson",
@@ -173,6 +151,8 @@ profile_julian = julian.profile.update!(
   sitter_price: "20€/pw",
   advisor_price: "1€"
 )
+julian.profile.add_profile_img!("https://avatars.githubusercontent.com/u/80887245?s=400&u=a2a1d4d27a7a628a5eebb5fa888fe55fbaa6dd00&v=4", false)
+julian.profile.add_banner_img!("https://source.unsplash.com/random/900×250/?plants", false)
 if julian.profile.sitter
   Availability.create(start_date: "2021-07-01" , end_date: "2021-07-31" , profile: julian.profile)
 end
@@ -185,9 +165,6 @@ addresses.count.times do |index|
     email: emails[index],
     password: "new123"
   )
-  cloudinary_upload(new_user, "img", user_images.sample)
-  cloudinary_upload(new_user, "banner", "")
-
   profile_new_user = new_user.profile.update!(
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
@@ -200,6 +177,8 @@ addresses.count.times do |index|
   sitter_price: "negotiable",
   advisor_price: "free"
   )
+  new_user.profile.add_profile_img!(user_images.sample, false)
+  new_user.profile.add_banner_img!("https://source.unsplash.com/random/900×250/?plants", false)
   if new_user.profile.sitter
     Availability.create(start_date: "2021-07-01" , end_date: "2021-07-31" , profile: new_user.profile)
   end
