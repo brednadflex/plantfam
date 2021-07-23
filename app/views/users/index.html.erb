@@ -10,16 +10,14 @@
       </div>
     </div>
     <div>
-        <%= form_tag users_path, method: :get, class: "text-decoration-none text-reset" do %>
-        <div class="contacts-searchbar">
-          <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Find a contact"
-            %>
-            <%= submit_tag "Search", class: "message-search-btn" %>
-        </div>
-        <% end %>
+      <%= form_tag users_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Search for a conversation"
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
     </div>
   </div>
   <div class="contact-results">
@@ -36,5 +34,3 @@
       <% end %>
     <% end %>
   </div>
-
-</div>
