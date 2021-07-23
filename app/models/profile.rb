@@ -1,4 +1,7 @@
 class Profile < ApplicationRecord
+  include PgSearch::Model
+  multisearchable against: [:first_name, :last_name]
+
   belongs_to :user
   has_many :availabilities
   has_many :reviews
