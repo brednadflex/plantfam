@@ -1,33 +1,139 @@
+// .hero-text {
+//   margin: 0px 20px 40px 20px;
+//   font-weight: bolder;
+//   text-align: left;
+//   color: $dark-green;
+// }
+
+// .plant-enthusiasts-header {
+//   margin: 64px 0 40px 0;
+//   text-align: center;
+// }
+
+// .profile-card {
+//   padding: 16px 24px;
+//   margin: 24px 0px;
+//   text-decoration: none;
+//   color: #222;
+//   background-color: $light-green;
+//   border-radius: 4px;
+//   border: 1px solid transparent;
+//   transition: .3s;
+//   &:hover {
+//     text-decoration: none;
+//     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+//     transform: translateY(-2px);
+//   }
+// }
+
+// .profile-card h4 {
+//   font-size: 20px;
+// }
+
+// .profile-card-user-info {
+//   display: flex;
+//   justify-content: space-around;
+// }
+
+// .profile-card-services {
+//   display: flex;
+//   justify-content: space-around;
+//   align-items: center;
+// }
+
+// .scrolling-wrapper{
+// 	overflow-x: auto;
+//   display: flex;
+//   margin: 0 -16px;
+//   padding: 0 16px;
+
+// }
+
+// .card-block{
+// 	height: 160px;
+//   width: 240px;
+//   margin-right: 16px;
+// 	border: none;
+//   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+// 	background-position: center;
+// 	background-size: cover;
+//   flex-shrink: 0;
+// 	// transition: all 0.2s ease-in-out !important;
+// 	border-radius: 20px;
+// }
+
+// .card-1{
+//   background-color: $light-green;
+//   text-align: center;
+//   padding: 16px;
+//   overflow: hidden;
+//   img {
+//     width: 100%;
+//   }
+//  //  &:hover{
+// 	// 	transform: translateY(-2px);
+// 	// }
+// }
+
+// .card-2{
+// 	background-color: $light-green;
+//   text-align: center;
+//   padding: 16px;
+//   // margin-left: 80%;
+//   overflow: hidden;
+//   img {
+//     width: 100%;
+//   }
+//  //  &:hover{
+// 	// 	transform: translateY(-2px);
+// 	// }
+// }
+
+// .card-3{
+// 	background-color: $light-green;
+//   text-align: center;
+//   padding: 16px;
+//   // margin-left: 160%;
+//   overflow: hidden;
+//   img {
+//     width: 70%;
+//     }
+//  //  &:hover{
+// 	// 	transform: translateY(-2px);
+// 	// }
+// }
+
+// new values in rem
 .hero-text {
-  margin: 0px 20px 40px 20px;
+  margin: 0 2rem 4rem 2rem;
   font-weight: bolder;
   text-align: left;
   color: $dark-green;
 }
 
 .plant-enthusiasts-header {
-  margin: 64px 0 40px 0;
+  margin: 6.4 0 4rem 0;
   text-align: center;
 }
 
 .profile-card {
-  padding: 16px 24px;
-  margin: 24px 0px;
+  padding: 1.6rem 2.4rem;
+  margin: 2.4rem 0px;
   text-decoration: none;
   color: #222;
   background-color: $light-green;
-  border-radius: 4px;
+  border-radius: .4rem;
   border: 1px solid transparent;
   transition: .3s;
   &:hover {
     text-decoration: none;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    transform: translateY(-2px);
+    box-shadow: 0 .1rem .3rem rgba(0,0,0,0.12), 0 .1rem .2rem rgba(0,0,0,0.24);
+    transform: translateY(-.2rem);
   }
 }
 
 .profile-card h4 {
-  font-size: 20px;
+  font-size: 2rem;
 }
 
 .profile-card-user-info {
@@ -41,35 +147,31 @@
   align-items: center;
 }
 
-
-
-
-
 .scrolling-wrapper{
 	overflow-x: auto;
   display: flex;
-  margin: 0 -16px;
-  padding: 0 16px;
+  margin: 0 -1.6rem;
+  padding: 0 1.6rem;
 
 }
 
 .card-block{
-	height: 160px;
-  width: 240px;
-  margin-right: 16px;
+	height: 16rem;
+  width: 24rem;
+  margin-right: 1.6rem;
 	border: none;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 .3rem .6rem rgba(0,0,0,0.16), 0 .3rem .6rem rgba(0,0,0,0.23);
 	background-position: center;
 	background-size: cover;
   flex-shrink: 0;
 	// transition: all 0.2s ease-in-out !important;
-	border-radius: 20px;
+	border-radius: 2rem;
 }
 
 .card-1{
   background-color: $light-green;
   text-align: center;
-  padding: 16px;
+  padding: 1.6rem;
   overflow: hidden;
   img {
     width: 100%;
@@ -82,7 +184,7 @@
 .card-2{
 	background-color: $light-green;
   text-align: center;
-  padding: 16px;
+  padding: 1.6rem;
   // margin-left: 80%;
   overflow: hidden;
   img {
@@ -96,7 +198,7 @@
 .card-3{
 	background-color: $light-green;
   text-align: center;
-  padding: 16px;
+  padding: 1.6rem;
   // margin-left: 160%;
   overflow: hidden;
   img {
