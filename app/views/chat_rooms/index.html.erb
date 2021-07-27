@@ -8,10 +8,17 @@
     <% end %>
   </div>
 
-  <div class="chatroom-search-bar-flex-container">
-    <%= image_tag "search.svg" %>
-    <p>Search for a conversation</p>
-  </div>
+
+  <div>
+  <%= form_tag chat_rooms_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Search for a conversation"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+</div>
 </div>
 
 <div class="chats-scrollbox">
