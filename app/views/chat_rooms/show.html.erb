@@ -10,7 +10,7 @@
 
       <div class="header-user-profile-container">
         <div class="header-avatar">
-          <%= image_tag other_person.profile.profile_img %>
+          <%= cl_image_tag(other_person.profile.profile_img) %>
         </div>
 
         <div class="header-name">
