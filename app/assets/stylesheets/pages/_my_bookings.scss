@@ -1,14 +1,223 @@
+// .bookings-header {
+//   display: flex;
+//   align-items: center;
+//   h5 {
+//     margin-bottom: 0;
+//     color: $dark-green;
+//   }
+// }
+
+// .border-style {
+//   border: none;
+// }
+
+// .card-chevron {
+//   color: $sea-green;
+//   font-size: 1.3em;
+// }
+
+// .collapse-menu-hidden {
+//   display: none;
+// }
+
+// .bookings-card-header {
+//   display: flex;
+//   justify-content: flex-start;
+//   align-items: center;
+//   p{
+//     font-size: 1em;
+//     font-weight: bold;
+//     width: 80%;
+//   }
+
+// }
+
+// .header-flex {
+//   display: flex;
+//   justify-content: space-between;
+// }
+
+// .menu-header-button {
+//   color: black;
+//   border: none;
+//   background-color: transparent;
+// }
+
+// .scroll-body {
+//   margin-top: 100px;
+//   height: 600px;
+//   overflow: scroll;
+// }
+
+// .no-show {
+//   background-color: lightgray;
+//   color: gray;
+//   border-radius: 8px;
+//   width: 90%;
+//   margin-left: auto;
+//   margin-right: auto;
+//   margin-bottom: 5%;
+
+//   p {
+//     margin: 0 auto;
+//     text-align: center;
+//   }
+// }
+
+// .floating-questionmark {
+//   position: absolute;
+//   top: 3px;
+//   right: 5px;
+// }
+
+// .spacer-top {
+//   height: 20%;
+// }
+
+// .incoming-outgoing-headline {
+//   display: flex;
+//   align-items: flex-start;
+//   justify-content: space-between;
+// }
+
+// .incoming-outgoing-div {
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+// }
+// .scroll-section {
+//   margin-top: 100px;
+//   height: 620px;
+//   overflow: scroll;
+// }
+// .bookings-horizontal-scroll {
+//   overflow: scroll;
+//   height: 200px;
+//   width: 100%;
+// }
+// .bookings-card-body {
+//     position: relative;
+//     min-height: 170px;
+//     min-width: 250px;
+//     max-height: 170px;
+//     margin-right: 20px;
+//     border-radius: 10px;
+//     // padding-bottom: 5px;
+//     p {
+//       font-size: 0.8em;
+//       margin: 0 auto;
+//     }
+// }
+
+
+
+// .outgoing {
+//   background-color: $light-green;
+//   border: 1px solid $dark-green;
+// }
+
+// .incoming {
+//   background-color: white;
+//   border: 1px solid $dark-green;
+// }
+
+// .card-msg-btn {
+//   position: absolute;
+//   bottom: 5px;
+//   right: 5px;
+//   color: white;
+//   background-color: $sea-green;
+//   padding: 5px 10px 5px 10px;
+//   border-radius: 80px;
+// }
+
+// .booking-message-btn {
+//   color: white;
+//   background-color: $sea-green;
+//   border-radius: 80px;
+//   font-size: 0.8em;
+//   padding-top: 5px;
+//   padding-bottom: 5px;
+//   padding-left: 10px;
+//   padding-right: 10px;
+//   margin-left: 5px;
+// }
+
+// .booking-accept-btn {
+//   color: white;
+//   background-color: $dark-green;
+//   border-radius: 80px;
+//   font-size: 0.8em;
+//   padding-top: 5px;
+//   padding-bottom: 5px;
+//   padding-left: 10px;
+//   padding-right: 10px;
+//   margin-left: 5px;
+// }
+
+// .booking-reject-btn {
+//   color: white;
+//   background-color: red;
+//   border-radius: 80px;
+//   font-size: 0.8em;
+//   padding-top: 5px;
+//   padding-bottom: 5px;
+//   padding-left: 10px;
+//   padding-right: 10px;
+//   margin-left: 5px;
+
+// }
+
+// .avatar-tiny {
+//   height: 40px;
+//   width: 40px;
+//   border-radius: 50%;
+//   border: 2px solid white;
+//   img {
+//     height: 40px;
+//     width: 40px;
+//   }
+// }
+
+
+// .button-row-lower-right {
+//   display: flex;
+//   justify-content: space-between;
+//   position: absolute;
+//   bottom: 5px;
+//   right: 5px;
+//   color: white;
+//   padding: 1%;
+//   border-radius: 80px;
+// }
+
+// .button-row-center {
+//   position: absolute;
+//   bottom: 1px;
+//   display: flex;
+//   justify-content: center;
+// }
+
+
+// ********** updated values to rem
 .bookings-header {
   display: flex;
   align-items: center;
   h5 {
     margin-bottom: 0;
     color: $dark-green;
+    font-size: 2rem;
   }
 }
 
 .border-style {
   border: none;
+}
+
+.card-header {
+  h5 {
+    font-size: 1.6rem;
+  }
 }
 
 .card-chevron {
@@ -25,7 +234,7 @@
   justify-content: flex-start;
   align-items: center;
   p{
-    font-size: 1em;
+    font-size: 1.6rem;
     font-weight: bold;
     width: 80%;
   }
