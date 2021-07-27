@@ -10,31 +10,27 @@
       </div>
     </div>
     <div>
-        <%= form_tag users_path, method: :get, class: "text-decoration-none text-reset" do %>
-        <div class="contacts-searchbar">
-          <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Find a contact"
-            %>
-            <%= submit_tag "Search", class: "message-search-btn" %>
-        </div>
-        <% end %>
+      <%= form_tag users_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Search for a conversation"
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
     </div>
   </div>
   <div class="contact-results">
-    <% @users.each do |user| %>
-      <%= link_to user_chat_rooms_path(user), class: "text-decoration-none text-reset", method: :post do %>
+    <% @profiles.each do |profile| %>
+      <%= link_to user_chat_rooms_path(profile), class: "text-decoration-none text-reset", method: :post do %>
       <div class="contacts-with-avatar">
         <div class="contacts-avatar">
-          <%= image_tag user.profile.profile_img %>
+          <%= image_tag profile.profile_img %>
         </div>
         <div class="contacts-name">
-          <h6><%= user.profile.first_name %> <%= user.profile.last_name %></h6>
+          <h6><%= profile.first_name %> <%= profile.last_name %></h6>
         </div>
       </div>
       <% end %>
     <% end %>
   </div>
-
-</div>

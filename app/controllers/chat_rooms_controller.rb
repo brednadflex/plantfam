@@ -7,7 +7,39 @@ class ChatRoomsController < ApplicationController
   end
 
   def index
-    @chatrooms = ChatRoom.where(requester: current_user).or(ChatRoom.where(receiver: current_user))
+    # if statement to determine whether or not something was searched
+    if params[:query].present?
+      # return chatrooms that I am a part of
+      my_chatrooms = ChatRoom.where(requester: current_user).or(ChatRoom.where(receiver: current_user))
+      # results of pg search through 3 different models (Profile, ChatRoom, Message)
+      results = PgSearch.multisearch("%#{params[:query]}%")
+      # defining an empty hash into which matching chatrooms shall be inserted
+      @chatrooms = []
+
+      # iterate over results and chatroom to find the chatroom(s) that match the results
+
+      results.each do |result|
+        my_chatrooms.each do |chatroom|
+          if result.searchable_type == "Profile"
+            if result.content.first(3) == chatroom.requester.first_name.first(3) || result.content.first(3) == chatroom.receiver.first_name.first(3)
+            @chatrooms << chatroom
+            end
+          elsif result.searchable_type == "Message"
+            chatroom.messages.each do |message|
+              if message.content.include?("#{result.content}")
+                @chatrooms << chatroom
+              end
+            end
+          end
+
+        end
+      end
+
+      @chatrooms
+    else
+      @chatrooms = ChatRoom.where(requester: current_user).or(ChatRoom.where(receiver: current_user))
+
+    end
   end
 
   def create
