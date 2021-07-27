@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
   def index
     if params[:query].present?
-      @users = User.where("profile.first_name ILIKE ?", "%#{params[:query]}%")
+      @profiles = Profile.where("first_name ILIKE ?", "%#{params[:query]}%")
     else
-      @users = User.all
+      @profiles = Profile.all
     end
   end
 end
