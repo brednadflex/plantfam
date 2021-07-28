@@ -9,7 +9,7 @@
   <div class="post-card mb-3 mt-3 mx-2">
     <div class="post-card-info">
       <div class="post-card-info-avatar">
-        <%= image_tag post.user.profile.profile_img, alt: "alttext" %>
+        <%= cl_image_tag(post.user.profile.profile_img, alt: "alttext") %>
       </div>
       <div class="post-card-info-name-title">
         <div class="post-card-info-name">
