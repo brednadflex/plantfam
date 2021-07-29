@@ -1,4 +1,54 @@
 // Specific CSS for your home-page
+// .homepage-logo {
+//   width: 15%;
+//   height: 100%;
+// }
+
+// .homepage-logo-plantfam {
+//   display: flex;
+// }
+
+// .homepage-plantfam-text-size {
+//   margin-bottom: 0;
+//   margin-left: 4px;
+//   display: flex;
+//   align-items: flex-end;
+// }
+
+// .homepage-slider-font {
+//   font-size: 20px;
+//   font-weight: 500;
+//   color: $dark-green;
+// }
+// .homepage-find-sitter-advice-love {
+//   font-size: 20px;
+//   font-weight: bold;
+//   color: $dark-green;
+//   margin-top: 40px;
+//   margin-bottom: 0;
+// }
+
+// .homepage-for-your-plants {
+//   font-size: 18px;
+//   font-style: italic;
+//   color: $dark-green;
+//   margin-top: 0px;
+//   margin-bottom: 50px;
+// }
+
+// .profile-user-img {
+//   object-fit: cover;
+// }
+
+// .view-profile-link {
+//   color: $sea-green;
+//   font-weight: 600;
+//   font-size: 16px;
+//   border-bottom: 1px solid $sea-green;
+// }
+
+// updated version with rem values
+// Specific CSS for your home-page
 .homepage-logo {
   width: 15%;
   height: 100%;
@@ -10,34 +60,34 @@
 
 .homepage-plantfam-text-size {
   margin-bottom: 0;
-  margin-left: 4px;
+  margin-left: .4rem;
   display: flex;
   align-items: flex-end;
+  
+  h3 {
+    font-size: 2.7rem;
+  }
 }
 
-// .slogan {
-//   // margin-left: 15%;
-//   font-size: 16px;
-// }
 .homepage-slider-font {
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 500;
   color: $dark-green;
 }
 .homepage-find-sitter-advice-love {
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: bold;
   color: $dark-green;
-  margin-top: 40px;
+  margin-top: 4rem;
   margin-bottom: 0;
 }
 
 .homepage-for-your-plants {
-  font-size: 18px;
+  font-size: 1.8rem;
   font-style: italic;
   color: $dark-green;
-  margin-top: 0px;
-  margin-bottom: 50px;
+  margin-top: 0;
+  margin-bottom: 5rem;
 }
 
 .profile-user-img {
@@ -47,7 +97,6 @@
 .view-profile-link {
   color: $sea-green;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 1.6rem;
   border-bottom: 1px solid $sea-green;
 }
-

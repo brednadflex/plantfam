@@ -62,17 +62,6 @@ ActiveRecord::Schema.define(version: 2021_07_22_130530) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
-  create_table "notifications", force: :cascade do |t|
-    t.integer "recipient_id"
-    t.integer "actor_id"
-    t.datetime "read_at"
-    t.string "action"
-    t.integer "notifiable_id"
-    t.string "notifiable_type"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "pg_search_documents", force: :cascade do |t|
     t.text "content"
     t.string "searchable_type"
@@ -128,13 +117,6 @@ ActiveRecord::Schema.define(version: 2021_07_22_130530) do
     t.index ["booking_id"], name: "index_reviews_on_booking_id"
     t.index ["profile_id"], name: "index_reviews_on_profile_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
-  end
-
-  create_table "subscribers", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|

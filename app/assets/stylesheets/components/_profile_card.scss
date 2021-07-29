@@ -1,23 +1,119 @@
+// .profile-card-outer-flex-container {
+//   display: flex;
+//   justify-content: between;
+//   // background-color: rgb(247, 252, 243);
+//   // box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+//   // border-radius: 8px;
+//   // margin: 24px 0;
+//   // padding: 16px;
+// }
+
+// .profile-card-homepage {
+//   background-color: $light-green;
+//   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+//   border-radius: 8px;
+//   margin: 24px 0 36px;
+//   padding: 16px;
+//   border: 1px solid $dark-green;
+// }
+// .make-me-flex {
+//   display: flex;
+// }
+
+// .profile-card-container-left {
+//   margin: 0;
+// }
+
+
+
+// .profile-card-service-flex-container {
+//   display: flex;
+// }
+
+// .profile-card-image-container {
+//   margin-top: -45px;
+
+//   img {
+//     border: 1px solid $dark-green;
+//   }
+// }
+
+// .profile-card-name-container {
+//     display: flex;
+//     align-items: center;
+// }
+
+// .service-tag {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   font-size: 16px;
+//   // padding: 8px 12px;
+//   border-radius: 4px;
+//   color: $dark-green;
+//   background-color: $light-green-old;
+//   width: 30%;
+//   padding-left: 15px;
+//   padding-right: 15px;
+//   padding-bottom: 3px;
+//   margin-bottom: 24px;
+//   margin-top: 8px;
+//   white-space: nowrap;
+// }
+
+// .plant-sitter {
+//   margin-right: 4px;
+// }
+
+// .advisor {
+//   margin-left: 4px;
+// }
+
+// // .profile-experience {
+// //   color: $sea-green;
+// // }
+
+// .profile-card-experience-rating-location-container p {
+//   margin-bottom: 12px;
+// }
+
+// .profile-card-price-container {
+//   // margin-top: 92px;
+//   p {
+//     margin-left: 4px;
+//     color: #444;
+//   }
+// }
+
+// .profile-user-img {
+//   margin-top: 8px;
+// }
+
+// .profile-card-price {
+//   font-size: 18px;
+//   font-weight: 600;
+//   color: $sea-green;
+//   margin-top: 2px;
+// }
+
+
+// updated with rem values
 .profile-card-outer-flex-container {
   display: flex;
   justify-content: between;
-  // background-color: rgb(247, 252, 243);
-  // box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  // border-radius: 8px;
-  // margin: 24px 0;
-  // padding: 16px;
 }
 
 .profile-card-homepage {
   background-color: $light-green;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  border-radius: 8px;
-  margin: 24px 0 36px;
-  padding: 16px;
+  box-shadow: 0 .1rem .3rem rgba(0,0,0,0.12), 0 .1rem .2rem rgba(0,0,0,0.24);
+  border-radius: .8rem;
+  margin: 2.4rem 0 3.6rem;
+  padding: 1.6rem;
   border: 1px solid $dark-green;
 }
 .make-me-flex {
   display: flex;
+  font-size: 1.6rem;
 }
 
 .profile-card-container-left {
@@ -31,7 +127,7 @@
 }
 
 .profile-card-image-container {
-  margin-top: -45px;
+  margin-top: -4.5rem;
 
   img {
     border: 1px solid $dark-green;
@@ -41,57 +137,61 @@
 .profile-card-name-container {
     display: flex;
     align-items: center;
+    
+    h4 {
+      font-size: 2.5rem; 
+    }
 }
+  
 
 .service-tag {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 16px;
-  // padding: 8px 12px;
-  border-radius: 4px;
+  font-size: 1.6rem;
+  border-radius: .4rem;
   color: $dark-green;
   background-color: $light-green-old;
   width: 30%;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-bottom: 3px;
-  margin-bottom: 24px;
-  margin-top: 8px;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: .3rem;
+  margin-bottom: 2.4rem;
+  margin-top: .8rem;
   white-space: nowrap;
 }
 
 .plant-sitter {
-  margin-right: 4px;
+  margin-right: .4rem;
 }
 
 .advisor {
-  margin-left: 4px;
+  margin-left: .4rem;
 }
 
-// .profile-experience {
-//   color: $sea-green;
-// }
 
 .profile-card-experience-rating-location-container p {
-  margin-bottom: 12px;
+  margin-bottom: 1.2rem;
+}
+
+.profile-experience {
+  font-size: 1.6rem;
 }
 
 .profile-card-price-container {
-  // margin-top: 92px;
   p {
-    margin-left: 4px;
+    margin-left: .4rem;
     color: #444;
   }
 }
 
 .profile-user-img {
-  margin-top: 8px;
+  margin-top: .8rem;
 }
 
 .profile-card-price {
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 600;
   color: $sea-green;
-  margin-top: 2px;
+  margin-top: .2rem;
 }
