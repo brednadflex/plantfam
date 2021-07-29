@@ -1,8 +1,256 @@
-body {
-  margin: 0;
-  padding: 0;
-}
+// .container {
+//   margin: 0;
+//   padding: 0;
+//   margin: 0 auto;
+// }
 
+// .banner {
+//   width: 100%;
+//   object-fit: cover;
+//   height: 246px;
+//   left: 0px;
+//   top: 0px;
+// }
+
+// .profile-avatar {
+//   position: absolute;
+//   height: 130px;
+//   width: 130px;
+//   left: 4%;
+//   top: 32%;
+//   bottom: 75%;
+//   border: 6px solid white;
+//   align-items: flex-end;
+//   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+//   object-fit: cover;
+// }
+
+// .container .name-experience-offers-rating {
+//   // overflow: hidden;
+//   margin-left: 40%;
+//   padding: 6px 10px 0 10px;
+//   // display: flex;
+//   // justify-content: flex-end;
+//   // position: absolute;
+//   position: relative;
+// }
+
+// .name-rating {
+
+//   text-align: left;
+//   line-height: 22px;
+//   align-items: center;
+// }
+
+// .name {
+//   margin: 5px 0px 1px 0;
+//   font-weight: bold;
+//   font-size: 22px;
+// }
+
+// .rating-leaf {
+//   font-weight: normal;
+//   font-size: 14px;
+//   text-align: left;
+//   justify-content: flex-start;
+//   margin-bottom: 0;
+//   margin-right: 4px;
+// }
+
+// .green-leaf {
+//   color: $sea-green;
+// }
+
+// .grey-leaf {
+//   color: grey;
+// }
+
+// .experience {
+//   padding-top: 1px;
+//   margin-left: 43%;
+//   text-align: left;
+//   color: $sea-green;
+//   font-size: 16px;
+
+//   p {
+//     margin-bottom: 10px;
+//   }
+// }
+
+// .sitter-advisor {
+//   padding: 0;
+//   margin-left: 40%;
+//   padding: 0;
+//   text-align: left;
+//   height: 35px;
+//   display: flex;
+//   align-items: center;
+// }
+
+// .profile-chat-button {
+//   margin-top: 1rem;
+// }
+// .button-text {
+//   margin-left: .5rem;
+//   font-size: 1.6rem;
+// }
+
+// .chat-bubble-icon {
+//   color: white;
+//   font-size: 1.6rem;
+// }
+
+// .description-about-me {
+//   margin: 20px 10px;
+//   padding: 15px;
+//   background-color: $light-green;
+//   border: 1px solid $dark-green;
+//   border-radius: 0 40px 0 40px;
+// }
+
+// .services {
+//   font-size: 18px;
+//   // border-top: 1px solid $dark-green;
+//   outline: 1px solid $dark-green;
+
+//   p {
+//     margin: 0;
+//   }
+
+//   i {
+//   font-size: 30px;
+//   color: grey;
+//   }
+// }
+
+// .service-sitter {
+//   display: flex;
+//   align-items: center;
+//   // border-bottom: 1px solid $dark-green;
+//   padding: 15px;
+//   outline: 1px solid $dark-green;
+// }
+
+// .service-advisor {
+//   margin: 0;
+//   display: flex;
+//   align-items: center;
+//   padding: 15px;
+//   outline: 1px solid $dark-green;
+// }
+
+// .service-advisor-icon {
+//   width: 75%;
+// }
+
+// .service-info-line {
+//   font-size: 16px;
+//   color: $sea-green;
+//   margin: 0;
+//   float: left;
+// }
+
+// .service-price-button {
+//     margin-left: 15px;
+//     width: 100%;
+//     display: flex;
+//     justify-content: space-between;
+//     text-align: center;
+//     align-items: center;
+// }
+
+// .review-container {
+//   margin-top: 20px;
+// }
+// .review {
+//   margin: 10px;
+//   align-items: center;
+//   background-color: $light-green;
+//   border: 1px solid $dark-green;
+//   border-radius: 60px 30px 0 60px;
+//   display: flex;
+//   padding: 8px;
+//   margin-bottom: 20px;
+
+//   .review-avatar {
+//     margin-left: 3px;
+//     margin-right: 5px;
+//     height: 70px;
+//     left: 2%;
+//     top: 40%;
+//   }
+
+//   .review-info {
+//     padding-top: 5px;
+//   }
+
+//   .review-date-time-rating {
+//     margin: 0;
+//     display: flex;
+//     justify-content: space-between;
+//     font-size: 14px;
+//     align-items: center;
+//     font-style: italic;
+//   }
+
+//   .review-content {
+//     -webkit-line-clamp: 2;
+//     -webkit-box-orient: vertical;
+//     display: -webkit-box;
+//     overflow: hidden;
+//     margin-bottom: 15px;
+//   }
+// }
+
+// .my-profile-about-me-edit-pencil {
+//   text-align: right;
+//   font-size: 18px;
+
+//   a {
+//     text-decoration: none;
+//     color: $dark-green;
+//   }
+// }
+
+// .my-profile-posts-comments-boxes {
+//   line-height: 50px;
+//   display: flex;
+//   text-align: center;
+//   font-size: 18px;
+//   color: $dark-green;
+//   border-top: 1px solid $dark-green;
+//   border-bottom: 1px solid $dark-green;
+
+//   p {
+//     margin: 0;
+//     font-weight: bold;
+//   }
+
+//   .my-profile-posts {
+//     width: 50%;
+//     border-right: 1px solid $dark-green;
+//   }
+
+//   .my-profile-comments {
+//     width: 50%;
+//   }
+// }
+// .actions {
+//   margin: 20% auto;
+//   height: 50vh;
+//   width: 40vh;
+//   // display: flex;
+//   // justify-content: space-between;
+//   // flex-wrap: wrap;
+// }
+
+//   .my-profile-scroll-bottom-spacer {
+//     margin: 0 auto;
+//     height: 5%;
+//   }
+
+
+// ********* updated values to rem
 .container {
   margin: 0;
   padding: 0;
@@ -12,28 +260,28 @@ body {
 .banner {
   width: 100%;
   object-fit: cover;
-  height: 246px;
+  height: 24.6rem;
   left: 0px;
   top: 0px;
 }
 
 .profile-avatar {
   position: absolute;
-  height: 130px;
-  width: 130px;
+  height: 13rem;
+  width: 13rem;
   left: 4%;
   top: 32%;
   bottom: 75%;
-  border: 6px solid white;
+  border: .6rem solid white;
   align-items: flex-end;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 1.5rem rgba(0,0,0,0.2);
   object-fit: cover;
 }
 
 .container .name-experience-offers-rating {
   // overflow: hidden;
   margin-left: 40%;
-  padding: 6px 10px 0 10px;
+  padding: .6rem 1rem 0 1rem;
   // display: flex;
   // justify-content: flex-end;
   // position: absolute;
@@ -43,23 +291,23 @@ body {
 .name-rating {
 
   text-align: left;
-  line-height: 22px;
+  line-height: 2.2rem;
   align-items: center;
 }
 
 .name {
-  margin: 5px 0px 1px 0;
+  margin: .5rem 0px 1px 0;
   font-weight: bold;
-  font-size: 22px;
+  font-size: 2.2rem;
 }
 
 .rating-leaf {
   font-weight: normal;
-  font-size: 14px;
+  font-size: 1.4rem;
   text-align: left;
   justify-content: flex-start;
   margin-bottom: 0;
-  margin-right: 4px;
+  margin-right: .4rem;
 }
 
 .green-leaf {
@@ -75,10 +323,10 @@ body {
   margin-left: 43%;
   text-align: left;
   color: $sea-green;
-  font-size: 16px;
+  font-size: 1.6rem;
 
   p {
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
   }
 }
 
@@ -87,32 +335,35 @@ body {
   margin-left: 40%;
   padding: 0;
   text-align: left;
-  height: 35px;
+  height: 3.5rem;
   display: flex;
   align-items: center;
 }
 
 .profile-chat-button {
-  margin-top: 10px;
+  margin-top: 1rem;
 }
 .button-text {
-  margin-left: 5px;
+  margin-left: .5rem;
+  font-size: 1.6rem;
 }
 
 .chat-bubble-icon {
   color: white;
+  font-size: 1.6rem;
 }
 
 .description-about-me {
-  margin: 20px 10px;
-  padding: 15px;
+  margin: 2rem 1rem;
+  padding: 1.5rem;
   background-color: $light-green;
   border: 1px solid $dark-green;
-  border-radius: 0 40px 0 40px;
+  border-radius: 0 4rem 0 4rem;
+  font-size: 1.6rem;
 }
 
 .services {
-  font-size: 18px;
+  font-size: 1.8rem;
   // border-top: 1px solid $dark-green;
   outline: 1px solid $dark-green;
 
@@ -121,7 +372,7 @@ body {
   }
 
   i {
-  font-size: 30px;
+  font-size: 3rem;
   color: grey;
   }
 }
@@ -130,7 +381,7 @@ body {
   display: flex;
   align-items: center;
   // border-bottom: 1px solid $dark-green;
-  padding: 15px;
+  padding: 1.5rem;
   outline: 1px solid $dark-green;
 }
 
@@ -138,7 +389,7 @@ body {
   margin: 0;
   display: flex;
   align-items: center;
-  padding: 15px;
+  padding: 1.5rem;
   outline: 1px solid $dark-green;
 }
 
@@ -147,14 +398,14 @@ body {
 }
 
 .service-info-line {
-  font-size: 16px;
+  font-size: 1.6rem;
   color: $sea-green;
   margin: 0;
   float: left;
 }
 
 .service-price-button {
-    margin-left: 15px;
+    margin-left: 1.5rem;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -163,35 +414,35 @@ body {
 }
 
 .review-container {
-  margin-top: 20px;
+  margin-top: 2rem;
 }
 .review {
-  margin: 10px;
+  margin: 1rem;
   align-items: center;
   background-color: $light-green;
   border: 1px solid $dark-green;
-  border-radius: 60px 30px 0 60px;
+  border-radius: 6rem 3rem 0 6rem;
   display: flex;
-  padding: 8px;
-  margin-bottom: 20px;
+  padding: .8rem;
+  margin-bottom: 2rem;
 
   .review-avatar {
-    margin-left: 3px;
-    margin-right: 5px;
-    height: 70px;
+    margin-left: .3rem;
+    margin-right: .5rem;
+    height: 7rem;
     left: 2%;
     top: 40%;
   }
 
   .review-info {
-    padding-top: 5px;
+    padding-top: .5rem;
   }
 
   .review-date-time-rating {
     margin: 0;
     display: flex;
     justify-content: space-between;
-    font-size: 14px;
+    font-size: 1.4rem;
     align-items: center;
     font-style: italic;
   }
@@ -201,13 +452,14 @@ body {
     -webkit-box-orient: vertical;
     display: -webkit-box;
     overflow: hidden;
-    margin-bottom: 15px;
+    margin-bottom: 1.5;
+    font-size: 1.6rem;
   }
 }
 
 .my-profile-about-me-edit-pencil {
   text-align: right;
-  font-size: 18px;
+  font-size: 1.8rem;
 
   a {
     text-decoration: none;
@@ -216,10 +468,10 @@ body {
 }
 
 .my-profile-posts-comments-boxes {
-  line-height: 50px;
+  line-height: 5rem;
   display: flex;
   text-align: center;
-  font-size: 18px;
+  font-size: 1.8rem;
   color: $dark-green;
   border-top: 1px solid $dark-green;
   border-bottom: 1px solid $dark-green;

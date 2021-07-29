@@ -7,15 +7,16 @@
 }
 
 .main-wrapper {
-  margin: 32px 16px;
-  margin-bottom: 100px;
+  margin: 3.2rem 1.6rem;
+  margin-bottom: 10rem;
 }
 
 .main-wrapper1 {
-  margin: 32px 16px;
-  margin-bottom: 100px;
+  margin: 3.2rem 1.6rem;
+  margin-bottom: 10rem;
 }
 
+// this belongs to profile index for use on homepage
 .flex-container {
   display: flex;
   justify-content: center;
@@ -24,7 +25,7 @@
 .available-header-text {
   text-align: left;
   color: $dark-green;
-  margin-bottom: 30px;
+  margin-bottom: 3rem;
 }
 // .flex-container h4 {
 //   text-align: left;
@@ -43,7 +44,7 @@
 }
 
 .booking-form-container h3 {
-  font-size: 24px;
+  font-size: 2.4rem;
   font-weight: 500;
   margin-bottom: 16%;
   text-align: center;

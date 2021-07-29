@@ -28,7 +28,7 @@
         <div class="chat-with-other-user-flex-container">
           <div class="header-avatar">
             <% other_person = current_user == chatroom.receiver ? chatroom.requester : chatroom.receiver  %>
-            <%= image_tag other_person.profile.profile_img %>
+            <%= cl_image_tag(other_person.profile.profile_img) %>
           </div>
           <div class="chat-container-right">
             <div class="chatindex-otherperson-name">
