@@ -62,4 +62,5 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   config.hosts << "3074d10a643f.ngrok.io"
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    confirmations: 'confirmations'
+  }
 
   root to: 'pages#home'
   get 'search', to: 'pages#search', as: :search
