@@ -28,17 +28,15 @@
       <p><em><%= @profile.experience %></em></p>
     </div>
 
-      <div class="sitter-advisor">
-        <% if @profile.sitter %>
-          <p class="tag-service">sitter</p>
-        <% end %>
-        <%if @profile.advisor %>
-          <p class="tag-service">advisor</p>
-        <% end %>
-      </div>
+    <div class="sitter-advisor">
+      <% if @profile.sitter %>
+        <p class="tag-service">sitter</p>
+      <% end %>
+      <%if @profile.advisor %>
+        <p class="tag-service">advisor</p>
+      <% end %>
     </div>
-
-
+  </div>
 
 
 
@@ -50,6 +48,8 @@
         </div>
       </div>
     <% end %>
+
+    
     <div class="description-about-me">
       <p><strong>About <%= @profile.first_name %>:</strong></p>
       <p><%= @profile.description %></p>
