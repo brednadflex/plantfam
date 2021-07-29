@@ -251,41 +251,42 @@
 
 
 // ********* updated values to rem
-.container {
+.profile-container {
   margin: 0;
   padding: 0;
   margin: 0 auto;
+  position: relative;
 }
 
 .banner {
   width: 100%;
   object-fit: cover;
   height: 24.6rem;
-  left: 0px;
-  top: 0px;
+  // left: 0px;
+  // top: 0px;
 }
 
 .profile-avatar {
   position: absolute;
   height: 13rem;
   width: 13rem;
-  left: 4%;
-  top: 32%;
-  bottom: 75%;
+  left: 3%;
+  top: 63%;
   border: .6rem solid white;
   align-items: flex-end;
   box-shadow: 0 0 1.5rem rgba(0,0,0,0.2);
   object-fit: cover;
 }
 
-.container .name-experience-offers-rating {
+// .profile-container 
+.name-experience-offers-rating {
   // overflow: hidden;
   margin-left: 40%;
   padding: .6rem 1rem 0 1rem;
   // display: flex;
   // justify-content: flex-end;
   // position: absolute;
-  position: relative;
+  // position: relative;
 }
 
 .name-rating {
@@ -415,6 +416,7 @@
 
 .review-container {
   margin-top: 2rem;
+  margin-bottom: 10rem;
 }
 .review {
   margin: 1rem;

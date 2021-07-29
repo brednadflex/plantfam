@@ -1,25 +1,33 @@
-<div class="profile-edit-scrollbox">
-  <div class="container">
+
+  
+  <div class="profile-container">
+    
     <%= cl_image_tag(@profile.banner_img, class:"banner", alt: "banner") %>
-    <%= cl_image_tag(@profile.profile_img, class:"rounded-circle review-avatar", alt: "user-image", width: 130, height: 130, crop: "thumb") %>
+
+    <%= cl_image_tag(@profile.profile_img, class:"rounded-circle profile-avatar", alt: "user-image") %>
+
     <div class="name-experience-offers-rating">
+
       <div class="name-rating">
         <p class="name"><%= @profile.first_name %> <%= @profile.last_name %></p>
       </div>
-        <div class="d-flex pt-2 rating-leaf">
-          <% if @profile.avg_rating.present? %>
-            <% @profile.avg_rating.round.times do %>
-              <i class="fas fa-leaf green-leaf"></i>
-            <% end %>
-            <% (5 - @profile.avg_rating.round).times do %>
-              <i class="fas fa-leaf grey-leaf"></i>
-            <% end %>
+      
+      <div class="d-flex pt-2 rating-leaf">
+        <% if @profile.avg_rating.present? %>
+          <% @profile.avg_rating.round.times do %>
+            <i class="fas fa-leaf green-leaf"></i>
           <% end %>
-        </div>
+          <% (5 - @profile.avg_rating.round).times do %>
+            <i class="fas fa-leaf grey-leaf"></i>
+          <% end %>
+        <% end %>
       </div>
-      <div class="experience">
-        <p><em><%= @profile.experience %></em></p>
-      </div>
+    </div>
+
+    <div class="experience">
+      <p><em><%= @profile.experience %></em></p>
+    </div>
+
       <div class="sitter-advisor">
         <% if @profile.sitter %>
           <p class="tag-service">sitter</p>
@@ -29,6 +37,10 @@
         <% end %>
       </div>
     </div>
+
+
+
+
 
     <%= link_to chat_room_path(@chatroom) do %>
       <div class="profile-button-large profile-chat-button">
@@ -42,48 +54,48 @@
       <p><strong>About <%= @profile.first_name %>:</strong></p>
       <p><%= @profile.description %></p>
     </div>
-  <p class="ml-2" style="font-size:18px"><strong>Request a Service:</strong></p>
+    <p class="ml-2" style="font-size:18px"><strong>Request a Service:</strong></p>
 
-  <div class="services">
-    <% if @profile.sitter %>
-      <div class="service-sitter">
-        <div>
-          <i class="fas fa-tint"></i>
-        </div>
-        <div class="service-price-button">
-          <div class="service-price">
-            <p style="color:black;"><strong>Plant Sitter</strong></p>
-            <p class="service-info-line"><%= @profile.sitter_price %></p>
+    <div class="services">
+      <% if @profile.sitter %>
+        <div class="service-sitter">
+          <div>
+            <i class="fas fa-tint"></i>
           </div>
-          <div class="profile-service-button-book">
-            <%= link_to new_profile_booking_path(@profile) do %>
-              <p class="profile-button-small">request</p>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    <% end %>
-    <% if @profile.advisor %>
-      <div class="service-advisor">
-        <div>
-          <i class="fas fa-user-graduate"></i>
-        </div>
-        <div class="service-price-button">
-          <div class="service-price">
-            <p style="color:black;"><strong>Plant Advisor</strong></p>
-            <p class="service-info-line"><%= @profile.advisor_price %></p>
-          </div>
-          <div class="profile-service-button-book">
-            <%= link_to new_profile_booking_path(@profile) do %>
-              <p class="profile-button-small">request</p>
-            <% end %>
+          <div class="service-price-button">
+            <div class="service-price">
+              <p style="color:black;"><strong>Plant Sitter</strong></p>
+              <p class="service-info-line"><%= @profile.sitter_price %></p>
+            </div>
+            <div class="profile-service-button-book">
+              <%= link_to new_profile_booking_path(@profile) do %>
+                <p class="profile-button-small">request</p>
+              <% end %>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
-  </div>
-  <p class="ml-2 mt-3" style="font-size:18px"><strong>Reviews:</strong></p>
-  <div class="review-container">
+      <% end %>
+      <% if @profile.advisor %>
+        <div class="service-advisor">
+          <div>
+            <i class="fas fa-user-graduate"></i>
+          </div>
+          <div class="service-price-button">
+            <div class="service-price">
+              <p style="color:black;"><strong>Plant Advisor</strong></p>
+              <p class="service-info-line"><%= @profile.advisor_price %></p>
+            </div>
+            <div class="profile-service-button-book">
+              <%= link_to new_profile_booking_path(@profile) do %>
+                <p class="profile-button-small">request</p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <p class="ml-2 mt-3" style="font-size:18px"><strong>Reviews:</strong></p>
+    <div class="review-container">
       <% @reviews.each do |review| %>
         <div class="review">
           <div class="review-avatar">
@@ -110,6 +122,7 @@
           </div>
         </div>
       <% end %>
-      </div>
+    </div>
   </div>
+
 
