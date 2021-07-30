@@ -251,41 +251,40 @@
 
 
 // ********* updated values to rem
-.container {
-  margin: 0;
-  padding: 0;
-  margin: 0 auto;
+.profile-container {
+  margin-bottom: 2rem;
+  position: relative;
 }
 
 .banner {
   width: 100%;
   object-fit: cover;
   height: 24.6rem;
-  left: 0px;
-  top: 0px;
+  // left: 0px;
+  // top: 0px;
 }
 
 .profile-avatar {
   position: absolute;
   height: 13rem;
   width: 13rem;
-  left: 4%;
-  top: 32%;
-  bottom: 75%;
+  left: 3%;
+  top: 63%;
   border: .6rem solid white;
   align-items: flex-end;
   box-shadow: 0 0 1.5rem rgba(0,0,0,0.2);
   object-fit: cover;
 }
 
-.container .name-experience-offers-rating {
+// .profile-container 
+.name-experience-offers-rating {
   // overflow: hidden;
   margin-left: 40%;
   padding: .6rem 1rem 0 1rem;
   // display: flex;
   // justify-content: flex-end;
   // position: absolute;
-  position: relative;
+  // position: relative;
 }
 
 .name-rating {
@@ -306,7 +305,8 @@
   font-size: 1.4rem;
   text-align: left;
   justify-content: flex-start;
-  margin-bottom: 0;
+  margin-top: .6rem;
+  margin-bottom: .5rem;
   margin-right: .4rem;
 }
 
@@ -341,7 +341,7 @@
 }
 
 .profile-chat-button {
-  margin-top: 1rem;
+  // margin-top: 1rem;
 }
 .button-text {
   margin-left: .5rem;
@@ -364,8 +364,6 @@
 
 .services {
   font-size: 1.8rem;
-  // border-top: 1px solid $dark-green;
-  outline: 1px solid $dark-green;
 
   p {
     margin: 0;
@@ -380,7 +378,6 @@
 .service-sitter {
   display: flex;
   align-items: center;
-  // border-bottom: 1px solid $dark-green;
   padding: 1.5rem;
   outline: 1px solid $dark-green;
 }
@@ -390,7 +387,9 @@
   display: flex;
   align-items: center;
   padding: 1.5rem;
-  outline: 1px solid $dark-green;
+  border: 1px solid $dark-green;
+  border-left: none;
+  border-right: none;
 }
 
 .service-advisor-icon {
@@ -415,6 +414,7 @@
 
 .review-container {
   margin-top: 2rem;
+  margin-bottom: 10rem;
 }
 .review {
   margin: 1rem;
