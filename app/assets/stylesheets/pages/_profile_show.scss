@@ -305,7 +305,8 @@
   font-size: 1.4rem;
   text-align: left;
   justify-content: flex-start;
-  margin-bottom: 0;
+  margin-top: .6rem;
+  margin-bottom: .5rem;
   margin-right: .4rem;
 }
 
@@ -364,7 +365,7 @@
 .services {
   font-size: 1.8rem;
   // border-top: 1px solid $dark-green;
-  outline: 1px solid $dark-green;
+  // outline: 1px solid $dark-green;
 
   p {
     margin: 0;
@@ -389,7 +390,9 @@
   display: flex;
   align-items: center;
   padding: 1.5rem;
-  outline: 1px solid $dark-green;
+  border: 1px solid $dark-green;
+  border-left: none;
+  border-right: none;
 }
 
 .service-advisor-icon {
