@@ -406,6 +406,7 @@
 
 .services {
   font-size: 1.8rem;
+  margin-top: 2rem;
 
   p {
     margin: 0;
@@ -458,6 +459,7 @@
 .review-container {
   margin-top: 2rem;
   margin-bottom: 10rem;
+  padding-bottom: 1rem;
 }
 .review {
   margin: 1rem;
@@ -523,7 +525,7 @@
     margin: 0;
     font-weight: bold;
   }
-
+  
   .my-profile-posts {
     width: 50%;
     border-right: 1px solid $dark-green;
@@ -531,6 +533,10 @@
 
   .my-profile-comments {
     width: 50%;
+  }
+
+  @media only screen and (min-width: $bp-small-medium) {
+    margin-top: 5rem;
   }
 }
 .actions {
