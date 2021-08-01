@@ -463,6 +463,11 @@
   margin-top: 2rem;
   margin-bottom: 10rem;
   padding-bottom: 1rem;
+
+  @media only screen and (min-width: $bp-medium) {
+    display: flex;
+    
+  }
 }
 .review {
   margin: 1rem;
@@ -502,6 +507,10 @@
     overflow: hidden;
     margin-bottom: 1.5;
     font-size: 1.6rem;
+  }
+
+  @media only screen and (min-width: $bp-medium)  {
+    max-width: 33.3%;
   }
 }
 
