@@ -1,4 +1,9 @@
 // global settings and media queries
+$bp-largest: 75em; // 1200px / 16px = 75
+$bp-large: 68.75em; // 1100 / 16 = 68.75
+$bp-medium: 56.25em; // 900 / 16 = 56.25
+$bp-small: 37.5em; // 700 / 16 = 43.75
+$bp-iphone-x: 31.25em; // 375 / 16 = 23.43
 
 * {
     margin: 0;
@@ -7,4 +12,10 @@
 // 1rem = 10px; 10px / 16px = 62.5%
 html {
     font-size: 62.5%;
+
+     // change global fonts for RWD
+    @media only screen and (min-width: $bp-small) {
+        // increase global font size from 600px width
+        font-size: 70%;
+    }
 }
