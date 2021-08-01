@@ -380,6 +380,7 @@
   align-items: center;
   padding: 1.5rem;
   outline: 1px solid $dark-green;
+  
 }
 
 .service-advisor {
@@ -388,8 +389,8 @@
   align-items: center;
   padding: 1.5rem;
   border: 1px solid $dark-green;
-  border-left: none;
-  border-right: none;
+  // border-left: none;
+  // border-right: none;
 }
 
 .service-advisor-icon {
