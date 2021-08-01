@@ -90,6 +90,16 @@
   margin-bottom: 5rem;
 }
 
+.cards-all-container {
+  
+    // breakpoint of 900px to switch to grid view cards
+    @media only screen and (min-width: $bp-medium) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+}
+
 .profile-user-img {
   object-fit: cover;
 }
