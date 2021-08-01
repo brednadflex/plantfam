@@ -274,6 +274,18 @@
   align-items: flex-end;
   box-shadow: 0 0 1.5rem rgba(0,0,0,0.2);
   object-fit: cover;
+
+  @media only screen and (min-width: $bp-small-medium) {
+    height: 17rem;
+    width: 17rem;
+    top: 59%;
+  }
+
+  @media only screen and (min-width: $bp-large) {
+    height: 19rem;
+    width: 19rem;
+    top: 56%;
+  }
 }
 
 // .profile-container 
@@ -281,10 +293,10 @@
   // overflow: hidden;
   margin-left: 40%;
   padding: .6rem 1rem 0 1rem;
-  // display: flex;
-  // justify-content: flex-end;
-  // position: absolute;
-  // position: relative;
+  
+  @media only screen and (min-width: $bp-large){
+    margin-left: 40%;
+  }
 }
 
 .name-rating {
@@ -298,6 +310,16 @@
   margin: .5rem 0px 1px 0;
   font-weight: bold;
   font-size: 2.2rem;
+
+  @media only screen and (min-width: $bp-medium) {
+    margin-left: -17%;
+    font-size: 2.5rem;
+  }
+  
+  @media only screen and (min-width: $bp-large) {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
 }
 
 .rating-leaf {
@@ -308,6 +330,10 @@
   margin-top: .6rem;
   margin-bottom: .5rem;
   margin-right: .4rem;
+
+  @media only screen and (min-width: $bp-medium) {
+    margin-left: -17%;
+  }
 }
 
 .green-leaf {
@@ -328,6 +354,18 @@
   p {
     margin-bottom: 1rem;
   }
+
+  @media only screen and (min-width: $bp-small-medium) {
+    margin-left: 42%;
+  }
+
+  @media only screen and (min-width: $bp-medium) {
+    margin-left: 32%;
+  }
+
+  @media only screen and (min-width: $bp-large){
+    margin-left: 31%;
+  }
 }
 
 .sitter-advisor {
@@ -338,6 +376,10 @@
   height: 3.5rem;
   display: flex;
   align-items: center;
+
+  @media only screen and (min-width: $bp-medium){
+    margin-left: 30%;
+  }
 }
 
 .profile-chat-button {

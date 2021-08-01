@@ -1,8 +1,8 @@
 // global settings media queries
-$bp-largest: 75em; // 1200px / 16px = 75
 $bp-large: 62.5em; // 1000 / 16 = 62.5
 $bp-medium: 56.25em; // 900 / 16 = 56.25
-$bp-small: 43.75em; // 600 / 16 = 43.75
+$bp-small-medium: 43.75em; // 700 / 16 = 43.75
+$bp-small: 37.5em; // 600 / 16 = 37.5
 $bp-iphone-x: 23.43em; // 375 / 16 = 23.43
 
 * {
