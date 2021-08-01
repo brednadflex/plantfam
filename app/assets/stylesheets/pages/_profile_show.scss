@@ -260,8 +260,14 @@
   width: 100%;
   object-fit: cover;
   height: 24.6rem;
-  // left: 0px;
-  // top: 0px;
+  
+  @media only screen and (min-width: $bp-small-medium) {
+    height: 30rem;
+  }
+
+  @media only screen and (min-width: $bp-large) {
+    height: 40rem;
+  }
 }
 
 .profile-avatar {
@@ -278,13 +284,13 @@
   @media only screen and (min-width: $bp-small-medium) {
     height: 17rem;
     width: 17rem;
-    top: 59%;
+    top: 65%;
   }
 
   @media only screen and (min-width: $bp-large) {
     height: 19rem;
     width: 19rem;
-    top: 56%;
+    top: 68%;
   }
 }
 
