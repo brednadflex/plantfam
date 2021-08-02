@@ -1,28 +1,94 @@
-.profile-edit-scrollbox {
-  position: absolute;
-  margin-top: 0;
-  margin-bottom: 20%;
-  height: 90%;
-  overflow: scroll;
-}
+// .profile-edit-scrollbox {
+//   position: absolute;
+//   margin-top: 0;
+//   margin-bottom: 20%;
+//   height: 90%;
+//   overflow: scroll;
+// }
+
+// .profile-edit-container {
+//   margin: 0 auto;
+//   width: 90%;
+
+//   .form-control {
+//     border-radius: 5px;
+//   }
+// }
+
+// .profile-edit-checkboxes {
+//   margin: 0px;
+//   margin-left: 20px;
+// }
+
+// .profile-experience-radio-buttons {
+//   margin: 0px;
+//   margin-left: 20px;
+// }
+
+// // .profile-edit-form-input-container {
+// //   margin-top: 4%;
+// //   margin-bottom: 4%;
+// //   margin: 0px 10px;
+// //   border-radius: 20px;
+
+// //   .input-width {
+// //     width: 80%;
+// //   }
+
+// //   .bg-message {
+// //     background-color: #EEF2ED;
+// //   }
+
+// //   .message-radius {
+// //     border-radius: 10px;
+// //   }
+// // }
+
+// .submit-button {
+//   background-color: $sea-green;
+//   color: white;
+//   border-radius: 20px;
+//   width: 100%;
+//   margin-top: 40px;
+//   padding: 12px 48px;
+// }
+
+// ************** updated values to rem ********
+// .profile-edit-scrollbox {
+//   position: absolute;
+//   margin-top: 0;
+//   margin-bottom: 20%;
+//   height: 90%;
+//   overflow: scroll;
+// }
 
 .profile-edit-container {
   margin: 0 auto;
   width: 90%;
 
   .form-control {
-    border-radius: 5px;
+    border-radius: .5rem;
+  }
+  // remove simple form box validation color
+  .was-validated .form-control:valid,
+  .form-control.is-valid {
+    border-color: lightgray;
+    background-image: none !important;
   }
 }
 
 .profile-edit-checkboxes {
   margin: 0px;
-  margin-left: 20px;
+  margin-left: 2rem;
 }
+// remove simple form  radio button text color
+.was-validated .form-check-input:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label {
+  color: black;
+} 
 
 .profile-experience-radio-buttons {
   margin: 0px;
-  margin-left: 20px;
+  margin-left: 2rem;
 }
 
 // .profile-edit-form-input-container {
@@ -47,8 +113,8 @@
 .submit-button {
   background-color: $sea-green;
   color: white;
-  border-radius: 20px;
+  border-radius: 2rem;
   width: 100%;
-  margin-top: 40px;
-  padding: 12px 48px;
+  margin-top: 4rem;
+  font-size: 1.6rem;
 }

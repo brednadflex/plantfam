@@ -1,3 +1,87 @@
+// .margin-box {
+//   width: 80%;
+//   margin: 2% auto;
+//   background-color: white;
+// }
+
+// .contacts-searchbar {
+//   display: flex;
+//   width: 90%;
+//   justify-content: space-between;
+//   background-color: white;
+//   margin: 0 auto;
+//   }
+
+// .contacts-searchbar {
+//   position: relative;
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   width: 92%;
+//   height: 100%;
+//   padding: 5px;
+//   margin: 0 auto;
+//   border-radius: 8px;
+//   z-index: 0;
+//   .form-control {
+//     border: 2px solid $light-green;
+//     border-radius: 8px;
+//     height: 100%;
+//     background-color: white;
+//     font-style: italic;
+//   }
+// }
+
+
+// .contacts-with-avatar {
+//   display: flex;
+//   justify-content: flex-start;
+//   align-items: center;
+//   width: 100%;
+//   height: 10%;
+//   background-color: white;
+// }
+
+// .contacts-avatar {
+//   width: 20%;
+//   height: 100%;
+
+// }
+
+// .back-icon {
+//   font-size: 1.5em;
+// }
+
+// .contacts-avatar img {
+//   width: 80%;
+//   height: 80%;
+//   border-radius: 30%;
+//   display: block;
+//   margin: auto;
+// }
+
+// .contacts-name {
+//   width: 80%;
+//   margin-left: 5%;
+//   color: $dark-green;
+// }
+
+// // .search-contacts-btn {
+// //   background-color: white;
+// //   border: 2px solid $light-green;
+// //   border-radius: 20%;
+// //   color: $dark-green;
+
+// // }
+
+// .contact-results {
+//   overflow: scroll;
+//   margin: 111px auto;
+//   height: 600px;
+//   width: 95%;
+// }
+
+// *********** updated with values in rem
 .margin-box {
   width: 80%;
   margin: 2% auto;
@@ -19,13 +103,13 @@
   align-items: center;
   width: 92%;
   height: 100%;
-  padding: 5px;
+  padding: .5rem;
   margin: 0 auto;
-  border-radius: 8px;
+  border-radius: .8rem;
   z-index: 0;
   .form-control {
     border: 2px solid $light-green;
-    border-radius: 8px;
+    border-radius: .8rem;
     height: 100%;
     background-color: white;
     font-style: italic;
@@ -49,21 +133,26 @@
 }
 
 .back-icon {
-  font-size: 1.5em;
+  font-size: 2.5rem;
 }
 
 .contacts-avatar img {
-  width: 80%;
-  height: 80%;
+  width: 5.5rem;
+  height: 4.8rem;
   border-radius: 30%;
   display: block;
   margin: auto;
+  object-fit: cover;
 }
 
 .contacts-name {
   width: 80%;
   margin-left: 5%;
   color: $dark-green;
+  
+  h6 {
+    font-size: 1.6rem;
+  }
 }
 
 // .search-contacts-btn {
@@ -76,7 +165,7 @@
 
 .contact-results {
   overflow: scroll;
-  margin: 111px auto;
-  height: 600px;
+  margin: 11.1rem auto;
+  height: 60rem;
   width: 95%;
 }

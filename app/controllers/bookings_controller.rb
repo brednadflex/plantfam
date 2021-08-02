@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+
   def index
     @bookings = Booking.where(client: current_user)
   end
@@ -73,6 +74,7 @@ class BookingsController < ApplicationController
     @booking.provider = @profile.user
     @booking.comment = params[:booking][:comment]
     if @booking.save
+      NewBookingMailer.send_booking_email(receiver, current_user, @booking).deliver
       redirect_to my_bookings_path, notice: "#{@booking.provider.first_name} has been notified!"
     else
       render :new
@@ -84,6 +86,7 @@ class BookingsController < ApplicationController
     @booking.confirmed = "accepted"
     if @booking.save
       redirect_to my_bookings_path, notice: "Congratulations, your booking is complete!"
+      # UserNotifierMailer.send_signup_email(@profile.user).deliver
     end
   end
 
@@ -93,6 +96,11 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to my_bookings_path, notice: "Sorry, your booking was rejected!"
     end
+  end
+
+  def cancel_booking
+    @booking = Booking.find(params[:id])
+    @booking.destroy
   end
 
   private

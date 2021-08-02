@@ -1,7 +1,7 @@
-<div class="profile-edit-scrollbox">
-  <div class="container">
+<div class="my-profile-wrapper">
+  <div class="profile-container">
     <%= cl_image_tag(@profile.banner_img, class:"banner",  alt: "banner") %>
-    <%= cl_image_tag(@profile.profile_img, class:"rounded-circle review-avatar", alt: "user-image", width: 130, height: 130, crop: "thumb") %>
+    <%= cl_image_tag(@profile.profile_img, class:"rounded-circle profile-avatar", alt: "user-image") %>
     <div class="name-experience-offers-rating">
       <div class="name-rating">
         <p class="name"><%= @profile.first_name %> <%= @profile.last_name %></p>
@@ -88,6 +88,5 @@
       </div>
     </div>
   </div>
-  <div class="my-profile-scroll-bottom-spacer">
-</div>
+  <div class="my-profile-scroll-bottom-spacer"></div>
 </div>

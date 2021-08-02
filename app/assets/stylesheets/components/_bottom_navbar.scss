@@ -1,3 +1,30 @@
+// .bottom-navbar {
+//   display: flex;
+//   background-color: white;
+//   align-items: center;
+//   justify-content: space-around;
+//   height: 10%;
+//   width: 100%;
+//   border-top-left-radius: 8px;
+//   border-top-right-radius: 8px;
+//   filter: drop-shadow(0px -7px 8px rgba(0, 0, 0, 0.08));
+// }
+
+// .signed-in {
+//   background-color: $light-green;
+//   border-radius: 50%;
+// }
+
+// .nav-icon {
+//   i {
+//     color: $dark-green;
+//     font-size: 2.3em;
+//     font-weight: light;
+//   }
+// }
+
+
+// updated to rem  values
 .bottom-navbar {
   display: flex;
   background-color: white;
@@ -5,9 +32,9 @@
   justify-content: space-around;
   height: 10%;
   width: 100%;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  filter: drop-shadow(0px -7px 8px rgba(0, 0, 0, 0.08));
+  border-top-left-radius: .8rem;
+  border-top-right-radius: .8rem;
+  filter: drop-shadow(0px -.7rem .8rem rgba(0, 0, 0, 0.08));
 }
 
 .signed-in {
@@ -18,7 +45,13 @@
 .nav-icon {
   i {
     color: $dark-green;
-    font-size: 2.3em;
+    font-size: 2.3rem;
     font-weight: light;
   }
+}
+
+// this was added when converted to rem values
+.dropdown-item {
+  font-size: 1.6rem;
+  padding: 0.4rem 2.5rem;
 }

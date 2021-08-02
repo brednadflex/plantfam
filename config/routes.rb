@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    confirmations: 'confirmations'
+  }
 
   root to: 'pages#home'
   get 'search', to: 'pages#search', as: :search
@@ -31,7 +33,7 @@ Rails.application.routes.draw do
 
   post '/my_bookings/:id', to: 'bookings#accept_booking', as: 'accept_booking'
   post '/my_bookings/:id', to: 'bookings#reject_booking', as: 'reject_booking'
-
+  delete '/my_bookings/:id', to: 'bookings#cancel_booking', as: 'cancel_booking'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
 end

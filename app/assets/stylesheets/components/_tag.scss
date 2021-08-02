@@ -1,31 +1,65 @@
+// .tag-sitter {
+//   margin-left: 10px;
+//   color: white;
+//   background-color: $sea-green;
+//   border-radius: 80px;
+//   padding-left: 20px;
+//   padding-right: 20px;
+//   padding-bottom: 5px;
+// }
+
+// .tag-advisor {
+//   margin-left: 10px;
+//   color: white;
+//   background-color:$dark-green ;
+//   border-radius: 80px;
+//   padding-left: 20px;
+//   padding-right: 20px;
+//   padding-bottom: 5px;
+// }
+
+// .tag-service {
+//   margin-left: 10px;
+//   width: 35%;
+//   text-align: center;
+//   color: $dark-green;
+//   background-color:$light-green-old;
+//   border-radius: 4px;
+//   padding-left: 15px;
+//   padding-right: 15px;
+//   padding-bottom: 3px;
+// }
+
+// *********** updated values to rem
 .tag-sitter {
-  margin-left: 10px;
+  margin-left: 1rem;
   color: white;
   background-color: $sea-green;
-  border-radius: 80px;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-bottom: 5px;
+  border-radius: 8rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: .5rem;
 }
 
 .tag-advisor {
-  margin-left: 10px;
+  margin-left: 1rem;
   color: white;
   background-color:$dark-green ;
-  border-radius: 80px;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-bottom: 5px;
+  border-radius: 8rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: .5rem;
 }
 
 .tag-service {
-  margin-left: 10px;
+  margin-left: 1rem;
   width: 35%;
+  font-size: 1.5rem;
   text-align: center;
   color: $dark-green;
   background-color:$light-green-old;
-  border-radius: 4px;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-bottom: 3px;
+  border-radius: .4rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: .3rem;
 }
