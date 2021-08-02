@@ -59,7 +59,7 @@
                         <p class="text-align-center"> has been informed about your <br><strong><%= booking.service_type %></strong> request(<%= booking.start_date.strftime("%b %d, %Y") %> - <%= booking.end_date.strftime("%b %d, %Y") %>).</p>
                         <p class="text-align-center text-secondary"><em>...Awaiting confirmation</em></p>
                         <div class="button-row-lower-right">
-                          <%= link_to "cancel", reject_booking_path(booking.id), class: "booking-reject-btn" %>
+                          <%= link_to "cancel", cancel_booking_path(booking.id), class: "booking-reject-btn" %>
                           <% chatroom = chatroom_finder(current_user, booking.provider) %>
                           <%= link_to "message", chat_room_path(chatroom), class: "booking-message-btn" %>
                         </div>
