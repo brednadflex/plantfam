@@ -13,6 +13,9 @@ class User < ApplicationRecord
   has_many :bookings_as_client, class_name: "Booking", foreign_key: :client_id
   has_many :bookings_as_provider, class_name: "Booking", foreign_key: :provider_id
 
+  # has_many :services  # what is services? ==> a line in GoRails tutorial for notifications
+  has_many :notifications, as: :recipient
+
   # after the user is created, it automatically creates the profile with that inputed info
 
   after_create :init_profile
