@@ -260,8 +260,14 @@
   width: 100%;
   object-fit: cover;
   height: 24.6rem;
-  // left: 0px;
-  // top: 0px;
+  
+  @media only screen and (min-width: $bp-small-medium) {
+    height: 30rem;
+  }
+
+  @media only screen and (min-width: $bp-large) {
+    height: 40rem;
+  }
 }
 
 .profile-avatar {
@@ -274,6 +280,18 @@
   align-items: flex-end;
   box-shadow: 0 0 1.5rem rgba(0,0,0,0.2);
   object-fit: cover;
+
+  @media only screen and (min-width: $bp-small-medium) {
+    height: 17rem;
+    width: 17rem;
+    top: 65%;
+  }
+
+  @media only screen and (min-width: $bp-large) {
+    height: 19rem;
+    width: 19rem;
+    top: 68%;
+  }
 }
 
 // .profile-container 
@@ -281,10 +299,12 @@
   // overflow: hidden;
   margin-left: 40%;
   padding: .6rem 1rem 0 1rem;
-  // display: flex;
-  // justify-content: flex-end;
-  // position: absolute;
-  // position: relative;
+
+
+  
+  @media only screen and (min-width: $bp-large){
+    margin-left: 40%;
+  }
 }
 
 .name-rating {
@@ -298,6 +318,17 @@
   margin: .5rem 0px 1px 0;
   font-weight: bold;
   font-size: 2.2rem;
+
+  @media only screen and (min-width: $bp-medium) {
+    margin-left: -17%;
+    font-size: 2.5rem;
+    margin-top: 1.5rem;
+  }
+  
+  @media only screen and (min-width: $bp-large) {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
 }
 
 .rating-leaf {
@@ -308,6 +339,10 @@
   margin-top: .6rem;
   margin-bottom: .5rem;
   margin-right: .4rem;
+
+  @media only screen and (min-width: $bp-medium) {
+    margin-left: -17%;
+  }
 }
 
 .green-leaf {
@@ -328,6 +363,18 @@
   p {
     margin-bottom: 1rem;
   }
+
+  @media only screen and (min-width: $bp-small-medium) {
+    margin-left: 42%;
+  }
+
+  @media only screen and (min-width: $bp-medium) {
+    margin-left: 32%;
+  }
+
+  @media only screen and (min-width: $bp-large){
+    margin-left: 31%;
+  }
 }
 
 .sitter-advisor {
@@ -338,6 +385,10 @@
   height: 3.5rem;
   display: flex;
   align-items: center;
+
+  @media only screen and (min-width: $bp-medium){
+    margin-left: 30%;
+  }
 }
 
 .profile-chat-button {
@@ -364,6 +415,7 @@
 
 .services {
   font-size: 1.8rem;
+  margin-top: 2rem;
 
   p {
     margin: 0;
@@ -380,6 +432,7 @@
   align-items: center;
   padding: 1.5rem;
   outline: 1px solid $dark-green;
+  
 }
 
 .service-advisor {
@@ -388,8 +441,8 @@
   align-items: center;
   padding: 1.5rem;
   border: 1px solid $dark-green;
-  border-left: none;
-  border-right: none;
+  // border-left: none;
+  // border-right: none;
 }
 
 .service-advisor-icon {
@@ -415,6 +468,12 @@
 .review-container {
   margin-top: 2rem;
   margin-bottom: 10rem;
+  padding-bottom: 1rem;
+
+  @media only screen and (min-width: $bp-medium) {
+    display: flex;
+    
+  }
 }
 .review {
   margin: 1rem;
@@ -455,6 +514,10 @@
     margin-bottom: 1.5;
     font-size: 1.6rem;
   }
+
+  @media only screen and (min-width: $bp-medium)  {
+    max-width: 33.3%;
+  }
 }
 
 .my-profile-about-me-edit-pencil {
@@ -480,7 +543,7 @@
     margin: 0;
     font-weight: bold;
   }
-
+  
   .my-profile-posts {
     width: 50%;
     border-right: 1px solid $dark-green;
@@ -488,6 +551,10 @@
 
   .my-profile-comments {
     width: 50%;
+  }
+
+  @media only screen and (min-width: $bp-small-medium) {
+    margin-top: 5rem;
   }
 }
 .actions {
@@ -499,8 +566,8 @@
   // flex-wrap: wrap;
 }
 
-  .my-profile-scroll-bottom-spacer {
-    margin: 0 auto;
-    height: 5%;
-  }
+  // .my-profile-scroll-bottom-spacer {
+  //   margin: 0 auto;
+  //   height: 5%;
+  // }
 
