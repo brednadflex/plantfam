@@ -54,13 +54,13 @@
 // }
 
 // ************** updated values to rem ********
-.profile-edit-scrollbox {
-  position: absolute;
-  margin-top: 0;
-  margin-bottom: 20%;
-  height: 90%;
-  overflow: scroll;
-}
+// .profile-edit-scrollbox {
+//   position: absolute;
+//   margin-top: 0;
+//   margin-bottom: 20%;
+//   height: 90%;
+//   overflow: scroll;
+// }
 
 .profile-edit-container {
   margin: 0 auto;
@@ -69,12 +69,22 @@
   .form-control {
     border-radius: .5rem;
   }
+  // remove simple form box validation color
+  .was-validated .form-control:valid,
+  .form-control.is-valid {
+    border-color: lightgray;
+    background-image: none !important;
+  }
 }
 
 .profile-edit-checkboxes {
   margin: 0px;
   margin-left: 2rem;
 }
+// remove simple form  radio button text color
+.was-validated .form-check-input:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label {
+  color: black;
+} 
 
 .profile-experience-radio-buttons {
   margin: 0px;

@@ -1,3 +1,10 @@
 .bottom-spacer {
   margin-bottom: 10%;
 }
+
+// adding padding at 1000px width to wrappers 
+@media only screen and (min-width: $bp-large) {
+  .main-wrapper {
+    padding: 3rem;
+  }
+}
