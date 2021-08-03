@@ -15,9 +15,52 @@ User.destroy_all
 ########################################################################
 # Users - Contributers
 ########################################################################
+# Jal
+jal = User.create!(email: "plantfam+jal@pm.me", password: "jal123")
+profile_jal= jal.profile.update!(
+  first_name: "Jal",
+  last_name: "Ridley",
+  description: "I take care of my plants as if they were my own children. I have a beautiful 17 year old Madacascar often with babies up for grabs. My friends say I have too many plants but I don't believe that is possiblte. Let's connect and have a plant chat!",
+  experience: "Moss Person (knowledgable)",
+  avg_rating: 4.6,
+  address: "Pariser Platz, 10117, Berlin",
+  sitter: true,
+  advisor: true,
+  sitter_price: "10€/pw",
+  advisor_price: "swap"
+)
+jal.profile.add_profile_img!("https://avatars.githubusercontent.com/u/72085091?v=4", {overwrite: true, ext_id: 3})
+jal.profile.add_banner_img!("https://source.unsplash.com/random/900×250/?plants", {overwrite: true, ext_id: 3})
+if jal.profile.sitter
+  Availability.create(start_date: "2021-07-01" , end_date: "2021-07-31" , profile: jal.profile)
+end
+puts "Jal's profile was created..."
+
+# David
+
+david = User.create!(email: "plantfam+david@pm.me", password: "david123")
+profile_jal= jal.profile.update!(
+  first_name: "Jal",
+  last_name: "Ridley",
+  description: "I take care of my plants as if they were my own children. I have a beautiful 17 year old Madacascar often with babies up for grabs. My friends say I have too many plants but I don't believe that is possiblte. Let's connect and have a plant chat!",
+  experience: "Moss Person (knowledgable)",
+  avg_rating: 4.6,
+  address: "Pariser Platz, 10117, Berlin",
+  sitter: true,
+  advisor: true,
+  sitter_price: "10€/pw",
+  advisor_price: "50€/pw"
+)
+david.profile.add_profile_img!("https://avatars.githubusercontent.com/u/72085091?v=4", {overwrite: true, ext_id: 3})
+david.profile.add_banner_img!("https://source.unsplash.com/random/900×250/?plants", {overwrite: true, ext_id: 3})
+if david.profile.sitter
+  Availability.create(start_date: "2021-07-01" , end_date: "2021-07-31" , profile: david.profile)
+end
+puts "David's profile was created..."
+
 # Claudiu
 puts 'Creating users...'
-claudiu = User.create!(email: "claudiu@claudiu.com", password: "claudiu123")
+claudiu = User.create!(email: "plantfam+claudiu@pm.me", password: "claudiu123")
 profile_claudiu = claudiu.profile.update!(
   first_name: "Claudiu",
   last_name: "Florin Popa",
@@ -38,7 +81,7 @@ end
 puts "Claudiu's profile was created..."
 
 # Barney
-barney = User.create!(email: "barney@barney.com", password: "barney123")
+barney = User.create!(email: "plantfam+barney@pm.me", password: "barney123")
 profile_barney = barney.profile.update!(
   first_name: "Barney",
   last_name: "Haas",
@@ -58,29 +101,9 @@ if barney.profile.sitter
 end
 puts "Barney's profile was created..."
 
-# Jal
-jal = User.create!(email: "jal@jal.com", password: "jal123")
-profile_jal= jal.profile.update!(
-  first_name: "Jal",
-  last_name: "Ridley",
-  description: "I take care of my plants as if they were my own children. I have a beautiful 17 year old Madacascar often with babies up for grabs. My friends say I have too many plants but I don't believe that is possiblte. Let's connect and have a plant chat!",
-  experience: "Moss Person (knowledgable)",
-  avg_rating: 4.6,
-  address: "Pariser Platz, 10117, Berlin",
-  sitter: true,
-  advisor: true,
-  sitter_price: "10€/pw",
-  advisor_price: "swap"
-)
-jal.profile.add_profile_img!("https://avatars.githubusercontent.com/u/72085091?v=4", {overwrite: true, ext_id: 3})
-jal.profile.add_banner_img!("https://source.unsplash.com/random/900×250/?plants", {overwrite: true, ext_id: 3})
-if jal.profile.sitter
-  Availability.create(start_date: "2021-07-01" , end_date: "2021-07-31" , profile: jal.profile)
-end
-puts "Jal's profile was created..."
 
 # Julian
-julian = User.create!(email: "julian@julian.com", password: "julian123")
+julian = User.create!(email: "plantfam+julian@pm.me", password: "julian123")
 profile_julian = julian.profile.update!(
   first_name: "Julian",
   last_name: "Thompson",
@@ -173,7 +196,7 @@ puts "Creating 30 sample users with profiles..."
 addresses.count.times do |index|
   # create a user according to an ordered email list
   new_user = User.create!(
-    email: emails[index],
+    email: "plantfam+#{index}@pm.me",
     password: "new123"
   )
   # create random profiles for users
