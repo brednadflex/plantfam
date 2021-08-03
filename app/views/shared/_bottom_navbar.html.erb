@@ -1,3 +1,4 @@
+<% console %>
 <div class="bottom-navbar fixed-bottom">
   <div class="nav-icon">
     <%= link_to root_path do %>
@@ -18,6 +19,11 @@
     <%= link_to chat_rooms_path do %>
     <%= image_tag "NAVBARICONS/mail.png" %>
     <% end %>
+    <div class="nav-notification"">
+        <% if current_user %>
+          <p><%= @notifications.length %></p>
+        <% end %>
+    </div>
   </div>
   <div class="nav-icon nav-item dropup">
     <% if user_signed_in? %>

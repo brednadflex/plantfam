@@ -6,6 +6,9 @@ class MessagesController < ApplicationController
     @message.user = current_user
 
     if @message.save
+      # Send message Notification
+      CommentNotification.with({ message: @message }).deliver(@chatroom.receiver)
+      # Broadcast Message
       ChatRoomChannel.broadcast_to(
         @chatroom,
         render_to_string(partial: "message", locals: { message: @message })
@@ -14,6 +17,7 @@ class MessagesController < ApplicationController
     else
       render 'chat_rooms/show'
     end
+
   end
 
   def message_params

@@ -10,6 +10,7 @@ Booking.destroy_all
 Profile.destroy_all
 Post.destroy_all
 User.destroy_all
+Notification.destroy_all
 
 
 ########################################################################
