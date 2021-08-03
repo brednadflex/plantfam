@@ -16,7 +16,7 @@ User.destroy_all
 # Users - Contributers
 ########################################################################
 # Jal
-jal = User.create!(email: "plantfam+jal@pm.me", password: "jal123")
+jal = User.create!(email: "plantfamuser+jal@gmail.com", password: "jal123")
 profile_jal= jal.profile.update!(
   first_name: "Jal",
   last_name: "Ridley",
@@ -38,7 +38,7 @@ puts "Jal's profile was created..."
 
 # David
 
-david = User.create!(email: "plantfam+david@pm.me", password: "david123")
+david = User.create!(email: "plantfamuser+david@gmail.com", password: "david123")
 profile_jal= jal.profile.update!(
   first_name: "Jal",
   last_name: "Ridley",
@@ -60,7 +60,7 @@ puts "David's profile was created..."
 
 # Claudiu
 puts 'Creating users...'
-claudiu = User.create!(email: "plantfam+claudiu@pm.me", password: "claudiu123")
+claudiu = User.create!(email: "plantfamuser+claudiu@gmail.com", password: "claudiu123")
 profile_claudiu = claudiu.profile.update!(
   first_name: "Claudiu",
   last_name: "Florin Popa",
@@ -81,7 +81,7 @@ end
 puts "Claudiu's profile was created..."
 
 # Barney
-barney = User.create!(email: "plantfam+barney@pm.me", password: "barney123")
+barney = User.create!(email: "plantfamuser+barney@gmail.com", password: "barney123")
 profile_barney = barney.profile.update!(
   first_name: "Barney",
   last_name: "Haas",
@@ -103,7 +103,7 @@ puts "Barney's profile was created..."
 
 
 # Julian
-julian = User.create!(email: "plantfam+julian@pm.me", password: "julian123")
+julian = User.create!(email: "plantfamuser+julian@gmail.com", password: "julian123")
 profile_julian = julian.profile.update!(
   first_name: "Julian",
   last_name: "Thompson",
@@ -196,7 +196,7 @@ puts "Creating 30 sample users with profiles..."
 addresses.count.times do |index|
   # create a user according to an ordered email list
   new_user = User.create!(
-    email: "plantfam+#{index}@pm.me",
+    email: "plantfamuser+#{index}@gmail.com",
     password: "new123"
   )
   # create random profiles for users
