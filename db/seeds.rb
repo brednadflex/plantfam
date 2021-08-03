@@ -132,7 +132,7 @@ profile_jal= jal.profile.update!(
 )
 jal.profile.add_profile_img!("https://avatars.githubusercontent.com/u/72085091?v=4", false)
 jal.profile.add_banner_img!("https://source.unsplash.com/random/900×250/?plants", false)
-if jal.profile.sitter§
+if jal.profile.sitter
   Availability.create(start_date: "2021-07-01" , end_date: "2021-07-31" , profile: jal.profile)
 end
 puts "Jal's profile was created..."
