@@ -53,7 +53,7 @@ class Profile < ApplicationRecord
   def generate_public_id(category, options)
     # public ID without timestamp to allow automatic overwriting when seeding
     timestamp = !options[:overwrite] ? DateTime.now.strftime("%Y%m%dT%H%M%S") : ""
-    "#{user.email.gsub(/[.]/, '-').gsub(/@/, '_')}-#{category[0]}#{options[:ext_id]}#{timestamp}"
+    "#{user.email.gsub(/[.+]/, '-').gsub(/@/, '_')}-#{category[0]}#{options[:ext_id]}#{timestamp}"
   end
 
   def cloudinary_upload(file, public_id, folder = "")
