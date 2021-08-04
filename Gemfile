@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.6'
 
+gem 'jquery-rails'
 gem 'sendgrid-ruby'
 gem 'sendgrid-actionmailer'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
