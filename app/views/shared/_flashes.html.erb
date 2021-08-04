@@ -1,16 +1,42 @@
 <% if notice %>
-  <div class="alert alert-info alert-dismissible fade show m-1" role="alert">
-    <%= notice %>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  <!-- <div class="alert alert-info alert-dismissible fade show m-1" role="alert"> -->
+  <div class="notice-wrapper">
+    <div class="notice-flex">
+      <div>
+        <%= image_tag "PlantCharacter.png", class: "notice-image" %>
+      </div>
+      <div>
+        <p class="notice-text"><%= notice %></p>
+      </div>
+    <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
-    </button>
+    </button> -->
+    </div>
   </div>
 <% end %>
 <% if alert %>
-  <div class="alert alert-warning alert-dismissible fade show m-1" role="alert">
-    <%= alert %>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  <!-- <div class="alert alert-warning alert-dismissible fade show m-1" role="alert"> -->
+  <div class="notice-wrapper">
+    <div class="notice-flex">
+      <div>
+        <%= image_tag "PlantCharacter.png", class: "notice-image" %>
+      </div>
+      <div>
+        <p class="notice-text"><%= alert %></p>
+      </div>
+    <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
-    </button>
+    </button> -->
+    </div>
   </div>
+    <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button> -->
 <% end %>
+
+
+<script type="text/javascript">
+  setTimeout(function(){
+  $('.notice-wrapper').fadeOut();
+  }, 3800);
+</script>
