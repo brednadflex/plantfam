@@ -7,7 +7,7 @@ class MessagesController < ApplicationController
 
     if @message.save
       # Send message Notification
-      CommentNotification.with({ message: @message }).deliver(@chatroom.receiver)
+      CommentNotification.with({ message: @message }).deliver(@chatroom.penpal_of(current_user))
       # Broadcast Message
       ChatRoomChannel.broadcast_to(
         @chatroom,
@@ -25,5 +25,6 @@ class MessagesController < ApplicationController
   end
 end
 
+# Legacy comments:  ... ???
  # t.bigint "user_id", null: false
  #    t.bigint "chat_room_id", null: false
