@@ -1,3 +1,6 @@
+########################################################################
+# Empty Database
+########################################################################
 puts "Destroying all users and profiles"
 Availability.destroy_all
 Message.destroy_all
@@ -8,6 +11,122 @@ Profile.destroy_all
 Post.destroy_all
 User.destroy_all
 
+
+########################################################################
+# Users - Contributers
+########################################################################
+# Jal
+jal = User.create!(email: "plantfamuser+jal@gmail.com", password: "jal123")
+profile_jal= jal.profile.update!(
+  first_name: "Jal",
+  last_name: "Ridley",
+  description: "I take care of my plants as if they were my own children. I have a beautiful 17 year old Madacascar often with babies up for grabs. My friends say I have too many plants but I don't believe that is possiblte. Let's connect and have a plant chat!",
+  experience: "Moss Person (knowledgable)",
+  avg_rating: 4.6,
+  address: "Pariser Platz, 10117, Berlin",
+  sitter: true,
+  advisor: true,
+  sitter_price: "10€/pw",
+  advisor_price: "swap"
+)
+jal.profile.add_profile_img!("https://avatars.githubusercontent.com/u/72085091?v=4", {overwrite: true, ext_id: 3})
+jal.profile.add_banner_img!("https://source.unsplash.com/random/900×250/?plants", {overwrite: true, ext_id: 3})
+if jal.profile.sitter
+  Availability.create(start_date: "2021-07-01" , end_date: "2021-07-31" , profile: jal.profile)
+end
+puts "Jal's profile was created..."
+
+# David
+
+david = User.create!(email: "plantfamuser+david@gmail.com", password: "david123")
+profile_jal= jal.profile.update!(
+  first_name: "Jal",
+  last_name: "Ridley",
+  description: "I take care of my plants as if they were my own children. I have a beautiful 17 year old Madacascar often with babies up for grabs. My friends say I have too many plants but I don't believe that is possiblte. Let's connect and have a plant chat!",
+  experience: "Moss Person (knowledgable)",
+  avg_rating: 4.6,
+  address: "Pariser Platz, 10117, Berlin",
+  sitter: true,
+  advisor: true,
+  sitter_price: "10€/pw",
+  advisor_price: "50€/pw"
+)
+david.profile.add_profile_img!("https://avatars.githubusercontent.com/u/72085091?v=4", {overwrite: true, ext_id: 3})
+david.profile.add_banner_img!("https://source.unsplash.com/random/900×250/?plants", {overwrite: true, ext_id: 3})
+if david.profile.sitter
+  Availability.create(start_date: "2021-07-01" , end_date: "2021-07-31" , profile: david.profile)
+end
+puts "David's profile was created..."
+
+# Claudiu
+puts 'Creating users...'
+claudiu = User.create!(email: "plantfamuser+claudiu@gmail.com", password: "claudiu123")
+profile_claudiu = claudiu.profile.update!(
+  first_name: "Claudiu",
+  last_name: "Florin Popa",
+  description: "I'm in love with plants and enjoy taking care of them. I joined PlantFam to pass on my knowledge and to help others be worry free while they are on vacation. Plants are our babies! I specialize in desert fauna, if you have any questions!",
+  experience:  "Plant Friend (moderate)",
+  avg_rating: 4.8,
+  address: "An der Urania 5, 10787 Berlin",
+  sitter: true,
+  advisor: true,
+  sitter_price: "5€/pd",
+  advisor_price: "free"
+)
+claudiu.profile.add_profile_img!("https://avatars.githubusercontent.com/u/81229662?v=4", {overwrite: true, ext_id: 1})
+claudiu.profile.add_banner_img!("https://source.unsplash.com/random/900×250/?plants", {overwrite: true, ext_id: 1})
+if claudiu.profile.sitter
+  Availability.create(start_date: "2021-08-01" , end_date: "2021-08-31" , profile: claudiu.profile)
+end
+puts "Claudiu's profile was created..."
+
+# Barney
+barney = User.create!(email: "plantfamuser+barney@gmail.com", password: "barney123")
+profile_barney = barney.profile.update!(
+  first_name: "Barney",
+  last_name: "Haas",
+  description: "I've been getting in to plants more and more during the pandemic. You can book me as a sitter or advisor. Although I'm not an expert, I'll do my best!",
+  experience: "Plant Whisperer (expert)",
+  avg_rating: 4.5,
+  address: "Rudi-Dutschke-Straße 26, 10969 Berlin",
+  sitter: true,
+  advisor: true,
+  sitter_price: "donation",
+  advisor_price: "swap"
+)
+barney.profile.add_profile_img!("https://avatars.githubusercontent.com/u/77109548?v=4", {overwrite: true, ext_id: 2})
+barney.profile.add_banner_img!("https://source.unsplash.com/random/900×250/?plants", {overwrite: true, ext_id: 2})
+if barney.profile.sitter
+  Availability.create(start_date: "2021-08-01" , end_date: "2021-08-31" , profile: barney.profile)
+end
+puts "Barney's profile was created..."
+
+
+# Julian
+julian = User.create!(email: "plantfamuser+julian@gmail.com", password: "julian123")
+profile_julian = julian.profile.update!(
+  first_name: "Julian",
+  last_name: "Thompson",
+  description: "A plant? What the hell is that? I am a plant newbie looking for inspiration and chats about how to not kill all plants I own. I am an apartment dweller with no balcony and want to get some life into it.  I have a green heart but a black thumb! I would love to hit you up for a chat! ",
+  experience: "Seedling (beginner)",
+  avg_rating: 4.2,
+  address: "Platz der Republik 1, 11011, Berlin",
+  sitter: true,
+  advisor: false,
+  sitter_price: "20€/pw",
+  advisor_price: "1€"
+)
+julian.profile.add_profile_img!("https://avatars.githubusercontent.com/u/80887245?s=400&u=a2a1d4d27a7a628a5eebb5fa888fe55fbaa6dd00&v=4", {overwrite: true, ext_id: 4})
+julian.profile.add_banner_img!("https://source.unsplash.com/random/900×250/?plants", {overwrite: true, ext_id: 4})
+if julian.profile.sitter
+  Availability.create(start_date: "2021-07-01" , end_date: "2021-07-31" , profile: julian.profile)
+end
+puts "Julian's profile was created..."
+
+
+########################################################################
+# Users - Random
+########################################################################
 user_images = [
   "https://images.unsplash.com/photo-1554151228-14d9def656e4?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZmFjZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80",
   "https://images.unsplash.com/photo-1604426633861-11b2faead63c?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZmFjZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80",
@@ -159,12 +278,15 @@ end
 puts "Julian's profile was created..."
 
 # Random users
+
 puts "Creating 30 sample users with profiles..."
 addresses.count.times do |index|
+  # create a user according to an ordered email list
   new_user = User.create!(
-    email: emails[index],
+    email: "plantfamuser+#{index}@gmail.com",
     password: "new123"
   )
+  # create random profiles for users
   profile_new_user = new_user.profile.update!(
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
@@ -177,37 +299,19 @@ addresses.count.times do |index|
   sitter_price: "negotiable",
   advisor_price: "free"
   )
-  new_user.profile.add_profile_img!(user_images.sample, false)
-  new_user.profile.add_banner_img!("https://source.unsplash.com/random/900×250/?plants", false)
+  # upload random images. However, the image names (public_id) have a fixed order based on user's email and iteration index
+  new_user.profile.add_profile_img!(user_images.sample, {overwrite: true, ext_id: index})
+  new_user.profile.add_banner_img!("https://source.unsplash.com/random/900×250/?plants", {overwrite: true, ext_id: index})
+  # setup user's availability
   if new_user.profile.sitter
     Availability.create(start_date: "2021-07-01" , end_date: "2021-07-31" , profile: new_user.profile)
   end
 end
 puts "30 sample users were created."
 
-# puts "Creating even more sample users with profiles..."
-# 30.times do
-#   new_user = User.create!(
-#     email: Faker::Internet.email,
-#     password: "new123"
-#   )
-#   profile_new_user = new_user.profile.update!(
-#   first_name: Faker::Name.first_name,
-#   last_name: Faker::Name.last_name,
-#   profile_img: user_images.sample,
-#   description: Faker::ChuckNorris.fact,
-#   experience: ["Seedling", "Plant Friend", "Moss Person", "Plant Whisperer"].sample,
-#   avg_rating: (3..4).to_a.sample + [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9].sample,
-#   address: Faker::Address.full_address,
-#   sitter: [true, false].sample,
-#   advisor: [true, false].sample
-#   )
-#   if new_user.profile.sitter
-#     Availability.create(start_date: "2021-08-01" , end_date: "2021-08-31" , profile: new_user.profile)
-#   end
-# end
-# puts "30 additional sample users were created."
-
+########################################################################
+# Bookings + Reviews
+########################################################################
 puts "creating bookings"
 
 # barney books jal as a sitter from June 6th til July 1st.
@@ -230,7 +334,6 @@ Review.create!(
   rating: 4,
   recommended: true
 )
-
 
 # barney books claudiu as a sitter from July 2nd til July 15th.
 booking2 = Booking.new
@@ -275,7 +378,6 @@ Review.create!(
   recommended: true
 )
 
-
 # barney has been booked by julian as a plant advisor from August 8th until August 9th
 booking4 = Booking.new
 booking4.client = julian
@@ -296,7 +398,6 @@ Review.create!(
   rating: 4.5,
   recommended: true
 )
-
 
 # barney has been booked by jal as a plant advisor from August 9th til August 10th
 booking5 = Booking.new

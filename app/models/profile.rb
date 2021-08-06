@@ -14,36 +14,46 @@ class Profile < ApplicationRecord
   end
 
   # upload profile image to cloudinary.
-  def add_profile_img!(file, manual_upload = true)
+  def add_profile_img!(file, options = {overwrite: false, ext_id: ""})
     return nil unless file.present?
 
-    Cloudinary::Api.delete_resources([profile_img]) if manual_upload && profile_img.present?
-    cl_info = cloudinary_upload(file, generate_public_id("profile", manual_upload))
+    # delete current image if
+    Cloudinary::Api.delete_resources([profile_img]) if options[:overwrite] && profile_img.present?
+    # upload new image
+    cl_info = cloudinary_upload(file, generate_public_id("profile", options))
     update!(profile_img: cl_info["public_id"])
   end
 
   # upload banner to cloudinary. By default random banner will be uploaded
-  def add_banner_img!(file, manual_upload = true)
+  def add_banner_img!(file, options = {overwrite: false, ext_id: ""})
+    # random banner
     no_banner = !file.present? && !banner_img.present?
     file = 'https://source.unsplash.com/random/900×250/?plants' if no_banner
     return nil unless file.present?
 
-    Cloudinary::Api.delete_resources([banner_img]) if manual_upload && banner_img.present?
-    cl_info = cloudinary_upload(file, generate_public_id("banner", manual_upload))
+    # delete existing
+    Cloudinary::Api.delete_resources([banner_img]) if options[:overwrite] && banner_img.present?
+    # upload
+    cl_info = cloudinary_upload(file, generate_public_id("banner", options))
     update!(banner_img: cl_info["public_id"])
   end
 
-  def remove_images!
-    prefix = public_id_generate_public_id("...", false)[0..-2]
-    Cloudinary::Api.delete_resources(prefix)
-    update!(profile_img: "", banner_img: "")
+  def delete_banner_img!
+    Cloudinary::Api.delete_resources([banner_img]) if banner_img.present?
+    update!(banner_img: "")
+  end
+
+  def delete_profile_img!
+    Cloudinary::Api.delete_resources([profile_img]) if profile_img.present?
+    update!(profile_img: "")
   end
 
   private
 
-  def generate_public_id(category, manual_upload = true)
-    timestamp = manual_upload ? DateTime.now.strftime("%Y%m%dT%H%M%S") : ""
-    "#{user.email.gsub(/[.]/, '-').gsub(/@/, '_')}-#{category[0]}#{timestamp}"
+  def generate_public_id(category, options)
+    # public ID without timestamp to allow automatic overwriting when seeding
+    timestamp = !options[:overwrite] ? DateTime.now.strftime("%Y%m%dT%H%M%S") : ""
+    "#{user.email.gsub(/[.+]/, '-').gsub(/@/, '_')}-#{category[0]}#{options[:ext_id]}#{timestamp}"
   end
 
   def cloudinary_upload(file, public_id, folder = "")
