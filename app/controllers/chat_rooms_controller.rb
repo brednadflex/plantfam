@@ -31,7 +31,6 @@ class ChatRoomsController < ApplicationController
               end
             end
           end
-
         end
       end
 
@@ -55,4 +54,5 @@ class ChatRoomsController < ApplicationController
       redirect_to chat_room_path(@chatroom)
     end
   end
+  
 end
