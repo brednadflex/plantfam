@@ -35,6 +35,18 @@
   border-top-left-radius: .8rem;
   border-top-right-radius: .8rem;
   filter: drop-shadow(0px -.7rem .8rem rgba(0, 0, 0, 0.08));
+
+  @media only screen and (min-width: $bp-medium) {
+    width: auto;
+    margin-left: 18rem;
+    margin-right: 18rem;
+  }
+
+  @media only screen and (min-width: $bp-large) {
+    width: auto;
+    margin-left: 34rem;
+    margin-right: 34rem;
+  }
 }
 
 .signed-in {

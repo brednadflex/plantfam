@@ -7,7 +7,7 @@
   </div>
 
 
-  <div class="scrolling-wrapper mt-4 pb-4 pt-2">
+  <div class="scrolling-wrapper mt-4 pb-2 pt-2">
 		<div class="card card-block card-1">
       <%= link_to search_path, class:"text-decoration-none text-reset" do %>
         <p class="homepage-slider-font">Find a Plant Sitter</p>
@@ -32,52 +32,52 @@
   <p class="homepage-find-sitter-advice-love">Find sitters.  Advice.  Love.</p>
   <p class="homepage-for-your-plants">for your plants.</p>
 
-<div class="cards-all-container">
-  <% @profiles.last(12).each do |profile| %>
-    <%= link_to profile_path(profile), class:"text-decoration-none text-reset" do %>
-      <div class="profile-card-homepage">
-        <div class="profile-card-outer-flex-container">
-          <div class="profile-card-container-left">
-            <div class="profile-card-image-container">
-              <%= cl_image_tag(profile.profile_img, class: "rounded-circle profile-user-img", alt: "user-image", width: 80, height: 80, crop: "thumb")%>
+  <div class="cards-all-container">
+    <% @profiles.last(12).each do |profile| %>
+      <%= link_to profile_path(profile), class:"text-decoration-none text-reset" do %>
+        <div class="profile-card-homepage">
+          <div class="profile-card-outer-flex-container">
+            <div class="profile-card-container-left">
+              <div class="profile-card-image-container">
+                <%= cl_image_tag(profile.profile_img, class: "rounded-circle profile-user-img", alt: "user-image", width: 80, height: 80, crop: "thumb")%>
+              </div>
             </div>
-          </div>
-          <div class="profile-card-container-right ml-3 ">
-            <div class="profile-card-name-container">
-              <h4 class="mr-4 mb-0"><%= profile.first_name %></h4>
-              <div class="profile-card-experience-rating-location-container">
-                <p class="make-me-flex mb-0"><%= profile.avg_rating %><%= image_tag "leaf.png", class: "ml-1" %></p>
-            </div>
-            </div>
-            <p class="make-me-flex m-0"><%= image_tag "map-pin.svg", class: "mr-1" %>Berlin, Germany</p>
+            <div class="profile-card-container-right ml-3 ">
+              <div class="profile-card-name-container">
+                <h4 class="mr-4 mb-0"><%= profile.first_name %></h4>
+                <div class="profile-card-experience-rating-location-container">
+                  <p class="make-me-flex mb-0"><%= profile.avg_rating %><%= image_tag "leaf.png", class: "ml-1" %></p>
+              </div>
+              </div>
+              <p class="make-me-flex m-0"><%= image_tag "map-pin.svg", class: "mr-1" %>Berlin, Germany</p>
 
-          </div>
-        </div>
-        <div class="profile-card-outer-flex-container align-items-end">
-          <div class="profile-card-container-left flex-grow-1">
-            <div class="profile-card-service-flex-container">
-              <% if profile.sitter && profile.advisor %>
-                <p class="service-tag plant-sitter">sitter</p>
-                <p class="service-tag advisor">advisor</p>
-              <% elsif profile.sitter %>
-                <p class="service-tag">sitter</p>
-              <% elsif profile.advisor %>
-                <p class="service-tag">advisor</p>
-              <% end %>
-            </div>
-            <span class="profile-experience"> <%= profile.experience %></span>
-          </div>
-          <div class="profile-card-container-right">
-            <div class="profile-card-price-container make-me-flex">
-              <h4 class="profile-card-price mb-0"><%=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].sample %>€</h4>
-              <p class="mb-0">/day</p>
             </div>
           </div>
+          <div class="profile-card-outer-flex-container align-items-end">
+            <div class="profile-card-container-left flex-grow-1">
+              <div class="profile-card-service-flex-container">
+                <% if profile.sitter && profile.advisor %>
+                  <p class="service-tag plant-sitter">sitter</p>
+                  <p class="service-tag advisor">advisor</p>
+                <% elsif profile.sitter %>
+                  <p class="service-tag">sitter</p>
+                <% elsif profile.advisor %>
+                  <p class="service-tag">advisor</p>
+                <% end %>
+              </div>
+              <span class="profile-experience"> <%= profile.experience %></span>
+            </div>
+            <div class="profile-card-container-right">
+              <div class="profile-card-price-container make-me-flex">
+                <h4 class="profile-card-price mb-0"><%=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].sample %>€</h4>
+                <p class="mb-0">/day</p>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>
   <% if false %>
     <% @profiles.last(12).each do |profile| %>
           <div class="profile-card">
@@ -125,4 +125,78 @@
       <% end %>
     </div>
   <% end %>
+
+  <div class="features">
+    <p class="homepage-find-sitter-advice-love">Further features</p>
+    <p class="homepage-for-your-plants">possibly animation here</p>
+    <!-- <div class="newsfeed-screenshot">
+      <%#= image_tag "figma-newsfeed.png" %>
+      <div class="newsfeed-button">
+        <%#= link_to 'posts_path' do %>
+          <p class="btn-sea-green white-glow">Visit the newsfeed!</p>
+        <%# end %>
+      </div>
+    </div>
+
+    <p class="homepage-find-sitter-advice-love">Get Advice</p>
+    <p class="homepage-for-your-plants">And make friends while you're at it</p>
+
+    <div class="chat-screenshot">
+      <%#= image_tag "chat-screenshot.png" %>
+    </div> -->
+  </div>
+
+  <footer class="footer-margin">
+          <div class="footer-top">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-3 footer-about wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
+                  <h3>About us</h3>
+                  <p>
+                    We are a group of plant lovers and web developers, building this site to connect people and plants.
+                  </p>
+                  <p>© Plantfam.net </p>
+                      </div>
+                <div class="col-md-4 offset-md-1 footer-contact wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown;">
+                  <h3>Contact</h3>
+                      <p><i class="fas fa-map-marker-alt"></i> Plantfam Berlin</p>
+                      <p class="sea-green-links"><i class="fas fa-envelope"></i> Email: <a href="mailto:plantfamapp@gmail.com">plantfamapp@gmail.com</a></p>
+                      </div>
+                      <div class="col-md-4 footer-links wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
+                        <div class="row">
+                          <div class="col">
+                            <h3>Links</h3>
+                          </div>
+                        </div>
+                        <div class="row sea-green-links">
+                          <div class="col-md-6">
+                            <p><a class="scroll-link" href="#top-content">Home</a></p>
+                            <p><a href="#">Impressum</a></p>
+                            <p><a href="#">Meet the Team</a></p>
+                            <p><a href="#">Contact</a></p>
+                          </div>
+                          <div class="col-md-6">
+                            <p><a href="#">Feedback</a></p>
+                            <p><a href="#">Resources</a></p>
+                            <p><a href="#">Terms</a></p>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <div class="container">
+              <div class="row">
+                  <div class="col footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                      </div>
+                </div>
+            </div>
+          </div>
+  </footer>
 </div>

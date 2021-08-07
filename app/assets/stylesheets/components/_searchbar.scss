@@ -1,0 +1,29 @@
+.search-border {
+  margin-top: 3rem;
+  border: 1px solid lightgray;
+  padding: 0.5rem;
+  border-radius: 1.5rem;
+
+}
+.chat-search {
+  display: flex;
+  align-items: center;
+
+}
+
+.btn-search {
+  background-color: $sea-green;
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  padding: 10px;
+  border: none;
+  color: white;
+  i {
+    font-size: 1.5rem;
+  }
+}
+
+.no-border {
+  border: none;
+}

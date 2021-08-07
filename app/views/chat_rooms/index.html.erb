@@ -4,22 +4,25 @@
     <h2 class="plant-fam-chat-header">PlantFam Chat</h2>
     <%= link_to users_path, class: "text-decoration-none text-reset" do  %>
       <div class="chat-header-new-button">
-        <p>New</p>
+        <p>New Message</p>
       </div>
     <% end %>
   </div>
 
-
-  <div>
-  <%= form_tag chat_rooms_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Search for a conversation"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
-</div>
+  <div class="search-border">
+    <%= form_tag chat_rooms_path, method: :get do %>
+      <div class="chat-search">
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control no-border",
+            placeholder: "Search for a conversation"
+          %>
+          <%= button_tag(type: "submit", class: "btn-search") do %>
+            <i class="fas fa-search"></i>
+          <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>
 
 <div class="chats-scrollbox">
