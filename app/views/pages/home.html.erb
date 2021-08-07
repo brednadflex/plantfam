@@ -172,14 +172,15 @@
                         <div class="row sea-green-links">
                           <div class="col-md-6">
                             <p><a class="scroll-link" href="#top-content">Home</a></p>
-                            <p><a href="#">Impressum</a></p>
+                            <!-- <p><a href="#">Impressum</a></p> -->
                             <p><a href="#">Meet the Team</a></p>
-                            <p><a href="#">Contact</a></p>
+                            <p><a href="mailto:plantfamapp@gmail.com">Contact</a></p>
                           </div>
                           <div class="col-md-6">
                             <p><a href="#">Feedback</a></p>
                             <p><a href="#">Resources</a></p>
-                            <p><a href="#">Terms</a></p>
+                            <%= link_to impressum_path do %><p>Terms/Impressum</p>
+                            <% end %>
                           </div>
                         </div>
                       </div>
@@ -191,10 +192,10 @@
               <div class="row">
                   <div class="col footer-social">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-google-plus-g"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                        <!-- <a href="#"><i class="fab fa-twitter"></i></a> -->
+                        <!-- <a href="#"><i class="fab fa-google-plus-g"></i></a> -->
+                        <a href="https://www.instagram.com/plantfamapp/"><i class="fab fa-instagram"></i></a>
+                        <!-- <a href="#"><i class="fab fa-pinterest"></i></a> -->
                       </div>
                 </div>
             </div>
