@@ -1,0 +1,31 @@
+.chat-notification {
+  border-radius: 50%;
+  background: red;
+  color: white;
+  font-size: 1.5rem;
+  position: absolute;
+  height: 2rem;
+  width: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chat-notification-chat {
+  top: 1rem;
+  left: 1rem;
+}
+
+.chat-notification-navbar {
+  top: -1rem;
+  right: -1rem;
+}
+
+.chat-notification-number {
+  margin: 0;
+  padding: 0;
+}
+
+.chat-notification-container {
+  position: relative;
+}

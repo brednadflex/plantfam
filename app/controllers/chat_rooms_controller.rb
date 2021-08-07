@@ -3,7 +3,13 @@ class ChatRoomsController < ApplicationController
   def show
     @chatroom = ChatRoom.find(params[:id])
     @message = Message.new
-    # chatroom = @chatroom
+    # Update number of notifications to be displayed in the navbar
+
+    @notifications.each do |notification|
+      notification.delete if notification.params[:message].chat_room == @chatroom
+    end
+
+    @notifications = Notification.where(recipient: current_user)
   end
 
   def index
@@ -17,7 +23,6 @@ class ChatRoomsController < ApplicationController
       @chatrooms = []
 
       # iterate over results and chatroom to find the chatroom(s) that match the results
-
       results.each do |result|
         my_chatrooms.each do |chatroom|
           if result.searchable_type == "Profile"
@@ -31,15 +36,13 @@ class ChatRoomsController < ApplicationController
               end
             end
           end
-
         end
       end
-
       @chatrooms
     else
       @chatrooms = ChatRoom.where(requester: current_user).or(ChatRoom.where(receiver: current_user))
-
     end
+
   end
 
   def create
@@ -55,4 +58,5 @@ class ChatRoomsController < ApplicationController
       redirect_to chat_room_path(@chatroom)
     end
   end
+
 end

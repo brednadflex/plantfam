@@ -14,9 +14,14 @@
     <%= image_tag "NAVBARICONS/create.png" %>
     <% end %>
   </div>
-  <div class="nav-icon">
+  <div class="nav-icon chat-notification-container">
     <%= link_to chat_rooms_path do %>
     <%= image_tag "NAVBARICONS/mail.png" %>
+    <% end %>
+    <% if current_user && @notifications.length > 0 %>
+      <div class="chat-notification chat-notification-navbar">
+          <p class="chat-notification-number"><%= @notifications.length %></p>
+      </div>
     <% end %>
   </div>
   <div class="nav-icon nav-item dropup">
