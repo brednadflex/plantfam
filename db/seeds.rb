@@ -192,6 +192,93 @@ addresses = [
   "Breitscheidplatz, 10789 Berlin"
 ]
 
+# Claudiu
+puts 'Creating users...'
+claudiu = User.create!(email: "claudiu@claudiu.com", password: "claudiu123")
+profile_claudiu = claudiu.profile.update!(
+  first_name: "Claudiu",
+  last_name: "Florin Popa",
+  description: "I'm in love with plants and enjoy taking care of them. I joined PlantFam to pass on my knowledge and to help others be worry free while they are on vacation. Plants are our babies! I specialize in desert fauna, if you have any questions!",
+  experience:  "Plant Friend",
+  avg_rating: 4.8,
+  address: "An der Urania 5, 10787 Berlin",
+  sitter: true,
+  advisor: true,
+  sitter_price: "5€/pd",
+  advisor_price: "free"
+)
+claudiu.profile.add_profile_img!("https://avatars.githubusercontent.com/u/81229662?v=4", false)
+claudiu.profile.add_banner_img!("https://source.unsplash.com/random/900×250/?plants", false)
+if claudiu.profile.sitter
+  Availability.create(start_date: "2021-08-01" , end_date: "2021-08-31" , profile: claudiu.profile)
+end
+puts "Claudiu's profile was created..."
+
+# Barney
+barney = User.create!(email: "barney@barney.com", password: "barney123")
+profile_barney = barney.profile.update!(
+  first_name: "Barney",
+  last_name: "Haas",
+  description: "I've been getting in to plants more and more during the pandemic. You can book me as a sitter or advisor. Although I'm not an expert, I'll do my best!",
+  experience: "Plant Whisperer",
+  avg_rating: 4.5,
+  address: "Rudi-Dutschke-Straße 26, 10969 Berlin",
+  sitter: true,
+  advisor: true,
+  sitter_price: "donation",
+  advisor_price: "swap"
+)
+barney.profile.add_profile_img!("https://avatars.githubusercontent.com/u/77109548?v=4", false)
+barney.profile.add_banner_img!("https://source.unsplash.com/random/900×250/?plants", false)
+if barney.profile.sitter
+  Availability.create(start_date: "2021-08-01" , end_date: "2021-08-31" , profile: barney.profile)
+end
+puts "Barney's profile was created..."
+
+# Jal
+jal = User.create!(email: "jal@jal.com", password: "jal123")
+profile_jal= jal.profile.update!(
+  first_name: "Jal",
+  last_name: "Ridley",
+  description: "I take care of my plants as if they were my own children. I have a beautiful 17 year old Madacascar often with babies up for grabs. My friends say I have too many plants but I don't believe that is possiblte. Let's connect and have a plant chat!",
+  experience: "Moss Person",
+  avg_rating: 4.6,
+  address: "Pariser Platz, 10117, Berlin",
+  sitter: true,
+  advisor: true,
+  sitter_price: "10€/pw",
+  advisor_price: "swap"
+)
+jal.profile.add_profile_img!("https://avatars.githubusercontent.com/u/72085091?v=4", false)
+jal.profile.add_banner_img!("https://source.unsplash.com/random/900×250/?plants", false)
+if jal.profile.sitter
+  Availability.create(start_date: "2021-07-01" , end_date: "2021-07-31" , profile: jal.profile)
+end
+puts "Jal's profile was created..."
+
+# Julian
+julian = User.create!(email: "julian@julian.com", password: "julian123")
+profile_julian = julian.profile.update!(
+  first_name: "Julian",
+  last_name: "Thompson",
+  description: "A plant? What the hell is that? I am a plant newbie looking for inspiration and chats about how to not kill all plants I own. I am an apartment dweller with no balcony and want to get some life into it.  I have a green heart but a black thumb! I would love to hit you up for a chat! ",
+  experience: "Seedling",
+  avg_rating: 4.2,
+  address: "Platz der Republik 1, 11011, Berlin",
+  sitter: true,
+  advisor: false,
+  sitter_price: "20€/pw",
+  advisor_price: "1€"
+)
+julian.profile.add_profile_img!("https://avatars.githubusercontent.com/u/80887245?s=400&u=a2a1d4d27a7a628a5eebb5fa888fe55fbaa6dd00&v=4", false)
+julian.profile.add_banner_img!("https://source.unsplash.com/random/900×250/?plants", false)
+if julian.profile.sitter
+  Availability.create(start_date: "2021-07-01" , end_date: "2021-07-31" , profile: julian.profile)
+end
+puts "Julian's profile was created..."
+
+# Random users
+
 puts "Creating 30 sample users with profiles..."
 addresses.count.times do |index|
   # create a user according to an ordered email list
@@ -204,7 +291,7 @@ addresses.count.times do |index|
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
   description: Faker::ChuckNorris.fact,
-  experience: ["Seedling (beginner)", "Plant Friend (moderate)", "Moss Person (knowledgable)", "Plant Whisperer (expert)"].sample,
+  experience: ["Seedling", "Plant Friend", "Moss Person", "Plant Whisperer"].sample,
   avg_rating: (3..4).to_a.sample + [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9].sample,
   address: addresses[index],
   sitter: [true, false].sample,
