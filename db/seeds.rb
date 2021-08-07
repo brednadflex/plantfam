@@ -204,7 +204,7 @@ addresses.count.times do |index|
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
   description: Faker::ChuckNorris.fact,
-  experience: ["Seedling (beginner)", "Plant Friend (moderate)", "Moss Person (knowledgable)", "Plant Whisperer (expert)"].sample,
+  experience: ["Seedling", "Plant Friend", "Moss Person", "Plant Whisperer"].sample,
   avg_rating: (3..4).to_a.sample + [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9].sample,
   address: addresses[index],
   sitter: [true, false].sample,
