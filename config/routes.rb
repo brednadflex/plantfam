@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'search', to: 'pages#search', as: :search
   resources :posts, only: [:index, :show, :new, :create]
 
+  get 'impressum', to: 'pages#impressum', as: :impressum
+
   # profile new created upon user creation therefore new is changed to edit, and create changed to update
   resources :profiles, only: [ :index, :show, :new, :edit, :update ] do
     resources :bookings, only: [ :index, :new, :create ]
