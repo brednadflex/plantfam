@@ -1,5 +1,4 @@
-#### ![alt text](https://github.com/brednadflex/plantfam/blob/master/app/assets/images/PlantCharacter.png "Logo")
-#  **Plantfam**
+#  <img src="https://github.com/brednadflex/plantfam/blob/master/app/assets/images/PlantCharacter.png" width="200" /> **Plantfam**
 ### *For the love of plants!*
 
 ## **About the Project**
