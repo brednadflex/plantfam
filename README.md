@@ -1,8 +1,8 @@
 #  <img src="https://github.com/brednadflex/plantfam/blob/master/app/assets/images/PlantCharacter.png" width="150" /> **Plantfam**
 
 
-<img src="https://github.com/brednadflex/plantfam/blob/master/app/assets/images/readme-landing.jpg" height="700" />|<img src="https://github.com/brednadflex/plantfam/blob/master/app/assets/images/readme-profile-1.jpg" height="700" /> 
-:-----------------------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------------:
+<img src="https://github.com/brednadflex/plantfam/blob/master/app/assets/images/readme-landing.jpg" height="632.21" />|<img src="https://github.com/brednadflex/plantfam/blob/master/app/assets/images/readme-profile-1.jpg" height="632.21" />|<img src="https://github.com/brednadflex/plantfam/blob/master/app/assets/images/readme-chat.jpg" height="632.21" />
+:-----------------------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------------:|
 
 
 
