@@ -3,7 +3,7 @@
 
 ## **About the Project**
 
-We are a group of plant lovers and web developers, building this site to connect people and plants.  Users can create an account, be or search a plant sitter/plant advisor, upload photos, chat with other users and post, comment and up vote on the social media app.  PlantFam began as a final project for Le Wagon Bootcamp, Berlin, and will soon enter testing phase with users.
+We are a group of plant lovers and web developers, building this site to connect people and plants.  Users can create an account, be or search a plant sitter/plant advisor, upload photos, chat with other users and post photos, comment and up vote in the newsfeed.  PlantFam began as a final project for Le Wagon Bootcamp, Berlin, and will soon enter testing phase with users.
 
 
 ## **Built With**
