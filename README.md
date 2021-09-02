@@ -1,5 +1,5 @@
 #  <img src="https://github.com/brednadflex/plantfam/blob/master/app/assets/images/PlantCharacter.png" width="100" /> **Plantfam**
-### *For the love of plants!*
+*For the love of plants!*
 
 ## **About the Project**
 
