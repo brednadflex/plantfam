@@ -2,12 +2,12 @@
 
 ---
 
-| <img src="https://github.com/brednadflex/plantfam/blob/master/app/assets/images/readme-landing.jpg" width="300" /> | 
+|<img src="https://github.com/brednadflex/plantfam/blob/master/app/assets/images/readme-landing.jpg" width="300" />| 
 -
 
 ---
 
-| <img src="https://github.com/brednadflex/plantfam/blob/master/app/assets/images/readme-profile-1.jpg" width="300" /> |
+|<img src="https://github.com/brednadflex/plantfam/blob/master/app/assets/images/readme-profile-1.jpg" width="300" />|
 -
 
 ---
