@@ -1,3 +1,4 @@
+![alt text](https://github.com/brednadflex/plantfam/blob/master/app/assets/images/PlantCharacter.png "Logo")
 # **Plantfam**
 ### *For the love of plants!*
 
