@@ -1,5 +1,4 @@
-![alt text](https://github.com/brednadflex/plantfam/blob/master/app/assets/images/PlantCharacter.png "Logo")
-# **Plantfam**
+# **Plantfam** ![alt text](https://github.com/brednadflex/plantfam/blob/master/app/assets/images/PlantCharacter.png "Logo")
 ### *For the love of plants!*
 
 ## **About the Project**
