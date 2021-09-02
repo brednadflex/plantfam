@@ -21,4 +21,4 @@ We are a group of plant lovers and web developers, building this site to connect
 * [Julian Thompson](https://github.com/JulianLovesJiuJitsu)
 * [David Klören](https://github.com/dkloeren)
 
-#### **[PlantFam online](https://www.plantfam.net/)**
+### **[www.plantfam.net](https://www.plantfam.net/)**
