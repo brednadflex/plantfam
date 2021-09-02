@@ -8,7 +8,7 @@ We are a group of plant lovers and web developers, building this site to connect
 
 ## **Built With**
 
-* Ruby On Rail (rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team)
+* Ruby On Rails (rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team)
 * Javascript
 * HTML/CSS/SCSS
 
@@ -20,3 +20,5 @@ We are a group of plant lovers and web developers, building this site to connect
 * [Claudiu Florin Popa](https://github.com/Claudiu7672)
 * [Julian Thompson](https://github.com/JulianLovesJiuJitsu)
 * [David Klören](https://github.com/dkloeren)
+
+#### **[PlantFam online](https://www.plantfam.net/)**
