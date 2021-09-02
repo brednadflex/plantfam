@@ -2,11 +2,13 @@
 
 ---
 
-<img src="https://github.com/brednadflex/plantfam/blob/master/app/assets/images/readme-landing.jpg" width="300" /> 
+| <img src="https://github.com/brednadflex/plantfam/blob/master/app/assets/images/readme-landing.jpg" width="300" /> | 
+-
 
 ---
 
-<img src="https://github.com/brednadflex/plantfam/blob/master/app/assets/images/readme-profile-1.jpg" width="300" />
+| <img src="https://github.com/brednadflex/plantfam/blob/master/app/assets/images/readme-profile-1.jpg" width="300" /> |
+-
 
 ---
 
@@ -20,6 +22,7 @@ We are a group of plant lovers and web developers, building this site to connect
 * Ruby On Rails (rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team)
 * Javascript
 * HTML/CSS/SCSS
+* this project is mobile first
 
 
 ## **Authors**
