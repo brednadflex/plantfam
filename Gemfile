@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.6'
 
+gem 'noticed'
 gem 'jquery-rails'
 gem 'sendgrid-ruby'
 gem 'sendgrid-actionmailer'
